@@ -1,0 +1,21 @@
+{
+  "include": ["./src/**/*"],
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "baseUrl": "./src",
+    "types": ["styled-components", "node"],
+    "lib": ["dom", "es2017", "esnext", "es2015", "es2016", "es2017"],
+    "moduleResolution": "node",
+    "allowJs": true,
+    "checkJs": true,
+    "jsx": "react",
+    "strict": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noImplicitAny": false,
+    "noEmit": true,
+    "skipLibCheck": true
+  }
+}
