@@ -12,6 +12,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "framer-motion": "^2.6.13",
     "gatsby": "^2.24.62",
     "gatsby-image": "^2.4.19",
     "gatsby-plugin-manifest": "^2.4.30",
@@ -22,12 +23,15 @@
     "gatsby-source-filesystem": "^2.3.30",
     "gatsby-transformer-sharp": "^2.5.15",
     "i18next": "^19.7.0",
+    "mdi-react": "^7.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.7.2",
     "styled-components": "^5.2.0",
-    "twin.macro": "^1.9.0"
+    "stylis-plugin-rtl": "^1.0.0",
+    "twin.macro": "^1.9.0",
+    "use-in-view": "^1.0.15"
   },
   "devDependencies": {
     "@hot-loader/react-dom": "^16.13.0",
