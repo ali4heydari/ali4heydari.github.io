@@ -53,10 +53,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ali4heydari/portfolio"
+    "url": "https://github.com/ali4heydari/ali4heydari.github.io"
   },
   "bugs": {
-    "url": "https://github.com/ali4heydari/portfolio/issues"
+    "url": "https://github.com/ali4heydari/ali4heydari.github.io/issues"
   },
   "config": {
     "commitizen": {
