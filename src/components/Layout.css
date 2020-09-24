@@ -1,0 +1,21 @@
+@font-face {
+  font-family: Behdad;
+  src: url("../fonts/behdad/Behdad-Regular.woff2") format("woff2"),
+    url("../fonts/behdad/Behdad-Regular.woff") format("woff"),
+    url("../fonts/behdad/Behdad-Regular.ttf") format("truetype"),
+    url("../fonts/behdad/Behdad-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  font-family: Behdad, serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  /*margin: 0;*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
