@@ -11,7 +11,7 @@ export function SkillCard({ title, description, icon }: SkillCardProps) {
     <div
       css={tw`flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left h-full mx-4 px-2 py-8`}
     >
-      <span css={tw`border text-center rounded-full p-5 flex-shrink-0`}>
+      <span css={tw`border text-center rounded-full p-1 flex-shrink-0`}>
         {icon}
       </span>
       <span css={tw`sm:ml-4 mt-4 sm:mt-2`}>
