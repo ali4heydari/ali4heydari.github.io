@@ -82,14 +82,14 @@ export function Header({
       ))}
     </NavLinks>,
     <NavLinks key={2}>
-      <NavLink href="/#" css={tw`lg:ml-12!`}>
-        Login
-      </NavLink>
+      {/*<NavLink href="/#" css={tw`lg:ml-12!`}>*/}
+      {/*  Login*/}
+      {/*</NavLink>*/}
       <PrimaryLink
         css={roundedHeaderButton ? tw`rounded-full` : undefined}
         href="/#"
       >
-        Sign Up
+        Hire me
       </PrimaryLink>
     </NavLinks>,
   ];
