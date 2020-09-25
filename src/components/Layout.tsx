@@ -23,7 +23,6 @@ export const Layout = ({ children, showHeader = true }) => {
   return (
     <I18nextProvider i18n={i18n}>
       <Theme>
-        <Seo title={SiteConfigs.SITE_TITLE} />
         <main>{children}</main>
         <Footer />
       </Theme>
