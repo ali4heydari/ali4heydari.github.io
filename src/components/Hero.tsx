@@ -6,7 +6,13 @@ import CheckCircleOutlineIcon from "mdi-react/CheckCircleOutlineIcon";
 import QuotesLeftIconBase from "mdi-react/FormatQuoteOpenIcon";
 import SvgDecoratorBlob1 from "mdi-react/DragIcon";
 
-import { SectionHeading } from "./misc/Headings";
+import {
+  Feature,
+  FeatureIcon,
+  FeatureList,
+  FeatureText,
+  SectionHeading,
+} from "./misc/Headings";
 import { SectionDescription } from "./misc/Typography";
 import { PrimaryButton as PrimaryButtonBase } from "../components/misc/Buttons";
 import { Container, ContentWithVerticalPadding } from "./misc/Layouts";
@@ -28,10 +34,6 @@ const Description = tw(
 const PrimaryButton = tw(
   PrimaryButtonBase
 )`mt-8 inline-block w-56 tracking-wide text-center py-5`;
-const FeatureList = tw.ul`mt-12 leading-loose`;
-const Feature = tw.li`flex items-center`;
-const FeatureIcon = tw(CheckCircleOutlineIcon)`w-5 h-5 text-primary-500`;
-const FeatureText = tw.p`ml-2 font-medium text-gray-700`;
 const ImageColumn = tw(Column)`ml-auto lg:mr-0 relative mt-16 lg:mt-0 lg:ml-32`;
 const ImageContainer = tw.div`relative z-40 transform xl:-translate-x-24 xl:-translate-y-16`;
 const Image = tw.img`max-w-full w-96 rounded-t sm:rounded relative z-20`;
