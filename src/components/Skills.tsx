@@ -13,6 +13,12 @@ import DotNetIcon from "mdi-react/DotNetIcon";
 import CsharpIcon from "mdi-react/LanguageCsharpIcon";
 import BashIcon from "mdi-react/BashIcon";
 import PythonIcon from "mdi-react/LanguagePythonIcon";
+import GatsbyIcon from "mdi-react/GatsbyIcon";
+import TailwindIcon from "mdi-react/TailwindIcon";
+import MaterialUiIcon from "mdi-react/MaterialUiIcon";
+import NestIcon from "mdi-react/NestIcon";
+import MicrosoftAzureDevopsIcon from "mdi-react/MicrosoftAzureDevopsIcon";
+import GitlabIcon from "mdi-react/GitlabIcon";
 import { SkillCard } from "./SkillCard";
 
 interface SkillsProps {
@@ -51,27 +57,49 @@ export function Skills({ subheading, description }: SkillsProps) {
       description: "Basic containerization (docker & docker-compose) knowledge",
     },
     {
-      icon: <GitIcon css={tw`w-20 h-20 text-red-500`} />,
-      title: "Git",
-      description:
-        "Strong experience with basic Git command and familiar with advanced commands like squash, pick, rebase, bisec etc",
-    },
-    {
       icon: <DotNetIcon css={tw`text-purple-500 w-20 h-20`} />,
       title: "ASP.NET",
       description:
         "Strong C# skills and familiar with ASP.Net framework and Core",
     },
+    // {
+    //   icon: <BashIcon css={tw`text-orange-500 w-20 h-20`} />,
+    //   title: "Bash",
+    //   description:
+    //     "Proficient in bash shell scripting for automating repeatable daily stuffs",
+    // },
     {
-      icon: <BashIcon css={tw`text-orange-500 w-20 h-20`} />,
-      title: "Bash",
-      description:
-        "Proficient in bash shell scripting for automating repeatable daily stuffs",
+      icon: <TailwindIcon css={tw`text-teal-400 w-20 h-20`} />,
+      title: "Tailwind CSS",
+      description: "Skilled at tailwind. working beside styled-components",
+    },
+    {
+      icon: <GatsbyIcon css={tw`text-purple-700 w-20 h-20`} />,
+      title: "Gatsby",
+      description: "Skilled at Gatsby. Familiar with popular Gatsby plugins.",
+    },
+
+    {
+      icon: <GitlabIcon css={tw`text-orange-500 w-20 h-20`} />,
+      title: "GitLab",
+      description: "Familiar with GitLab CI/CD and private registries",
     },
     {
       icon: <PythonIcon css={tw`text-yellow-500 w-20 h-20`} />,
       title: "Python",
       description: "Strong python skills. worked with numpy, pandas and Django",
+    },
+    {
+      icon: <MicrosoftAzureDevopsIcon css={tw`text-blue-400 w-20 h-20`} />,
+      title: "AzureDevOps",
+      description:
+        "Familiar with Microsoft AzureDevOps ecosystem; like azure-pipelines, feeds, board etc",
+    },
+    {
+      icon: <GitIcon css={tw`w-20 h-20 text-red-500`} />,
+      title: "Git",
+      description:
+        "Strong experience with basic Git command and familiar with advanced commands like squash, pick, rebase, bisec etc",
     },
   ];
 
