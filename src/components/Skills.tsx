@@ -23,58 +23,55 @@ interface SkillsProps {
 export function Skills({ subheading, description }: SkillsProps) {
   const cards = [
     {
-      imageSrc: <GraphqlIcon css={tw`text-pink-500`} />,
+      icon: <GraphqlIcon css={tw`w-20 h-20 text-pink-500`} />,
       title: "GraphQL",
       description:
         "Experience with Apollo GraphQL client v2 & v3 and Graphine library in Django",
     },
     {
-      imageSrc: <TypeScriptIcon css={tw`text-blue-500`} />,
+      icon: <TypeScriptIcon css={tw`w-20 h-20 text-blue-500`} />,
       title: "TypeScript",
       description:
         "Strong TypeScript skills. Generic and functional coding in that",
     },
     {
-      imageSrc: <JavascriptIcon css={tw`text-yellow-500`} />,
+      icon: <JavascriptIcon css={tw`w-20 h-20 text-yellow-500`} />,
       title: "JavaScript",
       description:
         "Skilled at EcmaScript6. Knowledge about Promises, spread, Map etc",
     },
     {
-      imageSrc: <ReactIcon css={tw`text-blue-600`} />,
+      icon: <ReactIcon css={tw`w-20 h-20 text-blue-600`} />,
       title: "React",
       description: "Skilled at React.js, functional components & hooks",
     },
     {
-      imageSrc: <DockerIcon css={tw`text-blue-600`} />,
+      icon: <DockerIcon css={tw`w-20 h-20 text-blue-600`} />,
       title: "Docker",
       description: "Basic containerization (docker & docker-compose) knowledge",
     },
     {
-      imageSrc: <GitIcon css={tw`text-red-500`} />,
+      icon: <GitIcon css={tw`w-20 h-20 text-red-500`} />,
       title: "Git",
       description:
         "Strong experience with basic Git command and familiar with advanced commands like squash, pick, rebase, bisec etc",
     },
     {
-      imageSrc: <DotNetIcon />,
-      title: "ASP dotnet core",
-      description: "Familiar with ASP .Net Core",
+      icon: <DotNetIcon css={tw`text-purple-500 w-20 h-20`} />,
+      title: "ASP.NET",
+      description:
+        "Strong C# skills and familiar with ASP.Net framework and Core",
     },
     {
-      imageSrc: <CsharpIcon />,
-      title: "Csharp",
-      description: "Strong C# skills",
-    },
-    {
-      imageSrc: <BashIcon />,
+      icon: <BashIcon css={tw`text-orange-500 w-20 h-20`} />,
       title: "Bash",
-      description: "Proficient in bash shell scripting",
+      description:
+        "Proficient in bash shell scripting for automating repeatable daily stuffs",
     },
     {
-      imageSrc: <PythonIcon />,
+      icon: <PythonIcon css={tw`text-yellow-500 w-20 h-20`} />,
       title: "Python",
-      description: "Strong python skills",
+      description: "Strong python skills. worked with numpy, pandas and Django",
     },
   ];
 
@@ -104,7 +101,7 @@ export function Skills({ subheading, description }: SkillsProps) {
             <SkillCard
               title={card.title}
               description={card.description}
-              icon={card.imageSrc}
+              icon={card.icon}
             />
           </div>
         ))}
