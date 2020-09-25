@@ -3,8 +3,7 @@ import tw from "twin.macro";
 import styled from "styled-components";
 import { SectionHeading, Subheading as SubheadingBase } from "./misc/Headings";
 import { PrimaryButton as PrimaryButtonBase } from "./misc/Buttons";
-// @ts-ignore
-import EmailIllustrationSrc from "../images/email-illustration.svg";
+import EmailIllustrationSrc from "../images/svg/email-illustration.svg";
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
