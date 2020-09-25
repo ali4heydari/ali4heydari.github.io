@@ -8,31 +8,34 @@ const languages = enumToValueArray(Languages).filter(
 );
 const namespaces = enumToValueArray(Namespaces);
 
-i18n.use(initReactI18next).init({
-  lng: Languages.ENGLISH, // FIXME: remove this
-  resources: languages.reduce((prevLngs, currentLng) => {
-    return {
-      ...prevLngs,
-      [currentLng]: namespaces.reduce(
-        (prevNamespaces, currentNamespace) => ({
-          ...prevNamespaces,
-          [currentNamespace]: require(`../locales/${currentLng}/${currentNamespace}.json`),
-        }),
-        {}
-      ),
-    };
-  }, {}),
-  // have a common namespace used around the full app
-  ns: namespaces,
-  defaultNS: Namespaces.TRANSLATIONS,
-  returnObjects: true,
-  debug: process.env.NODE_ENV !== "production",
-  interpolation: {
-    escapeValue: false, // not needed for react!
-  },
-  react: {
-    wait: true,
-  },
-});
+i18n
+  .use(initReactI18next)
+  .init({
+    resources: languages.reduce((prevLngs, currentLng) => {
+      return {
+        ...prevLngs,
+        [currentLng]: namespaces.reduce(
+          (prevNamespaces, currentNamespace) => ({
+            ...prevNamespaces,
+            [currentNamespace]: require(`../locales/${currentLng}/${currentNamespace}.json`),
+          }),
+          {}
+        ),
+      };
+    }, {}),
+    // have a common namespace used around the full app
+    ns: namespaces,
+    defaultNS: Namespaces.TRANSLATIONS,
+    returnObjects: true,
+    debug: process.env.NODE_ENV !== "production",
+    interpolation: {
+      escapeValue: false, // not needed for react!
+    },
+    react: {
+      wait: true,
+    },
+  })
+  // set initial language. TODO: persist language
+  .then(() => i18n.changeLanguage(Languages.ENGLISH));
 
 export default i18n;
