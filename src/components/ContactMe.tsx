@@ -16,11 +16,6 @@ const TextColumn = styled(Column)((props: { textOnLeft: boolean }) => [
     : tw`md:ml-12 lg:ml-16 md:order-last`,
 ]);
 
-// TODO fix any
-const Image = styled.div((props: { imageSrc: any }) => [
-  `background-image: url("${props.imageSrc}");`,
-  tw`rounded bg-contain bg-no-repeat bg-center h-full`,
-]);
 const TextContent = tw.div`lg:py-8 text-center md:text-left`;
 
 const Subheading = tw(SubheadingBase)`text-center md:text-left`;
@@ -49,7 +44,9 @@ export function ContactMe({
     <Container id="contact-me">
       <TwoColumn>
         <ImageColumn>
-          <Image imageSrc={EmailIllustrationSrc} />
+          <EmailIllustrationSrc
+            css={tw`rounded bg-contain bg-no-repeat bg-center h-full w-full`}
+          />
         </ImageColumn>
         <TextColumn textOnLeft={textOnLeft}>
           <TextContent>
