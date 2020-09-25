@@ -1,9 +1,7 @@
 import React from "react";
 import { Layout } from "../components/Layout";
 import { AnimationRevealPage } from "../components/AnimationRevealPage";
-import { Hero } from "../components/Hero";
-import { Skills } from "../components/Skills";
-import { ContactMe } from "../components/ContactMe";
+import { Hero, Skills, ContactMe, Projects } from "../components";
 
 export default function Home() {
   return (
@@ -11,7 +9,7 @@ export default function Home() {
       <AnimationRevealPage>
         <Hero />
         <Skills />
-
+        <Projects />
         <ContactMe />
       </AnimationRevealPage>
     </Layout>
