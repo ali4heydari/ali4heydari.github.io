@@ -76,10 +76,11 @@ export function Projects() {
               "Graphine",
             ].map((tech) => (
               <div
+                key={tech}
                 css={tw`inline justify-center items-center m-1 font-medium px-1 py-0 bg-white rounded-full text-green-700 bg-green-100 border border-green-300`}
               >
                 <span
-                  css={tw`text-xs font-normal leading-none max-w-full flex-initial`}
+                  css={tw`table-cell text-xs font-normal leading-none max-w-full flex-initial`}
                 >
                   {tech}
                 </span>
