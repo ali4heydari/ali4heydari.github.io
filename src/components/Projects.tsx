@@ -10,6 +10,7 @@ import {
 } from "./misc/Headings";
 import GatsbyImage from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
+import CloseIcon from "mdi-react/CloseIcon";
 
 const Container = tw.div`relative`;
 
@@ -63,32 +64,38 @@ export function Projects() {
           <span css={tw`text-primary-500`}>Tech Stack:</span>
           <div>
             {[
-              "React",
-              "Next.js",
-              "Lerna",
-              "TypeScript",
-              "Material-UI",
-              "CSS-in-JS",
-              "Firebase",
-              "Apollo GraphQL client",
-              "React-Hook-Form",
-              "Recharts",
-              "i18next",
-              "Django",
-              "Graphene",
-              "nginx",
-              "Docker",
-              "GitLab CI",
+              { name: "React", emoji: "⚛" },
+              { name: "Next.js" },
+              { name: "Lerna", emoji: "🐍" },
+              { name: "Yarn", emoji: "🐈" },
+              { name: "TypeScript" },
+              { name: "Material-UI" },
+              { name: "CSS-in-JS" },
+              { name: "Firebase", emoji: "🔥" },
+              { name: "Apollo GraphQL client" },
+              { name: "React-Hook-Form", emoji: "📄" },
+              { name: "Recharts", emoji: "📊" },
+              { name: "i18next", emoji: "🌐" },
+              { name: "Django" },
+              { name: "Graphene" },
+              { name: "nginx" },
+              { name: "Docker", emoji: "🐳" },
+              { name: "GitLab CI", emoji: "🦊" },
             ].map((tech) => (
               <div
-                key={tech}
+                key={tech.name}
                 css={tw`inline justify-center items-center m-1 font-medium px-1 py-0 bg-white rounded-full text-green-700 bg-green-100 border border-green-300`}
               >
-                <span
+                <div
                   css={tw`table-cell text-xs font-normal leading-none max-w-full flex-initial`}
                 >
-                  {tech}
-                </span>
+                  {tech?.emoji ? (
+                    <span role="img" aria-label={`${tech.name}'s emoji`}>
+                      {tech.emoji}{" "}
+                    </span>
+                  ) : null}
+                  {tech.name}
+                </div>
               </div>
             ))}
           </div>
