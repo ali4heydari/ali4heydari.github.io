@@ -45,7 +45,7 @@ const SvgDotPattern4 = tw(
 
 export function Projects() {
   const cards = {
-    "1-software-development.jpg": {
+    "1-sina-heart.png": {
       subtitle: "Software Engineer",
       title: "Iran's national elites foundation",
       description: (
@@ -64,16 +64,21 @@ export function Projects() {
           <div>
             {[
               "React",
+              "Next.js",
+              "React-Hook-Form",
+              "Lerna",
               "TypeScript",
-              "Apollo GraphQL client v3",
+              "Material-UI",
+              "CSS-in-JS",
+              "Firebase",
+              "Apollo GraphQL client",
+              "i18next",
+              "Recharts",
               "nginx",
               "Docker",
-              "Material-UI",
-              "react-i18next",
-              "JSS",
               "Django",
               "GitLab CI",
-              "Graphine",
+              "Graphene",
             ].map((tech) => (
               <div
                 key={tech}
@@ -140,7 +145,7 @@ export function Projects() {
         filter: {
           relativePath: {
             in: [
-              "projects/1-software-development.jpg"
+              "projects/1-sina-heart.png"
               "projects/2-software-development.jpg"
               "projects/3-software-development.jpg"
               "projects/4-software-development.jpg"
@@ -181,7 +186,11 @@ export function Projects() {
             <Card key={imageNode.base} reversed={index % 2 === 1}>
               <GatsbyImage
                 fluid={imageNode.childImageSharp.fluid}
-                css={tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 flex-shrink-0 h-80 md:h-144 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`}
+                css={tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 w-auto flex-shrink-0 h-full md:h-144 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`}
+                alt={imageNode.base}
+                imgStyle={{
+                  width: "auto",
+                }}
               />
               <Details>
                 <Subtitle>{cards[imageNode.base].subtitle}</Subtitle>
