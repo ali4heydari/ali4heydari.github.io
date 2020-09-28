@@ -55,30 +55,30 @@ export function Projects() {
             "Meeting with hospital, clinic, and laboratory managers for requirements engineering and data gathering.",
             "We developed a follow-up automation software that is used in the process of discharging patients and can help hospitals and clinics stay in touch with their patients and coordinate the next check ups of the patient. It also provides the patients with educational content. This system is currently being used by Sina hospital.",
           ].map((text) => (
-            <>
-              <FeatureIcon />
+            <div css={tw`flex items-start`} key={text}>
+              <FeatureIcon css={tw`flex-shrink-0`} />
               <FeatureText>{text}</FeatureText>
-            </>
+            </div>
           ))}
-          Tech Stack:
+          <span css={tw`text-primary-500`}>Tech Stack:</span>
           <div>
             {[
               "React",
               "Next.js",
-              "React-Hook-Form",
               "Lerna",
               "TypeScript",
               "Material-UI",
               "CSS-in-JS",
               "Firebase",
               "Apollo GraphQL client",
-              "i18next",
+              "React-Hook-Form",
               "Recharts",
+              "i18next",
+              "Django",
+              "Graphene",
               "nginx",
               "Docker",
-              "Django",
               "GitLab CI",
-              "Graphene",
             ].map((tech) => (
               <div
                 key={tech}
@@ -107,10 +107,10 @@ export function Projects() {
             "Front-end with React.js using TypeScript, Apollo GraphQL client, Jest, Cypress, testing-library",
             "Back-end with Django framework using Graphine for creating GraphQL API",
           ].map((text) => (
-            <Feature key={text}>
-              <FeatureIcon />
+            <div css={tw`flex items-start`} key={text}>
+              <FeatureIcon css={tw`flex-shrink-0`} />
               <FeatureText>{text}</FeatureText>
-            </Feature>
+            </div>
           ))}
         </>
       ),
