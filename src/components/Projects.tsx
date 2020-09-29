@@ -11,6 +11,7 @@ import {
 import GatsbyImage from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
 import CloseIcon from "mdi-react/CloseIcon";
+import { TechChip } from "./misc/Chips";
 
 const Container = tw.div`relative`;
 
@@ -61,7 +62,7 @@ export function Projects() {
               <FeatureText>{text}</FeatureText>
             </div>
           ))}
-          <span css={tw`text-primary-500`}>Tech Stack:</span>
+          <div css={tw`text-primary-500`}>Tech Stack:</div>
           <div>
             {[
               { name: "React", emoji: "⚛" },
@@ -82,21 +83,7 @@ export function Projects() {
               { name: "Docker", emoji: "🐳" },
               { name: "GitLab CI", emoji: "🦊" },
             ].map((tech) => (
-              <div
-                key={tech.name}
-                css={tw`inline justify-center items-center m-1 font-medium px-1 py-0 bg-white rounded-full text-green-700 bg-green-100 border border-green-300`}
-              >
-                <div
-                  css={tw`table-cell text-xs font-normal leading-none max-w-full flex-initial`}
-                >
-                  {tech?.emoji ? (
-                    <span role="img" aria-label={`${tech.name}'s emoji`}>
-                      {tech.emoji}{" "}
-                    </span>
-                  ) : null}
-                  {tech.name}
-                </div>
-              </div>
+              <TechChip key={tech.name} name={tech.name} emoji={tech.emoji} />
             ))}
           </div>
         </>
@@ -110,15 +97,31 @@ export function Projects() {
         <>
           Software engineering course project. A Software for managing dormitory
           stuffs.
-          {[
-            "Front-end with React.js using TypeScript, Apollo GraphQL client, Jest, Cypress, testing-library",
-            "Back-end with Django framework using Graphine for creating GraphQL API",
-          ].map((text) => (
-            <div css={tw`flex items-start`} key={text}>
-              <FeatureIcon css={tw`flex-shrink-0`} />
-              <FeatureText>{text}</FeatureText>
-            </div>
-          ))}
+          <div css={tw`text-primary-500`}>Tech Stack:</div>
+          <div>
+            {[
+              { name: "React", emoji: "⚛" },
+              { name: "Lerna", emoji: "🐍" },
+              { name: "Yarn", emoji: "🐈" },
+              { name: "TypeScript" },
+              { name: "Cypress" },
+              { name: "Jest", emoji: "👢" },
+              { name: "testing-library", emoji: "🐙" },
+              { name: "Material-UI" },
+              { name: "Apollo GraphQL client" },
+              { name: "CSS-in-JS" },
+              { name: "React-Hook-Form", emoji: "📄" },
+              { name: "i18next", emoji: "🌐" },
+              { name: "Django" },
+              { name: "Graphene" },
+              { name: "nginx" },
+              { name: "Docker", emoji: "🐳" },
+              { name: "Azure pipelines", emoji: "🚀" },
+              { name: "Azure feeds" },
+            ].map((tech) => (
+              <TechChip key={tech.name} name={tech.name} emoji={tech.emoji} />
+            ))}
+          </div>
         </>
       ),
       url: "https://dormify.ir",
