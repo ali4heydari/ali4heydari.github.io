@@ -65,7 +65,7 @@ export function Projects() {
           <div css={tw`text-primary-500`}>Tech Stack:</div>
           <div>
             {[
-              { name: "React", emoji: "⚛" },
+              { name: "React (fully functional components)", emoji: "⚛" },
               { name: "Next.js" },
               { name: "Lerna", emoji: "🐍" },
               { name: "Yarn", emoji: "🐈" },
@@ -100,7 +100,7 @@ export function Projects() {
           <div css={tw`text-primary-500`}>Tech Stack:</div>
           <div>
             {[
-              { name: "React", emoji: "⚛" },
+              { name: "React (fully functional components)", emoji: "⚛" },
               { name: "Lerna", emoji: "🐍" },
               { name: "Yarn", emoji: "🐈" },
               { name: "TypeScript" },
@@ -135,11 +135,13 @@ export function Projects() {
           <div css={tw`text-primary-500`}>Tech Stack:</div>
           <div>
             {[
-              { name: "React", emoji: "⚛" },
+              { name: "React (class components)", emoji: "⚛" },
               { name: "TypeScript" },
+              { name: "JavaScript" },
               { name: "Material-UI" },
               { name: "Ant Design", emoji: "🐜" },
               { name: "CSS-in-JS" },
+              { name: "CSS modules" },
               { name: "Django REST API" },
             ].map((tech) => (
               <TechChip key={tech.name} name={tech.name} emoji={tech.emoji} />

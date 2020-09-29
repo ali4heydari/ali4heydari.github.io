@@ -19,6 +19,8 @@ import MaterialUiIcon from "mdi-react/MaterialUiIcon";
 import NestIcon from "mdi-react/NestIcon";
 import MicrosoftAzureDevopsIcon from "mdi-react/MicrosoftAzureDevopsIcon";
 import GitlabIcon from "mdi-react/GitlabIcon";
+import JetBrainsIcon from "../images/svg/jetbrains.svg";
+import LatexIcon from "../images/svg/latex.svg";
 import { SkillCard } from "./SkillCard";
 
 interface SkillsProps {
@@ -60,14 +62,8 @@ export function Skills({ subheading, description }: SkillsProps) {
       icon: <DotNetIcon css={tw`text-purple-500 w-20 h-20`} />,
       title: "ASP.NET",
       description:
-        "Strong C# skills and familiar with ASP.Net framework and Core",
+        "Strong C# skills and familiar with ASP.Net framework and Core. Having experience in WPF",
     },
-    // {
-    //   icon: <BashIcon css={tw`text-orange-500 w-20 h-20`} />,
-    //   title: "Bash",
-    //   description:
-    //     "Proficient in bash shell scripting for automating repeatable daily stuffs",
-    // },
     {
       icon: <TailwindIcon css={tw`text-teal-400 w-20 h-20`} />,
       title: "Tailwind CSS",
@@ -100,6 +96,22 @@ export function Skills({ subheading, description }: SkillsProps) {
       title: "Git",
       description:
         "Strong experience with basic Git command and familiar with advanced commands like squash, pick, rebase, bisec etc",
+    },
+    {
+      icon: <BashIcon css={tw`text-orange-500 w-20 h-20`} />,
+      title: "Bash",
+      description:
+        "Proficient in bash shell scripting for automating repeatable daily stuffs",
+    },
+    {
+      icon: <LatexIcon css={tw`w-20 h-20`} />,
+      title: "LaTeX",
+      description: "String skill in LaTeX",
+    },
+    {
+      icon: <JetBrainsIcon css={tw`w-20 h-20`} />,
+      title: "JetBrains IDEs",
+      description: "String skill in JetBrains IDEs",
     },
   ];
 
