@@ -129,23 +129,36 @@ export function Projects() {
     "3-software-development.jpg": {
       subtitle: "Open source",
       title: "Sportify",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://github.com/ali4heydari",
+      description: (
+        <>
+          Web Development course project
+          <div css={tw`text-primary-500`}>Tech Stack:</div>
+          <div>
+            {[
+              { name: "React", emoji: "⚛" },
+              { name: "TypeScript" },
+              { name: "Material-UI" },
+              { name: "Ant Design", emoji: "🐜" },
+              { name: "CSS-in-JS" },
+              { name: "Django REST API" },
+            ].map((tech) => (
+              <TechChip key={tech.name} name={tech.name} emoji={tech.emoji} />
+            ))}
+          </div>
+        </>
+      ),
+      url: "https://github.com/ali4heydari/sportify-frontend",
     },
-    "4-software-development.jpg": {
+    "4-mano-computer.png": {
       subtitle: "Open source",
-      title: "Sportify",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://github.com/ali4heydari",
-    },
-    "5-software-development.jpg": {
-      subtitle: "Open source",
-      title: "Sportify",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-      url: "https://github.com/ali4heydari",
+      title: "Mano Computer Simulation",
+      description: (
+        <>
+          Computer Architecture course project. I simulated Mano computer in
+          <TechChip name={"Proteus 8"} />
+        </>
+      ),
+      url: "https://github.com/ali4heydari/ManoComputer",
     },
   };
 
@@ -158,8 +171,7 @@ export function Projects() {
               "projects/1-sina-heart.png"
               "projects/2-software-development.jpg"
               "projects/3-software-development.jpg"
-              "projects/4-software-development.jpg"
-              "projects/5-software-development.jpg"
+              "projects/4-mano-computer.png"
             ]
           }
         }
