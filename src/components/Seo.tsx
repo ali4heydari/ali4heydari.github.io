@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 import { useTranslation } from "react-i18next";
 import { Languages, StringKeys } from "../utils/enums";
-import SiteConfigs from "../../SiteConfigs";
 
 export function Seo({ description = "", lang = "en", meta = [], title }) {
   const { site } = useStaticQuery(
@@ -31,11 +30,7 @@ export function Seo({ description = "", lang = "en", meta = [], title }) {
         dir: i18n.language === Languages.PERSIAN ? "rtl" : "ltr",
       }}
       title={title}
-      titleTemplate={`%s | ${
-        typeof window !== "undefined" && t
-          ? t(StringKeys.WEBSITE_NAME)
-          : SiteConfigs.SITE_TITLE
-      }`}
+      titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
