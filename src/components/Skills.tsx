@@ -16,11 +16,9 @@ import PythonIcon from "mdi-react/LanguagePythonIcon";
 import GatsbyIcon from "mdi-react/GatsbyIcon";
 import TailwindIcon from "mdi-react/TailwindIcon";
 import MaterialUiIcon from "mdi-react/MaterialUiIcon";
-import NestIcon from "mdi-react/NestIcon";
 import MicrosoftAzureDevopsIcon from "mdi-react/MicrosoftAzureDevopsIcon";
 import GitlabIcon from "mdi-react/GitlabIcon";
-import JetBrainsIcon from "../images/svg/jetbrains.svg";
-import LatexIcon from "../images/svg/latex.svg";
+import NestJsIcon from "../images/svg/nestjs.svg";
 import { SkillCard } from "./SkillCard";
 
 interface SkillsProps {
@@ -49,7 +47,7 @@ export function Skills({ subheading, description }: SkillsProps) {
         "Skilled at EcmaScript6. Knowledge about Promises, spread, Map etc",
     },
     {
-      icon: <ReactIcon css={tw`w-20 h-20 text-blue-600`} />,
+      icon: <ReactIcon css={tw`w-20 h-20 text-blue-400`} />,
       title: "React",
       description: "Skilled at React.js, functional components & hooks",
     },
@@ -104,14 +102,20 @@ export function Skills({ subheading, description }: SkillsProps) {
         "Proficient in bash shell scripting for automating repeatable daily stuffs",
     },
     {
-      icon: <LatexIcon css={tw`w-20 h-20`} />,
+      icon: (
+        <div css={tw`w-20 h-20 flex items-center justify-center font-bold`}>
+          <span>
+            L<sup>A</sup>T<sub>E</sub>X
+          </span>
+        </div>
+      ),
       title: "LaTeX",
-      description: "String skill in LaTeX",
+      description: "Strong skill in LaTeX",
     },
     {
-      icon: <JetBrainsIcon css={tw`w-20 h-20`} />,
-      title: "JetBrains IDEs",
-      description: "String skill in JetBrains IDEs",
+      icon: <NestJsIcon css={tw`text-red-600 w-20 h-20`} />,
+      title: "Nest.js",
+      description: "Familiar with Nest.js framework",
     },
   ];
 
