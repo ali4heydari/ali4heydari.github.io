@@ -1,9 +1,10 @@
-import React from "react";
+import React, { ChangeEvent, FormEventHandler, useState } from "react";
 import tw from "twin.macro";
 import styled from "styled-components";
 import { SectionHeading, Subheading as SubheadingBase } from "./misc/Headings";
 import { PrimaryButton as PrimaryButtonBase } from "./misc/Buttons";
 import EmailIllustrationSrc from "../images/svg/email-illustration.svg";
+import SiteConfigs from "../../SiteConfigs";
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -40,6 +41,14 @@ export function ContactMe({
 }) {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
 
+  const [formValues, setFormValues] = useState<{ [k: string]: string }>({});
+
+  const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
+    setFormValues({
+      [event.target?.name]: event.target?.value,
+    });
+  };
+
   return (
     <Container id="contact-me">
       <TwoColumn>
@@ -53,13 +62,28 @@ export function ContactMe({
             <Subheading>{"Contact me"}</Subheading>
             <Heading>
               Feel free to <span css={tw`text-primary-500`}>get in touch</span>
-              <wbr /> with me.
+              <wbr />
+              with me.
             </Heading>
             <Description>{"I'll try to respond ASAP!"}</Description>
-            <Form action={formAction} method={formMethod}>
-              <Input type="text" name="subject" placeholder="Subject" />
-              <Textarea name="message" placeholder="Your Message Here" />
-              <SubmitButton type="submit">{submitButtonText}</SubmitButton>
+            <Form onSubmit={(event) => {}}>
+              <Input
+                onChange={onChangeInput}
+                type="text"
+                name="subject"
+                placeholder="Subject"
+              />
+              <Textarea
+                onChange={onChangeInput}
+                name="message"
+                placeholder="Your Message Here"
+              />
+              <a
+                href={`mailto:${SiteConfigs.CONTACT_EMAIL}?subject=Site Feedback | ${formValues.subject}&body=${formValues.message}`}
+                css={tw`inline-block mt-8 px-8 py-3 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300`}
+              >
+                {submitButtonText}
+              </a>
             </Form>
           </TextContent>
         </TextColumn>
