@@ -92,7 +92,7 @@ export function Footer() {
               </a>
             ))}
           </div>
-          <div css={tw`mt-10`}>
+          <div css={tw`mt-10 flex flex-wrap justify-center`}>
             {socialMedias.map((media) => {
               const Icon = tw(media.icon)`w-5 h-5`;
 
