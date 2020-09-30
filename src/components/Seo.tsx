@@ -38,7 +38,7 @@ export function Seo({ description = "", lang = "en", meta = [], title }) {
         },
         {
           property: `og:title`,
-          content: `${title} | ${t(StringKeys.WEBSITE_NAME)}`,
+          content: `${title} | ${site.siteMetadata.title}`,
         },
         {
           property: `og:description`,
@@ -58,7 +58,7 @@ export function Seo({ description = "", lang = "en", meta = [], title }) {
         },
         {
           name: `twitter:title`,
-          content: `${title} | ${t(StringKeys.WEBSITE_NAME)}`,
+          content: `${title} | ${site.siteMetadata.title}`,
         },
         {
           name: `twitter:description`,
