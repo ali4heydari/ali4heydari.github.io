@@ -41,7 +41,10 @@ export function ContactMe({
 }) {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
 
-  const [formValues, setFormValues] = useState<{ [k: string]: string }>({});
+  const [formValues, setFormValues] = useState<{ [k: string]: string }>({
+    subject: "",
+    message: "",
+  });
 
   const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
     event.persist();
@@ -81,7 +84,7 @@ export function ContactMe({
               />
               <a
                 href={`mailto:${SiteConfigs.CONTACT_EMAIL}?subject=Site Feedback | ${formValues.subject}&body=${formValues.message}`}
-                css={tw`text-center inline-block mt-8 px-8 py-3 font-bold rounded bg-primary-500 text-gray-100 focus:bg-primary-700 focus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300`}
+                css={tw`text-center inline-block mt-8 px-8 py-3 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 hocus:shadow-outline hocus:outline-none transition duration-300`}
               >
                 {submitButtonText}
               </a>
