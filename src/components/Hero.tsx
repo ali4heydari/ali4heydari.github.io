@@ -19,6 +19,7 @@ import { Container, ContentWithVerticalPadding } from "./misc/Layouts";
 import { Header } from "../components/Header";
 import GatsbyImage from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
+import { SocialMedias } from "./SocialMedias";
 
 const Row = tw.div`flex flex-col lg:flex-row justify-between items-center lg:pt-16 max-w-screen-2xl mx-auto sm:px-8`;
 const Column = tw.div``;
@@ -96,22 +97,23 @@ export function Hero({ imageDecoratorBlob = true, buttonRounded = true }) {
               <PrimaryButton
                 // as="a"
                 // @ts-ignore
-                href={"https://google.com"}
+                href={"/download"}
                 css={buttonRoundedCss}
               >
                 {"Download resume"}
               </PrimaryButton>
-              <FeatureList>
-                {[
-                  "Computer engineering student",
-                  "3 years experience in web development",
-                ].map((feature, index) => (
-                  <Feature key={index}>
-                    <FeatureIcon />
-                    <FeatureText>{feature}</FeatureText>
-                  </Feature>
-                ))}
-              </FeatureList>
+              {/*<FeatureList>*/}
+              {/*  {[*/}
+              {/*    "Computer engineering student",*/}
+              {/*    "3 years experience in web development",*/}
+              {/*  ].map((feature, index) => (*/}
+              {/*    <Feature key={index}>*/}
+              {/*      <FeatureIcon />*/}
+              {/*      <FeatureText>{feature}</FeatureText>*/}
+              {/*    </Feature>*/}
+              {/*  ))}*/}
+              {/*</FeatureList>*/}
+              <SocialMedias css={tw`text-primary-500`} />
             </TextColumn>
             <ImageColumn>
               <ImageContainer>
