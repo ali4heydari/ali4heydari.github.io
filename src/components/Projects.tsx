@@ -10,7 +10,6 @@ import {
 } from "./misc/Headings";
 import GatsbyImage from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
-import CloseIcon from "mdi-react/CloseIcon";
 import { TechChip } from "./misc/Chips";
 
 const Container = tw.div`relative`;
@@ -95,8 +94,19 @@ export function Projects() {
       title: "Dormify",
       description: (
         <>
-          Software engineering course project. A Software for managing dormitory
-          stuffs.
+          Software engineering course project.
+          {[
+            "Carrying out team coordination and work",
+            "Meeting with dormitory managers for requirements engineering and data gathering.",
+            "We hold scrum meeting (planning, daily ...) in Microsoft Teams during COVID19 pandemic",
+            "We designed and developed a software for managing dormitory stuffs like ticketing, issue tracking, guest invitation",
+            "We designed fully dockerized and automated CI/CD during development of software",
+          ].map((text) => (
+            <div css={tw`flex items-start`} key={text}>
+              <FeatureIcon css={tw`flex-shrink-0`} />
+              <FeatureText>{text}</FeatureText>
+            </div>
+          ))}
           <div css={tw`text-primary-500`}>Tech Stack:</div>
           <div>
             {[
