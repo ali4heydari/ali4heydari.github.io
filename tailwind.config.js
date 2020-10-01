@@ -2,6 +2,7 @@ module.exports = {
   prefix: "",
   important: false,
   separator: ":",
+  plugins: [require("tailwindcss-rtl")],
   theme: {
     screens: {
       sm: "640px",
@@ -787,5 +788,4 @@ module.exports = {
     transitionDuration: ["responsive"],
   },
   corePlugins: {},
-  plugins: [],
 };

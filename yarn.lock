@@ -13895,7 +13895,15 @@ table@^5.2.3:
     slice-ansi "^2.1.0"
     string-width "^3.0.0"
 
-tailwindcss@^1.8.8:
+tailwindcss-rtl@^0.4.1:
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/tailwindcss-rtl/-/tailwindcss-rtl-0.4.1.tgz#f1c22b9b111faef51f51c97cabbfbb8a4d30398e"
+  integrity sha512-1ir67qH6LXUt2Wfuc26roJY41L9ZTKkdHgeLT6vCcauuYe7yohlBxpxvuuRK1yIt5tPu5a7u0LRq7FAEauRHSA==
+  dependencies:
+    lodash "^4.17.19"
+    tailwindcss "^1.2.0"
+
+tailwindcss@^1.2.0, tailwindcss@^1.8.8:
   version "1.8.10"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.8.10.tgz#945ef151c401c04a1c95e6a6bc747387a8d1b9dc"
   integrity sha512-7QkERG/cWCzsuMqHMwjOaLMVixOGLNBiXsrkssxlE1aWfkxVbGqiuMokR2162xRyaH2mBIHKxmlf1qb3DvIPqw==
