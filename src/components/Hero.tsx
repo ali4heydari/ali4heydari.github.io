@@ -91,9 +91,11 @@ export function Hero({ imageDecoratorBlob = true, buttonRounded = true }) {
                 }
               </Description>
               <PrimaryButton
-                // as="a"
+                as="a"
                 // @ts-ignore
-                href={"/download"}
+                href={
+                  "https://github.com/ali4heydari/CV/releases/download/v2.0-alpha/cv.pdf"
+                }
                 css={buttonRoundedCss}
               >
                 {"Download resume"}
