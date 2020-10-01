@@ -87,7 +87,7 @@ export function Header({
       {/*</NavLink>*/}
       <PrimaryLink
         css={roundedHeaderButton ? tw`rounded-full` : undefined}
-        href="/#"
+        href="/#contact-me"
       >
         Hire me
       </PrimaryLink>
