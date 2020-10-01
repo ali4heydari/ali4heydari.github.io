@@ -15,6 +15,7 @@ module.exports = {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     "gatsby-plugin-webpack-bundle-analyser-v2",
+    "gatsby-plugin-preact",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
