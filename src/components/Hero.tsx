@@ -20,6 +20,7 @@ import { Header } from "../components/Header";
 import GatsbyImage from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
 import { SocialMedias } from "./SocialMedias";
+import Typist from "react-typist";
 
 const Row = tw.div`flex flex-col lg:flex-row justify-between items-center lg:pt-16 max-w-screen-2xl mx-auto sm:px-8`;
 const Column = tw.div``;
@@ -73,13 +74,6 @@ export function Hero({ imageDecoratorBlob = true, buttonRounded = true }) {
   const buttonRoundedCss = buttonRounded ? tw`rounded-full` : undefined;
   const query = useStaticQuery(getHeroImageQuery);
 
-  const testimonial = {
-    quote:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    customerName: "Charlotte Hale",
-    customerCompany: "Delos Inc.",
-  };
-
   return (
     <>
       <Header css={tw`max-w-none`} />
@@ -87,8 +81,10 @@ export function Hero({ imageDecoratorBlob = true, buttonRounded = true }) {
         <ContentWithVerticalPadding>
           <Row>
             <TextColumn>
-              <SectionHeading css={tw`text-left`}>{"Hi, I'm"}</SectionHeading>
-              <Heading>{"Ali Heydari"}</Heading>
+              <Typist startDelay={500} cursor={{ show: false }}>
+                <SectionHeading css={tw`text-left`}>{"Hi, I'm"}</SectionHeading>
+                <Heading>{"Ali Heydari"}</Heading>
+              </Typist>
               <Description>
                 {
                   "A frontend developer who loves learning new things, cats, travel, photography"
