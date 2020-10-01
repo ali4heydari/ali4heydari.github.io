@@ -21,6 +21,7 @@ import GitlabIcon from "mdi-react/GitlabIcon";
 import JavaIcon from "mdi-react/LanguageJavaIcon";
 import AndroidIcon from "mdi-react/AndroidIcon";
 import NestJsIcon from "../images/svg/nestjs.svg";
+import PostgreSqlIcon from "../images/svg/postgresql.svg";
 import { SkillCard } from "./SkillCard";
 
 interface SkillsProps {
@@ -136,10 +137,15 @@ export function Skills({ subheading, description }: SkillsProps) {
       description:
         "Having some experience in Android. worked with Google Map view, retrofit, Telephonary",
     },
+    // {
+    //   icon: <NestJsIcon css={tw`text-red-600 w-20 h-20`} />,
+    //   title: "Nest.js",
+    //   description: "Familiar with Nest.js framework",
+    // },
     {
-      icon: <NestJsIcon css={tw`text-red-600 w-20 h-20`} />,
-      title: "Nest.js",
-      description: "Familiar with Nest.js framework",
+      icon: <PostgreSqlIcon css={tw`text-blue-400 w-20 h-20`} />,
+      title: "PosgreSQL",
+      description: "Familiar with SQL and Postgre",
     },
   ];
 
