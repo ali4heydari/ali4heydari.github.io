@@ -6,11 +6,14 @@ import {
   Feature,
   FeatureIcon,
   FeatureText,
+  SectionHeading,
   SectionHeading as HeadingTitle,
 } from "./misc/Headings";
 import GatsbyImage from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
 import { TechChip } from "./misc/Chips";
+import { HighlightedText } from "./misc/Typography";
+import GithubIcon from "mdi-react/GithubIcon";
 
 const Container = tw.div`relative`;
 
@@ -87,7 +90,6 @@ export function Projects() {
           </div>
         </>
       ),
-      url: "https://sinaheart.ir",
     },
     "2-software-development.jpg": {
       subtitle: "Software Engineer",
@@ -134,7 +136,7 @@ export function Projects() {
           </div>
         </>
       ),
-      url: "https://dormify.ir",
+      meta: <Link href="https://dormify.ir">Live demo</Link>,
     },
     "3-software-development.jpg": {
       subtitle: "Open source",
@@ -159,7 +161,12 @@ export function Projects() {
           </div>
         </>
       ),
-      url: "https://github.com/ali4heydari/sportify-frontend",
+      meta: (
+        <Link href="https://github.com/ali4heydari/sportify-frontend">
+          <GithubIcon css={tw`text-primary-500 w-10 h-10`} />
+          GitHub Source
+        </Link>
+      ),
     },
     "4-mano-computer.png": {
       subtitle: "Open source",
@@ -170,7 +177,12 @@ export function Projects() {
           <TechChip name={"Proteus 8"} />
         </>
       ),
-      url: "https://github.com/ali4heydari/ManoComputer",
+      meta: (
+        <Link href="https://github.com/ali4heydari/ManoComputer">
+          <GithubIcon css={tw`text-primary-500 w-10 h-10`} />
+          GitHub Source
+        </Link>
+      ),
     },
   };
 
@@ -212,6 +224,7 @@ export function Projects() {
           <HeadingTitle>Projects</HeadingTitle>
           <HeadingDescription>
             Here are some of the my close and open source projects
+            <Link href={"/projects"}>See full list</Link>
           </HeadingDescription>
         </HeadingInfoContainer>
 
@@ -230,7 +243,7 @@ export function Projects() {
                 <Subtitle>{cards[imageNode.base].subtitle}</Subtitle>
                 <Title>{cards[imageNode.base].title}</Title>
                 <Description>{cards[imageNode.base].description}</Description>
-                <Link href={cards[imageNode.base].url}>More Details</Link>
+                {cards[imageNode.base]?.meta}
               </Details>
             </Card>
           ))}
