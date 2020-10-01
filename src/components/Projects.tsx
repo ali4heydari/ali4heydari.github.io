@@ -84,11 +84,15 @@ export function Projects() {
               { name: "nginx" },
               { name: "Docker", emoji: "🐳" },
               { name: "GitLab CI", emoji: "🦊" },
+              { name: "PostgreSQL", emoji: "🐘" },
             ].map((tech) => (
               <TechChip key={tech.name} name={tech.name} emoji={tech.emoji} />
             ))}
           </div>
         </>
+      ),
+      meta: (
+        <Link href="https://ali4heydari.github.io/upmed">See screen shots</Link>
       ),
     },
     "2-software-development.jpg": {
@@ -119,6 +123,7 @@ export function Projects() {
               { name: "Cypress" },
               { name: "Jest", emoji: "👢" },
               { name: "testing-library", emoji: "🐙" },
+              { name: "Storybook" },
               { name: "Material-UI" },
               { name: "Apollo GraphQL client" },
               { name: "CSS-in-JS" },
@@ -129,6 +134,7 @@ export function Projects() {
               { name: "nginx" },
               { name: "Docker", emoji: "🐳" },
               { name: "Azure pipelines", emoji: "🚀" },
+              { name: "PostgreSQL", emoji: "🐘" },
               { name: "Azure feeds" },
             ].map((tech) => (
               <TechChip key={tech.name} name={tech.name} emoji={tech.emoji} />
@@ -155,6 +161,7 @@ export function Projects() {
               { name: "Ant Design", emoji: "🐜" },
               { name: "CSS-in-JS" },
               { name: "CSS modules" },
+              { name: "SQLite" },
               { name: "Django REST API" },
             ].map((tech) => (
               <TechChip key={tech.name} name={tech.name} emoji={tech.emoji} />
