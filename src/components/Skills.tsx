@@ -18,6 +18,8 @@ import TailwindIcon from "mdi-react/TailwindIcon";
 import MaterialUiIcon from "mdi-react/MaterialUiIcon";
 import MicrosoftAzureDevopsIcon from "mdi-react/MicrosoftAzureDevopsIcon";
 import GitlabIcon from "mdi-react/GitlabIcon";
+import JavaIcon from "mdi-react/LanguageJavaIcon";
+import AndroidIcon from "mdi-react/AndroidIcon";
 import NestJsIcon from "../images/svg/nestjs.svg";
 import { SkillCard } from "./SkillCard";
 
@@ -51,16 +53,17 @@ export function Skills({ subheading, description }: SkillsProps) {
       title: "React",
       description: "Skilled at React.js, functional components & hooks",
     },
+
+    {
+      icon: <JavaIcon css={tw`text-orange-500 w-20 h-20`} />,
+      title: "Java",
+      description:
+        "Skilled at Java 8. Familiar with maven, gradle and Having experience in JavaFX",
+    },
     {
       icon: <DockerIcon css={tw`w-20 h-20 text-blue-600`} />,
       title: "Docker",
       description: "Basic containerization (docker & docker-compose) knowledge",
-    },
-    {
-      icon: <DotNetIcon css={tw`text-purple-500 w-20 h-20`} />,
-      title: "ASP.NET",
-      description:
-        "Strong C# skills and familiar with ASP.Net framework and Core. Having experience in WPF",
     },
     {
       icon: <TailwindIcon css={tw`text-teal-400 w-20 h-20`} />,
@@ -79,27 +82,10 @@ export function Skills({ subheading, description }: SkillsProps) {
       description: "Familiar with GitLab CI/CD and private registries",
     },
     {
-      icon: <PythonIcon css={tw`text-yellow-500 w-20 h-20`} />,
-      title: "Python",
-      description: "Strong python skills. worked with numpy, pandas and Django",
-    },
-    {
-      icon: <MicrosoftAzureDevopsIcon css={tw`text-blue-400 w-20 h-20`} />,
-      title: "AzureDevOps",
-      description:
-        "Familiar with Microsoft AzureDevOps ecosystem; like azure-pipelines, feeds, board etc",
-    },
-    {
       icon: <GitIcon css={tw`w-20 h-20 text-red-500`} />,
       title: "Git",
       description:
         "Strong experience with basic Git command and familiar with advanced commands like squash, pick, rebase, bisec etc",
-    },
-    {
-      icon: <BashIcon css={tw`text-orange-500 w-20 h-20`} />,
-      title: "Bash",
-      description:
-        "Proficient in bash shell scripting for automating repeatable daily stuffs",
     },
     {
       icon: (
@@ -110,7 +96,45 @@ export function Skills({ subheading, description }: SkillsProps) {
         </div>
       ),
       title: "LaTeX",
-      description: "Strong skill in LaTeX",
+      description:
+        "Strong skill in LaTeX. Having strong experience in creating reusable LaTeX template for programming assignments with code snipped, charts, graphs etc",
+    },
+    {
+      icon: <CsharpIcon css={tw`w-20 h-20`} />,
+      title: "C#",
+      description:
+        "Strong C# skills. Having experience in creating class library, console application and WPF. Design and implement programming assignment in university",
+    },
+
+    {
+      icon: <PythonIcon css={tw`text-yellow-500 w-20 h-20`} />,
+      title: "Python",
+      description: "Skilled at python. worked with numpy, pandas and Django",
+    },
+    {
+      icon: <MicrosoftAzureDevopsIcon css={tw`text-blue-400 w-20 h-20`} />,
+      title: "AzureDevOps",
+      description:
+        "Familiar with Microsoft AzureDevOps ecosystem; like azure-pipelines, feeds, board etc",
+    },
+
+    {
+      icon: <BashIcon css={tw`text-orange-500 w-20 h-20`} />,
+      title: "Bash",
+      description:
+        "Proficient in bash shell scripting for automating repeatable daily stuffs",
+    },
+    {
+      icon: <DotNetIcon css={tw`text-purple-500 w-20 h-20`} />,
+      title: "ASP.NET",
+      description:
+        "Skilled at ASP.Net framework and Core. Worked with MVVM architecture, Razor views, build web APIs etc",
+    },
+    {
+      icon: <AndroidIcon css={tw`text-green-500 w-20 h-20`} />,
+      title: "Android",
+      description:
+        "Having some experience in Android. worked with Google Map view, retrofit, Telephonary",
     },
     {
       icon: <NestJsIcon css={tw`text-red-600 w-20 h-20`} />,
