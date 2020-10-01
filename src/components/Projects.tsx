@@ -67,7 +67,7 @@ export function Projects() {
           <div css={tw`text-primary-500`}>Tech Stack:</div>
           <div>
             {[
-              { name: "React (fully functional components)", emoji: "⚛" },
+              { name: "React (fully functional components ⚓)", emoji: "⚛" },
               { name: "Next.js" },
               { name: "Lerna", emoji: "🐍" },
               { name: "Yarn", emoji: "🐈" },
@@ -112,7 +112,7 @@ export function Projects() {
           <div css={tw`text-primary-500`}>Tech Stack:</div>
           <div>
             {[
-              { name: "React (fully functional components)", emoji: "⚛" },
+              { name: "React (fully functional components ⚓)", emoji: "⚛" },
               { name: "Lerna", emoji: "🐍" },
               { name: "Yarn", emoji: "🐈" },
               { name: "TypeScript" },
@@ -148,6 +148,7 @@ export function Projects() {
           <div>
             {[
               { name: "React (class components)", emoji: "⚛" },
+              { name: "Redux" },
               { name: "TypeScript" },
               { name: "JavaScript" },
               { name: "Material-UI" },
@@ -174,7 +175,7 @@ export function Projects() {
       description: (
         <>
           Computer Architecture course project. I simulated Mano computer in
-          <TechChip name={"Proteus 8"} />
+          <TechChip name={"Proteus 8"} emoji={"💥"} />
         </>
       ),
       meta: (
@@ -224,7 +225,7 @@ export function Projects() {
           <HeadingTitle>Projects</HeadingTitle>
           <HeadingDescription>
             Here are some of the my close and open source projects
-            <Link href={"/projects"}>See full list</Link>
+            {/*<Link href={"/projects"}>See full list</Link>*/}
           </HeadingDescription>
         </HeadingInfoContainer>
 
