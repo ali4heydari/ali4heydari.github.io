@@ -37,7 +37,7 @@ export function Skills({ subheading, description }: SkillsProps) {
       icon: <GraphqlIcon css={tw`w-20 h-20 text-pink-500`} />,
       title: "GraphQL",
       description:
-        "Experience with Apollo GraphQL client v2 & v3 and Graphene library in Django",
+        "Experience with Apollo GraphQL client v2 & v3, graphql-code-gen and Graphene library in Django",
     },
     {
       icon: <TypeScriptIcon css={tw`w-20 h-20 text-blue-500`} />,
@@ -59,7 +59,7 @@ export function Skills({ subheading, description }: SkillsProps) {
     {
       icon: <GatsbyIcon css={tw`text-purple-700 w-20 h-20`} />,
       title: "Gatsby",
-      description: "Skilled at Gatsby. Familiar with popular Gatsby plugins.",
+      description: "Skilled at Gatsby. Familiar with popular Gatsby plugins",
     },
 
     {
@@ -88,7 +88,7 @@ export function Skills({ subheading, description }: SkillsProps) {
       icon: <GitIcon css={tw`w-20 h-20 text-red-500`} />,
       title: "Git",
       description:
-        "Solid experience with basic Git command and familiar with advanced commands like squash, pick, rebase, bisect etc",
+        "Solid experience with basic Git command and familiar with advanced commands like squash, pick, rebase, bisect etc.",
     },
     {
       icon: (
@@ -100,7 +100,7 @@ export function Skills({ subheading, description }: SkillsProps) {
       ),
       title: "LaTeX",
       description:
-        "Solid skill in LaTeX. Solid experience in creating reusable LaTeX template for programming assignments with code snipped, charts, graphs etc",
+        "Solid skill in LaTeX. Solid experience in creating reusable LaTeX template for programming assignments with code snipped, charts, graphs etc.",
     },
     {
       icon: <CsharpIcon css={tw`w-20 h-20`} />,
