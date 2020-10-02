@@ -23,6 +23,7 @@ import AndroidIcon from "mdi-react/AndroidIcon";
 import NestJsIcon from "../images/svg/nestjs.svg";
 import CypressIcon from "../images/svg/cypress.svg";
 import PostgreSqlIcon from "../images/svg/postgresql.svg";
+import NextJsIcon from "../images/svg/next-js.svg";
 import { SkillCard } from "./SkillCard";
 
 interface SkillsProps {
@@ -120,7 +121,12 @@ export function Skills({ subheading, description }: SkillsProps) {
       description:
         "Familiar with Microsoft AzureDevOps ecosystem; like azure-pipelines, feeds, board etc",
     },
-
+    {
+      icon: <NextJsIcon css={tw`w-20 h-20`} />,
+      title: "Next.js",
+      description:
+        "Experienced in development PWA using Next.js. Familiar with popular Next plugins",
+    },
     {
       icon: <BashIcon css={tw`text-orange-500 w-20 h-20`} />,
       title: "Bash",
