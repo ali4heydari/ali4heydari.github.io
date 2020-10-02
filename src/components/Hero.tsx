@@ -16,7 +16,7 @@ import {
 import { SectionDescription } from "./misc/Typography";
 import { PrimaryButton as PrimaryButtonBase } from "../components/misc/Buttons";
 import { Container, ContentWithVerticalPadding } from "./misc/Layouts";
-import { Header } from "../components/Header";
+import { Header } from "./Header";
 import GatsbyImage from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
 import { SocialMedias } from "./SocialMedias";
@@ -87,7 +87,7 @@ export function Hero({ imageDecoratorBlob = true, buttonRounded = true }) {
               </Typist>
               <Description>
                 {
-                  "A frontend developer who loves learning new things, cats, travel, photography"
+                  "A frontend developer who loves cats, travel, photography and learning new things"
                 }
               </Description>
               <PrimaryButton
