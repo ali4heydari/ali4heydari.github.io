@@ -8,6 +8,8 @@ import { Footer } from "./Footer";
 import "./Layout.css";
 import { Seo } from "./Seo";
 import SiteConfigs from "../../SiteConfigs";
+import { Header } from "./Header";
+import tw from "twin.macro";
 
 export const Layout = ({ children, showHeader = true }) => {
   const data = useStaticQuery(graphql`
@@ -23,6 +25,7 @@ export const Layout = ({ children, showHeader = true }) => {
   return (
     <I18nextProvider i18n={i18n}>
       <Theme>
+        <Header />
         <main>{children}</main>
         <Footer />
       </Theme>

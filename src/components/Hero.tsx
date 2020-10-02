@@ -76,7 +76,6 @@ export function Hero({ imageDecoratorBlob = true, buttonRounded = true }) {
 
   return (
     <>
-      <Header css={tw`max-w-none`} />
       <Container id={"about"}>
         <ContentWithVerticalPadding>
           <Row>
