@@ -10,6 +10,13 @@ module.exports = {
     author: "@ali4heydari",
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-175317962-1",
+        head: true,
+      },
+    },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
     "gatsby-transformer-sharp",
