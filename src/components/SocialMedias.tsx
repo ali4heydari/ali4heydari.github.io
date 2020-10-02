@@ -17,47 +17,56 @@ export function SocialMedias({ isGray }: { isGray?: boolean }) {
     {
       id: SiteConfigs.CONTACT_EMAIL,
       link: `mailto:`,
+      name: "email",
       icon: EmailIcon,
     },
     {
       id: SiteConfigs.CONTACT_PHONE,
+      name: "telephone",
       link: `tel:`,
       icon: PhoneIcon,
     },
     {
       id: SiteConfigs.FACEBOOK_ID,
       link: `https://facebook.com/`,
+      name: "facebook",
       icon: FacebookIcon,
     },
     {
       id: SiteConfigs.TWITTER_ID,
       link: `https://twitter.com/`,
+      name: "twitter",
       icon: TwitterIcon,
     },
     {
       id: SiteConfigs.INSTAGRAM_ID,
       link: `https://instagram.com/`,
+      name: "instagram",
       icon: InstagramIcon,
     },
     {
       id: SiteConfigs.LINKEDIN_ID,
       link: `https://linkedin.com/in/`,
+      name: "linkedin",
       icon: LinkedinIcon,
     },
     {
       id: SiteConfigs.GITHUB_ID,
       link: `https://github.com/`,
+      name: "github",
       icon: GithubIcon,
     },
     {
       id: SiteConfigs.GITLAB_ID,
       link: `https://gitlab.com/`,
       icon: GitlabIcon,
+      name: "gitlab",
     },
     {
       id: SiteConfigs.STACK_OVER_FLOW_ID,
       link: `https://stackoverflow.com/users/`,
       icon: StackOverflowIcon,
+      name: "stackoverflow",
     },
   ]
     .filter((socialMedia) => socialMedia.id !== "")
@@ -81,6 +90,7 @@ export function SocialMedias({ isGray }: { isGray?: boolean }) {
                 : tw`text-primary-100 hover:text-primary-500 `,
             ]}
             href={media.link}
+            aria-label={`link to authors'${media.name} account`}
           >
             <Icon />
           </OutboundLink>
