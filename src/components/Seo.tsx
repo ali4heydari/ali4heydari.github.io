@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import { Languages, StringKeys } from "../utils/enums";
 
 export function Seo({ description = "", lang = "en", meta = [], title }) {
-  const { site } = useStaticQuery(
+  const { site, file } = useStaticQuery(
     graphql`
       query {
         site {
@@ -14,9 +14,19 @@ export function Seo({ description = "", lang = "en", meta = [], title }) {
             description
           }
         }
+
+        file(relativePath: { eq: "profile.jpg" }) {
+          childImageSharp {
+            fixed(width: 500, height: 500) {
+              src
+            }
+          }
+        }
       }
     `
   );
+
+  console.log("file", file);
   const { i18n, t } = useTranslation();
   const metaDescription = description || site.siteMetadata.description;
 
@@ -47,6 +57,10 @@ export function Seo({ description = "", lang = "en", meta = [], title }) {
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          property: `og:image`,
+          content: file.childImageSharp.fixed.src,
         },
         {
           name: `twitter:card`,
