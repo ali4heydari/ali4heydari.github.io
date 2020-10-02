@@ -243,11 +243,11 @@ export function Projects() {
             <Card key={imageNode.base} reversed={index % 2 === 1}>
               <GatsbyImage
                 fluid={imageNode.childImageSharp.fluid}
-                css={tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 w-auto flex-shrink-0 h-full md:h-144 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`}
+                css={tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 w-auto flex-shrink-0 h-144 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`}
                 alt={imageNode.base}
-                imgStyle={{
-                  width: "auto",
-                }}
+                // imgStyle={{
+                //   width: "auto",
+                // }}
               />
               <Details>
                 <Subtitle>{cards[imageNode.base].subtitle}</Subtitle>
