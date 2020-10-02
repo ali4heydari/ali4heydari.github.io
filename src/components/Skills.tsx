@@ -24,7 +24,10 @@ import NestJsIcon from "../images/svg/nestjs.svg";
 import CypressIcon from "../images/svg/cypress.svg";
 import PostgreSqlIcon from "../images/svg/postgresql.svg";
 import NextJsIcon from "../images/svg/next-js.svg";
+import ReduxIcon from "../images/svg/redux.svg";
 import { SkillCard } from "./SkillCard";
+import GatsbyImage from "gatsby-image";
+import { graphql, useStaticQuery } from "gatsby";
 
 interface SkillsProps {
   subheading?: string;
@@ -32,6 +35,18 @@ interface SkillsProps {
 }
 
 export function Skills({ subheading, description }: SkillsProps) {
+  const { file } = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "proteus-logo.png" }) {
+        childImageSharp {
+          fluid(maxHeight: 100, maxWidth: 100) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `);
+
   const cards = [
     {
       icon: <GraphqlIcon css={tw`w-20 h-20 text-pink-500`} />,
@@ -160,6 +175,19 @@ export function Skills({ subheading, description }: SkillsProps) {
       title: "PostgreSQL",
       description: "Familiar with Standard Query Language and Postgre",
     },
+    // {
+    //   icon: <ReduxIcon css={tw`text-purple-200 w-20 h-20`} />,
+    //   title: "Redux",
+    //   description:
+    //     "Skilled at react-redux. with both class component and hooks",
+    // },
+    // {
+    //   icon: (
+    //     <GatsbyImage fluid={file.childImageSharp.fluid} style={tw`w-20 h-20`} />
+    //   ),
+    //   title: "Proteus 8",
+    //   description: "Experienced in proteus 8",
+    // },
   ];
 
   return (
