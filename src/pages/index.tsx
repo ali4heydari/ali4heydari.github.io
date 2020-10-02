@@ -3,7 +3,6 @@ import { Layout } from "../components/Layout";
 import { AnimationRevealPage } from "../components/AnimationRevealPage";
 import { Hero, Skills, ContactMe, Projects } from "../components";
 import { Seo } from "../components/Seo";
-import tw from "twin.macro";
 import { TimeLine } from "../components/TimeLine";
 
 export default function Home() {

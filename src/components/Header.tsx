@@ -109,53 +109,59 @@ export function Header({
   );
 
   return (
-    <HeaderBase css={tw`max-w-none`}>
-      <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
-        {logoLink}
-        {navElements}
-      </DesktopNavLinks>
+    <div css={tw`font-display text-secondary-500 p-8`}>
+      <HeaderBase css={tw`max-w-none`}>
+        <DesktopNavLinks css={collapseBreakpointCss.desktopNavLinks}>
+          {logoLink}
+          {navElements}
+        </DesktopNavLinks>
 
-      <MobileNavLinksContainer
-        css={collapseBreakpointCss.mobileNavLinksContainer}
-      >
-        {logoLink}
-        <MobileNavLinks
-          initial={{ x: "150%", display: "none" }}
-          animate={animation}
-          css={collapseBreakpointCss.mobileNavLinks}
+        <MobileNavLinksContainer
+          css={collapseBreakpointCss.mobileNavLinksContainer}
         >
-          <NavLinks key={1}>
-            {links.map((link) => (
-              <NavLink onClick={toggleNavbar} key={link.text} href={link.href}>
-                {link.text}
-              </NavLink>
-            ))}
-          </NavLinks>
-          <NavLinks key={2}>
-            {/*<NavLink href="/#" css={tw`lg:ml-12!`}>*/}
-            {/*  Login*/}
-            {/*</NavLink>*/}
-            <PrimaryLink
-              onClick={toggleNavbar}
-              css={roundedHeaderButton ? tw`rounded-full` : undefined}
-              href="/#contact-me"
-            >
-              Hire me
-            </PrimaryLink>
-          </NavLinks>
-        </MobileNavLinks>
-        <NavToggle
-          onClick={toggleNavbar}
-          className={showNavLinks ? "open" : "closed"}
-        >
-          {showNavLinks ? (
-            <CloseIcon tw="w-6 h-6" />
-          ) : (
-            <MenuIcon tw="w-6 h-6" />
-          )}
-        </NavToggle>
-      </MobileNavLinksContainer>
-    </HeaderBase>
+          {logoLink}
+          <MobileNavLinks
+            initial={{ x: "150%", display: "none" }}
+            animate={animation}
+            css={collapseBreakpointCss.mobileNavLinks}
+          >
+            <NavLinks key={1}>
+              {links.map((link) => (
+                <NavLink
+                  onClick={toggleNavbar}
+                  key={link.text}
+                  href={link.href}
+                >
+                  {link.text}
+                </NavLink>
+              ))}
+            </NavLinks>
+            <NavLinks key={2}>
+              {/*<NavLink href="/#" css={tw`lg:ml-12!`}>*/}
+              {/*  Login*/}
+              {/*</NavLink>*/}
+              <PrimaryLink
+                onClick={toggleNavbar}
+                css={roundedHeaderButton ? tw`rounded-full` : undefined}
+                href="/#contact-me"
+              >
+                Hire me
+              </PrimaryLink>
+            </NavLinks>
+          </MobileNavLinks>
+          <NavToggle
+            onClick={toggleNavbar}
+            className={showNavLinks ? "open" : "closed"}
+          >
+            {showNavLinks ? (
+              <CloseIcon tw="w-6 h-6" />
+            ) : (
+              <MenuIcon tw="w-6 h-6" />
+            )}
+          </NavToggle>
+        </MobileNavLinksContainer>
+      </HeaderBase>
+    </div>
   );
 }
 
