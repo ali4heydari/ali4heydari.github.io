@@ -21,6 +21,7 @@ import GitlabIcon from "mdi-react/GitlabIcon";
 import JavaIcon from "mdi-react/LanguageJavaIcon";
 import AndroidIcon from "mdi-react/AndroidIcon";
 import NestJsIcon from "../images/svg/nestjs.svg";
+import CypressIcon from "../images/svg/cypress.svg";
 import PostgreSqlIcon from "../images/svg/postgresql.svg";
 import { SkillCard } from "./SkillCard";
 
@@ -35,41 +36,24 @@ export function Skills({ subheading, description }: SkillsProps) {
       icon: <GraphqlIcon css={tw`w-20 h-20 text-pink-500`} />,
       title: "GraphQL",
       description:
-        "Experience with Apollo GraphQL client v2 & v3 and Graphine library in Django",
+        "Experience with Apollo GraphQL client v2 & v3 and Graphene library in Django",
     },
     {
       icon: <TypeScriptIcon css={tw`w-20 h-20 text-blue-500`} />,
       title: "TypeScript",
       description:
-        "Strong TypeScript skills. Generic and functional coding in that",
+        "Solid TypeScript skills (Object oriented and functional). Familiar with utility types for type transformations",
     },
     {
       icon: <JavascriptIcon css={tw`w-20 h-20 text-yellow-500`} />,
       title: "JavaScript",
       description:
-        "Skilled at EcmaScript6. Knowledge about Promises, spread, Map etc",
+        "Skilled at ES5+. Knowledge about Promises, spread, Map etc.",
     },
     {
       icon: <ReactIcon css={tw`w-20 h-20 text-blue-400`} />,
       title: "React",
-      description: "Skilled at React.js, functional components & hooks",
-    },
-
-    {
-      icon: <JavaIcon css={tw`text-orange-500 w-20 h-20`} />,
-      title: "Java",
-      description:
-        "Skilled at Java 8. Familiar with maven, gradle and Having experience in JavaFX",
-    },
-    {
-      icon: <DockerIcon css={tw`w-20 h-20 text-blue-600`} />,
-      title: "Docker",
-      description: "Basic containerization (docker & docker-compose) knowledge",
-    },
-    {
-      icon: <TailwindIcon css={tw`text-teal-400 w-20 h-20`} />,
-      title: "Tailwind CSS",
-      description: "Skilled at tailwind. working beside styled-components",
+      description: "Skilled at React.js, functional components & hooks ⚓",
     },
     {
       icon: <GatsbyIcon css={tw`text-purple-700 w-20 h-20`} />,
@@ -83,10 +67,27 @@ export function Skills({ subheading, description }: SkillsProps) {
       description: "Familiar with GitLab CI/CD and private registries",
     },
     {
+      icon: <TailwindIcon css={tw`text-teal-400 w-20 h-20`} />,
+      title: "Tailwind CSS",
+      description:
+        "Skilled at Tailwind CSS. working beside styled-components 💅🏻",
+    },
+    {
+      icon: <JavaIcon css={tw`text-orange-500 w-20 h-20`} />,
+      title: "Java",
+      description:
+        "Skilled at Java 8. Familiar with maven, gradle and experienced in JavaFX",
+    },
+    {
+      icon: <DockerIcon css={tw`w-20 h-20 text-blue-600`} />,
+      title: "Docker",
+      description: "Basic containerization (docker & docker-compose) knowledge",
+    },
+    {
       icon: <GitIcon css={tw`w-20 h-20 text-red-500`} />,
       title: "Git",
       description:
-        "Strong experience with basic Git command and familiar with advanced commands like squash, pick, rebase, bisec etc",
+        "Solid experience with basic Git command and familiar with advanced commands like squash, pick, rebase, bisect etc",
     },
     {
       icon: (
@@ -98,19 +99,20 @@ export function Skills({ subheading, description }: SkillsProps) {
       ),
       title: "LaTeX",
       description:
-        "Strong skill in LaTeX. Having strong experience in creating reusable LaTeX template for programming assignments with code snipped, charts, graphs etc",
+        "Solid skill in LaTeX. Solid experience in creating reusable LaTeX template for programming assignments with code snipped, charts, graphs etc",
     },
     {
       icon: <CsharpIcon css={tw`w-20 h-20`} />,
       title: "C#",
       description:
-        "Strong C# skills. Having experience in creating class library, console application and WPF. Design and implement programming assignment in university",
+        "Solid C# skills. Having experience in creating class library, console application and WPF. Design and implement programming assignment in university",
     },
 
     {
       icon: <PythonIcon css={tw`text-yellow-500 w-20 h-20`} />,
       title: "Python",
-      description: "Skilled at python. worked with numpy, pandas and Django",
+      description:
+        "Skilled at python. had worked with Django, numpy, pandas, beautiful soup",
     },
     {
       icon: <MicrosoftAzureDevopsIcon css={tw`text-blue-400 w-20 h-20`} />,
@@ -137,15 +139,20 @@ export function Skills({ subheading, description }: SkillsProps) {
       description:
         "Having some experience in Android. worked with Google Map view, retrofit, Telephonary",
     },
-    // {
-    //   icon: <NestJsIcon css={tw`text-red-600 w-20 h-20`} />,
-    //   title: "Nest.js",
-    //   description: "Familiar with Nest.js framework",
-    // },
+    {
+      icon: <CypressIcon css={tw`text-gray-600 w-20 h-20`} />,
+      title: "Cypress",
+      description: "Familiar with Cypress. mocking APIs and E2E testing",
+    },
+    {
+      icon: <NestJsIcon css={tw`text-red-600 w-20 h-20`} />,
+      title: "Nest.js",
+      description: "Familiar with Nest.js framework",
+    },
     {
       icon: <PostgreSqlIcon css={tw`text-blue-400 w-20 h-20`} />,
-      title: "PosgreSQL",
-      description: "Familiar with SQL and Postgre",
+      title: "PostgreSQL",
+      description: "Familiar with Standard Query Language and Postgre",
     },
   ];
 
