@@ -16,11 +16,11 @@ import {
 import { SectionDescription } from "./misc/Typography";
 import { PrimaryButton as PrimaryButtonBase } from "../components/misc/Buttons";
 import { Container, ContentWithVerticalPadding } from "./misc/Layouts";
-import { Header } from "./Header";
 import GatsbyImage from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
 import { SocialMedias } from "./SocialMedias";
 import Typist from "react-typist";
+import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 
 const Row = tw.div`flex flex-col lg:flex-row justify-between items-center lg:pt-16 max-w-screen-2xl mx-auto sm:px-8`;
 const Column = tw.div``;
@@ -96,6 +96,14 @@ export function Hero({ imageDecoratorBlob = true, buttonRounded = true }) {
                   "https://github.com/ali4heydari/CV/releases/download/v2.0-alpha/cv.pdf"
                 }
                 css={buttonRoundedCss}
+                onClick={(event) => {
+                  event.preventDefault();
+                  trackCustomEvent({
+                    category: "Download",
+                    action: "Click",
+                    label: "Resume",
+                  });
+                }}
               >
                 {"Download resume"}
               </PrimaryButton>

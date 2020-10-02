@@ -14,6 +14,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { TechChip } from "./misc/Chips";
 import { HighlightedText } from "./misc/Typography";
 import GithubIcon from "mdi-react/GithubIcon";
+import { trackCustomEvent } from "gatsby-plugin-google-analytics";
 
 const Container = tw.div`relative`;
 
@@ -92,7 +93,17 @@ export function Projects() {
         </>
       ),
       meta: (
-        <Link href="https://ali4heydari.github.io/upmed#screenshots">
+        <Link
+          href="https://ali4heydari.github.io/upmed#screenshots"
+          onClick={(event) => {
+            event.preventDefault();
+            trackCustomEvent({
+              category: "Link",
+              action: "Click",
+              label: "see upmed screenshots",
+            });
+          }}
+        >
           See screen shots
         </Link>
       ),
@@ -144,7 +155,21 @@ export function Projects() {
           </div>
         </>
       ),
-      meta: <Link href="https://dormify.ir">Live demo</Link>,
+      meta: (
+        <Link
+          href="https://dormify.ir"
+          onClick={(event) => {
+            event.preventDefault();
+            trackCustomEvent({
+              category: "Link",
+              action: "Click",
+              label: "see Dormify live demo",
+            });
+          }}
+        >
+          Live demo
+        </Link>
+      ),
     },
     "3-software-development.jpg": {
       subtitle: "Open source",
@@ -172,7 +197,17 @@ export function Projects() {
         </>
       ),
       meta: (
-        <Link href="https://github.com/ali4heydari/sportify-frontend">
+        <Link
+          href="https://github.com/ali4heydari/sportify-frontend"
+          onClick={(event) => {
+            event.preventDefault();
+            trackCustomEvent({
+              category: "Link",
+              action: "Click",
+              label: "see sportify repo",
+            });
+          }}
+        >
           <GithubIcon css={tw`text-primary-500 w-10 h-10`} />
           GitHub Source
         </Link>
@@ -188,7 +223,17 @@ export function Projects() {
         </>
       ),
       meta: (
-        <Link href="https://github.com/ali4heydari/ManoComputer">
+        <Link
+          href="https://github.com/ali4heydari/ManoComputer"
+          onClick={(event) => {
+            event.preventDefault();
+            trackCustomEvent({
+              category: "Link",
+              action: "Click",
+              label: "see mono computer repo",
+            });
+          }}
+        >
           <GithubIcon css={tw`text-primary-500 w-10 h-10`} />
           GitHub Source
         </Link>
