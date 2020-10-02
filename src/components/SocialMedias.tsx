@@ -10,7 +10,7 @@ import EmailIcon from "mdi-react/EmailIcon";
 import PhoneIcon from "mdi-react/PhoneIcon";
 import StackOverflowIcon from "mdi-react/StackOverflowIcon";
 import SiteConfigs from "../../SiteConfigs";
-import { trackCustomEvent } from "gatsby-plugin-google-analytics";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 export function SocialMedias({ isGray }: { isGray?: boolean }) {
   const socialMedias = [
@@ -72,7 +72,7 @@ export function SocialMedias({ isGray }: { isGray?: boolean }) {
         const Icon = tw(media.icon)`w-5 h-5`;
 
         return (
-          <a
+          <OutboundLink
             key={media.link}
             css={[
               tw`cursor-pointer inline-block transition duration-300 mx-4`,
@@ -81,17 +81,9 @@ export function SocialMedias({ isGray }: { isGray?: boolean }) {
                 : tw`text-primary-100 hover:text-primary-500 `,
             ]}
             href={media.link}
-            onClick={(event) => {
-              event.preventDefault();
-              trackCustomEvent({
-                category: "Link",
-                action: "Click",
-                label: `go to ${media.link}`,
-              });
-            }}
           >
             <Icon />
-          </a>
+          </OutboundLink>
         );
       })}
     </div>
