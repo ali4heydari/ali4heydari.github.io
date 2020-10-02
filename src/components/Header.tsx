@@ -124,7 +124,25 @@ export function Header({
           animate={animation}
           css={collapseBreakpointCss.mobileNavLinks}
         >
-          {navElements}
+          <NavLinks key={1}>
+            {links.map((link) => (
+              <NavLink onClick={toggleNavbar} key={link.text} href={link.href}>
+                {link.text}
+              </NavLink>
+            ))}
+          </NavLinks>
+          <NavLinks key={2}>
+            {/*<NavLink href="/#" css={tw`lg:ml-12!`}>*/}
+            {/*  Login*/}
+            {/*</NavLink>*/}
+            <PrimaryLink
+              onClick={toggleNavbar}
+              css={roundedHeaderButton ? tw`rounded-full` : undefined}
+              href="/#contact-me"
+            >
+              Hire me
+            </PrimaryLink>
+          </NavLinks>
         </MobileNavLinks>
         <NavToggle
           onClick={toggleNavbar}
