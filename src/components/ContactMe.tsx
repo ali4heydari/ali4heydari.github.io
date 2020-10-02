@@ -5,7 +5,7 @@ import { SectionHeading, Subheading as SubheadingBase } from "./misc/Headings";
 import { PrimaryButton as PrimaryButtonBase } from "./misc/Buttons";
 import EmailIllustrationSrc from "../images/svg/email-illustration.svg";
 import SiteConfigs from "../../SiteConfigs";
-import { trackCustomEvent } from "gatsby-plugin-google-analytics";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 const Container = tw.div`relative`;
 const TwoColumn = tw.div`flex flex-col md:flex-row justify-between max-w-screen-xl mx-auto py-20 md:py-24`;
@@ -83,20 +83,12 @@ export function ContactMe({
                 name="message"
                 placeholder="Your Message Here"
               />
-              <a
+              <OutboundLink
                 href={`mailto:${SiteConfigs.CONTACT_EMAIL}?subject=Site Feedback | ${formValues.subject}&body=${formValues.message}`}
                 css={tw`text-center inline-block mt-8 px-8 py-3 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 hocus:shadow-outline hocus:outline-none transition duration-300`}
-                onClick={(event) => {
-                  event.preventDefault();
-                  trackCustomEvent({
-                    category: "Link",
-                    action: "Click",
-                    label: "send email button",
-                  });
-                }}
               >
                 {submitButtonText}
-              </a>
+              </OutboundLink>
             </Form>
           </TextContent>
         </TextColumn>

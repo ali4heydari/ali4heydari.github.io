@@ -20,7 +20,7 @@ import GatsbyImage from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
 import { SocialMedias } from "./SocialMedias";
 import Typist from "react-typist";
-import { trackCustomEvent } from "gatsby-plugin-google-analytics";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 const Row = tw.div`flex flex-col lg:flex-row justify-between items-center lg:pt-16 max-w-screen-2xl mx-auto sm:px-8`;
 const Column = tw.div``;
@@ -89,24 +89,18 @@ export function Hero({ imageDecoratorBlob = true, buttonRounded = true }) {
                   "A frontend developer who loves cats, travel, photography and learning new things"
                 }
               </Description>
-              <PrimaryButton
-                as="a"
-                // @ts-ignore
+              <OutboundLink
                 href={
                   "https://github.com/ali4heydari/CV/releases/download/v2.0-alpha/cv.pdf"
                 }
-                css={buttonRoundedCss}
-                onClick={(event) => {
-                  event.preventDefault();
-                  trackCustomEvent({
-                    category: "Download",
-                    action: "Click",
-                    label: "Resume",
-                  });
-                }}
+                css={[
+                  tw`px-8 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300`,
+                  tw`mt-8 inline-block w-56 tracking-wide text-center py-5`,
+                  buttonRoundedCss,
+                ]}
               >
                 {"Download resume"}
-              </PrimaryButton>
+              </OutboundLink>
               {/*<FeatureList>*/}
               {/*  {[*/}
               {/*    "Computer engineering student",*/}
