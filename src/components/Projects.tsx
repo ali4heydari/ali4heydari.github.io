@@ -149,7 +149,7 @@ export function Projects() {
       ),
       meta: <Link href="https://dormify.ir">Live demo</Link>,
     },
-    "3-software-development.jpg": {
+    "3-sportify.png": {
       subtitle: "Open source",
       title: "Sportify",
       description: (
@@ -162,7 +162,6 @@ export function Projects() {
               { name: "Redux" },
               { name: "TypeScript" },
               { name: "JavaScript" },
-              { name: "Material-UI" },
               { name: "Ant Design", emoji: "🐜" },
               { name: "CSS-in-JS" },
               { name: "CSS modules" },
@@ -232,7 +231,7 @@ export function Projects() {
             in: [
               "projects/1-sina-heart.png"
               "projects/2-software-development.jpg"
-              "projects/3-software-development.jpg"
+              "projects/3-sportify.png"
               "projects/4-mano-computer.png"
               "projects/5-quine-mc-cluskey.png"
             ]
