@@ -11,7 +11,7 @@ import {
 } from "./misc/Headings";
 import GatsbyImage from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
-import { TechChip } from "./misc/Chips";
+import { Chip } from "./misc/Chips";
 import { HighlightedText } from "./misc/Typography";
 import GithubIcon from "mdi-react/GithubIcon";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
@@ -89,7 +89,7 @@ export function Projects() {
               { name: "GitLab CI", emoji: "🦊" },
               { name: "PostgreSQL", emoji: "🐘" },
             ].map((tech) => (
-              <TechChip key={tech.name} name={tech.name} emoji={tech.emoji} />
+              <Chip key={tech.name} name={tech.name} emoji={tech.emoji} />
             ))}
           </div>
         </>
@@ -142,7 +142,7 @@ export function Projects() {
               { name: "PostgreSQL", emoji: "🐘" },
               { name: "Azure feeds" },
             ].map((tech) => (
-              <TechChip key={tech.name} name={tech.name} emoji={tech.emoji} />
+              <Chip key={tech.name} name={tech.name} emoji={tech.emoji} />
             ))}
           </div>
         </>
@@ -168,7 +168,7 @@ export function Projects() {
               { name: "SQLite" },
               { name: "Django REST API" },
             ].map((tech) => (
-              <TechChip key={tech.name} name={tech.name} emoji={tech.emoji} />
+              <Chip key={tech.name} name={tech.name} emoji={tech.emoji} />
             ))}
           </div>
         </>
@@ -186,7 +186,7 @@ export function Projects() {
       description: (
         <>
           Computer Architecture course project. I simulated Mano computer in
-          <TechChip name={"Proteus 8"} emoji={"💥"} />
+          <Chip name={"Proteus 8"} emoji={"💥"} />
         </>
       ),
       meta: (
@@ -209,7 +209,7 @@ export function Projects() {
           </div>
           <div>
             {[{ name: "WPF", emoji: "🪟" }, { name: "C#" }].map((tech) => (
-              <TechChip key={tech.name} name={tech.name} emoji={tech.emoji} />
+              <Chip key={tech.name} name={tech.name} emoji={tech.emoji} />
             ))}
           </div>
         </>
