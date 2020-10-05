@@ -74,12 +74,6 @@ export function Skills({ subheading, description }: SkillsProps) {
 
   const cards = [
     {
-      icon: <GraphqlIcon css={tw`w-20 h-20 text-pink-500`} />,
-      title: "GraphQL",
-      description:
-        "Experience with Apollo GraphQL client v2 & v3, graphql-code-gen and Graphene library in Django",
-    },
-    {
       icon: <TypeScriptIcon css={tw`w-20 h-20 text-blue-500`} />,
       title: "TypeScript",
       description: (
@@ -106,6 +100,80 @@ export function Skills({ subheading, description }: SkillsProps) {
           />
         </>
       ),
+    },
+    {
+      icon: (
+        <div css={tw`w-20 h-20 flex items-center justify-center font-bold`}>
+          <span>
+            L<sup>A</sup>T<sub>E</sub>X
+          </span>
+        </div>
+      ),
+      title: "LaTeX",
+      description: (
+        <>
+          Solid skill in LaTeX. Solid experience in creating reusable LaTeX
+          template for programming assignments with code snipped, charts, graphs
+          etc.
+          <ChipContainer
+            projects={[
+              {
+                name: "DiscreteMathematics Assignments",
+                href: "https://github.com/ali4heydari/DiscreteMathematicsLaTeX",
+                emoji: "➕",
+              },
+              {
+                name: "University Homeworks",
+                href: "https://github.com/ali4heydari/Spring2019UniHWsPDF",
+                emoji: "📚",
+              },
+              {
+                name: "CV",
+                href: "https://github.com/ali4heydari/CV",
+                emoji: "📃",
+              },
+            ]}
+          />
+        </>
+      ),
+    },
+    {
+      icon: <CsharpIcon css={tw`w-20 h-20`} />,
+      title: "C#",
+      description: (
+        <>
+          Solid C# skills. Having experience in creating class library, console
+          application and WPF. Design and implement programming assignment in
+          university etc.
+          <ChipContainer
+            projects={[
+              {
+                name: "Telegram2VCF",
+                href: "https://github.com/ali4heydari/Telegram2VCF",
+                emoji: "📩",
+              },
+              {
+                name: "TelegramChatParser",
+                href: "https://github.com/ali4heydari/TelegramChatParser",
+              },
+              {
+                name: "QuineMcCluskey",
+                href: "https://github.com/ali4heydari/QuineMcCluskey",
+              },
+              {
+                name: "Vidly",
+                href: "https://github.com/ali4heydari/Vidly",
+              },
+            ]}
+          />
+        </>
+      ),
+    },
+    {
+      icon: <GraphqlIcon css={tw`w-20 h-20 text-pink-500`} />,
+      title: "GraphQL",
+      description:
+        "Experience with Apollo GraphQL client v2 & v3, graphql-code-gen and Graphene library in Django",
     },
     {
       icon: <JavascriptIcon css={tw`w-20 h-20 text-yellow-500`} />,
@@ -181,74 +249,6 @@ export function Skills({ subheading, description }: SkillsProps) {
       title: "Git",
       description:
         "Solid experience with Git and Git-flow. familiar with advanced commands like squash, pick, rebase, bisect etc.",
-    },
-    {
-      icon: (
-        <div css={tw`w-20 h-20 flex items-center justify-center font-bold`}>
-          <span>
-            L<sup>A</sup>T<sub>E</sub>X
-          </span>
-        </div>
-      ),
-      title: "LaTeX",
-      description: (
-        <>
-          Solid skill in LaTeX. Solid experience in creating reusable LaTeX
-          template for programming assignments with code snipped, charts, graphs
-          etc.
-          <ChipContainer
-            projects={[
-              {
-                name: "DiscreteMathematics Assignments",
-                href: "https://github.com/ali4heydari/DiscreteMathematicsLaTeX",
-                emoji: "➕",
-              },
-              {
-                name: "University Homeworks",
-                href: "https://github.com/ali4heydari/Spring2019UniHWsPDF",
-                emoji: "📚",
-              },
-              {
-                name: "CV",
-                href: "https://github.com/ali4heydari/CV",
-                emoji: "📃",
-              },
-            ]}
-          />
-        </>
-      ),
-    },
-    {
-      icon: <CsharpIcon css={tw`w-20 h-20`} />,
-      title: "C#",
-      description: (
-        <>
-          Solid C# skills. Having experience in creating class library, console
-          application and WPF. Design and implement programming assignment in
-          university etc.
-          <ChipContainer
-            projects={[
-              {
-                name: "Telegram2VCF",
-                href: "https://github.com/ali4heydari/Telegram2VCF",
-                emoji: "📩",
-              },
-              {
-                name: "TelegramChatParser",
-                href: "https://github.com/ali4heydari/TelegramChatParser",
-              },
-              {
-                name: "QuineMcCluskey",
-                href: "https://github.com/ali4heydari/QuineMcCluskey",
-              },
-              {
-                name: "Vidly",
-                href: "https://github.com/ali4heydari/Vidly",
-              },
-            ]}
-          />
-        </>
-      ),
     },
 
     {
