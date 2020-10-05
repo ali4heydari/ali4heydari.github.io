@@ -24,6 +24,12 @@ export function TimeLine({ alignStart }: { alignStart?: boolean }) {
       title: "Iran University of Science and Technology",
       description: "B.S. in computer engineering",
     },
+    {
+      date: new Date(2019, 2),
+      title: "Head teacher assistant",
+      description:
+        "Head teacher assistant in Advanced programming (C#) course in IUST",
+    },
   ];
 
   const getEventCircleStyle = (index: number, length: number) => {
