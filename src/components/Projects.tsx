@@ -197,6 +197,31 @@ export function Projects() {
         </Link>
       ),
     },
+    "5-quine-mc-cluskey.png": {
+      subtitle: "Open source",
+      title: "Quine McCluskey Solver",
+      description: (
+        <>
+          Minimize boolean functions using the Quine McCluskey method desktop
+          application
+          <div css={tw`flex items-start`}>
+            <FeatureIcon css={tw`flex-shrink-0`} />
+            <FeatureText>Logic circuits course project</FeatureText>
+          </div>
+          <div>
+            {[{ name: "WPF", emoji: "🪟" }, { name: "C#" }].map((tech) => (
+              <TechChip key={tech.name} name={tech.name} emoji={tech.emoji} />
+            ))}
+          </div>
+        </>
+      ),
+      meta: (
+        <Link href="https://github.com/ali4heydari/QuineMcCluskey">
+          <GithubIcon css={tw`text-primary-500 w-10 h-10`} />
+          GitHub Source
+        </Link>
+      ),
+    },
   };
 
   const { allFile: projectImages } = useStaticQuery(graphql`
@@ -209,6 +234,7 @@ export function Projects() {
               "projects/2-software-development.jpg"
               "projects/3-software-development.jpg"
               "projects/4-mano-computer.png"
+              "projects/5-quine-mc-cluskey.png"
             ]
           }
         }
@@ -248,9 +274,6 @@ export function Projects() {
                 fluid={imageNode.childImageSharp.fluid}
                 css={tw`rounded md:w-1/2 lg:w-5/12 xl:w-1/3 w-auto flex-shrink-0 h-144 bg-cover bg-center mx-4 sm:mx-8 md:mx-4 lg:mx-8`}
                 alt={imageNode.base}
-                // imgStyle={{
-                //   width: "auto",
-                // }}
               />
               <Details>
                 <Subtitle>{cards[imageNode.base].subtitle}</Subtitle>
