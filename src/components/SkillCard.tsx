@@ -4,7 +4,7 @@ import tw from "twin.macro";
 interface SkillCardProps {
   icon: React.ReactElement | ComponentType<any>;
   title: string;
-  description: string;
+  description: React.ReactElement | string;
 }
 export function SkillCard({ title, description, icon }: SkillCardProps) {
   return (

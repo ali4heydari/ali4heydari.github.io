@@ -24,15 +24,40 @@ import NestJsIcon from "../images/svg/nestjs.svg";
 import CypressIcon from "../images/svg/cypress.svg";
 import PostgreSqlIcon from "../images/svg/postgresql.svg";
 import NextJsIcon from "../images/svg/next-js.svg";
-import ReduxIcon from "../images/svg/redux.svg";
 import { SkillCard } from "./SkillCard";
-import GatsbyImage from "gatsby-image";
 import { graphql, useStaticQuery } from "gatsby";
+import GithubIcon from "mdi-react/GithubIcon";
+import { Chip } from "./misc/Chips";
 
 interface SkillsProps {
   subheading?: string;
   description?: string;
 }
+
+const ChipContainer = ({
+  projects,
+}: {
+  projects: {
+    name: string;
+    href: string;
+    emoji?: string;
+  }[];
+}) => {
+  return (
+    <div>
+      <div css={tw`text-purple-800`}>Related open source projects:</div>
+      {projects.map(({ name, href, emoji }) => (
+        <Chip
+          key={name}
+          name={name}
+          href={href}
+          emoji={emoji}
+          twStyle={tw` text-purple-700 bg-purple-100 border-purple-300`}
+        />
+      ))}
+    </div>
+  );
+};
 
 export function Skills({ subheading, description }: SkillsProps) {
   const { file } = useStaticQuery(graphql`
@@ -57,8 +82,30 @@ export function Skills({ subheading, description }: SkillsProps) {
     {
       icon: <TypeScriptIcon css={tw`w-20 h-20 text-blue-500`} />,
       title: "TypeScript",
-      description:
-        "Solid TypeScript skills (Object oriented and functional). Familiar with utility types for type transformations",
+      description: (
+        <>
+          Solid TypeScript skills (Object oriented and functional). Familiar
+          with utility types for type transformations
+          <ChipContainer
+            projects={[
+              {
+                name: "Sportify",
+                href: "https://github.com/ali4heydari/sportify-frontend",
+                emoji: "⚽",
+              },
+              {
+                name: "Upmed",
+                href: "https://github.com/ali4heydari/upmed",
+                emoji: "🩺",
+              },
+              {
+                name: "rhf-mui",
+                href: "https://github.com/ali4heydari/rhf-mui",
+              },
+            ]}
+          />
+        </>
+      ),
     },
     {
       icon: <JavascriptIcon css={tw`w-20 h-20 text-yellow-500`} />,
@@ -74,7 +121,25 @@ export function Skills({ subheading, description }: SkillsProps) {
     {
       icon: <GatsbyIcon css={tw`text-purple-700 w-20 h-20`} />,
       title: "Gatsby",
-      description: "Skilled at Gatsby. Familiar with popular Gatsby plugins",
+      description: (
+        <>
+          Skilled at Gatsby. Familiar with popular Gatsby plugins
+          <ChipContainer
+            projects={[
+              {
+                name: "Upmed",
+                href: "https://github.com/ali4heydari/upmed",
+                emoji: "🩺",
+              },
+              {
+                name: "portfolio",
+                href: "https://github.com/ali4heydari/ali4heydari.github.io",
+                emoji: "📃",
+              },
+            ]}
+          />
+        </>
+      ),
     },
 
     {
@@ -85,8 +150,20 @@ export function Skills({ subheading, description }: SkillsProps) {
     {
       icon: <TailwindIcon css={tw`text-teal-400 w-20 h-20`} />,
       title: "Tailwind CSS",
-      description:
-        "Skilled at Tailwind CSS. working beside styled-components 💅🏻",
+      description: (
+        <>
+          Skilled at Tailwind CSS. working beside styled-components 💅🏻
+          <ChipContainer
+            projects={[
+              {
+                name: "portfolio",
+                href: "https://github.com/ali4heydari/ali4heydari.github.io",
+                emoji: "📃",
+              },
+            ]}
+          />
+        </>
+      ),
     },
     {
       icon: <JavaIcon css={tw`text-orange-500 w-20 h-20`} />,
@@ -103,7 +180,7 @@ export function Skills({ subheading, description }: SkillsProps) {
       icon: <GitIcon css={tw`w-20 h-20 text-red-500`} />,
       title: "Git",
       description:
-        "Solid experience with basic Git command and familiar with advanced commands like squash, pick, rebase, bisect etc.",
+        "Solid experience with Git and Git-flow. familiar with advanced commands like squash, pick, rebase, bisect etc.",
     },
     {
       icon: (
@@ -114,14 +191,64 @@ export function Skills({ subheading, description }: SkillsProps) {
         </div>
       ),
       title: "LaTeX",
-      description:
-        "Solid skill in LaTeX. Solid experience in creating reusable LaTeX template for programming assignments with code snipped, charts, graphs etc.",
+      description: (
+        <>
+          Solid skill in LaTeX. Solid experience in creating reusable LaTeX
+          template for programming assignments with code snipped, charts, graphs
+          etc.
+          <ChipContainer
+            projects={[
+              {
+                name: "DiscreteMathematics Assignments",
+                href: "https://github.com/ali4heydari/DiscreteMathematicsLaTeX",
+                emoji: "➕",
+              },
+              {
+                name: "University Homeworks",
+                href: "https://github.com/ali4heydari/Spring2019UniHWsPDF",
+                emoji: "📚",
+              },
+              {
+                name: "CV",
+                href: "https://github.com/ali4heydari/CV",
+                emoji: "📃",
+              },
+            ]}
+          />
+        </>
+      ),
     },
     {
       icon: <CsharpIcon css={tw`w-20 h-20`} />,
       title: "C#",
-      description:
-        "Solid C# skills. Having experience in creating class library, console application and WPF. Design and implement programming assignment in university",
+      description: (
+        <>
+          Solid C# skills. Having experience in creating class library, console
+          application and WPF. Design and implement programming assignment in
+          university etc.
+          <ChipContainer
+            projects={[
+              {
+                name: "Telegram2VCF",
+                href: "https://github.com/ali4heydari/Telegram2VCF",
+                emoji: "📩",
+              },
+              {
+                name: "TelegramChatParser",
+                href: "https://github.com/ali4heydari/TelegramChatParser",
+              },
+              {
+                name: "QuineMcCluskey",
+                href: "https://github.com/ali4heydari/QuineMcCluskey",
+              },
+              {
+                name: "Vidly",
+                href: "https://github.com/ali4heydari/Vidly",
+              },
+            ]}
+          />
+        </>
+      ),
     },
 
     {
@@ -145,8 +272,21 @@ export function Skills({ subheading, description }: SkillsProps) {
     {
       icon: <BashIcon css={tw`text-orange-500 w-20 h-20`} />,
       title: "Bash",
-      description:
-        "Proficient in bash shell scripting for automating repeatable daily stuffs",
+      description: (
+        <>
+          Proficient in bash shell scripting for automating repeatable daily
+          stuffs
+          <ChipContainer
+            projects={[
+              {
+                name: "GetFreeProxies",
+                href: "https://github.com/ali4heydari/GetFreeProxies",
+                emoji: "📩",
+              },
+            ]}
+          />
+        </>
+      ),
     },
     {
       icon: <DotNetIcon css={tw`text-purple-500 w-20 h-20`} />,
@@ -176,7 +316,7 @@ export function Skills({ subheading, description }: SkillsProps) {
       description: "Familiar with Standard Query Language and Postgre",
     },
     // {
-    //   icon: <ReduxIcon css={tw`text-purple-200 w-20 h-20`} />,
+    //   icon: <ReduxIcon css={tw`name-purple-200 w-20 h-20`} />,
     //   title: "Redux",
     //   description:
     //     "Skilled at react-redux. with both class component and hooks",
