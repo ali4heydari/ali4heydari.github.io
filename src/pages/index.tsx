@@ -12,7 +12,7 @@ export default function Home() {
       <AnimationRevealPage>
         <Hero />
         <Skills />
-        <TimeLine />
+        <TimeLine alignStart={true} />
         <Projects />
         <ContactMe />
       </AnimationRevealPage>
