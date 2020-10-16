@@ -3,6 +3,7 @@ import tw from "twin.macro";
 import { useTranslation } from "react-i18next";
 import { HighlightedText } from "./misc/Typography";
 import { SectionHeading } from "./misc/Headings";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 export function TimeLine({ alignStart }: { alignStart?: boolean }) {
   const { i18n } = useTranslation();
@@ -26,9 +27,18 @@ export function TimeLine({ alignStart }: { alignStart?: boolean }) {
     },
     {
       date: new Date(2019, 2),
-      title: "Head teacher assistant",
+      title: "Iran University of Science and Technology",
       description:
         "Head teacher assistant in Advanced programming (C#) course in IUST",
+    },
+    {
+      date: new Date(2020, 5),
+      title: (
+        <OutboundLink href="https://efarda.ir">
+          eFarda eCommerce company
+        </OutboundLink>
+      ),
+      description: "Fullstack developer",
     },
   ];
 
