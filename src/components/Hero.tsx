@@ -91,7 +91,7 @@ export function Hero({ imageDecoratorBlob = true, buttonRounded = true }) {
               </Description>
               <OutboundLink
                 href={
-                  "https://github.com/ali4heydari/CV/releases/download/v2.0-alpha/cv.pdf"
+                  "https://github.com/ali4heydari/CV/releases/download/2.1.0/CV.pdf"
                 }
                 css={[
                   tw`px-8 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300`,
