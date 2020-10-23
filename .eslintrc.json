@@ -4,25 +4,22 @@
     "plugin:@typescript-eslint/recommended",
     "plugin:prettier/recommended",
     "prettier/@typescript-eslint",
-    "airbnb",
     "prettier"
   ],
   "plugins": ["@typescript-eslint", "react", "prettier"],
   "rules": {
+    "import/no-unresolved": "off",
     "react/prefer-stateless-function": "off",
     "react/prop-types": "off",
     "react/no-danger": "off",
-    "jsx-a11y/anchor-is-valid": [
-      "error",
-      {
-        "components": ["Link"],
-        "specialLink": ["hrefLeft", "hrefRight", "to"],
-        "aspects": ["noHref", "invalidHref", "preferButton"]
-      }
-    ]
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/anchor-is-valid": "off"
   },
   "settings": {
-    "import/core-modules": []
+    "import/core-modules": [],
+    "import/resolver": {
+      "typescript": {}
+    }
   },
   "env": {
     "browser": true,

@@ -3,7 +3,7 @@ const enTranslations = require("./src/locales/en/translations.json");
 const tailwindCssConfig = require("./tailwind.config");
 
 module.exports = {
-  pathPrefix: `/`,
+  pathPrefix: "/",
   siteMetadata: {
     title: enTranslations["website_name"],
     description: enTranslations["website_description"],
@@ -11,23 +11,18 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-google-analytics`,
+      resolve: "gatsby-plugin-google-analytics",
       options: {
         trackingId: "UA-175317962-1",
         head: true,
       },
     },
     "gatsby-plugin-react-helmet",
-    "gatsby-plugin-styled-components",
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
-    "gatsby-plugin-webpack-bundle-analyser-v2",
-    "gatsby-plugin-preact",
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-filesystem",
       options: {
-        name: `images`,
-        path: `${__dirname}/static/images`,
+        name: "images",
+        path: `${__dirname}/src/assets/images`,
       },
     },
     {
@@ -39,6 +34,29 @@ module.exports = {
       },
     },
     {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "content",
+        path: `${__dirname}/src/data`,
+      },
+    },
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: [
+          {
+            resolve: "gatsby-remark-images",
+            options: {
+              maxWidth: 768,
+              linkImagesToOriginal: false,
+            },
+          },
+        ],
+      },
+    },
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: enTranslations["website_name"],
@@ -49,11 +67,19 @@ module.exports = {
         background_color: tailwindCssConfig.theme.colors.white,
         theme_color: tailwindCssConfig.theme.colors.primary["300"],
         display: `standalone`,
-        icon: `${__dirname}/static/images/logo.png`, // This path is relative to the root of the site.
+        icon: `${__dirname}/src/assets/images/logo.png`, // This path is relative to the root of the site.
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    "gatsby-plugin-offline",
+    "gatsby-plugin-styled-components",
+    "gatsby-plugin-postcss",
+    "gatsby-plugin-tailwindcss",
+    {
+      resolve: "gatsby-plugin-purgecss",
+      options: {
+        tailwind: true,
+        purgeOnly: ["src/assets/styles/global.css"],
+      },
+    },
   ],
 };

@@ -1,21 +1,19 @@
-import React from "react";
-import { Layout } from "../components/Layout";
-import { AnimationRevealPage } from "../components/AnimationRevealPage";
-import { Hero, Skills, ContactMe, Projects } from "../components";
-import { Seo } from "../components/Seo";
-import { TimeLine } from "../components/TimeLine";
+import Layout from "components/Layout";
+import SEO from "components/SEO";
+import HeroBanner from "components/HeroBanner";
+import Services from "components/Services";
+import Testimonials from "components/Testimonials";
 
-export default function Home() {
+const IndexPage: React.FC = () => {
   return (
     <Layout>
-      <Seo title={"Home"} />
-      <AnimationRevealPage>
-        <Hero />
-        <Skills />
-        <TimeLine alignStart={true} />
-        <Projects />
-        <ContactMe />
-      </AnimationRevealPage>
+      <SEO title="About Me" />
+      <HeroBanner />
+      <Services />
+      <hr />
+      <Testimonials />
     </Layout>
   );
-}
+};
+
+export default IndexPage;

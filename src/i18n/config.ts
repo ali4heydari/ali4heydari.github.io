@@ -1,7 +1,6 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import { enumToValueArray } from "../utils/functions/enum-to-value-array";
-import { Languages, Namespaces } from "../utils/enums";
+import { Languages, Namespaces, enumToValueArray } from "utils";
 
 const languages = enumToValueArray(Languages).filter(
   (lng) => lng !== Languages.CI_MODE

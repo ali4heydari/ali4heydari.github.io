@@ -1,0 +1,31 @@
+/* purgecss start ignore */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+/* purgecss end ignore */
+
+@import "tailwindcss/utilities";
+
+@font-face {
+  font-family: Behdad;
+  src: url("../../fonts/behdad/Behdad-Regular.woff2") format("woff2"),
+    url("../../fonts/behdad/Behdad-Regular.woff") format("woff"),
+    url("../../fonts/behdad/Behdad-Regular.ttf") format("truetype"),
+    url("../../fonts/behdad/Behdad-Regular.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+html {
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+html [lang^="fa"] {
+  font-family: Behdad, serif;
+}
+
+body {
+  /*margin: 0;*/
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
