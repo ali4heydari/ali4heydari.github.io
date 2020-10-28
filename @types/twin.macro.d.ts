@@ -5,5 +5,3 @@ declare module "twin.macro" {
   const css: typeof cssProperty;
   const styled: typeof styledComponent;
 }
-
-declare module "tailwind.macro";

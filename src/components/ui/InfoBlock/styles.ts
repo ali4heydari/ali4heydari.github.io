@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import tw from "tailwind.macro";
+import tw from "twin.macro";
 
 export interface StyledProps {
   center?: boolean;
@@ -19,7 +19,7 @@ export const Wrapper = styled.div<StyledProps>`
 `;
 
 export const Title = styled.h3`
-  ${tw`text-md mt-1 font-semibold`};
+  ${tw`mt-1 font-semibold`};
 `;
 
 export const Content = styled.p`
