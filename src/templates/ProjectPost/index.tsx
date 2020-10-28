@@ -9,7 +9,7 @@ import FormatHtml from "components/utils/FormatHtml";
 
 import * as Styled from "./styles";
 
-interface Post {
+interface Project {
   html: React.ReactNode;
   fields: {
     slug: string;
@@ -22,16 +22,16 @@ interface Post {
 
 interface Props {
   data: {
-    markdownRemark: Post;
+    markdownRemark: Project;
   };
   pageContext: {
     slug: string;
-    next: Post;
-    previous: Post;
+    next: Project;
+    previous: Project;
   };
 }
 
-const BlogPost: React.FC<Props> = ({ data, pageContext }) => {
+const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
   const post = data.markdownRemark;
   const { previous, next } = pageContext;
 
@@ -65,10 +65,10 @@ const BlogPost: React.FC<Props> = ({ data, pageContext }) => {
   );
 };
 
-export default BlogPost;
+export default ProjectPost;
 
 export const query = graphql`
-  query BlogPostBySlug($slug: String!) {
+  query ProjectPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {

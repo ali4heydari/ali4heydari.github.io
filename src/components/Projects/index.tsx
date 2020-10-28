@@ -10,7 +10,7 @@ import { SectionTitle, ImageSharpFluid } from "definitions";
 
 import * as Styled from "./styles";
 
-interface Post {
+interface Project {
   node: {
     id: string;
     fields: {
@@ -30,10 +30,10 @@ interface Post {
   };
 }
 
-const Posts: React.FC = () => {
+const Projects: React.FC = () => {
   const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`
     query {
-      markdownRemark(frontmatter: { category: { eq: "blog section" } }) {
+      markdownRemark(frontmatter: { category: { eq: "projects section" } }) {
         frontmatter {
           title
           subtitle
@@ -41,7 +41,7 @@ const Posts: React.FC = () => {
       }
       allMarkdownRemark(
         filter: {
-          frontmatter: { category: { eq: "blog" }, published: { eq: true } }
+          frontmatter: { category: { eq: "project" }, published: { eq: true } }
         }
         sort: { fields: frontmatter___date, order: DESC }
       ) {
@@ -72,7 +72,7 @@ const Posts: React.FC = () => {
   `);
 
   const sectionTitle: SectionTitle = markdownRemark.frontmatter;
-  const posts: Post[] = allMarkdownRemark.edges;
+  const posts: Project[] = allMarkdownRemark.edges;
 
   return (
     <Container section>
@@ -121,4 +121,4 @@ const Posts: React.FC = () => {
   );
 };
 
-export default Posts;
+export default Projects;
