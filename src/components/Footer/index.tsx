@@ -1,6 +1,8 @@
 import Container from "components/ui/Container";
 
 import * as Styled from "./styles";
+import React from "react";
+import MainNav from "./MainNav";
 
 const Footer: React.FC = () => (
   <Styled.Footer>
@@ -20,6 +22,8 @@ const Footer: React.FC = () => (
           Behance
         </Styled.Link>
       </Styled.Links>
+      <Styled.Separator center />
+      <MainNav />
     </Container>
   </Styled.Footer>
 );
