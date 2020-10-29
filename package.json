@@ -43,6 +43,7 @@
     "react-helmet": "^6.1.0",
     "react-i18next": "^11.7.3",
     "react-slick": "^0.27.12",
+    "react-typist": "^2.0.5",
     "styled-components": "^5.2.0",
     "stylis-plugin-rtl": "^1.0.0",
     "tailwindcss": "^1.9.5",
