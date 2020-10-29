@@ -38,7 +38,7 @@ const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
   return (
     <Layout>
       <SEO title={post.frontmatter.title} />
-      <Container section>
+      <Container section maxWidth="lg">
         <TitleSection
           title={post.frontmatter.date}
           subtitle={post.frontmatter.title}
