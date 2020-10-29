@@ -9,7 +9,7 @@ interface MainNavItem {
 
 const mainNavItems: MainNavItem[] = [
   {
-    title: "About Me",
+    title: "Home",
     slug: "/",
   },
   {
@@ -17,8 +17,16 @@ const mainNavItems: MainNavItem[] = [
     slug: "/resume/",
   },
   {
-    title: "Blog",
-    slug: "/blog/",
+    title: "Skills",
+    slug: "/skills/",
+  },
+  {
+    title: "Tools",
+    slug: "/tools/",
+  },
+  {
+    title: "Projects",
+    slug: "/projects/",
   },
   {
     title: "Contact Me",
@@ -34,7 +42,7 @@ const MainNav: React.FC = () => {
       <Styled.MainNav open={open}>
         {mainNavItems.map((item, index) => (
           <Styled.MainNavItem
-            key={`nav-item-${index}`}
+            key={item.slug}
             to={item.slug}
             activeClassName="active"
             whileTap={{ scale: 0.9 }}
