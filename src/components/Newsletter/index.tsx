@@ -32,7 +32,7 @@ const Newsletter: React.FC = () => {
 
   return (
     <Styled.Newsletter>
-      <Container section>
+      <Container section maxWidth="lg">
         <TitleSection
           title={newsletter.title}
           subtitle={newsletter.subtitle}

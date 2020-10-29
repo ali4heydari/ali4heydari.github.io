@@ -51,7 +51,7 @@ const ConctactInfo: React.FC = () => {
   const contacts: Contact[] = allMarkdownRemark.edges;
 
   return (
-    <Container section>
+    <Container section maxWidth="lg">
       <TitleSection
         title={sectionTitle.title}
         subtitle={sectionTitle.subtitle}

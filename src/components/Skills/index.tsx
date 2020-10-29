@@ -7,6 +7,7 @@ import ProgressBar from "components/ui/ProgressBar";
 import { SectionTitle } from "definitions";
 
 import * as Styled from "./styles";
+import React from "react";
 
 interface Skill {
   node: {
@@ -48,7 +49,7 @@ const Skills: React.FC = () => {
   const skills: Skill[] = allMarkdownRemark.edges;
 
   return (
-    <Container section>
+    <Container section maxWidth="lg">
       <TitleSection
         title={sectionTitle.title}
         subtitle={sectionTitle.subtitle}

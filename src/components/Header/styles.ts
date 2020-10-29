@@ -8,4 +8,5 @@ export const Header = styled.header`
 
 export const Wrapper = styled(Container)`
   ${tw`items-center`};
+  ${tw`max-w-screen-lg`}
 `;

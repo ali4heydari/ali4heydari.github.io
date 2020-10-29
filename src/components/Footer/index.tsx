@@ -6,7 +6,7 @@ import MainNav from "./MainNav";
 
 const Footer: React.FC = () => (
   <Styled.Footer>
-    <Container>
+    <Container maxWidth="lg">
       <Styled.Links>
         <Styled.Link href="/" rel="noreferrer noopener" target="_blank">
           GitHub
