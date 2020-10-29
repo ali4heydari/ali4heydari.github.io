@@ -65,7 +65,7 @@ const Testimonials: React.FC = () => {
   const testimonials: Testimonial[] = allMarkdownRemark.edges;
 
   return (
-    <Container section>
+    <Container section maxWidth="lg">
       <TitleSection
         title={sectionTitle.title}
         subtitle={sectionTitle.subtitle}

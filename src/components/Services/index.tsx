@@ -51,7 +51,7 @@ const Services: React.FC = () => {
   const services: Service[] = allMarkdownRemark.edges;
 
   return (
-    <Container section>
+    <Container section maxWidth="lg">
       <TitleSection
         title={sectionTitle.title}
         subtitle={sectionTitle.subtitle}

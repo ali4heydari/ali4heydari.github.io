@@ -53,7 +53,7 @@ const Experience: React.FC = () => {
   const experiences: Experience[] = allMarkdownRemark.edges;
 
   return (
-    <Container section>
+    <Container section maxWidth="lg">
       <TitleSection
         title={sectionTitle.title}
         subtitle={sectionTitle.subtitle}
