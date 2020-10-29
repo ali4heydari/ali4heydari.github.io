@@ -16,7 +16,7 @@ export const ContentWithVerticalPadding = styled.div`
   ${tw`py-20 lg:py-24`}
 `;
 export const SectionDescription = styled.p`
-  ${tw`mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100 max-w-xl`}
+  ${tw`mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-primary-100 max-w-xl`}
 `;
 export const SectionHeading = styled.h2`
   ${tw`text-4xl sm:text-5xl font-black tracking-wide text-center`}

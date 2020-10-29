@@ -16,11 +16,11 @@ export const MainNavItem = motion.custom(styled(Link)`
   width: max-content;
 
   &.active {
-    ${tw`border-teal-400`};
+    ${tw`border-primary-400`};
   }
 
   &:before {
-    ${tw`absolute w-full bg-teal-400 h-px left-0 invisible`};
+    ${tw`absolute w-full bg-primary-400 h-px left-0 invisible`};
     content: "";
     bottom: -1px;
     transform: scaleX(0);

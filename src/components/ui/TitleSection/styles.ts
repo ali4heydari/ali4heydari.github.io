@@ -30,6 +30,6 @@ export const Separator = styled.h2<StyledProps>`
 
   &:after {
     content: "";
-    ${tw`bg-teal-400 h-6 w-px absolute ml-1`};
+    ${tw`bg-primary-400 h-6 w-px absolute ml-1`};
   }
 `;
