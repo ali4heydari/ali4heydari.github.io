@@ -1,22 +1,23 @@
 import tw from "twin.macro";
-import { Card } from "../Card";
 import React from "react";
 import * as Styled from "./styles";
 
 interface SectionProps {
   id?: string;
   description?: string;
+  heading: string | React.ReactNode;
   subheading?: string;
-  children?: React.ReactChildren;
+  children?: React.ReactNode;
 }
 export const Section: React.FC<SectionProps> = ({
-  id,
-  description,
+  heading,
   subheading,
+  description,
   children,
+  id,
 }: SectionProps) => {
   return (
-    <div css={tw`relative`}>
+    <div css={tw`relative`} id={id}>
       <Styled.SectionContainer
         css={tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-20 md:py-24`}
       >
@@ -26,7 +27,7 @@ export const Section: React.FC<SectionProps> = ({
         <Styled.SectionHeading
           css={tw`text-4xl sm:text-5xl font-black tracking-wide text-center w-full`}
         >
-          Technical <span css={tw`text-primary-500`}>Skills</span>
+          {heading}
         </Styled.SectionHeading>
         {description ? (
           <Styled.SectionDescription

@@ -3,7 +3,7 @@ import * as Styled from "./styles";
 
 interface ChipProps {
   href?: string;
-  children?: React.ReactChildren;
+  children?: React.ReactNode;
 }
 
 export const Chip: React.FC<ChipProps> = ({ children, href }: ChipProps) => {
