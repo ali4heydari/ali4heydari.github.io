@@ -20,15 +20,16 @@ import MicrosoftAzureDevopsIcon from "mdi-react/MicrosoftAzureDevopsIcon";
 import GitlabIcon from "mdi-react/GitlabIcon";
 import JavaIcon from "mdi-react/LanguageJavaIcon";
 import AndroidIcon from "mdi-react/AndroidIcon";
-// import NestJsIcon from "../images/svg/nestjs.svg";
-// import CypressIcon from "../images/svg/cypress.svg";
-// import PostgreSqlIcon from "../images/svg/postgresql.svg";
-// import NextJsIcon from "../images/svg/next-js.svg";
+import NestJsIcon from "../../assets/svg/nestjs.svg";
+import CypressIcon from "../../assets/svg/cypress.svg";
+import PostgreSqlIcon from "../../assets/svg/postgresql.svg";
+import NextJsIcon from "../../assets/svg/next-js.svg";
 import { graphql, useStaticQuery } from "gatsby";
 import GithubIcon from "mdi-react/GithubIcon";
 import { Section } from "../ui/Section";
 import { Card } from "../ui/Card";
 import { Chip } from "../ui/Chip";
+import GatsbyImage from "gatsby-image";
 
 const ChipContainer = ({
   projects,
@@ -258,12 +259,12 @@ export const SkillsCard: React.FC = () => {
       description:
         "Familiar with Microsoft AzureDevOps ecosystem; like azure-pipelines, feeds, board etc",
     },
-    // {
-    //   icon: <NextJsIcon css={tw`w-20 h-20`} />,
-    //   title: "Next.js",
-    //   description:
-    //     "Experienced in development PWA using Next.js. Familiar with popular Next plugins",
-    // },
+    {
+      icon: <NextJsIcon css={tw`w-20 h-20`} />,
+      title: "Next.js",
+      description:
+        "Experienced in development PWA using Next.js. Familiar with popular Next plugins",
+    },
     {
       icon: <BashIcon css={tw`text-orange-500 w-20 h-20`} />,
       title: "Bash",
@@ -295,34 +296,34 @@ export const SkillsCard: React.FC = () => {
       description:
         "Having some experience in Android. worked with Google Map view, retrofit, Telephonary",
     },
-    // {
-    //   icon: <CypressIcon css={tw`text-gray-600 w-20 h-20`} />,
-    //   title: "Cypress",
-    //   description: "Familiar with Cypress. mocking APIs and E2E testing",
-    // },
-    // {
-    //   icon: <NestJsIcon css={tw`text-red-600 w-20 h-20`} />,
-    //   title: "Nest.js",
-    //   description: "Familiar with Nest.js framework",
-    // },
-    // {
-    //   icon: <PostgreSqlIcon css={tw`text-blue-400 w-20 h-20`} />,
-    //   title: "PostgreSQL",
-    //   description: "Familiar with Standard Query Language and Postgre",
-    // },
+    {
+      icon: <CypressIcon css={tw`text-gray-600 w-20 h-20`} />,
+      title: "Cypress",
+      description: "Familiar with Cypress. mocking APIs and E2E testing",
+    },
+    {
+      icon: <NestJsIcon css={tw`text-red-600 w-20 h-20`} />,
+      title: "Nest.js",
+      description: "Familiar with Nest.js framework",
+    },
+    {
+      icon: <PostgreSqlIcon css={tw`text-blue-400 w-20 h-20`} />,
+      title: "PostgreSQL",
+      description: "Familiar with Standard Query Language and Postgre",
+    },
     // {
     //   icon: <ReduxIcon css={tw`name-purple-200 w-20 h-20`} />,
     //   title: "Redux",
     //   description:
     //     "Skilled at react-redux. with both class component and hooks",
     // },
-    // {
-    //   icon: (
-    //     <GatsbyImage fluid={file.childImageSharp.fluid} style={tw`w-20 h-20`} />
-    //   ),
-    //   title: "Proteus 8",
-    //   description: "Experienced in proteus 8",
-    // },
+    {
+      icon: (
+        <GatsbyImage fluid={file.childImageSharp.fluid} css={tw`w-20 h-20`} />
+      ),
+      title: "Proteus 8",
+      description: "Experienced in proteus 8",
+    },
   ];
 
   return (
