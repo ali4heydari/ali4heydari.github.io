@@ -1,9 +1,9 @@
 ---
 category: "education"
-university: "Columbia University"
+university: "Sharif University Of Technology"
 degree: "Bachelor"
-startDate: "Oct 2005"
-endDate: "Jul 2008"
+startDate: "Oct 2016"
+endDate: "Sep 2017"
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Chemical engineering. (I left Sharif University to change my field of study)
