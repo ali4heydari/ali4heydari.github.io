@@ -1,6 +1,6 @@
 import { FluidObject } from "gatsby-image";
 
-export type ImageSharpFluid = FluidObject | FluidObject[] | undefined;
+export type ImageSharpFluid = FluidObject | FluidObject[];
 
 export type ObjectType = Record<string, any>;
 
