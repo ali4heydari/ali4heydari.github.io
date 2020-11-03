@@ -43,7 +43,7 @@ exports.createPages = async ({ graphql, actions }) => {
     query {
       allMarkdownRemark(
         filter: { frontmatter: { category: { eq: "project" } } }
-        sort: { fields: frontmatter___date, order: DESC }
+        sort: { fields: frontmatter___endDate, order: DESC }
       ) {
         edges {
           node {
