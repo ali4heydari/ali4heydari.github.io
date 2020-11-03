@@ -2,13 +2,14 @@ import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import Link from "gatsby-link";
 import { motion } from "framer-motion";
-
+import React from "react";
 import Container from "components/ui/Container";
 import TitleSection from "components/ui/TitleSection";
 
 import { SectionTitle, ImageSharpFluid } from "definitions";
 
 import * as Styled from "./styles";
+import { Chip } from "../ui/Chip";
 
 interface Project {
   node: {
@@ -19,7 +20,8 @@ interface Project {
     frontmatter: {
       title: string;
       description: string;
-      date: string;
+      startDate: string;
+      endDate: string;
       tags: string[];
       cover: {
         childImageSharp: {
@@ -43,7 +45,7 @@ const Projects: React.FC = () => {
         filter: {
           frontmatter: { category: { eq: "project" }, published: { eq: true } }
         }
-        sort: { fields: frontmatter___date, order: DESC }
+        sort: { fields: frontmatter___endDate, order: ASC }
       ) {
         edges {
           node {
@@ -55,7 +57,8 @@ const Projects: React.FC = () => {
             frontmatter {
               title
               description
-              date(formatString: "MMM DD, YYYY")
+              startDate(formatString: "MMM DD, YYYY")
+              endDate(formatString: "MMM DD, YYYY")
               tags
               cover {
                 childImageSharp {
@@ -86,7 +89,14 @@ const Projects: React.FC = () => {
           const {
             id,
             fields: { slug },
-            frontmatter: { title, cover, description, date, tags },
+            frontmatter: {
+              title,
+              cover,
+              description,
+              startDate,
+              endDate,
+              tags,
+            },
           } = item.node;
 
           return (
@@ -101,13 +111,15 @@ const Projects: React.FC = () => {
                       <Img fluid={cover.childImageSharp.fluid} alt={title} />
                     </Styled.Image>
                     <Styled.Content>
-                      <Styled.Date>{date}</Styled.Date>
+                      <Styled.Date>
+                        {startDate} - {endDate}
+                      </Styled.Date>
                       <Styled.Title>{title}</Styled.Title>
                       <Styled.Description>{description}</Styled.Description>
                     </Styled.Content>
                     <Styled.Tags>
                       {tags.map((item) => (
-                        <Styled.Tag key={item}>{item}</Styled.Tag>
+                        <Chip key={item}>{item}</Chip>
                       ))}
                     </Styled.Tags>
                   </Styled.Card>

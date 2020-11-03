@@ -6,6 +6,7 @@ import SEO from "components/SEO";
 import Container from "components/ui/Container";
 import TitleSection from "components/ui/TitleSection";
 import FormatHtml from "components/utils/FormatHtml";
+import React from "react";
 
 import * as Styled from "./styles";
 
@@ -16,7 +17,8 @@ interface Project {
   };
   frontmatter: {
     title: string;
-    date: string;
+    startDate: string;
+    endDate: string;
   };
 }
 
@@ -40,7 +42,7 @@ const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
       <SEO title={post.frontmatter.title} />
       <Container section maxWidth="lg">
         <TitleSection
-          title={post.frontmatter.date}
+          title={`${post.frontmatter.startDate} - ${post.frontmatter.endDate}`}
           subtitle={post.frontmatter.title}
         />
         <FormatHtml content={post.html} />
@@ -67,13 +69,14 @@ const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
 
 export default ProjectPost;
 
-export const query = graphql`
+export const pageQuery = graphql`
   query ProjectPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       frontmatter {
         title
-        date(formatString: "MMM DD, YYYY")
+        startDate(formatString: "MMM DD, YYYY")
+        endDate(formatString: "MMM DD, YYYY")
       }
     }
   }
