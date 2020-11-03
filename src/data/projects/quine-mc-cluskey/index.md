@@ -2,7 +2,7 @@
 category: "project"
 cover: "./cover.png"
 title: "Quine McCluskey Solver"
-description: "Mauris neque libero, aliquet vel mollis nec, euismod sed tellus. Mauris convallis dictum elit id volutpat."
+description: "Minimize boolean functions using the Quine McCluskey method desktop application"
 startDate: "2019-12-24"
 endDate: "2019-12-24"
 tags: ["C#", "WPF"]
