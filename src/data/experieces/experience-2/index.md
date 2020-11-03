@@ -2,8 +2,8 @@
 category: "experiences"
 company: "Iran University of Science and Technology"
 position: "Head Teacher assistant"
-startDate: "Feb. 2019"
-endDate: "Jul. 2019"
+startDate: "2019-02-01"
+endDate: "2019-08-01"
 ---
 
 Advanced programming course supervised by [Prof. Sauleh Eetemadi](https://sauleh.github.io/).
