@@ -1,4 +1,5 @@
-import React, { ReactNode } from "react";
+import React from "react";
+import { css } from "styled-components";
 
 interface Props {
   content: any;
@@ -6,7 +7,12 @@ interface Props {
 
 const FormatHtml: React.FC<Props> = ({ content }) => (
   <span
-    className="format-html"
+    css={css`
+      ol,
+      ul {
+        list-style: initial;
+      }
+    `}
     dangerouslySetInnerHTML={{
       __html: content,
     }}
