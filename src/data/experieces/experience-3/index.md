@@ -2,8 +2,8 @@
 category: "experiences"
 company: "Iran's national elites foundation"
 position: "Software Engineer"
-startDate: "Jan. 2020"
-endDate: "Sep. 2020"
+startDate: "2020-01-01"
+endDate: "2020-11-01"
 ---
 
 A project funded by Iran's National Elites Foundation and supervised by [Prof. Behroozi](http://ee.sharif.edu/~behroozi/) and [Prof. Soleymani](http://sharif.edu/~soleymani/).

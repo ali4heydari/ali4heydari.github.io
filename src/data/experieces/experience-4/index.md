@@ -2,8 +2,8 @@
 category: "experiences"
 company: "eFarda eCommerce Company"
 position: "Fullstack Developer"
-startDate: "June. 2020"
-endDate: "Present"
+startDate: "2020-06-01"
+endDate: "2021-12-20"
 ---
 
 My Responsibilities include:
