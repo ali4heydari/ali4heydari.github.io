@@ -2,8 +2,8 @@
 category: "education"
 university: "Sharif University Of Technology"
 degree: "Bachelor"
-startDate: "Oct 2016"
-endDate: "Sep 2017"
+startDate: "2016-10-01"
+endDate: "2017-09-01"
 ---
 
 Chemical engineering. (I left Sharif University to change my field of study)
