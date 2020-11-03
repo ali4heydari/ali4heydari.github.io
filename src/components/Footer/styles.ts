@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import tw from "twin.macro";
 import { StyledProps } from "../ui/TitleSection/styles";
+import { OutboundLink } from "gatsby-plugin-google-analytics";
 
 export const Footer = styled.footer`
   ${tw`border-t border-gray-200 py-4`};
@@ -14,8 +15,9 @@ export const Links = styled.div`
   }
 `;
 
-export const Link = styled.a`
-  ${tw`text-indigo-900 hover:text-indigo-600 mx-2`};
+export const Link = styled(OutboundLink)`
+  ${tw`cursor-pointer inline-block transition duration-300 mx-4`};
+  ${tw`text-primary-100 hover:text-primary-500`};
 `;
 
 export const Separator = styled.h2<StyledProps>`
