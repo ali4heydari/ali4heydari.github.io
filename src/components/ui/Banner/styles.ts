@@ -3,6 +3,7 @@ import tw from "twin.macro";
 import QuotesLeftIconBase from "mdi-react/FormatQuoteOpenIcon";
 import SvgDecoratorBlob1 from "mdi-react/DragIcon";
 import { OutboundLink } from "gatsby-plugin-google-analytics";
+import GatsbyImage, { GatsbyImageProps } from "gatsby-image";
 
 export const Banner = styled.section`
   ${tw`bg-gray-100 border-b border-indigo-100 `};
@@ -19,7 +20,7 @@ export const SectionDescription = styled.p`
   ${tw`mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-primary-100 max-w-xl`}
 `;
 export const SectionHeading = styled.h2`
-  ${tw`text-4xl sm:text-5xl font-black tracking-wide text-center`}
+  ${tw`text-left text-4xl sm:text-5xl font-black tracking-wide`}
 `;
 
 export const Offsetbackground = styled.div`
@@ -60,4 +61,21 @@ export const Button = styled(OutboundLink)<{ rounded?: boolean }>`
   ${tw`px-8 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300`}
   ${tw`mt-8 inline-block w-56 tracking-wide text-center py-5`}
   ${({ rounded }) => rounded && tw`rounded-full`}
+`;
+
+export const Image = styled(GatsbyImage)<GatsbyImageProps>`
+  ${tw`max-w-full w-96 rounded-t sm:rounded relative z-20`}
+`;
+
+export const Links = styled.div`
+  ${tw`flex items-center justify-center w-full mt-5`};
+
+  a {
+    ${tw`text-indigo-900 hover:text-indigo-600 mx-2`};
+  }
+`;
+
+export const Link = styled(OutboundLink)`
+  ${tw`cursor-pointer inline-block transition duration-300 mx-4`};
+  ${tw`text-primary-100 hover:text-primary-500`};
 `;
