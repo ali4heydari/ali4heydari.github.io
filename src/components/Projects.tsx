@@ -95,9 +95,12 @@ export function Projects() {
         </>
       ),
       meta: (
-        <Link href="https://ali4heydari.github.io/upmed#screenshots">
-          See screen shots
-        </Link>
+        <>
+          <Link href="https://ali4heydari.github.io/upmed#screenshots">
+            See screen shots
+          </Link>
+          <Link href="https://sina-front.vercel.app/">Live demo</Link>
+        </>
       ),
     },
     "2-software-development.jpg": {
