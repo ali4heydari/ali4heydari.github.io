@@ -1,13 +1,12 @@
-import { graphql, useStaticQuery } from "gatsby";
-
 import Container from "components/ui/Container";
 
 import * as Styled from "./styles";
 import Typist from "react-typist";
-import tw from "twin.macro";
 import React from "react";
-import GatsbyImage, { FluidObject } from "gatsby-image";
-import { ImageSharpFluid } from "../../../definitions";
+import { FluidObject } from "gatsby-image";
+import { socialMedias } from "../../../socialMedias";
+import styled from "styled-components";
+import tw from "twin.macro";
 
 interface Props {
   heading: string;
@@ -36,33 +35,34 @@ const Banner: React.FC<Props> = ({
         <Styled.Row>
           <Styled.TextColumn>
             <Typist startDelay={500} cursor={{ show: false }}>
-              <Styled.SectionHeading css={tw`text-left`}>
-                {heading}
-              </Styled.SectionHeading>
+              <Styled.SectionHeading>{heading}</Styled.SectionHeading>
               <Styled.Heading>{subheading}</Styled.Heading>
             </Typist>
             <Styled.Description>{description}</Styled.Description>
-            <Styled.Button href={linkTo}>{linkText}</Styled.Button>
-            {/*<FeatureList>*/}
-            {/*  {[*/}
-            {/*    "Computer engineering student",*/}
-            {/*    "3 years experience in web development",*/}
-            {/*  ].map((feature, index) => (*/}
-            {/*    <Feature key={index}>*/}
-            {/*      <FeatureIcon />*/}
-            {/*      <FeatureText>{feature}</FeatureText>*/}
-            {/*    </Feature>*/}
-            {/*  ))}*/}
-            {/*</FeatureList>*/}
+            <Styled.Button rounded href={linkTo}>
+              {linkText}
+            </Styled.Button>
+            <Styled.Links>
+              {socialMedias.map((media) => {
+                const Icon = styled(media.icon)`
+                  ${tw`w-5 h-5`}
+                `;
+
+                return (
+                  <Styled.Link
+                    key={media.link}
+                    href={media.link}
+                    aria-label={`link to authors'${media.name} account`}
+                  >
+                    <Icon />
+                  </Styled.Link>
+                );
+              })}
+            </Styled.Links>
           </Styled.TextColumn>
           <Styled.ImageColumn>
             <Styled.ImageContainer>
-              {image ? (
-                <GatsbyImage
-                  css={tw`max-w-full w-96 rounded-t sm:rounded relative z-20`}
-                  fluid={image}
-                />
-              ) : null}
+              {image ? <Styled.Image fluid={image} /> : null}
               {imageDecoratorBlob && <Styled.ImageDecoratorBlob />}
               {quote ? (
                 <Styled.Testimonial>
@@ -70,10 +70,6 @@ const Banner: React.FC<Props> = ({
                     <Styled.QuotesLeftIcon />
                     <Styled.Quote>{quote}</Styled.Quote>
                   </>
-                  {/*<CustomerName>{testimonial.customerName}</CustomerName>*/}
-                  {/*<CustomerCompany>*/}
-                  {/*  {testimonial.customerCompany}*/}
-                  {/*</CustomerCompany>*/}
                 </Styled.Testimonial>
               ) : null}
             </Styled.ImageContainer>
