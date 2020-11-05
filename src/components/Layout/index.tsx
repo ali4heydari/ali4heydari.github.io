@@ -7,12 +7,15 @@ import Footer from "components/Footer";
 import "assets/styles/global.css";
 import GlobalStyles from "assets/styles/globalStyles";
 import * as Styled from "./styles";
+import React from "react";
+import SEO from "../SEO";
 
 interface Props {
   children: React.ReactNode;
+  title?: string;
 }
 
-const Layout: React.FC<Props> = ({ children }) => {
+const Layout: React.FC<Props> = ({ children, title = "" }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -26,6 +29,7 @@ const Layout: React.FC<Props> = ({ children }) => {
   return (
     <>
       <GlobalStyles />
+      <SEO title={title} />
       <AnimatePresence exitBeforeEnter>
         <Styled.Layout>
           <Header siteTitle={data.site.siteMetadata.title} />

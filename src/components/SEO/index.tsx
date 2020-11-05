@@ -1,5 +1,8 @@
 import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
+import React from "react";
+import { Languages } from "../../utils/enums";
+import { useTranslation } from "react-i18next";
 
 type Meta =
   | {
@@ -18,8 +21,16 @@ interface Props {
   title: string;
 }
 
-const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
-  const { site } = useStaticQuery(
+const SEO: React.FC<Props> = ({
+  description = "",
+  lang = "en",
+  meta = [],
+  title,
+}) => {
+  const {
+    i18n: { language = lang },
+  } = useTranslation();
+  const { site, file } = useStaticQuery(
     graphql`
       query {
         site {
@@ -27,6 +38,13 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
             title
             description
             author
+          }
+        }
+        file(relativePath: { eq: "profile.jpg" }) {
+          childImageSharp {
+            fixed(width: 500, height: 500) {
+              src
+            }
           }
         }
       }
@@ -38,7 +56,8 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
   return (
     <Helmet
       htmlAttributes={{
-        lang,
+        lang: language === Languages.CI_MODE ? Languages.ENGLISH : language,
+        dir: language === Languages.PERSIAN ? "rtl" : "ltr",
       }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
@@ -49,7 +68,7 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
         },
         {
           property: `og:title`,
-          content: title,
+          content: `${title} | ${site.siteMetadata.title}`,
         },
         {
           property: `og:description`,
@@ -58,6 +77,10 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
         {
           property: `og:type`,
           content: `website`,
+        },
+        {
+          property: `og:image`,
+          content: file.childImageSharp.fixed.src,
         },
         {
           name: `twitter:card`,
@@ -69,21 +92,15 @@ const SEO: React.FC<Props> = ({ description, lang, meta, title }) => {
         },
         {
           name: `twitter:title`,
-          content: title,
+          content: `${title} | ${site.siteMetadata.title}`,
         },
         {
           name: `twitter:description`,
           content: metaDescription,
         },
-      ].concat(meta!)}
+      ].concat(meta)}
     />
   );
-};
-
-SEO.defaultProps = {
-  lang: `en`,
-  meta: [] as Meta[],
-  description: ``,
 };
 
 export default SEO;
