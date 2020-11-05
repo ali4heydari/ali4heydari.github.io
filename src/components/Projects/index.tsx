@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import React from "react";
 import Container from "components/ui/Container";
 import TitleSection from "components/ui/TitleSection";
-
+import { useTranslation } from "react-i18next";
 import { SectionTitle, ImageSharpFluid } from "definitions";
 
 import * as Styled from "./styles";
@@ -33,6 +33,7 @@ interface Project {
 }
 
 const Projects: React.FC = () => {
+  const { i18n } = useTranslation();
   const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`
     query {
       markdownRemark(frontmatter: { category: { eq: "projects section" } }) {
@@ -57,8 +58,8 @@ const Projects: React.FC = () => {
             frontmatter {
               title
               description
-              startDate(formatString: "MMM DD, YYYY")
-              endDate(formatString: "MMM DD, YYYY")
+              startDate
+              endDate
               tags
               cover {
                 childImageSharp {
@@ -112,7 +113,15 @@ const Projects: React.FC = () => {
                     </Styled.Image>
                     <Styled.Content>
                       <Styled.Date>
-                        {startDate} - {endDate}
+                        {new Date(startDate).toLocaleDateString(i18n.language, {
+                          year: "numeric",
+                          month: "short",
+                        })}
+                        {" - "}
+                        {new Date(endDate).toLocaleDateString(i18n.language, {
+                          year: "numeric",
+                          month: "short",
+                        })}
                       </Styled.Date>
                       <Styled.Title>{title}</Styled.Title>
                       <Styled.Description>{description}</Styled.Description>
