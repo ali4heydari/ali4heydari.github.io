@@ -1,4 +1,6 @@
 import * as Styled from "./styles";
+import { useTranslation } from "react-i18next";
+import React from "react";
 
 interface Props {
   title: string;
@@ -14,18 +16,33 @@ const Timeline: React.FC<Props> = ({
   content,
   startDate,
   endDate,
-}) => (
-  <Styled.Timeline>
-    <Styled.Point />
-    <Styled.Details>
-      <Styled.Date>
-        {startDate} - {endDate}
-      </Styled.Date>
-      <Styled.Title>{title}</Styled.Title>
-      <Styled.Subtitle>{subtitle}</Styled.Subtitle>
-    </Styled.Details>
-    <Styled.Content>{content}</Styled.Content>
-  </Styled.Timeline>
-);
+}) => {
+  const { i18n } = useTranslation();
+
+  return (
+    <Styled.Timeline>
+      <Styled.Point />
+      <Styled.Details>
+        <Styled.Date>
+          {new Date(startDate).toLocaleDateString(i18n.language, {
+            year: "numeric",
+            month: "short",
+          })}
+          {" - "}
+          {/* Dates after 2100 are assumed to be present */}
+          {new Date(endDate).getFullYear() >= 2100
+            ? "Present"
+            : new Date(endDate).toLocaleDateString(i18n.language, {
+                year: "numeric",
+                month: "short",
+              })}
+        </Styled.Date>
+        <Styled.Title>{title}</Styled.Title>
+        <Styled.Subtitle>{subtitle}</Styled.Subtitle>
+      </Styled.Details>
+      <Styled.Content>{content}</Styled.Content>
+    </Styled.Timeline>
+  );
+};
 
 export default Timeline;
