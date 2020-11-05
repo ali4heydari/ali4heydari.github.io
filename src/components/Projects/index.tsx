@@ -46,7 +46,7 @@ const Projects: React.FC = () => {
         filter: {
           frontmatter: { category: { eq: "project" }, published: { eq: true } }
         }
-        sort: { fields: frontmatter___endDate, order: ASC }
+        sort: { fields: frontmatter___endDate, order: DESC }
       ) {
         edges {
           node {
