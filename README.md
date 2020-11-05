@@ -2,6 +2,10 @@
 
 This is a personal website / blog using [Gatsby](https://www.gatsbyjs.org/), [Markdown](https://www.markdownguide.org/), [Styled Components](https://styled-components.com/), [Talwind CSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/) & [React Font Awesome](https://github.com/FortAwesome/react-fontawesome).
 
+## Lighthouse report
+
+![Lighthouse report](./light-house-report.png)
+
 ## Demo
 
 [Gatsby Markdown Personal Website](https://gatsby-markdown-personal-website.netlify.app/)
