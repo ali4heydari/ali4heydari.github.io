@@ -18,6 +18,8 @@ tags:
 published: true
 ---
 
+![Sportify](./cover.png)
+
 - Web Development course project
 
 [GitHub repository](https://github.com/ali4heydari/sportify-frontend)

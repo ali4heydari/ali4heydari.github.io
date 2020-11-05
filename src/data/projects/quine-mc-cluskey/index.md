@@ -9,6 +9,8 @@ tags: ["C#", "WPF"]
 published: true
 ---
 
+![Quine McCluskey Solver](./cover.png)
+
 Minimize boolean functions using the Quine McCluskey method desktop application
 
 - Logic circuits course project
