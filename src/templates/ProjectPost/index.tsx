@@ -7,6 +7,7 @@ import Container from "components/ui/Container";
 import TitleSection from "components/ui/TitleSection";
 import FormatHtml from "components/utils/FormatHtml";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 import * as Styled from "./styles";
 import { Chip } from "../../components/ui/Chip";
@@ -38,6 +39,7 @@ interface Props {
 
 const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
   const post = data.markdownRemark;
+  const { i18n } = useTranslation();
   const { previous, next } = pageContext;
 
   return (
@@ -45,7 +47,19 @@ const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
       <SEO title={post.frontmatter.title} />
       <Container section maxWidth="lg">
         <TitleSection
-          title={`${post.frontmatter.startDate} - ${post.frontmatter.endDate}`}
+          title={`${new Date(post.frontmatter.startDate).toLocaleDateString(
+            i18n.language,
+            {
+              year: "numeric",
+              month: "short",
+            }
+          )} - ${new Date(post.frontmatter.endDate).toLocaleDateString(
+            i18n.language,
+            {
+              year: "numeric",
+              month: "short",
+            }
+          )}`}
           subtitle={post.frontmatter.title}
         />
         <Styled.Description>{post.frontmatter.description}</Styled.Description>
@@ -88,8 +102,8 @@ export const pageQuery = graphql`
       frontmatter {
         title
         description
-        startDate(formatString: "MMM DD, YYYY")
-        endDate(formatString: "MMM DD, YYYY")
+        startDate
+        endDate
         tags
       }
     }
