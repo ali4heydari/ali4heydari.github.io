@@ -1,5 +1,4 @@
 import Layout from "components/Layout";
-import SEO from "components/SEO";
 import React from "react";
 import Container from "../components/ui/Container";
 import TitleSection from "../components/ui/TitleSection";
@@ -22,8 +21,7 @@ const ToolsPage: React.FC = () => {
   `);
 
   return (
-    <Layout>
-      <SEO title={frontmatter.title} />
+    <Layout title={frontmatter.title}>
       <Container section maxWidth="lg">
         <TitleSection
           title={frontmatter.title}

@@ -1,11 +1,10 @@
 import Layout from "components/Layout";
-import SEO from "components/SEO";
 import ContactInfo from "components/ContactInfo";
+import React from "react";
 
 const ContactPage: React.FC = () => {
   return (
-    <Layout>
-      <SEO title="Contact" />
+    <Layout title="Contact">
       <ContactInfo />
     </Layout>
   );
