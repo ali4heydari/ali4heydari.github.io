@@ -9,6 +9,7 @@ import FormatHtml from "components/utils/FormatHtml";
 import React from "react";
 
 import * as Styled from "./styles";
+import { Chip } from "../../components/ui/Chip";
 
 interface Project {
   html: React.ReactNode;
@@ -17,8 +18,10 @@ interface Project {
   };
   frontmatter: {
     title: string;
+    description: string;
     startDate: string;
     endDate: string;
+    tags: string[];
   };
 }
 
@@ -45,7 +48,16 @@ const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
           title={`${post.frontmatter.startDate} - ${post.frontmatter.endDate}`}
           subtitle={post.frontmatter.title}
         />
+        <Styled.Description>{post.frontmatter.description}</Styled.Description>
         <FormatHtml content={post.html} />
+        <Container section maxWidth="sm">
+          <Styled.Tags>
+            <Styled.TagsHeader>Tech Stack:</Styled.TagsHeader>
+            {post.frontmatter.tags.map((tag) => (
+              <Chip key={tag}>{tag}</Chip>
+            ))}
+          </Styled.Tags>
+        </Container>
         <Styled.Links>
           <span>
             {previous && (
@@ -75,8 +87,10 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        description
         startDate(formatString: "MMM DD, YYYY")
         endDate(formatString: "MMM DD, YYYY")
+        tags
       }
     }
   }
