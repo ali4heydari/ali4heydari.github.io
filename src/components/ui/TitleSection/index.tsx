@@ -4,6 +4,7 @@ import { StyledProps } from "./styles";
 interface Props extends StyledProps {
   title: string;
   subtitle?: string;
+  center?: boolean;
 }
 
 const TitleSection: React.FC<Props> = ({ center, title, subtitle }) => (
