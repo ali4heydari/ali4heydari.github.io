@@ -4,10 +4,12 @@ import InfoBlock from "components/ui/InfoBlock";
 import Container from "components/ui/Container";
 import TitleSection from "components/ui/TitleSection";
 import { IconProps } from "components/ui/Icon";
+import React from "react";
 
 import { SectionTitle } from "definitions";
 
 import * as Styled from "./styles";
+import FormatHtml from "../utils/FormatHtml";
 
 interface Contact {
   node: {
@@ -21,13 +23,14 @@ interface Contact {
 }
 
 const ConctactInfo: React.FC = () => {
-  const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`
+  const { markdownRemark, allMarkdownRemark, file } = useStaticQuery(graphql`
     query {
       markdownRemark(frontmatter: { category: { eq: "contact section" } }) {
         frontmatter {
           title
           subtitle
         }
+        html
       }
       allMarkdownRemark(
         filter: { frontmatter: { category: { eq: "contact" } } }
@@ -44,12 +47,20 @@ const ConctactInfo: React.FC = () => {
           }
         }
       }
+      file(relativePath: { eq: "profile-high-resuloution.jpg" }) {
+        childImageSharp {
+          fluid {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
     }
   `);
 
   const sectionTitle: SectionTitle = markdownRemark.frontmatter;
   const contacts: Contact[] = allMarkdownRemark.edges;
 
+  console.log(file);
   return (
     <Container section maxWidth="lg">
       <TitleSection
@@ -57,6 +68,7 @@ const ConctactInfo: React.FC = () => {
         subtitle={sectionTitle.subtitle}
         center
       />
+      <Styled.Image fluid={file.childImageSharp.fluid} />
       {contacts.map((item) => {
         const {
           id,
@@ -69,6 +81,7 @@ const ConctactInfo: React.FC = () => {
           </Styled.ContactInfoItem>
         );
       })}
+      {markdownRemark.html && <FormatHtml content={markdownRemark.html} />}
     </Container>
   );
 };
