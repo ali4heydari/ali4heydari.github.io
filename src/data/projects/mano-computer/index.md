@@ -9,6 +9,8 @@ tags: ["Proteus 8 💥"]
 published: true
 ---
 
+![Mano Computer Simulation](./cover.png)
+
 Computer Architecture course project. I simulated Mano computer in Proteus 8
 
 [GitHub repository](https://github.com/ali4heydari/ManoComputer)

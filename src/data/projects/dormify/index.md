@@ -29,6 +29,8 @@ tags:
 published: true
 ---
 
+![dormify](./cover.jpg)
+
 - Carrying out team coordination and work
 - Meeting with dormitory managers for requirements engineering and data gathering.
 - We hold scrum meeting (planning, daily ...) in Microsoft Teams during COVID19 pandemic
