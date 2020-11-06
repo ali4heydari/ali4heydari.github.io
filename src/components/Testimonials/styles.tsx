@@ -10,7 +10,7 @@ export const Testimonial = styled.div`
 `;
 
 export const Image = styled.figure`
-  ${tw`w-16 h-16 mx-auto border border-primary-400 rounded-full`};
+  ${tw`w-16 h-16 mx-auto border border-primary rounded-full`};
 
   img {
     ${tw`border-4 border-white rounded-full`};

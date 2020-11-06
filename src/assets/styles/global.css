@@ -1,3 +1,32 @@
+:root {
+  @apply .light;
+}
+
+.dark {
+  --color-text-primary: #f7fafc;
+  --color-text-secondary: #e2e8f0;
+  --color-text-interactive: #1da1f2;
+  --color-text-error: #e53e3e;
+  --color-text-disabled: #a0aec0;
+
+  --color-bg-primary: #2d3748;
+  --color-bg-secondary: #283141;
+  --color-bg-ternary: #6415ff;
+}
+
+.light {
+  --color-text-primary: #2d3748;
+  --color-text-secondary: #4a5568;
+  --color-text-interactive: #3c366b;
+
+  --color-text-error: #e53e3e;
+  --color-text-disabled: #a0aec0;
+
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #edf2f7;
+  --color-bg-ternary: #6415ff;
+}
+
 /* purgecss start ignore */
 @import "tailwindcss/base";
 @import "tailwindcss/components";

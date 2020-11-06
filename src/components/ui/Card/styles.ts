@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 export const CardDescription = styled.p`
-  ${tw`mt-1 sm:mt-4 font-medium text-primary-100 leading-loose`}
+  ${tw`mt-1 sm:mt-4 font-medium text-primary leading-loose`}
 `;
 export const CardTitle = styled.span`
   ${tw`mt-4 tracking-wide font-bold text-2xl leading-none`}

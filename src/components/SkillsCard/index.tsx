@@ -241,7 +241,7 @@ export const SkillsCard: React.FC = () => {
       description: "Basic containerization (docker & docker-compose) knowledge",
     },
     {
-      icon: <GitIcon css={tw`w-20 h-20 text-red-500`} />,
+      icon: <GitIcon css={tw`w-20 h-20 text-error`} />,
       title: "Git",
       description:
         "Solid experience with Git and Git-flow. familiar with advanced commands like squash, pick, rebase, bisect etc.",
@@ -297,12 +297,12 @@ export const SkillsCard: React.FC = () => {
         "Having some experience in Android. worked with Google Map view, retrofit, Telephonary",
     },
     {
-      icon: <CypressIcon css={tw`text-gray-600 w-20 h-20`} />,
+      icon: <CypressIcon css={tw`text-disabled w-20 h-20`} />,
       title: "Cypress",
       description: "Familiar with Cypress. mocking APIs and E2E testing",
     },
     {
-      icon: <NestJsIcon css={tw`text-red-600 w-20 h-20`} />,
+      icon: <NestJsIcon css={tw`text-error w-20 h-20`} />,
       title: "Nest.js",
       description: "Familiar with Nest.js framework",
     },

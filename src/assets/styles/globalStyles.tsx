@@ -3,11 +3,11 @@ import tw from "twin.macro";
 
 export default createGlobalStyle`
   body {
-    ${tw`m-0 text-indigo-900 bg-white`};
+    ${tw`m-0 text-interactive bg-primary`};
   }
 
   a {
-    ${tw`text-indigo-600 hover:text-indigo-700`};
+    ${tw`text-interactive hover:text-interactive`};
   }
 
   p + p {

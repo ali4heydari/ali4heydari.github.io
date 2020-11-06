@@ -14,7 +14,7 @@ export const Card = styled.div`
 `;
 
 export const Content = styled.div`
-  ${tw`p-4 text-indigo-900`};
+  ${tw`p-4 text-interactive`};
 `;
 
 export const Image = styled.figure`
@@ -28,7 +28,7 @@ export const Title = styled.h3`
 export const Description = styled.p``;
 
 export const Date = styled.h3`
-  ${tw`text-xs text-indigo-500`};
+  ${tw`text-xs text-interactive`};
 `;
 
 export const Tags = styled.div`
@@ -36,5 +36,5 @@ export const Tags = styled.div`
 `;
 
 export const Tag = styled.span`
-  ${tw`text-xs text-indigo-900 border border-primary-400 rounded-full px-2 py-1 mr-2`}
+  ${tw`text-xs text-interactive border border-primary rounded-full px-2 py-1 mr-2`}
 `;

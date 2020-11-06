@@ -1,12 +1,19 @@
 import tw from "twin.macro";
 import styled from "styled-components";
 import { SectionHeading } from "../ui/Section/styles";
+import {
+  OutboundLink,
+  OutboundLinkProps,
+} from "gatsby-plugin-google-analytics";
+import * as React from "react";
 
 export const SubheadingBase = styled.h5`
-  ${tw`font-bold text-primary-500`}
+  ${tw`font-bold text-primary`}
 `;
-export const PrimaryButtonBase = styled.button`
-  ${tw`px-8 py-3 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 focus:shadow-outline focus:outline-none transition duration-300`}
+export const PrimaryButtonBase = styled(OutboundLink)<
+  OutboundLinkProps & React.HTMLProps<HTMLAnchorElement>
+>`
+  ${tw`px-8 py-3 text-center font-bold rounded bg-ternary text-disabled hocus:bg-secondary hocus:text-primary focus:shadow-outline focus:outline-none transition duration-300`}
 `;
 
 export const Container = styled.div`
@@ -41,14 +48,14 @@ export const Heading = styled(SectionHeading)`
   ${tw`mt-4 font-black text-left text-3xl sm:text-4xl lg:text-5xl text-center md:text-left leading-tight`}
 `;
 export const Description = styled.p`
-  ${tw`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary-100`}
+  ${tw`mt-4 text-center md:text-left text-sm md:text-base lg:text-lg font-medium leading-relaxed text-secondary`}
 `;
 
 export const Form = styled.form`
   ${tw`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`}
 `;
 export const Input = styled.input`
-  ${tw`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary-500`}
+  ${tw`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary`}
 `;
 export const Textarea = styled(Input).attrs({ as: "textarea" })`
   ${tw`h-24`}

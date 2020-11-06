@@ -38,7 +38,7 @@ export function ContactMe({
           <Styled.TextContent>
             <Styled.Subheading>{"Contact me"}</Styled.Subheading>
             <Styled.Heading>
-              Feel free to <span css={tw`text-primary-500`}>get in touch</span>
+              Feel free to <span css={tw`text-primary`}>get in touch</span>
               <wbr />
               with me.
             </Styled.Heading>
@@ -57,12 +57,11 @@ export function ContactMe({
                 name="message"
                 placeholder="Your Message Here"
               />
-              <OutboundLink
+              <Styled.SubmitButton
                 href={`mailto:${SiteConfigs.CONTACT_EMAIL}?subject=Site Feedback | ${formValues.subject}&body=${formValues.message}`}
-                css={tw`text-center inline-block mt-8 px-8 py-3 font-bold rounded bg-primary-500 text-gray-100 hocus:bg-primary-700 hocus:text-gray-200 hocus:shadow-outline hocus:outline-none transition duration-300`}
               >
                 {submitButtonText}
-              </OutboundLink>
+              </Styled.SubmitButton>
             </Styled.Form>
           </Styled.TextContent>
         </Styled.TextColumn>

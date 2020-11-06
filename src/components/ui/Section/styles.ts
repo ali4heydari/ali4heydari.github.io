@@ -6,7 +6,7 @@ export const SectionContainer = styled.div`
 `;
 
 export const SectionDescription = styled.p`
-  ${tw`mb-10 w-full text-center mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-primary-100 max-w-xl`}
+  ${tw`mb-10 w-full text-center mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-primary max-w-xl`}
 `;
 
 export const SectionHeading = styled.h2`
@@ -14,5 +14,5 @@ export const SectionHeading = styled.h2`
 `;
 
 export const SectionSubheading = styled.h5`
-  ${tw`font-bold text-primary-500 mb-4`}
+  ${tw`font-bold text-primary mb-4`}
 `;

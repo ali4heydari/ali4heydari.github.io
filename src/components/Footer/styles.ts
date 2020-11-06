@@ -11,13 +11,13 @@ export const Links = styled.div`
   ${tw`flex items-center justify-center w-full`};
 
   a {
-    ${tw`text-indigo-900 hover:text-indigo-600 mx-2`};
+    ${tw`text-interactive hover:text-interactive mx-2`};
   }
 `;
 
 export const Link = styled(OutboundLink)`
   ${tw`cursor-pointer inline-block transition duration-300 mx-4`};
-  ${tw`text-primary-100 hover:text-primary-500`};
+  ${tw`text-primary hover:text-primary`};
 `;
 
 export const Separator = styled.h2<StyledProps>`
@@ -26,11 +26,11 @@ export const Separator = styled.h2<StyledProps>`
 
   &:before {
     content: "";
-    ${tw`bg-indigo-500 h-full w-px absolute left-0`};
+    ${tw`bg-secondary h-full w-px absolute left-0`};
   }
 
   &:after {
     content: "";
-    ${tw`bg-primary-400 h-6 w-px absolute ml-1`};
+    ${tw`bg-primary h-6 w-px absolute ml-1`};
   }
 `;
