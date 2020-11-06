@@ -2,6 +2,7 @@ import MainNav from "./MainNav";
 import Logo from "./Logo";
 
 import * as Styled from "./styles";
+import React from "react";
 
 interface Props {
   siteTitle: string;

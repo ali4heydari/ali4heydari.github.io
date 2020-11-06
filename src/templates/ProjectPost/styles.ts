@@ -20,5 +20,5 @@ export const TagsHeader = styled.h6`
 `;
 
 export const Tag = styled.span`
-  ${tw`text-xs text-indigo-900 border border-primary-400 rounded-full px-2 py-1 mr-2`}
+  ${tw`text-xs text-interactive border border-primary rounded-full px-2 py-1 mr-2`}
 `;

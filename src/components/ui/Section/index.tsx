@@ -31,7 +31,7 @@ export const Section: React.FC<SectionProps> = ({
         </Styled.SectionHeading>
         {description ? (
           <Styled.SectionDescription
-            css={tw`w-full text-center mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-primary-100 max-w-xl`}
+            css={tw`w-full text-center mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-primary max-w-xl`}
           >
             {description}
           </Styled.SectionDescription>

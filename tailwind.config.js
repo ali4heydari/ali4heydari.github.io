@@ -17,30 +17,12 @@ module.exports = {
       black: "#000",
       white: "#fff",
 
-      primary: {
-        100: "#a273ff",
-        200: "#935bff",
-        300: "#8344ff",
-        400: "#742cff",
-        500: "#6415FF",
-        600: "#5a13e6",
-        700: "#5011cc",
-        800: "#460fb3",
-        900: "#3c0d99",
-      },
-
-      secondary: {
-        100: "#7c8ba1",
-        200: "#667892",
-        300: "#506582",
-        400: "#3a5173",
-        500: "#243E63",
-        600: "#203859",
-        700: "#1d324f",
-        800: "#192b45",
-        900: "#16253b",
-      },
-
+      accent: "var(--color-text-accent)",
+      primary: "var(--color-text-primary)",
+      secondary: "var(--color-text-secondary)",
+      interactive: "var(--color-text-interactive)",
+      error: "var(--color-text-error)",
+      disabled: "var(--color-text-disabled)",
       gray: {
         lightest: "#fff",
         100: "#f7fafc",
@@ -179,7 +161,11 @@ module.exports = {
       128: "32rem",
       144: "36rem",
     },
-    backgroundColor: (theme) => theme("colors"),
+    backgroundColor: {
+      primary: "var(--color-bg-primary)",
+      secondary: "var(--color-bg-secondary)",
+      ternary: "var(--color-bg-ternary)",
+    },
     backgroundPosition: {
       bottom: "bottom",
       center: "center",
