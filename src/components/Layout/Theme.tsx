@@ -4,6 +4,7 @@ import tailwindConfig from "../../../tailwind.config.js";
 import rtlPlugin from "stylis-plugin-rtl";
 import { useTranslation } from "react-i18next";
 import { Languages } from "utils/enums";
+import React from "react";
 
 const { theme } = resolveConfig(tailwindConfig);
 
