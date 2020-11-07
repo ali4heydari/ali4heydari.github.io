@@ -35,7 +35,7 @@ export const MainNavItem = motion.custom(styled(Link)`
 `);
 
 export const ToggleMode = motion.custom(styled.button`
-  ${tw`relative text-interactive border-b border-transparent hover:text-interactive ml-0 sm:ml-8 mt-3 sm:mt-0`};
+  ${tw`flex flex-col items-end justify-center cursor-pointer w-6 h-5 me-4`};
   width: max-content;
 
   &.active {
@@ -61,7 +61,7 @@ export const ToggleMainNav = styled.button<StyledProps>`
   outline: none !important;
 
   span {
-    ${tw`bg-secondary inline-block w-6 h-px`};
+    ${tw`bg-inverse inline-block w-6 h-px`};
     transition: 0.2s;
 
     &:first-child {
@@ -75,7 +75,7 @@ export const ToggleMainNav = styled.button<StyledProps>`
     }
 
     &:nth-child(2) {
-      ${tw`bg-primary inline-block w-8 h-px`};
+      ${tw`bg-inverse  inline-block w-8 h-px`};
 
       ${({ open }) => (open ? tw`opacity-0` : tw`opacity-100`)};
       transform: ${({ open }) => (open ? "translate(20px)" : "none")};

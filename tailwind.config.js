@@ -13,7 +13,6 @@ module.exports = {
     },
     colors: {
       transparent: "transparent",
-
       black: "#000",
       white: "#fff",
 
@@ -23,6 +22,7 @@ module.exports = {
       interactive: "var(--color-text-interactive)",
       error: "var(--color-text-error)",
       disabled: "var(--color-text-disabled)",
+      inverse: "var(--color-text-inverse)",
       gray: {
         lightest: "#fff",
         100: "#f7fafc",
@@ -161,11 +161,13 @@ module.exports = {
       128: "32rem",
       144: "36rem",
     },
-    backgroundColor: {
+    backgroundColor: (theme) => ({
+      ...theme("colors"),
       primary: "var(--color-bg-primary)",
       secondary: "var(--color-bg-secondary)",
       ternary: "var(--color-bg-ternary)",
-    },
+      inverse: "var(--color-bg-inverse)",
+    }),
     backgroundPosition: {
       bottom: "bottom",
       center: "center",
