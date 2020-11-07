@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 
 import {
   COLORS,
@@ -20,21 +20,8 @@ export const ThemeProvider: React.FC = ({ children }) => {
     undefined
   );
 
-  React.useEffect(() => {
-    const root = window.document.documentElement;
-
-    // Because colors matter so much for the initial page view, we're
-    // doing a lot of the work in gatsby-ssr. That way it can happen before
-    // the React component tree mounts.
-    const initialColorValue = root.style.getPropertyValue(
-      INITIAL_COLOR_MODE_CSS_PROP
-    ) as Mode;
-
-    rawSetColorMode(initialColorValue);
-  }, []);
-
-  const contextValue = React.useMemo(() => {
-    const setColorMode = (newValue: Mode) => {
+  const setColorMode = useCallback(
+    (newValue: Mode) => {
       const root = window.document.documentElement;
 
       localStorage.setItem(COLOR_MODE_KEY, newValue);
@@ -46,13 +33,29 @@ export const ThemeProvider: React.FC = ({ children }) => {
       });
 
       rawSetColorMode(newValue);
-    };
+    },
+    [colorMode, rawSetColorMode]
+  );
 
+  const contextValue = React.useMemo(() => {
     return {
       colorMode,
       setColorMode,
     };
   }, [colorMode, rawSetColorMode]);
+
+  React.useEffect(() => {
+    const root = window.document.documentElement;
+
+    // Because colors matter so much for the initial page view, we're
+    // doing a lot of the work in gatsby-ssr. That way it can happen before
+    // the React component tree mounts.
+    const initialColorValue = root.style.getPropertyValue(
+      INITIAL_COLOR_MODE_CSS_PROP
+    ) as Mode;
+
+    setColorMode(initialColorValue);
+  }, []);
 
   return (
     <ThemeContext.Provider value={contextValue}>
