@@ -2,7 +2,6 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import { Link } from "gatsby";
 import { motion } from "framer-motion";
-import { StyledProps } from "../../ui/TitleSection/styles";
 
 export const MainNav = styled.nav`
   ${tw`flex flex-wrap items-center justify-center w-full`};
@@ -29,6 +28,7 @@ export const MainNavItem = motion.custom(styled(Link)`
 
   &:hover:before {
     ${tw`visible`};
+    ${tw`bg-inverse`};
     transform: scaleX(1);
   }
 `);
