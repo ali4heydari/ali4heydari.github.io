@@ -15516,7 +15516,7 @@ tailwindcss-rtl@^0.6.0:
     lodash "^4.17.19"
     tailwindcss "^1.4.0"
 
-tailwindcss@^1.4.0, tailwindcss@^1.9.5, tailwindcss@^1.9.6:
+tailwindcss@^1.4.0, tailwindcss@^1.9.6:
   version "1.9.6"
   resolved "https://registry.yarnpkg.com/tailwindcss/-/tailwindcss-1.9.6.tgz#0c5089911d24e1e98e592a31bfdb3d8f34ecf1a0"
   integrity sha512-nY8WYM/RLPqGsPEGEV2z63riyQPcHYZUJpAwdyBzVpxQHOHqHE+F/fvbCeXhdF1+TA5l72vSkZrtYCB9hRcwkQ==
