@@ -1,57 +1,19 @@
 import { ToggleMode as ToggleModeButtonBase } from "./styles";
-import React, { useState } from "react";
+import React from "react";
+import { ContextType, ThemeContext } from "../../ThemeContext";
 
-type Theme = "dark" | "light";
-
-const getInitialTheme = (): Theme => {
-  if (typeof window !== "undefined" && window.localStorage) {
-    const storedPrefs = window.localStorage.getItem("color-theme");
-    if (typeof storedPrefs === "string") {
-      return storedPrefs as "dark" | "light";
-    }
-
-    const userMedia = window.matchMedia("(prefers-color-scheme: dark)");
-    if (userMedia.matches) {
-      return "dark";
-    }
-  }
-
-  // If you want to use light theme as the default, return "light" instead
-  return "dark";
-};
-
-export const ToggleMode = ({
-  initialTheme = getInitialTheme(),
-}: {
-  initialTheme?: Theme;
-}) => {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme());
-
-  const rawSetTheme = (theme) => {
-    if (typeof window !== "undefined") {
-      const root = window.document.documentElement;
-      const isDark = theme === "dark";
-
-      root.classList.remove(isDark ? "light" : "dark");
-      root.classList.add(theme);
-
-      localStorage.setItem("color-theme", theme);
-    }
-  };
-
-  if (initialTheme) {
-    rawSetTheme(initialTheme);
-  }
-
-  React.useEffect(() => {
-    rawSetTheme(theme);
-  }, [theme]);
+export const ToggleMode = () => {
+  const { colorMode, setColorMode } = React.useContext<ContextType>(
+    ThemeContext
+  );
 
   return (
     <ToggleModeButtonBase
-      onClick={() => setTheme(theme == "dark" ? "light" : "dark")}
+      onClick={() =>
+        setColorMode && setColorMode(colorMode == "dark" ? "light" : "dark")
+      }
     >
-      {theme === "dark" ? (
+      {colorMode === "dark" ? (
         <svg
           className="w-8 h-8 md:w-10 md:h-10"
           xmlns="http://www.w3.org/2000/svg"

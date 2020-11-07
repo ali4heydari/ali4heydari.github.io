@@ -1,5 +1,5 @@
 import Icon, { IconProps } from "components/ui/Icon";
-
+import React from "react";
 import * as Styled from "./styles";
 
 interface Props extends Styled.StyledProps {
