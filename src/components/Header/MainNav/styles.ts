@@ -30,6 +30,7 @@ export const MainNavItem = motion.custom(styled(Link)`
 
   &:hover:before {
     ${tw`visible`};
+    ${tw`bg-inverse`};
     transform: scaleX(1);
   }
 `);
