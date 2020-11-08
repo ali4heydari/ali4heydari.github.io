@@ -8,11 +8,13 @@ import React from "react";
 const IndexPage: React.FC = () => {
   return (
     <Layout title="About Me">
+      <hr />
       <HeroBanner />
       <hr />
       <Experience />
       <hr />
       <Testimonials />
+      <hr />
       <ContactMe />
     </Layout>
   );
