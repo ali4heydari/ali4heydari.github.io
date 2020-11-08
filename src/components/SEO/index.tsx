@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import React from "react";
 import { Languages } from "../../utils/enums";
 import { useTranslation } from "react-i18next";
+import { css } from "styled-components";
 
 type Meta =
   | {
@@ -97,6 +98,10 @@ const SEO: React.FC<Props> = ({
         {
           name: `twitter:description`,
           content: metaDescription,
+        },
+        {
+          name: `theme_color`,
+          content: css`var(--color-bg-primary)`,
         },
       ].concat(meta)}
     />
