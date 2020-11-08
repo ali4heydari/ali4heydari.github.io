@@ -3,7 +3,7 @@ import tw from "twin.macro";
 
 export default createGlobalStyle`
   body {
-    ${tw`m-0 text-interactive bg-primary`};
+    ${tw`m-0 text-primary bg-primary`};
   }
 
   a {
