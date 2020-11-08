@@ -65,12 +65,43 @@ module.exports = {
         lang: `en`,
         start_url: `/`,
         background_color: tailwindCssConfig.theme.colors.white,
-        theme_color: tailwindCssConfig.theme.colors.primary["300"],
+        theme_color: tailwindCssConfig.theme.colors.purple["700"],
         display: `standalone`,
         icon: `${__dirname}/src/assets/images/logo.png`, // This path is relative to the root of the site.
+        // https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/
+        workboxConfig: {
+          globPatterns: ["**/icon-path*"],
+        },
       },
     },
-    "gatsby-plugin-offline",
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {
+        /*
+         * https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/
+         * If using this plugin with gatsby-plugin-offline you may find that your icons are not
+         * cached. In order to solve this, update your gatsby-config.js as follows
+         * Updating cache_busting_mode is necessary. Otherwise, workbox will break while
+         * attempting to find the cached URLs. Adding the globPatterns makes sure that the
+         * offline plugin will cache everything. Note that you have to prefix your icon with icon-path
+         * or whatever you may call it
+         *
+         * */
+        workboxConfig: {
+          globPatterns: ["**/icon-path*"],
+        },
+        /*
+         * https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/
+         * Remove theme-color meta tag
+         * By default a <meta content={theme_color} name="theme-color" /> tag is inserted into the html output.
+         * This can be problematic if you want to programmatically control that tag
+         * (e.g. when implementing light/dark themes in your project).
+         * You can set theme_color_in_head plugin option to
+         * false to opt-out of this behavior.
+         */
+        theme_color_in_head: false, // This will avoid adding theme-color meta tag.
+      },
+    },
     "gatsby-plugin-styled-components",
     "gatsby-plugin-postcss",
     "gatsby-plugin-tailwindcss",
