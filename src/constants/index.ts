@@ -28,37 +28,16 @@ export const COLORS = {
     dark: "#2d3748", // navy navy blue
   },
   "bg-secondary": {
-    light: "#edf2f7",
+    light: "#f7fafc",
     dark: "#283141",
   },
   "bg-ternary": {
-    light: "#6415ff",
-    dark: "#6415ff",
+    light: "#eaeff5",
+    dark: "#1a202c",
   },
   "bg-inverse": {
     light: "#2d3748",
     dark: "#f7fafc",
-  },
-  // primary: {
-  //   light: "hsl(340deg, 100%, 40%)", // Pinkish-red
-  //   dark: "hsl(50deg, 100%, 50%)", // Yellow
-  // },
-  // secondary: {
-  //   light: "hsl(250deg, 100%, 50%)", // Purplish-blue
-  //   dark: "hsl(190deg, 100%, 40%)", // Cyan
-  // },
-  // Grays, scaling from least-noticeable to most-noticeable
-  gray300: {
-    light: "hsl(0deg, 0%, 70%)",
-    dark: "hsl(0deg, 0%, 30%)",
-  },
-  gray500: {
-    light: "hsl(0deg, 0%, 50%)",
-    dark: "hsl(0deg, 0%, 50%)",
-  },
-  gray700: {
-    light: "hsl(0deg, 0%, 30%)",
-    dark: "hsl(0deg, 0%, 70%)",
   },
 };
 
