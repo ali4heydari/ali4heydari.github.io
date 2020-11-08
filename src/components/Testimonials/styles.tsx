@@ -2,7 +2,7 @@ import styled from "styled-components";
 import tw from "twin.macro";
 
 export const Testimonials = styled.div`
-  ${tw`max-w-screen-sm mx-auto w-full px-0 sm:px-16 mb-4`};
+  ${tw`bg-ternary rounded max-w-screen-sm mx-auto w-full px-0 sm:px-16 mb-4`};
 `;
 
 export const Testimonial = styled.div`

@@ -30,7 +30,7 @@ export const ImageDecoratorBlob = styled(SvgDecoratorBlob1)`
   ${tw`pointer-events-none z-10 absolute right-0 bottom-0 transform translate-x-10 translate-y-10 h-32 w-32 opacity-25 text-disabled fill-current`}
 `;
 export const Testimonial = styled.div`
-  ${tw`max-w-sm rounded-b md:rounded-none relative sm:absolute bottom-0 inset-x-0 z-20 px-8 py-6 sm:px-10 sm:py-8 bg-ternary text-disabled font-medium transform md:-translate-x-32 text-sm leading-relaxed md:-mr-16 xl:mr-0`}
+  ${tw`max-w-sm rounded-b md:rounded-none relative sm:absolute bottom-0 inset-x-0 z-20 px-8 py-6 sm:px-10 sm:py-8 bg-purple-500 text-white font-medium transform md:-translate-x-32 text-sm leading-relaxed md:-mr-16 xl:mr-0`}
 `;
 export const QuotesLeftIcon = styled(QuotesLeftIconBase)`
   ${tw`w-16 h-16 md:w-12 md:h-12 absolute top-0 left-0 text-disabled md:text-error transform translate-x-1 md:-translate-x-1/2 md:-translate-y-5 opacity-10 md:opacity-100`}
@@ -58,7 +58,7 @@ export const Description = styled(SectionDescription)`
 `;
 
 export const Button = styled(OutboundLink)<{ rounded?: boolean }>`
-  ${tw`px-8 font-bold rounded bg-ternary text-inverse hocus:bg-purple-800 hocus:text-inverse focus:shadow-outline focus:outline-none transition duration-300`}
+  ${tw`px-8 font-bold rounded bg-purple-500 text-white hocus:bg-purple-800 hocus:text-white focus:shadow-outline focus:outline-none transition duration-300`}
   ${tw`mt-8 inline-block w-56 tracking-wide text-center py-5`}
   ${({ rounded }) => rounded && tw`rounded-full`}
 `;
