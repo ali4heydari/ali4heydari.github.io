@@ -54,6 +54,13 @@ const SEO: React.FC<Props> = ({
 
   const metaDescription = description || site.siteMetadata.description;
 
+  const primaryBackground =
+    typeof window !== "undefined"
+      ? getComputedStyle(window.document.documentElement).getPropertyValue(
+          "--color-bg-primary"
+        )
+      : null;
+
   return (
     <Helmet
       htmlAttributes={{
@@ -99,10 +106,14 @@ const SEO: React.FC<Props> = ({
           name: `twitter:description`,
           content: metaDescription,
         },
-        {
-          name: `theme_color`,
-          content: css`var(--color-bg-primary)`,
-        },
+        ...(primaryBackground
+          ? [
+              {
+                name: `theme_color`,
+                content: primaryBackground,
+              },
+            ]
+          : []),
       ].concat(meta)}
     />
   );
