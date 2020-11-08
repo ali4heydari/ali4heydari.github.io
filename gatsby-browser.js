@@ -16,6 +16,7 @@ export const onServiceWorkerUpdateReady = async (args) => {
     await args.serviceWorker.showNotification("Website update", {
       body:
         "Our website just got a little bit better. We reloaded the site with the update to ensure a smooth experience for you.",
+      icon: `/icons/icon-512x512.png`,
     });
   }
   typeof window !== "undefined" && window.location.reload(true);
