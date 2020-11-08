@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from "gatsby";
 import React from "react";
 import { Languages } from "../../utils/enums";
 import { useTranslation } from "react-i18next";
-import { css } from "styled-components";
 
 type Meta =
   | {
@@ -54,13 +53,6 @@ const SEO: React.FC<Props> = ({
 
   const metaDescription = description || site.siteMetadata.description;
 
-  const primaryBackground =
-    typeof window !== "undefined"
-      ? getComputedStyle(window.document.documentElement).getPropertyValue(
-          "--color-bg-primary"
-        )
-      : null;
-
   return (
     <Helmet
       htmlAttributes={{
@@ -106,14 +98,6 @@ const SEO: React.FC<Props> = ({
           name: `twitter:description`,
           content: metaDescription,
         },
-        ...(primaryBackground
-          ? [
-              {
-                name: `theme_color`,
-                content: primaryBackground,
-              },
-            ]
-          : []),
       ].concat(meta)}
     />
   );
