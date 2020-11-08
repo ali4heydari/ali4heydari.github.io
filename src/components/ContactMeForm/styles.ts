@@ -13,7 +13,7 @@ export const SubheadingBase = styled.h5`
 export const PrimaryButtonBase = styled(OutboundLink)<
   OutboundLinkProps & React.HTMLProps<HTMLAnchorElement>
 >`
-  ${tw`px-8 py-3 text-center font-bold rounded bg-ternary text-disabled hocus:bg-secondary hocus:text-primary focus:shadow-outline focus:outline-none transition duration-300`}
+  ${tw`px-8 py-3 text-center font-bold rounded bg-purple-500 text-disabled hocus:bg-secondary hocus:text-primary focus:shadow-outline focus:outline-none transition duration-300`}
 `;
 
 export const Container = styled.div`
