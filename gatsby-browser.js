@@ -9,6 +9,18 @@ import React from "react";
 
 import { App } from "./src/components/App";
 
+// https://github.com/gatsbyjs/gatsby/issues/9087#issuecomment-723294431
+export const onServiceWorkerUpdateReady = async (args) => {
+  const permissionResponse = await Notification.requestPermission();
+  if (permissionResponse === "granted") {
+    await args.serviceWorker.showNotification("Website update", {
+      body:
+        "Our website just got a little bit better. We reloaded the site with the update to ensure a smooth experience for you.",
+    });
+  }
+  typeof window !== "undefined" && window.location.reload(true);
+};
+
 export const wrapRootElement = ({ element }) => {
   return <App>{element}</App>;
 };
