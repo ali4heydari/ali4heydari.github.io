@@ -54,7 +54,7 @@ export const ThemeProvider: React.FC = ({ children }) => {
       INITIAL_COLOR_MODE_CSS_PROP
     ) as Mode;
 
-    setColorMode(initialColorValue);
+    rawSetColorMode(initialColorValue);
   }, []);
 
   return (
