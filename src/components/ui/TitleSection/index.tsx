@@ -1,5 +1,6 @@
 import * as Styled from "./styles";
 import { StyledProps } from "./styles";
+import React from "react";
 
 interface Props extends StyledProps {
   title: string;
