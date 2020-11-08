@@ -1,6 +1,6 @@
 import Helmet from "react-helmet";
 import Slider from "react-slick";
-
+import React from "react";
 import "./slick.css";
 
 interface Props {
