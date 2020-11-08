@@ -9,7 +9,7 @@ export const COLORS = {
   },
   "text-interactive": {
     dark: "#1da1f2",
-    light: "#3c366b",
+    light: "#553c9a",
   },
   "text-error": {
     dark: "#e53e3e",
