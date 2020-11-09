@@ -16,6 +16,10 @@ I like to list my favorite tools, so I can keep track of them, and I can also po
 
 - [Commitizen CLI](https://github.com/commitizen/cz-cli)
 
+- [Commit lint](https://github.com/conventional-changelog/commitlint)
+
+- [Husky](https://github.com/typicode/husky)
+
 # IDEs and Editors
 
 - Jetbrains IDEs
@@ -25,4 +29,8 @@ I like to list my favorite tools, so I can keep track of them, and I can also po
     - [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
     - [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
     - [Translation](https://plugins.jetbrains.com/plugin/8579-translation)
+    - [Git Flow Integration](https://github.com/OpherV/gitflow4idea/)
+    - [JS GraphQL](https://github.com/jimkyndemeyer/js-graphql-intellij-plugin)
 - [VS Code](https://code.visualstudio.com/)
+  - plugins
+    - [LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop)
