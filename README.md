@@ -1,14 +1,16 @@
-# Gatsby Markdown Personal Website
+![Gatsby Publish](https://github.com/ali4heydari/ali4heydari.github.io/workflows/Gatsby%20Publish/badge.svg)
 
-This is a personal website / blog using [Gatsby](https://www.gatsbyjs.org/), [Markdown](https://www.markdownguide.org/), [Styled Components](https://styled-components.com/), [Talwind CSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/) & [React Font Awesome](https://github.com/FortAwesome/react-fontawesome).
+# My personal Website
+
+This is my a personal website using [Gatsby](https://www.gatsbyjs.org/), [Markdown](https://www.markdownguide.org/), [Styled Components](https://styled-components.com/), [Talwind CSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/) & [React Font Awesome](https://github.com/FortAwesome/react-fontawesome).
 
 ## Lighthouse report
 
 ![Lighthouse report](./light-house-report.png)
 
-## Demo
+## Live Demo
 
-[Gatsby Markdown Personal Website](https://gatsby-markdown-personal-website.netlify.app/)
+[Live Demo](https://ali4heydari.github.io/)
 
 ## Quick start
 
@@ -17,7 +19,7 @@ This is a personal website / blog using [Gatsby](https://www.gatsbyjs.org/), [Ma
     Use the Gatsby CLI to create a new site, using the Gatsby Markdown Personal Website starter.
 
     ```shell
-    gatsby new my-site-name https://github.com/SaimirKapaj/gatsby-markdown-personal-website
+    gatsby new my-site-name https://github.com/ali4heydari/ali4heydari.github.io
     ```
 
 2.  **Develop**
@@ -50,6 +52,6 @@ This is a personal website / blog using [Gatsby](https://www.gatsbyjs.org/), [Ma
 
 ## Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/SaimirKapaj/gatsby-markdown-personal-website)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ali4heydri/ali4heydari.github.io)
 
-[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/SaimirKapaj/gatsby-markdown-personal-website)
+[![Deploy with ZEIT Now](https://zeit.co/button)](https://zeit.co/import/project?template=https://github.com/ali4heydri/ali4heydari.github.io)
