@@ -22,7 +22,7 @@ interface Contact {
   };
 }
 
-const ConctactInfo: React.FC = () => {
+const ContactInfo: React.FC = () => {
   const { markdownRemark, allMarkdownRemark, file } = useStaticQuery(graphql`
     query {
       markdownRemark(frontmatter: { category: { eq: "contact section" } }) {
@@ -60,7 +60,6 @@ const ConctactInfo: React.FC = () => {
   const sectionTitle: SectionTitle = markdownRemark.frontmatter;
   const contacts: Contact[] = allMarkdownRemark.edges;
 
-  console.log(file);
   return (
     <Container section maxWidth="lg">
       <TitleSection
@@ -86,4 +85,4 @@ const ConctactInfo: React.FC = () => {
   );
 };
 
-export default ConctactInfo;
+export default ContactInfo;
