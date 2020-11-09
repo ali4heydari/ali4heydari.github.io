@@ -33,16 +33,18 @@ import GatsbyImage from "gatsby-image";
 
 const ChipContainer = ({
   projects,
+  title = "Related open source projects:",
 }: {
   projects: {
     name: string;
     href: string;
     emoji?: string;
   }[];
+  title?: string;
 }) => {
   return (
     <div>
-      <div css={tw`text-purple-800`}>Related open source projects:</div>
+      <div css={tw`text-primary`}>{title}</div>
       {projects.map(({ name, href, emoji }) => (
         <Chip key={name} href={href}>
           <span role="img" aria-label={`${name}'s emoji`}>
@@ -304,7 +306,22 @@ export const SkillsCard: React.FC = () => {
     {
       icon: <NestJsIcon css={tw`text-error w-20 h-20`} />,
       title: "Nest.js",
-      description: "Familiar with Nest.js framework",
+      description: (
+        <>
+          Familiar with Nest.js framework
+          <ChipContainer
+            title="Certificates:"
+            projects={[
+              {
+                name: "Udemy certificate",
+                href:
+                  "https://www.udemy.com/certificate/UC-0161feda-a7e0-452d-8245-2ba7a3a9a62c/",
+                emoji: "🧾",
+              },
+            ]}
+          />
+        </>
+      ),
     },
     {
       icon: <PostgreSqlIcon css={tw`text-blue-400 w-20 h-20`} />,
