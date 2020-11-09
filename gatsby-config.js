@@ -68,10 +68,16 @@ module.exports = {
         theme_color: tailwindCssConfig.theme.colors.purple["700"],
         display: `standalone`,
         icon: `${__dirname}/src/assets/images/logo.png`, // This path is relative to the root of the site.
-        // https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/
-        workboxConfig: {
-          globPatterns: ["**/icon-path*"],
-        },
+        /*
+         * https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/
+         * Remove theme-color meta tag
+         * By default a <meta content={theme_color} name="theme-color" /> tag is inserted into the html output.
+         * This can be problematic if you want to programmatically control that tag
+         * (e.g. when implementing light/dark themes in your project).
+         * You can set theme_color_in_head plugin option to
+         * false to opt-out of this behavior.
+         */
+        // theme_color_in_head: false, // This will avoid adding theme-color meta tag.
       },
     },
     {
@@ -88,18 +94,8 @@ module.exports = {
          *
          * */
         workboxConfig: {
-          globPatterns: ["**/icon-path*"],
+          globPatterns: ["**/icons*"],
         },
-        /*
-         * https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/
-         * Remove theme-color meta tag
-         * By default a <meta content={theme_color} name="theme-color" /> tag is inserted into the html output.
-         * This can be problematic if you want to programmatically control that tag
-         * (e.g. when implementing light/dark themes in your project).
-         * You can set theme_color_in_head plugin option to
-         * false to opt-out of this behavior.
-         */
-        theme_color_in_head: false, // This will avoid adding theme-color meta tag.
       },
     },
     "gatsby-plugin-styled-components",
