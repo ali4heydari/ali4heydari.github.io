@@ -6,13 +6,7 @@ interface Props {
 }
 
 const FormatHtml: React.FC<Props> = ({ content }) => (
-  <span
-    css={css`
-      ol,
-      ul {
-        list-style: initial;
-      }
-    `}
+  <main
     dangerouslySetInnerHTML={{
       __html: content,
     }}
