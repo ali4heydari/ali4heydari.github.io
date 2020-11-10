@@ -31,6 +31,7 @@
     "gatsby-plugin-sharp": "^2.6.43",
     "gatsby-plugin-styled-components": "^3.3.14",
     "gatsby-plugin-tailwindcss": "^1.0.3",
+    "gatsby-remark-classes": "^1.0.0",
     "gatsby-remark-images": "^3.3.39",
     "gatsby-remark-relative-images": "^2.0.2",
     "gatsby-source-filesystem": "^2.3.35",
