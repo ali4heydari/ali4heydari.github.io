@@ -20,6 +20,8 @@ I like to list my favorite tools, so I can keep track of them, and I can also po
 
 - [Husky](https://github.com/typicode/husky)
 
+- [Git Jump](https://github.com/mykolaharmash/git-jump)
+
 # IDEs and Editors
 
 - Jetbrains IDEs
@@ -34,3 +36,9 @@ I like to list my favorite tools, so I can keep track of them, and I can also po
 - [VS Code](https://code.visualstudio.com/)
   - plugins
     - [LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop)
+
+# Node.js related tools
+
+- [NVM windows](https://github.com/coreybutler/nvm-windows)
+
+- [NVM Linux](https://github.com/nvm-sh/nvm)
