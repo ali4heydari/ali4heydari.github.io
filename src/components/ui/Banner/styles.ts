@@ -38,7 +38,7 @@ export const QuotesLeftIcon = styled(QuotesLeftIconBase)`
 export const Quote = styled.blockquote``;
 
 export const ImageColumn = styled.div`
-  ${tw`ml-auto lg:mr-0 relative mt-16 lg:mt-0 lg:ml-32`}
+  ${tw`ml-auto lg:mr-0 relative mt-16 lg:mt-0 lg:ml-32 max-w-full`}
 `;
 export const ImageContainer = styled.div`
   ${tw`relative z-40 transform xl:-translate-x-24 xl:-translate-y-16`}
