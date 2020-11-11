@@ -51,21 +51,6 @@ module.exports = {
               linkImagesToOriginal: false,
             },
           },
-          {
-            resolve: "gatsby-remark-classes",
-            options: {
-              classMap: {
-                "heading[depth=1]": "text-4xl",
-                "heading[depth=2]": "text-3xl",
-                "heading[depth=3]": "text-2xl",
-                "heading[depth=4]": "text-xl",
-                "list[ordered=false]": "list-disc",
-                "list[ordered=true]": "list-decimal",
-                listItem: "ms-2",
-                paragraph: "text-base",
-              },
-            },
-          },
         ],
       },
     },
