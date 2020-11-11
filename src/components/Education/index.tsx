@@ -4,7 +4,7 @@ import Timeline from "components/ui/Timeline";
 import Container from "components/ui/Container";
 import TitleSection from "components/ui/TitleSection";
 import FormatHtml from "components/utils/FormatHtml";
-
+import React from "react";
 import { SectionTitle } from "definitions";
 
 interface Education {
