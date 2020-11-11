@@ -5,7 +5,7 @@ import Layout from "components/Layout";
 import SEO from "components/SEO";
 import Container from "components/ui/Container";
 import TitleSection from "components/ui/TitleSection";
-import FormatHtml from "components/utils/FormatHtml";
+import FormatHtml, { MarkDown } from "components/utils/FormatHtml";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
@@ -63,7 +63,7 @@ const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
           subtitle={post.frontmatter.title}
         />
         <Styled.Description>{post.frontmatter.description}</Styled.Description>
-        <FormatHtml content={post.html} />
+        <MarkDown content={post.html} />
         <Container section maxWidth="sm">
           <Styled.Tags>
             <Styled.TagsHeader>Tech Stack:</Styled.TagsHeader>
