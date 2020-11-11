@@ -6,39 +6,64 @@ subtitle: "My favorite tools"
 
 I like to list my favorite tools, so I can keep track of them, and I can also point friends to this list.
 
-#Git
+## Git
 
-- [Git-Flow](https://github.com/petervanderdoes/gitflow-avh)
+##### [Git-Flow](https://github.com/petervanderdoes/gitflow-avh)
 
-- [Delta](https://github.com/dandavison/delta)
+A collection of Git extensions to provide high-level repository operations for Vincent Driessen's [branching model](https://nvie.com/posts/a-successful-git-branching-model/).
 
-- [Meld](https://meldmerge.org/)
+##### [Delta](https://github.com/dandavison/delta)
 
-- [Commitizen CLI](https://github.com/commitizen/cz-cli)
+It’s the best viewer I’ve found for Git and diff output.
 
-- [Commit lint](https://github.com/conventional-changelog/commitlint)
+##### [Meld](https://meldmerge.org/)
 
-- [Husky](https://github.com/typicode/husky)
+The best free tool I've found for compare folders. I also use Meld to fix git merge conflicts.
 
-- [Git Jump](https://github.com/mykolaharmash/git-jump)
+##### [Commitizen CLI](https://github.com/commitizen/cz-cli)
 
-# IDEs and Editors
+A command-line utility helper to commit with a good message and stop commit with message like `update`!
 
-- Jetbrains IDEs
-  - plugins
-    - [Power mode II](https://plugins.jetbrains.com/plugin/8251-power-mode-ii)
-    - [Atom material icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons)
-    - [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
-    - [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
-    - [Translation](https://plugins.jetbrains.com/plugin/8579-translation)
-    - [Git Flow Integration](https://github.com/OpherV/gitflow4idea/)
-    - [JS GraphQL](https://github.com/jimkyndemeyer/js-graphql-intellij-plugin)
-- [VS Code](https://code.visualstudio.com/)
-  - plugins
-    - [LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop)
+##### [Commit lint](https://github.com/conventional-changelog/commitlint)
 
-# Node.js related tools
+Lint commit messages. It can config and use beside commitizen CLI.
 
-- [NVM windows](https://github.com/coreybutler/nvm-windows)
+##### [Husky 🐶](https://github.com/typicode/husky)
 
-- [NVM Linux](https://github.com/nvm-sh/nvm)
+Git hooks made easy. I use husky with [lint staged](https://github.com/okonet/lint-staged) or [pretty quick](https://github.com/azz/pretty-quick)
+
+##### [Git Jump](https://github.com/mykolaharmash/git-jump)
+
+Interactive CLI to better navigate and switch Git branches.
+
+## IDEs and Editors
+
+### Jetbrains IDEs
+
+#### plugins
+
+##### [Power mode II 🔥](https://plugins.jetbrains.com/plugin/8251-power-mode-ii)
+
+##### [Atom material icons](https://plugins.jetbrains.com/plugin/10044-atom-material-icons)
+
+##### [Rainbow Brackets](https://plugins.jetbrains.com/plugin/10080-rainbow-brackets)
+
+##### [String Manipulation](https://plugins.jetbrains.com/plugin/2162-string-manipulation)
+
+##### [Translation](https://plugins.jetbrains.com/plugin/8579-translation)
+
+##### [Git Flow Integration](https://github.com/OpherV/gitflow4idea/)
+
+##### [JS GraphQL](https://github.com/jimkyndemeyer/js-graphql-intellij-plugin)
+
+### [VS Code](https://code.visualstudio.com/)
+
+#### plugins
+
+##### [LaTeX Workshop](https://github.com/James-Yu/LaTeX-Workshop)
+
+## Node.js related tools
+
+##### [NVM windows](https://github.com/coreybutler/nvm-windows)
+
+##### [NVM Linux](https://github.com/nvm-sh/nvm)
