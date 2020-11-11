@@ -2,7 +2,7 @@ import Layout from "components/Layout";
 import React from "react";
 import Container from "../components/ui/Container";
 import TitleSection from "../components/ui/TitleSection";
-import FormatHtml from "../components/utils/FormatHtml";
+import FormatHtml, { MarkDown } from "../components/utils/FormatHtml";
 import { graphql, useStaticQuery } from "gatsby";
 
 const ToolsPage: React.FC = () => {
@@ -27,7 +27,7 @@ const ToolsPage: React.FC = () => {
           title={frontmatter.title}
           subtitle={frontmatter.subtitle}
         />
-        <FormatHtml content={html} />
+        <MarkDown content={html} />
       </Container>
     </Layout>
   );

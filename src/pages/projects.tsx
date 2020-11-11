@@ -1,5 +1,4 @@
 import Layout from "components/Layout";
-import SEO from "components/SEO";
 import Projects from "components/Projects";
 import React from "react";
 
