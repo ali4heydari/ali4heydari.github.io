@@ -3,12 +3,13 @@ import React from "react";
 import { ContextType, ThemeContext } from "../../ThemeContext";
 
 export const ToggleMode = () => {
-  const { colorMode, setColorMode } = React.useContext<ContextType>(
+  const { colorMode = "light", setColorMode } = React.useContext<ContextType>(
     ThemeContext
   );
 
   return (
     <ToggleModeButtonBase
+      aria-label="toggle color mode"
       onClick={() =>
         setColorMode && setColorMode(colorMode == "dark" ? "light" : "dark")
       }
@@ -20,6 +21,7 @@ export const ToggleMode = () => {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
+          aria-label="moon icon"
         >
           <path
             strokeLinecap="round"
@@ -35,6 +37,7 @@ export const ToggleMode = () => {
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
+          aria-label="sun icon"
         >
           <path
             strokeLinecap="round"

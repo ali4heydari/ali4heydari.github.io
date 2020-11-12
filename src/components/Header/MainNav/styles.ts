@@ -36,7 +36,7 @@ export const MainNavItem = motion.custom(styled(Link)`
 `);
 
 export const ToggleMode = motion.custom(styled.button`
-  ${tw`flex flex-col items-end justify-center cursor-pointer w-6 h-5 me-4`};
+  ${tw`flex flex-col items-end justify-center cursor-pointer w-6 h-6 m-4`};
   width: max-content;
 
   &.active {
