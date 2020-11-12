@@ -47,6 +47,14 @@ export const MarkDown: React.FC<Props> = ({ content }) => (
       p {
         ${tw`text-base ms-6`}
       }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 > a {
+        ${tw`ms-6`}
+      }
     `}
     dangerouslySetInnerHTML={{
       __html: content,
