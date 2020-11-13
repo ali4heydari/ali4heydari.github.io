@@ -5,7 +5,6 @@
  */
 
 import "tailwindcss/dist/base.min.css";
-p;
 import React from "react";
 
 import { App } from "./src/components/App";
