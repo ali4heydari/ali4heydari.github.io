@@ -1,6 +1,6 @@
 ---
 category: "project"
-cover: "./cover.jpg"
+cover: "./cover.png"
 title: "Dormify"
 description: "Software engineering course project"
 startDate: "2020-03-30"
@@ -29,7 +29,13 @@ tags:
 published: true
 ---
 
-![dormify](./cover.jpg)
+![dormify](./cover.png)
+
+![home-page](./home-page2.png)
+
+![sign-up](./sign-up.png)
+
+![validate-invitation](./validate-invitation.png)
 
 - Carrying out team coordination and work
 - Meeting with dormitory managers for requirements engineering and data gathering.
