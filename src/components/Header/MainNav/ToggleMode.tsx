@@ -3,15 +3,19 @@ import React from "react";
 import { ContextType, ThemeContext } from "../../ThemeContext";
 
 export const ToggleMode = () => {
-  const { colorMode = "light", setColorMode } = React.useContext<ContextType>(
+  const { colorMode, setColorMode } = React.useContext<ContextType>(
     ThemeContext
   );
+
+  if (!colorMode) {
+    return null;
+  }
 
   return (
     <ToggleModeButtonBase
       aria-label="toggle color mode"
       onClick={() =>
-        setColorMode && setColorMode(colorMode == "dark" ? "light" : "dark")
+        setColorMode && setColorMode(colorMode === "dark" ? "light" : "dark")
       }
     >
       {colorMode === "dark" ? (
