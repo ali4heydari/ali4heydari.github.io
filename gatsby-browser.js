@@ -5,9 +5,15 @@
  */
 
 import "tailwindcss/dist/base.min.css";
+p;
 import React from "react";
 
 import { App } from "./src/components/App";
+
+// IntersectionObserver polyfill for gatsby-image (Safari, IE)
+if (typeof window !== "undefined" && !window.IntersectionObserver) {
+  import("intersection-observer");
+}
 
 // https://github.com/gatsbyjs/gatsby/issues/9087#issuecomment-723294431
 export const onServiceWorkerUpdateReady = async (args) => {
