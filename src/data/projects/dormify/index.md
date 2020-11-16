@@ -70,10 +70,6 @@ Cypress videos and screenshots and type-coverage results.
 
 ![test-results](./test-results.png)
 
-#### Cypress video output
-
-![cypress-video-output](./cypress-video-output.png)
-
 #### Coverage results
 
 ![coverage-results](./coverage-results.png)
@@ -85,3 +81,11 @@ Cypress videos and screenshots and type-coverage results.
 #### Artifacts
 
 ![artifacts](./artifacts.png)
+
+#### Cypress video output
+
+![cypress-video-output](./cypress-video-output.png)
+
+#### Azure feed (private npm registry)
+
+![azure-feed](./feeds.png)
