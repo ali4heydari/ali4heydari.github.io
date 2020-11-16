@@ -49,7 +49,7 @@ function setColorsByTheme() {
 
 const MagicScriptTag = () => {
   const boundFn = String(setColorsByTheme)
-    .replace("'🌈'", JSON.stringify(COLORS))
+    .replace('"🌈"', JSON.stringify(COLORS))
     .replace("🔑", COLOR_MODE_KEY)
     .replace("⚡️", INITIAL_COLOR_MODE_CSS_PROP);
 
