@@ -7873,6 +7873,17 @@ gatsby-remark-relative-images@^2.0.2:
     traverse "0.6.6"
     unist-util-select "3.0.1"
 
+gatsby-remark-responsive-iframe@^2.5.0:
+  version "2.5.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-responsive-iframe/-/gatsby-remark-responsive-iframe-2.5.0.tgz#9c0eaeb23b794225e07397d3f31cc8fa0a8afeaf"
+  integrity sha512-uP6gSu8J5hhskp8hJ5tqNGNzWIeUWjZPMKFsr82lMDRJkG52qVxGHSo9DB9AjPEVGSTBKpc9UDyaCOsGrorHMg==
+  dependencies:
+    "@babel/runtime" "^7.11.2"
+    cheerio "^1.0.0-rc.3"
+    common-tags "^1.8.0"
+    lodash "^4.17.20"
+    unist-util-visit "^1.4.1"
+
 gatsby-source-filesystem@^2.3.35:
   version "2.3.35"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.3.35.tgz#a64815f1c0bc1614519ec2dd1eef49629de6c2e5"
