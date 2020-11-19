@@ -108,5 +108,11 @@ module.exports = {
         purgeOnly: ["src/assets/styles/global.css"],
       },
     },
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: `ali4heydari-github-io`,
+      },
+    },
   ],
 };
