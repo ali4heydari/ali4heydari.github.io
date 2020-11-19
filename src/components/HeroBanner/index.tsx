@@ -30,7 +30,7 @@ const HeroBanner: React.FC = () => {
         base
         childImageSharp {
           fluid {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }

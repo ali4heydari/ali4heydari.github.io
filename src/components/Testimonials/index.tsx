@@ -50,7 +50,7 @@ const Testimonials: React.FC = () => {
               cover {
                 childImageSharp {
                   fluid(maxWidth: 80) {
-                    ...GatsbyImageSharpFluid
+                    ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }

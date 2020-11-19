@@ -50,7 +50,7 @@ const ContactInfo: React.FC = () => {
       file(relativePath: { eq: "profile-high-resuloution.jpg" }) {
         childImageSharp {
           fluid {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
