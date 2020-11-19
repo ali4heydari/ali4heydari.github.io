@@ -63,7 +63,7 @@ export const SkillsCard: React.FC = () => {
       file(relativePath: { eq: "proteus-logo.png" }) {
         childImageSharp {
           fluid(maxHeight: 100, maxWidth: 100) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_withWebp
           }
         }
       }
