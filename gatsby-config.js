@@ -51,6 +51,13 @@ module.exports = {
               linkImagesToOriginal: false,
             },
           },
+          {
+            resolve: `gatsby-remark-external-links`,
+            options: {
+              target: `_blank`,
+              rel: `nofollow noopener noreferrer`,
+            },
+          },
         ],
       },
     },
@@ -113,13 +120,6 @@ module.exports = {
       resolve: `gatsby-plugin-disqus`,
       options: {
         shortname: `ali4heydari-github-io`,
-      },
-    },
-    {
-      resolve: `gatsby-remark-external-links`,
-      options: {
-        target: `_blank`,
-        rel: `nofollow noopener noreferrer`,
       },
     },
   ],
