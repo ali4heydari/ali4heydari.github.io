@@ -8,7 +8,6 @@ import TitleSection from "components/ui/TitleSection";
 import { MarkDown } from "components/utils/FormatHtml";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { Disqus } from "gatsby-plugin-disqus";
 
 import * as Styled from "./styles";
 import { Chip } from "../../components/ui/Chip";
@@ -36,13 +35,14 @@ interface Props {
     next: Project;
     previous: Project;
     id: string;
+    siteUrl: string;
   };
 }
 
 const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
   const project = data.markdownRemark;
   const { i18n } = useTranslation();
-  const { previous, next, slug, id } = pageContext;
+  const { previous, next, slug, id, siteUrl } = pageContext;
 
   return (
     <Layout>
@@ -94,7 +94,7 @@ const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
         </Styled.Links>
         <Styled.DisqusProject
           config={{
-            url: slug,
+            url: `${siteUrl}/${slug}`,
             identifier: id,
             title: project.frontmatter.title,
           }}
