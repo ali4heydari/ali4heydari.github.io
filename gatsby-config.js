@@ -113,6 +113,7 @@ module.exports = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-tailwindcss",
     "gatsby-plugin-catch-links",
+    "gatsby-plugin-sitemap",
     {
       resolve: "gatsby-plugin-purgecss",
       options: {
