@@ -57,6 +57,7 @@ exports.createPages = async ({ graphql, actions }) => {
               endDate
               tags
             }
+            id
           }
         }
       }
@@ -76,6 +77,7 @@ exports.createPages = async ({ graphql, actions }) => {
         slug: `${post.node.fields.slug}`,
         previous,
         next,
+        id: `${post.node.id}`,
       },
     });
   });

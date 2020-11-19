@@ -5,9 +5,10 @@ import Layout from "components/Layout";
 import SEO from "components/SEO";
 import Container from "components/ui/Container";
 import TitleSection from "components/ui/TitleSection";
-import FormatHtml, { MarkDown } from "components/utils/FormatHtml";
+import { MarkDown } from "components/utils/FormatHtml";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { Disqus } from "gatsby-plugin-disqus";
 
 import * as Styled from "./styles";
 import { Chip } from "../../components/ui/Chip";
@@ -34,40 +35,43 @@ interface Props {
     slug: string;
     next: Project;
     previous: Project;
+    id: string;
   };
 }
 
 const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
-  const post = data.markdownRemark;
+  const project = data.markdownRemark;
   const { i18n } = useTranslation();
-  const { previous, next } = pageContext;
+  const { previous, next, slug, id } = pageContext;
 
   return (
     <Layout>
-      <SEO title={post.frontmatter.title} />
+      <SEO title={project.frontmatter.title} />
       <Container section maxWidth="lg">
         <TitleSection
-          title={`${new Date(post.frontmatter.startDate).toLocaleDateString(
+          title={`${new Date(project.frontmatter.startDate).toLocaleDateString(
             i18n.language,
             {
               year: "numeric",
               month: "short",
             }
-          )} - ${new Date(post.frontmatter.endDate).toLocaleDateString(
+          )} - ${new Date(project.frontmatter.endDate).toLocaleDateString(
             i18n.language,
             {
               year: "numeric",
               month: "short",
             }
           )}`}
-          subtitle={post.frontmatter.title}
+          subtitle={project.frontmatter.title}
         />
-        <Styled.Description>{post.frontmatter.description}</Styled.Description>
-        <MarkDown content={post.html} />
+        <Styled.Description>
+          {project.frontmatter.description}
+        </Styled.Description>
+        <MarkDown content={project.html} />
         <Container section maxWidth="sm">
           <Styled.Tags>
             <Styled.TagsHeader>Tech Stack:</Styled.TagsHeader>
-            {post.frontmatter.tags.map((tag) => (
+            {project.frontmatter.tags.map((tag) => (
               <Chip key={tag}>{tag}</Chip>
             ))}
           </Styled.Tags>
@@ -88,6 +92,13 @@ const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
             )}
           </span>
         </Styled.Links>
+        <Styled.DisqusProject
+          config={{
+            url: slug,
+            identifier: id,
+            title: project.frontmatter.title,
+          }}
+        />
       </Container>
     </Layout>
   );
