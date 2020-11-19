@@ -91,24 +91,6 @@ module.exports = {
         // theme_color_in_head: false, // This will avoid adding theme-color meta tag.
       },
     },
-    {
-      resolve: "gatsby-plugin-offline",
-      options: {
-        /*
-         * https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/
-         * If using this plugin with gatsby-plugin-offline you may find that your icons are not
-         * cached. In order to solve this, update your gatsby-config.js as follows
-         * Updating cache_busting_mode is necessary. Otherwise, workbox will break while
-         * attempting to find the cached URLs. Adding the globPatterns makes sure that the
-         * offline plugin will cache everything. Note that you have to prefix your icon with icon-path
-         * or whatever you may call it
-         *
-         * */
-        workboxConfig: {
-          globPatterns: ["**/icons*"],
-        },
-      },
-    },
     "gatsby-plugin-styled-components",
     "gatsby-plugin-postcss",
     "gatsby-plugin-tailwindcss",
@@ -125,6 +107,25 @@ module.exports = {
       resolve: `gatsby-plugin-disqus`,
       options: {
         shortname: `ali4heydari-github-io`,
+      },
+    },
+    /* Must be placed at the end */
+    {
+      resolve: "gatsby-plugin-offline",
+      options: {
+        /*
+         * https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/
+         * If using this plugin with gatsby-plugin-offline you may find that your icons are not
+         * cached. In order to solve this, update your gatsby-config.js as follows
+         * Updating cache_busting_mode is necessary. Otherwise, workbox will break while
+         * attempting to find the cached URLs. Adding the globPatterns makes sure that the
+         * offline plugin will cache everything. Note that you have to prefix your icon with icon-path
+         * or whatever you may call it
+         *
+         * */
+        workboxConfig: {
+          globPatterns: ["**/icons*"],
+        },
       },
     },
   ],
