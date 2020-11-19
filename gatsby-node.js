@@ -61,23 +61,31 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      site {
+        siteMetadata {
+          siteUrl
+        }
+      }
     }
   `);
 
-  const posts = res.data.allMarkdownRemark.edges;
+  const projects = res.data.allMarkdownRemark.edges;
+  const siteMetadata = res.data.site.siteMetadata;
 
-  posts.forEach((post, index) => {
-    const previous = index === posts.length - 1 ? null : posts[index + 1].node;
-    const next = index === 0 ? null : posts[index - 1].node;
+  projects.forEach((project, index) => {
+    const previous =
+      index === projects.length - 1 ? null : projects[index + 1].node;
+    const next = index === 0 ? null : projects[index - 1].node;
 
     createPage({
-      path: `${post.node.fields.slug}`,
+      path: `${project.node.fields.slug}`,
       component: projectTemplate,
       context: {
-        slug: `${post.node.fields.slug}`,
+        slug: `${project.node.fields.slug}`,
         previous,
         next,
-        id: `${post.node.id}`,
+        id: `${project.node.id}`,
+        siteUrl: siteMetadata.siteUrl,
       },
     });
   });
