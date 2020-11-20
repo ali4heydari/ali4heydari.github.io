@@ -1,18 +1,11 @@
 import React from "react";
 import { css } from "styled-components";
 import tw from "twin.macro";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 interface Props {
-  content: any;
+  content: string;
 }
-
-const FormatHtml: React.FC<Props> = ({ content }) => (
-  <span
-    dangerouslySetInnerHTML={{
-      __html: content,
-    }}
-  />
-);
 
 export const MarkDown: React.FC<Props> = ({ content }) => (
   <main
@@ -56,10 +49,7 @@ export const MarkDown: React.FC<Props> = ({ content }) => (
         ${tw`ms-6`}
       }
     `}
-    dangerouslySetInnerHTML={{
-      __html: content,
-    }}
-  />
+  >
+    <MDXRenderer children={content} />
+  </main>
 );
-
-export default FormatHtml;

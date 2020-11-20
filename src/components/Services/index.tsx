@@ -22,15 +22,15 @@ interface Service {
 }
 
 const Services: React.FC = () => {
-  const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`
+  const { mdx, allMdx } = useStaticQuery(graphql`
     query {
-      markdownRemark(frontmatter: { category: { eq: "services section" } }) {
+      mdx(frontmatter: { category: { eq: "services section" } }) {
         frontmatter {
           title
           subtitle
         }
       }
-      allMarkdownRemark(
+      allMdx(
         filter: { frontmatter: { category: { eq: "services" } } }
         sort: { fields: fileAbsolutePath }
       ) {
@@ -48,8 +48,8 @@ const Services: React.FC = () => {
     }
   `);
 
-  const sectionTitle: SectionTitle = markdownRemark.frontmatter;
-  const services: Service[] = allMarkdownRemark.edges;
+  const sectionTitle: SectionTitle = mdx.frontmatter;
+  const services: Service[] = allMdx.edges;
 
   return (
     <Container section maxWidth="lg">

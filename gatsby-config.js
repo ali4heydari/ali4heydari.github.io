@@ -19,6 +19,8 @@ module.exports = {
       },
     },
     "gatsby-plugin-react-helmet",
+    "gatsby-transformer-sharp",
+    "gatsby-plugin-sharp",
     {
       resolve: "gatsby-source-filesystem",
       options: {
@@ -42,32 +44,30 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-transformer-remark",
+      resolve: "gatsby-plugin-mdx",
       options: {
-        plugins: [
+        extensions: [".md", ".mdx"],
+        plugins: ["gatsby-remark-images"],
+        gatsbyRemarkPlugins: [
+          "gatsby-remark-responsive-iframe",
           {
             resolve: "gatsby-remark-images",
             options: {
               maxWidth: 768,
               linkImagesToOriginal: false,
+              withWebp: true,
             },
           },
           {
-            resolve: `gatsby-remark-external-links`,
+            resolve: "gatsby-remark-external-links",
             options: {
-              target: `_blank`,
-              rel: `nofollow noopener noreferrer`,
+              target: "_blank",
+              rel: "nofollow noopener noreferrer",
             },
-          },
-          {
-            resolve: `gatsby-remark-responsive-iframe`,
-            options: {},
           },
         ],
       },
     },
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
