@@ -24,4 +24,6 @@ export const Tag = styled.span`
   ${tw`text-xs text-interactive border border-primary rounded-full px-2 py-1 mr-2`}
 `;
 
-export const DisqusProject = styled(Disqus)``;
+export const DisqusProject = styled(Disqus)`
+  ${tw`w-full`}
+`;
