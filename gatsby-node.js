@@ -25,7 +25,7 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === "Mdx") {
     const value = createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
@@ -41,7 +41,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   const res = await graphql(`
     query {
-      allMarkdownRemark(
+      allMdx(
         filter: { frontmatter: { category: { eq: "project" } } }
         sort: { fields: frontmatter___endDate, order: DESC }
       ) {
@@ -69,7 +69,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
 
-  const projects = res.data.allMarkdownRemark.edges;
+  const projects = res.data.allMdx.edges;
   const siteMetadata = res.data.site.siteMetadata;
 
   projects.forEach((project, index) => {

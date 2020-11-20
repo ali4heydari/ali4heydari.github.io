@@ -4,18 +4,18 @@ import Loadable from "@loadable/component";
 
 import Container from "components/ui/Container";
 import TitleSection from "components/ui/TitleSection";
-import FormatHtml from "components/utils/FormatHtml";
 import React from "react";
 import { SectionTitle, ImageSharpFluid } from "definitions";
 
 import * as Styled from "./styles";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 const Carousel = Loadable(() => import("components/ui/Carousel"));
 
 interface Testimonial {
   node: {
     id: string;
-    html: string;
+    body: string;
     frontmatter: {
       title: string;
       cover: {
@@ -28,23 +28,19 @@ interface Testimonial {
 }
 
 const Testimonials: React.FC = () => {
-  const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`
+  const { mdx, allMdx } = useStaticQuery(graphql`
     query {
-      markdownRemark(
-        frontmatter: { category: { eq: "testimonials section" } }
-      ) {
+      mdx(frontmatter: { category: { eq: "testimonials section" } }) {
         frontmatter {
           title
           subtitle
         }
       }
-      allMarkdownRemark(
-        filter: { frontmatter: { category: { eq: "testimonials" } } }
-      ) {
+      allMdx(filter: { frontmatter: { category: { eq: "testimonials" } } }) {
         edges {
           node {
             id
-            html
+            body
             frontmatter {
               title
               cover {
@@ -61,8 +57,8 @@ const Testimonials: React.FC = () => {
     }
   `);
 
-  const sectionTitle: SectionTitle = markdownRemark.frontmatter;
-  const testimonials: Testimonial[] = allMarkdownRemark.edges;
+  const sectionTitle: SectionTitle = mdx.frontmatter;
+  const testimonials: Testimonial[] = allMdx.edges;
 
   return (
     <Container section maxWidth="lg">
@@ -76,7 +72,7 @@ const Testimonials: React.FC = () => {
           {testimonials.map((item) => {
             const {
               id,
-              html,
+              body,
               frontmatter: { cover, title },
             } = item.node;
 
@@ -86,7 +82,7 @@ const Testimonials: React.FC = () => {
                   <Img fluid={cover.childImageSharp.fluid} alt={title} />
                 </Styled.Image>
                 <Styled.Title>{title}</Styled.Title>
-                <FormatHtml content={html} />
+                <MDXRenderer>{body}</MDXRenderer>
               </Styled.Testimonial>
             );
           })}

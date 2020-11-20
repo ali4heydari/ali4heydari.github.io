@@ -5,15 +5,16 @@ import Layout from "components/Layout";
 import SEO from "components/SEO";
 import Container from "components/ui/Container";
 import TitleSection from "components/ui/TitleSection";
-import { MarkDown } from "components/utils/FormatHtml";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import * as Styled from "./styles";
 import { Chip } from "../../components/ui/Chip";
+import { MarkDown } from "../../components/utils/MarkDown";
 
 interface Project {
-  html: React.ReactNode;
+  body: string;
   fields: {
     slug: string;
   };
@@ -28,7 +29,7 @@ interface Project {
 
 interface Props {
   data: {
-    markdownRemark: Project;
+    mdx: Project;
   };
   pageContext: {
     slug: string;
@@ -40,7 +41,7 @@ interface Props {
 }
 
 const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
-  const project = data.markdownRemark;
+  const project = data.mdx;
   const { i18n } = useTranslation();
   const { previous, next, slug, id, siteUrl } = pageContext;
 
@@ -67,7 +68,7 @@ const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
         <Styled.Description>
           {project.frontmatter.description}
         </Styled.Description>
-        <MarkDown content={project.html} />
+        <MarkDown content={project.body} />
         <Container section maxWidth="sm">
           <Styled.Tags>
             <Styled.TagsHeader>Tech Stack:</Styled.TagsHeader>
@@ -108,8 +109,8 @@ export default ProjectPost;
 
 export const pageQuery = graphql`
   query ProjectPostBySlug($slug: String!) {
-    markdownRemark(fields: { slug: { eq: $slug } }) {
-      html
+    mdx(fields: { slug: { eq: $slug } }) {
+      body
       frontmatter {
         title
         description

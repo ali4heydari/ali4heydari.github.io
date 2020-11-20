@@ -14,9 +14,9 @@ interface Newsletter extends SectionTitle {
 }
 
 const Newsletter: React.FC = () => {
-  const { markdownRemark } = useStaticQuery(graphql`
+  const { mdx } = useStaticQuery(graphql`
     query {
-      markdownRemark(frontmatter: { category: { eq: "newsletter section" } }) {
+      mdx(frontmatter: { category: { eq: "newsletter section" } }) {
         frontmatter {
           title
           subtitle
@@ -28,7 +28,7 @@ const Newsletter: React.FC = () => {
     }
   `);
 
-  const newsletter: Newsletter = markdownRemark.frontmatter;
+  const newsletter: Newsletter = mdx.frontmatter;
 
   return (
     <Styled.Newsletter>

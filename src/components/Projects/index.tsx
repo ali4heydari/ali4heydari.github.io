@@ -34,15 +34,15 @@ interface Project {
 
 const Projects: React.FC = () => {
   const { i18n } = useTranslation();
-  const { markdownRemark, allMarkdownRemark } = useStaticQuery(graphql`
+  const { mdx, allMdx } = useStaticQuery(graphql`
     query {
-      markdownRemark(frontmatter: { category: { eq: "projects section" } }) {
+      mdx(frontmatter: { category: { eq: "projects section" } }) {
         frontmatter {
           title
           subtitle
         }
       }
-      allMarkdownRemark(
+      allMdx(
         filter: {
           frontmatter: { category: { eq: "project" }, published: { eq: true } }
         }
@@ -51,7 +51,7 @@ const Projects: React.FC = () => {
         edges {
           node {
             id
-            html
+            body
             fields {
               slug
             }
@@ -75,8 +75,8 @@ const Projects: React.FC = () => {
     }
   `);
 
-  const sectionTitle: SectionTitle = markdownRemark.frontmatter;
-  const posts: Project[] = allMarkdownRemark.edges;
+  const sectionTitle: SectionTitle = mdx.frontmatter;
+  const posts: Project[] = allMdx.edges;
 
   return (
     <Container section maxWidth="lg">

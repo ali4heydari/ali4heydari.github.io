@@ -9,7 +9,7 @@ import React from "react";
 import { SectionTitle } from "definitions";
 
 import * as Styled from "./styles";
-import FormatHtml from "../utils/FormatHtml";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 
 interface Contact {
   node: {
@@ -23,16 +23,16 @@ interface Contact {
 }
 
 const ContactInfo: React.FC = () => {
-  const { markdownRemark, allMarkdownRemark, file } = useStaticQuery(graphql`
+  const { mdx, allMdx, file } = useStaticQuery(graphql`
     query {
-      markdownRemark(frontmatter: { category: { eq: "contact section" } }) {
+      mdx(frontmatter: { category: { eq: "contact section" } }) {
         frontmatter {
           title
           subtitle
         }
-        html
+        body
       }
-      allMarkdownRemark(
+      allMdx(
         filter: { frontmatter: { category: { eq: "contact" } } }
         sort: { fields: fileAbsolutePath }
       ) {
@@ -57,8 +57,8 @@ const ContactInfo: React.FC = () => {
     }
   `);
 
-  const sectionTitle: SectionTitle = markdownRemark.frontmatter;
-  const contacts: Contact[] = allMarkdownRemark.edges;
+  const sectionTitle: SectionTitle = mdx.frontmatter;
+  const contacts: Contact[] = allMdx.edges;
 
   return (
     <Container section maxWidth="lg">
@@ -80,7 +80,7 @@ const ContactInfo: React.FC = () => {
           </Styled.ContactInfoItem>
         );
       })}
-      {markdownRemark.html && <FormatHtml content={markdownRemark.html} />}
+      {mdx.body && <MDXRenderer>{mdx.body}</MDXRenderer>}
     </Container>
   );
 };

@@ -2,16 +2,16 @@ import Layout from "components/Layout";
 import React from "react";
 import Container from "../components/ui/Container";
 import TitleSection from "../components/ui/TitleSection";
-import FormatHtml, { MarkDown } from "../components/utils/FormatHtml";
 import { graphql, useStaticQuery } from "gatsby";
+import { MarkDown } from "../components/utils/MarkDown";
 
 const ToolsPage: React.FC = () => {
   const {
-    markdownRemark: { html, frontmatter },
+    mdx: { body, frontmatter },
   } = useStaticQuery(graphql`
     query Tools {
-      markdownRemark(frontmatter: { category: { eq: "tools section" } }) {
-        html
+      mdx(frontmatter: { category: { eq: "tools section" } }) {
+        body
         frontmatter {
           title
           subtitle
@@ -27,7 +27,7 @@ const ToolsPage: React.FC = () => {
           title={frontmatter.title}
           subtitle={frontmatter.subtitle}
         />
-        <MarkDown content={html} />
+        <MarkDown content={body} />
       </Container>
     </Layout>
   );
