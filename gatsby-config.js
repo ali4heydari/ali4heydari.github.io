@@ -50,6 +50,7 @@ module.exports = {
         plugins: ["gatsby-remark-images"],
         gatsbyRemarkPlugins: [
           "gatsby-remark-responsive-iframe",
+          "gatsby-remark-prismjs",
           {
             resolve: "gatsby-remark-images",
             options: {

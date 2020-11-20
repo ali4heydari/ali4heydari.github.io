@@ -5,6 +5,16 @@
  */
 
 import "tailwindcss/dist/base.min.css";
+
+// Required: Pick a PrismJS theme
+import "prismjs/themes/prism-tomorrow.css";
+
+// Optional: Add line numbering
+import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+
+// Optional: Add shell prompt
+import "prismjs/plugins/command-line/prism-command-line.css";
+
 import React from "react";
 
 import { App } from "./src/components/App";
