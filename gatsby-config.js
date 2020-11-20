@@ -47,15 +47,21 @@ module.exports = {
       resolve: "gatsby-plugin-mdx",
       options: {
         extensions: [".md", ".mdx"],
-        plugins: ["gatsby-remark-images"],
+        plugins: ["gatsby-remark-images", "gatsby-remark-images-medium-zoom"],
         gatsbyRemarkPlugins: [
           "gatsby-remark-responsive-iframe",
           "gatsby-remark-prismjs",
           {
+            resolve: "gatsby-remark-images-medium-zoom",
+            options: {
+              background: "#a0aec0",
+            },
+          },
+          {
             resolve: "gatsby-remark-images",
             options: {
-              maxWidth: 768,
-              linkImagesToOriginal: false,
+              maxWidth: 1024,
+              linkImagesToOriginal: false, // Important! https://github.com/JaeYeopHan/gatsby-remark-images-medium-zoom#use-with-gatsby-plugin-mdx
               withWebp: true,
             },
           },
@@ -70,16 +76,16 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: "gatsby-plugin-manifest",
       options: {
         name: enTranslations["website_name"],
         description: enTranslations["website_description"],
-        short_name: `Portfolio`,
-        lang: `en`,
-        start_url: `/`,
+        short_name: "Portfolio",
+        lang: "en",
+        start_url: "/",
         background_color: tailwindCssConfig.theme.colors.white,
         theme_color: tailwindCssConfig.theme.colors.purple["700"],
-        display: `standalone`,
+        display: "standalone",
         icon: `${__dirname}/src/assets/images/logo.png`, // This path is relative to the root of the site.
         /*
          * https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/
@@ -108,9 +114,9 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-disqus`,
+      resolve: "gatsby-plugin-disqus",
       options: {
-        shortname: `ali4heydari-github-io`,
+        shortname: "ali4heydari-github-io",
       },
     },
     /* Must be placed at the end */
