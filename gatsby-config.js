@@ -73,7 +73,7 @@ module.exports = {
             },
           },
           {
-            resolve: "gatsby-remark-external-links",
+            resolve: "gatsby-remark-google-analytics-track-links",
             options: {
               target: "_blank",
               rel: "nofollow noopener noreferrer",
