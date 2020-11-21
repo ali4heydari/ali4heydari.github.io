@@ -79,6 +79,7 @@ module.exports = {
               rel: "nofollow noopener noreferrer",
             },
           },
+          "gatsby-remark-emojis",
           "gatsby-remark-prismjs",
         ],
       },
