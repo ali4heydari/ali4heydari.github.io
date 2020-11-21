@@ -49,8 +49,15 @@ module.exports = {
         extensions: [".md", ".mdx"],
         plugins: ["gatsby-remark-images", "gatsby-remark-images-medium-zoom"],
         gatsbyRemarkPlugins: [
+          /*
+           * order should be like this:
+           * https://github.com/borgfriend/gatsby-remark-embed-video#install
+           * "gatsby-remark-embed-video",
+           * "gatsby-remark-responsive-iframe",
+           * "gatsby-remark-images"
+           * */
+          "gatsby-remark-embed-video",
           "gatsby-remark-responsive-iframe",
-          "gatsby-remark-prismjs",
           {
             resolve: "gatsby-remark-images-medium-zoom",
             options: {
@@ -72,6 +79,7 @@ module.exports = {
               rel: "nofollow noopener noreferrer",
             },
           },
+          "gatsby-remark-prismjs",
         ],
       },
     },
