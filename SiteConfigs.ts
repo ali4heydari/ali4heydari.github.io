@@ -1,9 +1,10 @@
 export default {
   FACEBOOK_ID: "",
   TWITTER_ID: "",
-  INSTAGRAM_ID: "ali4heydari",
+  INSTAGRAM_ID: "",
   LINKEDIN_ID: "ali4heydari",
-  CALENDLY_ID: "ali4heydari/15min",
+  CALENDLY_EVENT_LINK: "15min",
+  CALENDLY_ID: "ali4heydari",
   CONTACT_EMAIL: "ali4heydari+githubio@gmail.com",
   CONTACT_PHONE: "+98 936 856 3509",
   SHORT_NAME: "Ali Heydari's protfolio",
@@ -13,4 +14,5 @@ export default {
   GITHUB_ID: "ali4heydari",
   GITLAB_ID: "ali4heydari",
   STACK_OVER_FLOW_ID: "8777320/ali4heydari",
+  SKYPE_INVITE_ID: "lo1ReeemgPvq",
 };
