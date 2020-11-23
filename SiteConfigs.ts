@@ -3,6 +3,7 @@ export default {
   TWITTER_ID: "",
   INSTAGRAM_ID: "ali4heydari",
   LINKEDIN_ID: "ali4heydari",
+  CALENDLY_ID: "ali4heydari/15min",
   CONTACT_EMAIL: "ali4heydari+githubio@gmail.com",
   CONTACT_PHONE: "+98 936 856 3509",
   SHORT_NAME: "Ali Heydari's protfolio",
