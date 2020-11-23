@@ -9,6 +9,7 @@ import GithubIcon from "mdi-react/GithubIcon";
 import GitlabIcon from "mdi-react/GitlabIcon";
 import SkypeIcon from "mdi-react/SkypeIcon";
 import CalendarIcon from "mdi-react/CalendarIcon";
+import SlideIcon from "mdi-react/SlideshowIcon";
 import StackOverflowIcon from "mdi-react/StackOverflowIcon";
 
 export const socialMedias = [
@@ -77,6 +78,12 @@ export const socialMedias = [
     link: `https://calendly.com/`,
     icon: CalendarIcon,
     name: "calendly",
+  },
+  {
+    id: SiteConfigs.SLIDES_ID,
+    link: `https://slides.com/`,
+    icon: SlideIcon,
+    name: "slides.com",
   },
 ]
   .filter((socialMedia) => socialMedia.id !== "")
