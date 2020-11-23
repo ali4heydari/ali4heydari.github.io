@@ -13,7 +13,7 @@ const Footer: React.FC = () => (
       <Styled.Links>
         {socialMedias.map((media) => {
           const Icon = styled(media.icon)`
-            ${tw`w-5 h-5`}
+            ${tw`w-6 h-6 m-1`}
           `;
 
           return (
