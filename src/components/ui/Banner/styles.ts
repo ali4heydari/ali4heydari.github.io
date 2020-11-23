@@ -68,7 +68,7 @@ export const Image = styled(GatsbyImage)<GatsbyImageProps>`
 `;
 
 export const Links = styled.div`
-  ${tw`flex items-center justify-center w-full mt-5`};
+  ${tw`flex flex-wrap items-center justify-center w-full mt-5`};
 
   a {
     ${tw`text-interactive hover:text-interactive mx-2`};
