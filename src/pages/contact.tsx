@@ -8,7 +8,9 @@ const ContactPage: React.FC = () => {
   return (
     <Layout title="Contact">
       <ContactInfo />
-      <InlineWidget url={`https://calendly.com/${SiteConfigs.CALENDLY_ID}`} />
+      <InlineWidget
+        url={`https://calendly.com/${SiteConfigs.CALENDLY_ID}/${SiteConfigs.CALENDLY_EVENT_LINK}`}
+      />
     </Layout>
   );
 };
