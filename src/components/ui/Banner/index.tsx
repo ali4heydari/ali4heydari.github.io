@@ -45,7 +45,7 @@ const Banner: React.FC<Props> = ({
             <Styled.Links>
               {socialMedias.map((media) => {
                 const Icon = styled(media.icon)`
-                  ${tw`w-5 h-5`}
+                  ${tw`w-8 h-8 m-1`}
                 `;
 
                 return (
