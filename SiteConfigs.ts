@@ -15,4 +15,5 @@ export default {
   GITLAB_ID: "ali4heydari",
   STACK_OVER_FLOW_ID: "8777320/ali4heydari",
   SKYPE_INVITE_ID: "lo1ReeemgPvq",
+  SLIDES_ID: "ali4heydari",
 };
