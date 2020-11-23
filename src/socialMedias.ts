@@ -7,6 +7,8 @@ import InstagramIcon from "mdi-react/InstagramIcon";
 import LinkedinIcon from "mdi-react/LinkedinIcon";
 import GithubIcon from "mdi-react/GithubIcon";
 import GitlabIcon from "mdi-react/GitlabIcon";
+import SkypeIcon from "mdi-react/SkypeIcon";
+import CalendarIcon from "mdi-react/CalendarIcon";
 import StackOverflowIcon from "mdi-react/StackOverflowIcon";
 
 export const socialMedias = [
@@ -63,6 +65,18 @@ export const socialMedias = [
     link: `https://stackoverflow.com/users/`,
     icon: StackOverflowIcon,
     name: "stackoverflow",
+  },
+  {
+    id: SiteConfigs.SKYPE_INVITE_ID,
+    link: `https://join.skype.com/invite/`,
+    icon: SkypeIcon,
+    name: "skype",
+  },
+  {
+    id: SiteConfigs.CALENDLY_ID,
+    link: `https://calendly.com/`,
+    icon: CalendarIcon,
+    name: "calendly",
   },
 ]
   .filter((socialMedia) => socialMedia.id !== "")
