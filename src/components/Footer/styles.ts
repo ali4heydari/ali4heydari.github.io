@@ -8,7 +8,7 @@ export const Footer = styled.footer`
 `;
 
 export const Links = styled.div`
-  ${tw`flex items-center justify-center w-full`};
+  ${tw`flex flex-wrap items-center justify-center w-full`};
 
   a {
     ${tw`text-interactive hover:text-interactive mx-2`};
