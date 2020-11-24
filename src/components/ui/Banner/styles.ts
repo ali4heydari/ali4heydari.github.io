@@ -2,8 +2,12 @@ import styled from "styled-components";
 import tw from "twin.macro";
 import QuotesLeftIconBase from "mdi-react/FormatQuoteOpenIcon";
 import SvgDecoratorBlob1 from "mdi-react/DragIcon";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
+import {
+  OutboundLink,
+  OutboundLinkProps,
+} from "gatsby-plugin-google-analytics";
 import GatsbyImage, { GatsbyImageProps } from "gatsby-image";
+import * as React from "react";
 
 export const Banner = styled.section`
   ${tw`bg-secondary border-b border-indigo-100 `};
@@ -75,7 +79,9 @@ export const Links = styled.div`
   }
 `;
 
-export const Link = styled(OutboundLink)`
+export const Link = styled(OutboundLink)<
+  OutboundLinkProps & React.HTMLProps<HTMLAnchorElement>
+>`
   ${tw`cursor-pointer inline-block transition duration-300 mx-4`};
   ${tw`text-primary hover:text-primary`};
 `;

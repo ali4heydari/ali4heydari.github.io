@@ -52,7 +52,9 @@ const Banner: React.FC<Props> = ({
                   <Styled.Link
                     key={media.link}
                     href={media.link}
-                    aria-label={`link to authors'${media.name} account`}
+                    target="_blank"
+                    rel="nofollow noopener noreferrer"
+                    aria-label={`link to author's ${media.name} account`}
                   >
                     <Icon />
                   </Styled.Link>
