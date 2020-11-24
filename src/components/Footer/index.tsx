@@ -20,6 +20,8 @@ const Footer: React.FC = () => (
             <Styled.Link
               key={media.link}
               href={media.link}
+              target="_blank"
+              rel="nofollow noopener noreferrer"
               aria-label={`link to authors'${media.name} account`}
             >
               <Icon />
