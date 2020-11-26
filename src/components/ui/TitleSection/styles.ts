@@ -25,11 +25,11 @@ export const Separator = styled.h2<StyledProps>`
 
   &:before {
     content: "";
-    ${tw`bg-secondary h-full w-px absolute left-0`};
+    ${tw`bg-inverse h-full w-px absolute left-0`};
   }
 
   &:after {
     content: "";
-    ${tw`bg-primary h-6 w-px absolute ml-1`};
+    ${tw`bg-inverse h-6 w-px absolute ml-1`};
   }
 `;
