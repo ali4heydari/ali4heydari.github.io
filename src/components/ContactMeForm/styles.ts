@@ -55,7 +55,7 @@ export const Form = styled.form`
   ${tw`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`}
 `;
 export const Input = styled.input`
-  ${tw`mt-6 first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary`}
+  ${tw`mt-6 text-primary first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary`}
 `;
 export const Textarea = styled(Input).attrs({ as: "textarea" })`
   ${tw`h-24`}
