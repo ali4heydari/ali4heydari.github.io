@@ -1,30 +1,12 @@
-import React, { ChangeEvent, useState } from "react";
+import React from "react";
 import tw from "twin.macro";
 import EmailIllustrationSrc from "../../assets/svg/email-illustration.svg";
-import { OutboundLink } from "gatsby-plugin-google-analytics";
 import Container from "../ui/Container";
 import * as Styled from "./styles";
 import SiteConfigs from "../../../SiteConfigs";
 
-export function ContactMe({
-  submitButtonText = "Send",
-  formAction = "#",
-  formMethod = "get",
-  textOnLeft = true,
-}) {
+export function ContactMe({ submitButtonText = "Send", textOnLeft = true }) {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
-
-  const [formValues, setFormValues] = useState<{ [k: string]: string }>({
-    subject: "",
-    message: "",
-  });
-
-  const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
-    event.persist();
-    setFormValues({
-      [event.target?.name]: event.target?.value,
-    });
-  };
 
   return (
     <Container>
@@ -45,21 +27,28 @@ export function ContactMe({
             <Styled.Description>
               {"I'll try to respond ASAP!"}
             </Styled.Description>
-            <Styled.Form onSubmit={(event) => {}}>
+            <Styled.Form
+              action={`https://getform.io/f/${SiteConfigs.CONTACT_GET_FORM_ID}`}
+              method="POST"
+            >
               <Styled.Input
-                onChange={onChangeInput}
+                required
                 type="text"
-                name="subject"
-                placeholder="Subject"
+                name="name"
+                placeholder="Name"
+              />
+              <Styled.Input
+                required
+                type="email"
+                name="email"
+                placeholder="eMail"
               />
               <Styled.Textarea
-                onChange={onChangeInput}
+                required
                 name="message"
                 placeholder="Your Message Here"
               />
-              <Styled.SubmitButton
-                href={`mailto:${SiteConfigs.CONTACT_EMAIL}?subject=Site Feedback | ${formValues.subject}&body=${formValues.message}`}
-              >
+              <Styled.SubmitButton type="submit">
                 {submitButtonText}
               </Styled.SubmitButton>
             </Styled.Form>

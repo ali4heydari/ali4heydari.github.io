@@ -10,11 +10,6 @@ import * as React from "react";
 export const SubheadingBase = styled.h5`
   ${tw`font-bold text-primary`}
 `;
-export const PrimaryButtonBase = styled(OutboundLink)<
-  OutboundLinkProps & React.HTMLProps<HTMLAnchorElement>
->`
-  ${tw`px-8 py-3 text-center font-bold rounded bg-purple-500 text-white hocus:bg-purple-800 hocus:text-white focus:shadow-outline focus:outline-none transition duration-300`}
-`;
 
 export const Container = styled.div`
   ${tw`relative`}
@@ -55,12 +50,12 @@ export const Form = styled.form`
   ${tw`mt-8 md:mt-10 text-sm flex flex-col max-w-sm mx-auto md:mx-0`}
 `;
 export const Input = styled.input`
-  ${tw`mt-6 text-primary first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary`}
+  ${tw`ps-1 mt-6 text-black first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary`}
 `;
 export const Textarea = styled(Input).attrs({ as: "textarea" })`
   ${tw`h-24`}
 `;
 
-export const SubmitButton = styled(PrimaryButtonBase)`
-  ${tw`inline-block mt-8`}
+export const SubmitButton = styled.button`
+  ${tw`px-8 py-3 text-center font-bold rounded bg-purple-500 text-white hocus:bg-purple-800 hocus:text-white focus:shadow-outline focus:outline-none transition duration-300 inline-block mt-8`}
 `;
