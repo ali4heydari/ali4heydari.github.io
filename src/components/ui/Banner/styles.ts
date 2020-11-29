@@ -62,7 +62,7 @@ export const Description = styled(SectionDescription)`
 `;
 
 export const Button = styled(OutboundLink)<{ rounded?: boolean }>`
-  ${tw`px-8 font-bold rounded bg-purple-500 text-white hocus:bg-purple-800 hocus:text-white focus:shadow-outline focus:outline-none transition duration-300`}
+  ${tw`px-8 font-bold rounded bg-purple-500 text-white hocus:bg-purple-800 hocus:text-white focus:ring focus:outline-none transition duration-300`}
   ${tw`mt-8 inline-block w-56 tracking-wide text-center py-5`}
   ${({ rounded }) => rounded && tw`rounded-full`}
 `;
