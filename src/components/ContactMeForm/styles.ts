@@ -57,5 +57,5 @@ export const Textarea = styled(Input).attrs({ as: "textarea" })`
 `;
 
 export const SubmitButton = styled.button`
-  ${tw`px-8 py-3 text-center font-bold rounded bg-purple-500 text-white hocus:bg-purple-800 hocus:text-white focus:shadow-outline focus:outline-none transition duration-300 inline-block mt-8`}
+  ${tw`px-8 py-3 text-center font-bold rounded bg-purple-500 text-white hocus:bg-purple-800 hocus:text-white focus:ring focus:outline-none transition duration-300 inline-block mt-8`}
 `;
