@@ -22,7 +22,7 @@
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
-    "lint:css":"stylelint \"**/*.{js,jsx,ts,tsx}\"",
+    "lint:css": "stylelint \"**/*.{js,jsx,ts,tsx}\"",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
