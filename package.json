@@ -88,7 +88,7 @@
     "stylis-plugin-rtl": "^2.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat",
     "terser": "4.6.11",
-    "twin.macro": "^2.0.2"
+    "twin.macro": "^2.0.4"
   },
   "devDependencies": {
     "@hot-loader/react-dom": "^17.0.0",
