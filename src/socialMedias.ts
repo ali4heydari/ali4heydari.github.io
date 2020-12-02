@@ -11,6 +11,7 @@ import SkypeIcon from "mdi-react/SkypeIcon";
 import CalendarIcon from "mdi-react/CalendarIcon";
 import SlideIcon from "mdi-react/SlideshowIcon";
 import StackOverflowIcon from "mdi-react/StackOverflowIcon";
+import DiscordIcon from "mdi-react/DiscordIcon";
 
 export const socialMedias = [
   {
@@ -72,6 +73,12 @@ export const socialMedias = [
     link: `https://join.skype.com/invite/`,
     icon: SkypeIcon,
     name: "skype",
+  },
+  {
+    id: SiteConfigs.DISCORD_SERVER_ID,
+    link: `https://discord.gg/`,
+    icon: DiscordIcon,
+    name: "discord",
   },
   {
     id: SiteConfigs.CALENDLY_ID,

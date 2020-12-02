@@ -17,4 +17,5 @@ export default {
   SKYPE_INVITE_ID: "lo1ReeemgPvq",
   SLIDES_ID: "ali4heydari",
   CONTACT_GET_FORM_ID: "b721c787-7978-40ec-9253-5fefaaa6d1e0",
+  DISCORD_SERVER_ID: "7Z4Wk2zUuj",
 };
