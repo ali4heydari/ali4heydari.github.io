@@ -4,13 +4,8 @@ import Container from "../components/ui/Container";
 import TitleSection from "../components/ui/TitleSection";
 import { graphql, useStaticQuery } from "gatsby";
 import { MarkDown } from "../components/utils/MarkDown";
-import styled from "styled-components";
-import tw from "twin.macro";
-import { Disqus } from "gatsby-plugin-disqus";
+import { CommentThread } from "../components/ui/CommentThread";
 
-const DisqusComponent = styled(Disqus)`
-  ${tw`w-full mt-3`}
-`;
 const ToolsPage: React.FC = () => {
   const {
     mdx: { body, frontmatter },
@@ -42,7 +37,7 @@ const ToolsPage: React.FC = () => {
           subtitle={frontmatter.subtitle}
         />
         <MarkDown content={body} />
-        <DisqusComponent
+        <CommentThread
           config={{
             url: `${siteUrl}/tools`,
             identifier: "tools",
