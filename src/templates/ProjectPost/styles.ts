@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import tw from "twin.macro";
-import { Disqus } from "gatsby-plugin-disqus";
 
 export const Description = styled.p``;
 
@@ -22,8 +21,4 @@ export const TagsHeader = styled.h6`
 
 export const Tag = styled.span`
   ${tw`text-xs text-interactive border border-primary rounded-full px-2 py-1 mr-2`}
-`;
-
-export const DisqusProject = styled(Disqus)`
-  ${tw`w-full`}
 `;

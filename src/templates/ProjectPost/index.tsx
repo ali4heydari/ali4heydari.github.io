@@ -7,11 +7,11 @@ import Container from "components/ui/Container";
 import TitleSection from "components/ui/TitleSection";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 
 import * as Styled from "./styles";
 import { Chip } from "../../components/ui/Chip";
 import { MarkDown } from "../../components/utils/MarkDown";
+import { CommentThread } from "../../components/ui/CommentThread";
 
 interface Project {
   body: string;
@@ -93,7 +93,7 @@ const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
             )}
           </span>
         </Styled.Links>
-        <Styled.DisqusProject
+        <CommentThread
           config={{
             url: `${siteUrl}/${slug}`,
             identifier: id,
