@@ -3,6 +3,7 @@ export default {
   TWITTER_ID: "",
   INSTAGRAM_ID: "",
   LINKEDIN_ID: "ali4heydari",
+  BIRTHDATE: new Date(1997, 0, 30),
   CALENDLY_EVENT_LINK: "15min",
   CALENDLY_ID: "ali4heydari",
   CONTACT_EMAIL: "ali4heydari+githubio@gmail.com",
