@@ -3,26 +3,37 @@ import React, { useCallback, useEffect, useState } from "react";
 
 interface Props {
   birthDate: Date;
-  hideTimeOut?: number;
+  hideBaloonTimeOut?: number;
 }
 
 // style and some logic from: https://codepen.io/Jemimaabu/pen/vYEYdOy
 
-const Balloons: React.FC<Props> = ({ birthDate, hideTimeOut = 5000 }) => {
+const Balloons: React.FC<Props> = ({ birthDate, hideBaloonTimeOut = 5000 }) => {
   const currentDate = new Date();
+  const hideBalloonContainerTimeoutOffset = 1500;
 
   // is today is your birthday?
-  const initialState =
+  const isBirthDay =
     currentDate.getDate() === birthDate.getDate() &&
     currentDate.getMonth() === birthDate.getMonth();
 
-  const [visible, setVisible] = useState(initialState);
+  const [visible, setVisible] = useState(isBirthDay);
+  const [
+    animationIterationCount,
+    setAnimationIterationCount,
+  ] = useState<number>(10);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAnimationIterationCount(0);
+    }, hideBaloonTimeOut);
+  }, [hideBaloonTimeOut]);
 
   useEffect(() => {
     setTimeout(() => {
       setVisible(false);
-    }, hideTimeOut);
-  }, [hideTimeOut]);
+    }, hideBaloonTimeOut + hideBalloonContainerTimeoutOffset);
+  }, []);
 
   const random = useCallback((num: number) => {
     return Math.floor(Math.random() * num);
@@ -45,17 +56,17 @@ const Balloons: React.FC<Props> = ({ birthDate, hideTimeOut = 5000 }) => {
     };
   }, []);
 
-  return (
+  return visible ? (
     <Styled.BalloonsContainer>
       {new Array(100).fill(null).map((it, index) => (
         <Styled.Balloon
           key={index}
           {...getRandomStyles()}
-          animationIterationCount={visible ? 10 : 0}
+          animationIterationCount={animationIterationCount}
         />
       ))}
     </Styled.BalloonsContainer>
-  );
+  ) : null;
 };
 
 export default Balloons;
