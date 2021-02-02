@@ -67,7 +67,7 @@
     "gatsby-remark-prismjs": "^3.11.0",
     "gatsby-remark-relative-images": "^2.0.2",
     "gatsby-remark-responsive-iframe": "^2.9.0",
-    "gatsby-source-filesystem": "^2.9.0",
+    "gatsby-source-filesystem": "^2.10.0",
     "gatsby-transformer-sharp": "^2.10.0",
     "i18next": "^19.8.4",
     "intersection-observer": "^0.12.0",
