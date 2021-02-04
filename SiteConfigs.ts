@@ -2,6 +2,7 @@ export default {
   FACEBOOK_ID: "",
   TWITTER_ID: "",
   INSTAGRAM_ID: "",
+  SPOTIFY_ID: "",
   LINKEDIN_ID: "ali4heydari",
   BIRTHDATE: new Date(1997, 0, 30),
   CALENDLY_EVENT_LINK: "15min",
