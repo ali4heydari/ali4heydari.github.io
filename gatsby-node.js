@@ -17,7 +17,7 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
               "react-dom": "@hot-loader/react-dom",
             },
           }
-        : null),
+        : {}),
     },
   });
 };
@@ -37,11 +37,18 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  const projectTemplate = path.resolve(`src/templates/ProjectPost/index.tsx`);
+  const ProjectsTemplate = path.resolve(`src/templates/ProjectPost/index.tsx`);
+  const BlogPostTemplate = path.resolve(`src/templates/BlogPost/index.tsx`);
 
-  const res = await graphql(`
+  const query = `
     query {
-      allMdx(
+      site {
+        siteMetadata {
+          siteUrl
+        }
+      }
+
+      projects: allMdx(
         filter: { frontmatter: { category: { eq: "project" } } }
         sort: { fields: frontmatter___endDate, order: DESC }
       ) {
@@ -61,32 +68,68 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      site {
-        siteMetadata {
-          siteUrl
+
+      blog: allMdx(
+        filter: { frontmatter: { category: { eq: "blog" } } }
+        sort: { fields: frontmatter___endDate, order: DESC }
+      ) {
+        edges {
+          node {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
+              description
+              startDate
+              endDate
+              tags
+            }
+            id
+          }
         }
       }
-    }
-  `);
+    }`;
 
-  const projects = res.data.allMdx.edges;
-  const siteMetadata = res.data.site.siteMetadata;
+  const {
+    data: {
+      site: { siteMetadata },
+      projects: { edges: projectsCollection },
+      blog: { edges: blogPostCollection },
+    },
+  } = await graphql(query);
 
-  projects.forEach((project, index) => {
-    const previous =
-      index === projects.length - 1 ? null : projects[index + 1].node;
-    const next = index === 0 ? null : projects[index - 1].node;
+  const collectionSet = [
+    {
+      collection: projectsCollection,
+      component: ProjectsTemplate,
+    },
+    {
+      collection: blogPostCollection,
+      component: BlogPostTemplate,
+    },
+  ];
 
-    createPage({
-      path: `${project.node.fields.slug}`,
-      component: projectTemplate,
-      context: {
-        slug: `${project.node.fields.slug}`,
-        previous,
-        next,
-        id: `${project.node.id}`,
-        siteUrl: siteMetadata.siteUrl,
-      },
+  collectionSet.forEach((currentItem) => {
+    currentItem.collection.forEach((currentPage, index) => {
+      const previous =
+        index === currentItem.collection.length - 1
+          ? null
+          : currentItem.collection[index + 1].node;
+
+      const next = index === 0 ? null : currentItem.collection[index - 1].node;
+
+      createPage({
+        path: `${currentPage.node.fields.slug}`,
+        component: currentItem.component,
+        context: {
+          slug: `${currentPage.node.fields.slug}`,
+          previous,
+          next,
+          id: `${currentPage.node.id}`,
+          siteUrl: siteMetadata.siteUrl,
+        },
+      });
     });
   });
 };
