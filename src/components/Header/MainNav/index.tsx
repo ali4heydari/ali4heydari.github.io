@@ -2,40 +2,26 @@ import React, { useState } from "react";
 
 import * as Styled from "./styles";
 import { ToggleMode } from "./ToggleMode";
-
-interface MainNavItem {
-  title: string;
-  slug: string;
-}
-
-const mainNavItems: MainNavItem[] = [
-  {
-    title: "Home",
-    slug: "/",
-  },
-  {
-    title: "Resume",
-    slug: "/resume/",
-  },
-  {
-    title: "Skills",
-    slug: "/skills/",
-  },
-  {
-    title: "Tools",
-    slug: "/tools/",
-  },
-  {
-    title: "Projects",
-    slug: "/projects/",
-  },
-  {
-    title: "Contact Me",
-    slug: "/contact/",
-  },
-];
+import { graphql, useStaticQuery } from "gatsby";
 
 const MainNav: React.FC = () => {
+  const {
+    site: {
+      siteMetadata: { mainNavItems },
+    },
+  } = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          mainNavItems {
+            title
+            slug
+          }
+        }
+      }
+    }
+  `);
+
   const [open, setOpen] = useState(false);
 
   return (
