@@ -9,6 +9,36 @@ module.exports = {
     description: enTranslations["website_description"],
     author: "@ali4heydari",
     siteUrl: "https://ali4heydari.github.io",
+    mainNavItems: [
+      {
+        title: "Home",
+        slug: "/",
+      },
+      {
+        title: "Resume",
+        slug: "/resume/",
+      },
+      {
+        title: "Skills",
+        slug: "/skills/",
+      },
+      {
+        title: "Tools",
+        slug: "/tools/",
+      },
+      {
+        title: "Projects",
+        slug: "/projects/",
+      },
+      {
+        title: "Blog",
+        slug: "/blog/",
+      },
+      {
+        title: "Contact Me",
+        slug: "/contact/",
+      },
+    ],
   },
   plugins: [
     {
