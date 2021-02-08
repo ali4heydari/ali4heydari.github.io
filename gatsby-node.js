@@ -49,7 +49,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
 
       projects: allMdx(
-        filter: { frontmatter: { category: { eq: "project" } } }
+        filter: { frontmatter: { category: { eq: "project" }, published: { eq: true } } }
         sort: { fields: frontmatter___endDate, order: DESC }
       ) {
         edges {
@@ -70,7 +70,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
 
       blog: allMdx(
-        filter: { frontmatter: { category: { eq: "blog" } } }
+        filter: { frontmatter: { category: { eq: "blog" }, published: { eq: true } } }
         sort: { fields: frontmatter___endDate, order: DESC }
       ) {
         edges {
