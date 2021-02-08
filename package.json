@@ -87,7 +87,7 @@
     "styled-components": "^5.2.1",
     "stylis": "^4.0.7",
     "stylis-plugin-rtl": "^2.0.1",
-    "tailwindcss": "^2.0.2",
+    "tailwindcss": "^2.0.3",
     "terser": "4.6.11",
     "twin.macro": "^2.2.0"
   },
