@@ -1,0 +1,17 @@
+name: Pull request check
+
+on:
+  pull_request:
+    branches:
+      - develop/v2
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: enriikke/gatsby-gh-pages-action@v2
+        with:
+          access-token: ${{ secrets.ACCESS_TOKEN }}
+          deploy-branch: master
+          skip-publish: true
