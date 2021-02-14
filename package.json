@@ -1,7 +1,7 @@
 {
   "name": "@ali4heydari/portfolio",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "description": "My personal portfolio",
   "keywords": [
     "gatsby",
@@ -22,7 +22,10 @@
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
+    "postinstall": "husky install",
     "lint:css": "stylelint \"**/*.{js,jsx,ts,tsx}\"",
+    "prepublishOnly": "pinst --disable",
+    "postpublish": "pinst --enable",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
@@ -117,7 +120,7 @@
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.22.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "husky": "^4.3.8",
+    "husky": "^5.0.9",
     "prettier": "^2.2.1",
     "pretty-quick": "^3.1.0",
     "stylelint": "^13.10.0",
