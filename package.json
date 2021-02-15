@@ -1,7 +1,6 @@
 {
   "name": "@ali4heydari/portfolio",
   "version": "0.1.0",
-  "private": false,
   "description": "My personal portfolio",
   "keywords": [
     "gatsby",
