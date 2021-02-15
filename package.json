@@ -1,7 +1,6 @@
 {
   "name": "@ali4heydari/portfolio",
   "version": "0.1.0",
-  "private": false,
   "description": "My personal portfolio",
   "keywords": [
     "gatsby",
@@ -97,8 +96,8 @@
   "devDependencies": {
     "@hot-loader/react-dom": "^17.0.1",
     "@types/i18next": "^13.0.0",
-    "@types/loadable__component": "^5.13.2",
-    "@types/node": "^14.14.27",
+    "@types/loadable__component": "^5.13.3",
+    "@types/node": "^14.14.28",
     "@types/react": "^17.0.2",
     "@types/react-dom": "^17.0.1",
     "@types/react-helmet": "^6.1.0",
