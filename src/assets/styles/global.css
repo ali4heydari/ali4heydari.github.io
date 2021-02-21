@@ -77,10 +77,13 @@ body {
 
 /* Links */
 .markdown a {
-  @apply text-blue-600;
+  @apply text-interactive;
+  @apply underline;
+  text-decoration-style: wavy;
 }
 .markdown a:hover {
   @apply underline;
+  text-decoration-style: solid;
 }
 /* Paragraph */
 .markdown p {
