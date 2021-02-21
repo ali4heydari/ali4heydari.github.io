@@ -4,6 +4,14 @@ import tw from "twin.macro";
 export const Timeline = styled.div`
   ${tw`flex flex-col sm:flex-row w-full p-4 relative border-l border-indigo-200`};
 
+  a {
+    ${tw`text-interactive hover:text-interactive underline`};
+    text-decoration-style: wavy;
+    &hover: {
+      text-decoration-style: solid;
+    }
+  }
+
   &:last-child {
     ${tw`pb-0`};
   }
