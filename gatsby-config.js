@@ -8,7 +8,7 @@ module.exports = {
     title: enTranslations["website_name"],
     description: enTranslations["website_description"],
     author: "@ali4heydari",
-    siteUrl: "https://ali4heydari.github.io",
+    siteUrl: "https://ali4heydari.tech",
     mainNavItems: [
       {
         title: "Home",
