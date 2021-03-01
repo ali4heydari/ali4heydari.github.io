@@ -62,7 +62,7 @@
     "gatsby-plugin-styled-components": "^3.10.0",
     "gatsby-plugin-tailwindcss": "^1.0.3",
     "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.20",
-    "gatsby-remark-embed-video": "^3.0.12",
+    "gatsby-remark-embed-video": "^3.1.0",
     "gatsby-remark-emojis": "^0.4.3",
     "gatsby-remark-google-analytics-track-links": "^1.0.1",
     "gatsby-remark-images": "^3.11.0",
