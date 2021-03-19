@@ -10,7 +10,7 @@ export const MainNav = styled.nav`
   }
 `;
 
-export const MainNavItem = motion.custom(styled(Link)`
+export const MainNavItem = motion(styled(Link)`
   ${tw`relative text-interactive border-b border-transparent hover:text-interactive ml-3 sm:ml-8 mt-3 sm:mt-0`};
   width: max-content;
 

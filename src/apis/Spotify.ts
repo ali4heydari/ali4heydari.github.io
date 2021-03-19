@@ -1,4 +1,5 @@
 import * as querystring from "querystring";
+import { Buffer } from "buffer";
 
 const client_id = process.env.GATSBY_SPOTIFY_CLIENT_ID;
 const client_secret = process.env.GATSBY_SPOTIFY_CLIENT_SECRET;
