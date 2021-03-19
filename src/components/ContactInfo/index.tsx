@@ -8,15 +8,14 @@ import * as Styled from "./styles";
 import { socialMedias } from "../../socialMedias";
 import tw from "twin.macro";
 import styled from "styled-components";
+import SiteConfigs from "../../../SiteConfigs";
 
 const ContactInfo: React.FC = () => {
   const { file } = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "profile-high-resuloution.jpg" }) {
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(layout: CONSTRAINED)
         }
       }
     }
@@ -29,7 +28,10 @@ const ContactInfo: React.FC = () => {
         subtitle={"For more info contact me"}
         center
       />
-      <Styled.Image fluid={file.childImageSharp.fluid} />
+      <Styled.Image
+        image={file.childImageSharp.gatsbyImageData}
+        alt={SiteConfigs.SHORT_NAME}
+      />
       <Styled.Links>
         {socialMedias.map((media) => {
           const Icon = styled(media.icon)`

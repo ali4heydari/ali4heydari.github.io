@@ -1,9 +1,7 @@
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
-
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
+import React from "react";
 import * as Styled from "./styles";
-
-import { ImageSharpFluid } from "definitions";
 
 const Logo: React.FC = () => {
   const { site, placeholderImage } = useStaticQuery(graphql`
@@ -15,21 +13,20 @@ const Logo: React.FC = () => {
       }
       placeholderImage: file(relativePath: { eq: "profile.jpg" }) {
         childImageSharp {
-          fluid(maxWidth: 80) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(layout: CONSTRAINED)
         }
       }
     }
   `);
 
   const logoTitle: string = site.siteMetadata.title;
-  const logoImage: ImageSharpFluid = placeholderImage.childImageSharp.fluid;
+  const logoImage: IGatsbyImageData =
+    placeholderImage.childImageSharp.gatsbyImageData;
 
   return (
     <Styled.Logo to="/">
       <Styled.Image>
-        <Img fluid={logoImage} alt={logoTitle} />
+        <GatsbyImage image={logoImage} alt={logoTitle} />
       </Styled.Image>
       <Styled.Text>{logoTitle}</Styled.Text>
     </Styled.Logo>

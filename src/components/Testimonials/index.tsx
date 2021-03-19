@@ -1,11 +1,11 @@
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import Loadable from "@loadable/component";
 
 import Container from "components/ui/Container";
 import TitleSection from "components/ui/TitleSection";
 import React from "react";
-import { SectionTitle, ImageSharpFluid } from "definitions";
+import { SectionTitle } from "definitions";
 
 import * as Styled from "./styles";
 import { MDXRenderer } from "gatsby-plugin-mdx";
@@ -20,7 +20,7 @@ interface Testimonial {
       title: string;
       cover: {
         childImageSharp: {
-          fluid: ImageSharpFluid;
+          gatsbyImageData: IGatsbyImageData;
         };
       };
     };
@@ -45,9 +45,7 @@ const Testimonials: React.FC = () => {
               title
               cover {
                 childImageSharp {
-                  fluid(maxWidth: 80) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
+                  gatsbyImageData(layout: CONSTRAINED, width: 80)
                 }
               }
             }
@@ -79,7 +77,10 @@ const Testimonials: React.FC = () => {
             return (
               <Styled.Testimonial key={id}>
                 <Styled.Image>
-                  <Img fluid={cover.childImageSharp.fluid} alt={title} />
+                  <GatsbyImage
+                    image={cover.childImageSharp.gatsbyImageData}
+                    alt={title}
+                  />
                 </Styled.Image>
                 <Styled.Title>{title}</Styled.Title>
                 <MDXRenderer>{body}</MDXRenderer>
