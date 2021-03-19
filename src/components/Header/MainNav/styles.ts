@@ -12,7 +12,7 @@ export const MainNav = styled.nav<StyledProps>`
   ${({ open }) => open && tw`flex`};
 `;
 
-export const MainNavItem = motion.custom(styled(Link)`
+export const MainNavItem = motion(styled(Link)`
   ${tw`relative text-interactive border-b border-transparent hover:text-interactive ml-0 sm:ml-8 mt-3 sm:mt-0`};
   width: max-content;
 
@@ -35,7 +35,7 @@ export const MainNavItem = motion.custom(styled(Link)`
   }
 `);
 
-export const ToggleMode = motion.custom(styled.button`
+export const ToggleMode = motion(styled.button`
   ${tw`flex flex-col items-end justify-center cursor-pointer w-6 h-6 m-4`};
   width: max-content;
 
