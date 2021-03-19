@@ -29,7 +29,7 @@ import GithubIcon from "mdi-react/GithubIcon";
 import { Section } from "../ui/Section";
 import { Card } from "../ui/Card";
 import { Chip } from "../ui/Chip";
-import GatsbyImage from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image";
 
 const ChipContainer = ({
   projects,
@@ -62,9 +62,7 @@ export const SkillsCard: React.FC = () => {
     query {
       file(relativePath: { eq: "proteus-logo.png" }) {
         childImageSharp {
-          fluid(maxHeight: 100, maxWidth: 100) {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(layout: CONSTRAINED, width: 100, height: 100)
         }
       }
     }
@@ -336,7 +334,11 @@ export const SkillsCard: React.FC = () => {
     // },
     {
       icon: (
-        <GatsbyImage fluid={file.childImageSharp.fluid} css={tw`w-20 h-20`} />
+        <GatsbyImage
+          image={file.childImageSharp.gatsbyImageData}
+          css={tw`w-20 h-20`}
+          alt={"logo"}
+        />
       ),
       title: "Proteus 8",
       description: "Experienced in proteus 8",

@@ -3,6 +3,7 @@ import { useStaticQuery, graphql } from "gatsby";
 import React from "react";
 import { Languages } from "../../utils/enums";
 import { useTranslation } from "react-i18next";
+import { getSrc } from "gatsby-plugin-image";
 
 type Meta =
   | {
@@ -42,9 +43,7 @@ const SEO: React.FC<Props> = ({
         }
         file(relativePath: { eq: "profile.jpg" }) {
           childImageSharp {
-            fixed(width: 500, height: 500) {
-              src
-            }
+            gatsbyImageData(width: 500, height: 500)
           }
         }
       }
@@ -80,7 +79,7 @@ const SEO: React.FC<Props> = ({
         },
         {
           property: `og:image`,
-          content: file.childImageSharp.fixed.src,
+          content: getSrc(file),
         },
         {
           name: `twitter:card`,

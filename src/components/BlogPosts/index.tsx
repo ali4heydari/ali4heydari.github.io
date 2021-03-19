@@ -1,12 +1,12 @@
 import { useStaticQuery, graphql } from "gatsby";
-import Img from "gatsby-image";
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import Link from "gatsby-link";
 import { motion } from "framer-motion";
 import React from "react";
 import Container from "components/ui/Container";
 import TitleSection from "components/ui/TitleSection";
 import { useTranslation } from "react-i18next";
-import { SectionTitle, ImageSharpFluid } from "definitions";
+import { SectionTitle } from "definitions";
 
 import * as Styled from "./styles";
 import { Chip } from "../ui/Chip";
@@ -24,7 +24,7 @@ interface BlogPost {
       tags: string[];
       cover: {
         childImageSharp: {
-          fluid: ImageSharpFluid;
+          gatsbyImageData: IGatsbyImageData;
         };
       };
     };
@@ -61,9 +61,7 @@ const BlogPosts: React.FC = () => {
               tags
               cover {
                 childImageSharp {
-                  fluid(maxWidth: 800) {
-                    ...GatsbyImageSharpFluid_withWebp
-                  }
+                  gatsbyImageData(layout: CONSTRAINED, width: 800)
                 }
               }
             }
@@ -100,7 +98,10 @@ const BlogPosts: React.FC = () => {
                 >
                   <Styled.Card>
                     <Styled.Image>
-                      <Img fluid={cover.childImageSharp.fluid} alt={title} />
+                      <GatsbyImage
+                        image={cover.childImageSharp.gatsbyImageData}
+                        alt={title}
+                      />
                     </Styled.Image>
                     <Styled.Content>
                       <Styled.Date>

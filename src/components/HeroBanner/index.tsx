@@ -4,7 +4,6 @@ import Banner from "components/ui/Banner";
 
 import { SectionTitle } from "definitions";
 import React from "react";
-import { FluidObject } from "gatsby-image";
 
 interface SectionHeroBanner extends SectionTitle {
   content: string;
@@ -29,9 +28,7 @@ const HeroBanner: React.FC = () => {
       file(relativePath: { eq: "hero-photo.jpg" }) {
         base
         childImageSharp {
-          fluid {
-            ...GatsbyImageSharpFluid_withWebp
-          }
+          gatsbyImageData(layout: CONSTRAINED)
         }
       }
     }
@@ -46,7 +43,7 @@ const HeroBanner: React.FC = () => {
       description={heroBanner.content}
       linkTo={heroBanner.linkTo}
       linkText={heroBanner.linkText}
-      image={file.childImageSharp.fluid}
+      image={file.childImageSharp.gatsbyImageData}
       quote={heroBanner.quote}
     />
   );

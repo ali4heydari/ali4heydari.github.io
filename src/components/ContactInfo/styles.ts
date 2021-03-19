@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import tw from "twin.macro";
-import GatsbyImage, { GatsbyImageProps } from "gatsby-image";
+import { GatsbyImageProps, GatsbyImage } from "gatsby-plugin-image";
 import {
   OutboundLink,
   OutboundLinkProps,

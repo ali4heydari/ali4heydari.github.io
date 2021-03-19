@@ -3,7 +3,7 @@ import Container from "components/ui/Container";
 import * as Styled from "./styles";
 import Typist from "react-typist";
 import React from "react";
-import { FluidObject } from "gatsby-image";
+import { IGatsbyImageData } from "gatsby-plugin-image";
 import { socialMedias } from "../../../socialMedias";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -16,7 +16,7 @@ interface Props {
   linkText: string;
   imageDecoratorBlob?: boolean;
   quote?: string;
-  image: FluidObject | FluidObject[];
+  image: IGatsbyImageData;
 }
 
 const Banner: React.FC<Props> = ({
@@ -64,7 +64,7 @@ const Banner: React.FC<Props> = ({
           </Styled.TextColumn>
           <Styled.ImageColumn>
             <Styled.ImageContainer>
-              {image ? <Styled.Image fluid={image} /> : null}
+              {image ? <Styled.Image image={image} /> : null}
               {imageDecoratorBlob && <Styled.ImageDecoratorBlob />}
               {quote ? (
                 <Styled.Testimonial>
