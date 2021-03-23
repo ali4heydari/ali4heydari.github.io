@@ -64,7 +64,7 @@ const Banner: React.FC<Props> = ({
           </Styled.TextColumn>
           <Styled.ImageColumn>
             <Styled.ImageContainer>
-              {image ? <Styled.Image image={image} /> : null}
+              {image ? <Styled.Image image={image} alt={"banner"} /> : null}
               {imageDecoratorBlob && <Styled.ImageDecoratorBlob />}
               {quote ? (
                 <Styled.Testimonial>

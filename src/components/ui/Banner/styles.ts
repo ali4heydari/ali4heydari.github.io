@@ -6,7 +6,7 @@ import {
   OutboundLink,
   OutboundLinkProps,
 } from "gatsby-plugin-google-analytics";
-import GatsbyImage, { GatsbyImageProps } from "gatsby-plugin-image";
+import { GatsbyImageProps, GatsbyImage } from "gatsby-plugin-image";
 import * as React from "react";
 
 export const Banner = styled.section`
