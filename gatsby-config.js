@@ -1,7 +1,7 @@
 const faTranslations = require("./src/locales/fa/translations.json");
 const enTranslations = require("./src/locales/en/translations.json");
 const tailwindCssConfig = require("./tailwind.config");
-
+const withServiceWorker = false;
 module.exports = {
   pathPrefix: "/",
   siteMetadata: {
@@ -159,23 +159,25 @@ module.exports = {
       },
     },
     /* Must be placed at the end */
-    {
-      resolve: "gatsby-plugin-offline",
-      options: {
-        /*
-         * https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/
-         * If using this plugin with gatsby-plugin-offline you may find that your icons are not
-         * cached. In order to solve this, update your gatsby-config.js as follows
-         * Updating cache_busting_mode is necessary. Otherwise, workbox will break while
-         * attempting to find the cached URLs. Adding the globPatterns makes sure that the
-         * offline plugin will cache everything. Note that you have to prefix your icon with icon-path
-         * or whatever you may call it
-         *
-         * */
-        workboxConfig: {
-          globPatterns: ["**/icons*"],
-        },
-      },
-    },
+    withServiceWorker
+      ? {
+          resolve: "gatsby-plugin-offline",
+          options: {
+            /*
+             * https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/
+             * If using this plugin with gatsby-plugin-offline you may find that your icons are not
+             * cached. In order to solve this, update your gatsby-config.js as follows
+             * Updating cache_busting_mode is necessary. Otherwise, workbox will break while
+             * attempting to find the cached URLs. Adding the globPatterns makes sure that the
+             * offline plugin will cache everything. Note that you have to prefix your icon with icon-path
+             * or whatever you may call it
+             *
+             * */
+            workboxConfig: {
+              globPatterns: ["**/icons*"],
+            },
+          },
+        }
+      : "gatsby-plugin-remove-serviceworker",
   ],
 };
