@@ -45,7 +45,12 @@ const Testimonials: React.FC = () => {
               title
               cover {
                 childImageSharp {
-                  gatsbyImageData(layout: CONSTRAINED, width: 80)
+                  gatsbyImageData(
+                    layout: CONSTRAINED
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP]
+                    width: 80
+                  )
                 }
               }
             }

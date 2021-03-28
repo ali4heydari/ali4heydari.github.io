@@ -62,7 +62,13 @@ export const SkillsCard: React.FC = () => {
     query {
       file(relativePath: { eq: "proteus-logo.png" }) {
         childImageSharp {
-          gatsbyImageData(layout: CONSTRAINED, width: 100, height: 100)
+          gatsbyImageData(
+            layout: CONSTRAINED
+            placeholder: BLURRED
+            formats: [AUTO, WEBP]
+            width: 100
+            height: 100
+          )
         }
       }
     }

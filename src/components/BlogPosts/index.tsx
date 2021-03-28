@@ -61,7 +61,12 @@ const BlogPosts: React.FC = () => {
               tags
               cover {
                 childImageSharp {
-                  gatsbyImageData(layout: CONSTRAINED, width: 800)
+                  gatsbyImageData(
+                    layout: CONSTRAINED
+                    placeholder: BLURRED
+                    formats: [AUTO, WEBP]
+                    width: 800
+                  )
                 }
               }
             }
