@@ -13,6 +13,7 @@ import SlideIcon from "mdi-react/SlideshowIcon";
 import StackOverflowIcon from "mdi-react/StackOverflowIcon";
 import DiscordIcon from "mdi-react/DiscordIcon";
 import SpotifyIcon from "mdi-react/SpotifyIcon";
+import TwitchIcon from "mdi-react/TwitchIcon";
 
 export const socialMedias = [
   {
@@ -44,6 +45,12 @@ export const socialMedias = [
     link: `https://instagram.com/`,
     name: "instagram",
     icon: InstagramIcon,
+  },
+  {
+    id: SiteConfigs.TWITCH_ID,
+    link: `https://www.twitch.tv/`,
+    name: "twitch",
+    icon: TwitchIcon,
   },
   {
     id: SiteConfigs.SPOTIFY_ID,
