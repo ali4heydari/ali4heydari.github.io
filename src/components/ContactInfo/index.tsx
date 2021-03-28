@@ -15,7 +15,11 @@ const ContactInfo: React.FC = () => {
     query {
       file(relativePath: { eq: "profile-high-resuloution.jpg" }) {
         childImageSharp {
-          gatsbyImageData(layout: CONSTRAINED)
+          gatsbyImageData(
+            layout: CONSTRAINED
+            placeholder: BLURRED
+            formats: [AUTO, WEBP]
+          )
         }
       }
     }

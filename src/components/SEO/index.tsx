@@ -43,7 +43,12 @@ const SEO: React.FC<Props> = ({
         }
         file(relativePath: { eq: "profile.jpg" }) {
           childImageSharp {
-            gatsbyImageData(width: 500, height: 500)
+            gatsbyImageData(
+              placeholder: BLURRED
+              formats: [AUTO, WEBP]
+              width: 500
+              height: 500
+            )
           }
         }
       }

@@ -28,7 +28,11 @@ const HeroBanner: React.FC = () => {
       file(relativePath: { eq: "hero-photo.jpg" }) {
         base
         childImageSharp {
-          gatsbyImageData(layout: CONSTRAINED)
+          gatsbyImageData(
+            layout: CONSTRAINED
+            placeholder: BLURRED
+            formats: [AUTO, WEBP]
+          )
         }
       }
     }
