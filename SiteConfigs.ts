@@ -9,7 +9,7 @@ export default {
   CALENDLY_EVENT_LINK: "15min",
   CALENDLY_ID: "ali4heydari",
   CONTACT_EMAIL: "ali4heydari+githubio@gmail.com",
-  CONTACT_PHONE: "+98 936 856 3509",
+  CONTACT_PHONE: "",
   SHORT_NAME: "Ali Heydari's personal website",
   SITE_TITLE: "Ali Heydari",
   SITE_DESCRIPTION: "Ali Heydari's personal website",
