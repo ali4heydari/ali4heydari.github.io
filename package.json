@@ -91,7 +91,7 @@
     "stylis": "^4.0.10",
     "stylis-plugin-rtl": "^2.0.2",
     "tailwindcss": "^2.1.1",
-    "terser": "4.8.0",
+    "terser": "5.6.1",
     "twin.macro": "^2.3.2"
   },
   "devDependencies": {
