@@ -8,10 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      GATSBY_SPOTIFY_CLIENT_ID: ${{ secrets.GATSBY_SPOTIFY_CLIENT_ID }}
-      GATSBY_SPOTIFY_CLIENT_SECRET: ${{ secrets.GATSBY_SPOTIFY_CLIENT_SECRET }}
-      GATSBY_SPOTIFY_REFRESH_TOKEN: ${{ secrets.GATSBY_SPOTIFY_REFRESH_TOKEN }}
     steps:
       - uses: actions/checkout@v1
       - uses: enriikke/gatsby-gh-pages-action@v2
