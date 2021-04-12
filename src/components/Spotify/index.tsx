@@ -13,6 +13,10 @@ export const NowPlaying = () => {
       }
 
       const song = await response.json();
+
+      // check playing advertisement
+      if (song.currently_playing_type == "ad") return;
+
       const isPlaying = song.is_playing;
       const title = song.item.name;
       const artist = song.item.artists
