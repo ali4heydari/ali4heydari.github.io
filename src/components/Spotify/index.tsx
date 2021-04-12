@@ -3,35 +3,42 @@ import React, { useEffect, useState } from "react";
 import { getNowPlaying } from "../../apis";
 
 export const NowPlaying = () => {
+  const RE_FETCH_NOW_PLAYING_SONG_INTERVAL_IN_SECOND = 30;
   const [nowPlaying, setNowPlaying] = useState<any | null>(null);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      getNowPlaying().then(async (response) => {
-        if (response.status === 204 || response.status > 400) {
-          setNowPlaying(null);
-        }
+  function getAndSetNowPlayingSong() {
+    getNowPlaying().then(async (response) => {
+      if (response.status === 204 || response.status > 400) {
+        setNowPlaying(null);
+      }
 
-        const song = await response.json();
-        const isPlaying = song.is_playing;
-        const title = song.item.name;
-        const artist = song.item.artists
-          .map((_artist) => _artist.name)
-          .join(", ");
-        const album = song.item.album.name;
-        const albumImageUrl = song.item.album.images[0].url;
-        const songUrl = song.item.external_urls.spotify;
+      const song = await response.json();
+      const isPlaying = song.is_playing;
+      const title = song.item.name;
+      const artist = song.item.artists
+        .map((_artist) => _artist.name)
+        .join(", ");
+      const album = song.item.album.name;
+      const albumImageUrl = song.item.album.images[0].url;
+      const songUrl = song.item.external_urls.spotify;
 
-        setNowPlaying({
-          album,
-          albumImageUrl,
-          artist,
-          isPlaying,
-          songUrl,
-          title,
-        });
+      setNowPlaying({
+        album,
+        albumImageUrl,
+        artist,
+        isPlaying,
+        songUrl,
+        title,
       });
-    }, 30 * 1000);
+    });
+  }
+
+  useEffect(() => {
+    getAndSetNowPlayingSong();
+
+    const interval = setInterval(() => {
+      getAndSetNowPlayingSong();
+    }, RE_FETCH_NOW_PLAYING_SONG_INTERVAL_IN_SECOND * 1000);
 
     return () => clearInterval(interval);
   }, []);
