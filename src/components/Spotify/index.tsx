@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getNowPlaying } from "../../apis";
 
 export const NowPlaying = () => {
-  const RE_FETCH_NOW_PLAYING_SONG_INTERVAL_IN_SECOND = 30;
+  const RE_FETCH_NOW_PLAYING_SONG_INTERVAL_IN_SECOND = 50;
   const [nowPlaying, setNowPlaying] = useState<any | null>(null);
 
   function getAndSetNowPlayingSong() {
