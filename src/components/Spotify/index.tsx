@@ -12,28 +12,34 @@ export const NowPlaying = () => {
         setNowPlaying(null);
       }
 
-      const song = await response.json();
+      try {
+        const song = await response.json();
 
-      // check playing advertisement
-      if (song.currently_playing_type == "ad") return;
+        // check playing advertisement
+        if (song.currently_playing_type == "ad") {
+        }
+        return;
 
-      const isPlaying = song.is_playing;
-      const title = song.item.name;
-      const artist = song.item.artists
-        .map((_artist) => _artist.name)
-        .join(", ");
-      const album = song.item.album.name;
-      const albumImageUrl = song.item.album.images[0].url;
-      const songUrl = song.item.external_urls.spotify;
+        const isPlaying = song.is_playing;
+        const title = song.item.name;
+        const artist = song.item.artists
+          .map((_artist) => _artist.name)
+          .join(", ");
+        const album = song.item.album.name;
+        const albumImageUrl = song.item.album.images[0].url;
+        const songUrl = song.item.external_urls.spotify;
 
-      setNowPlaying({
-        album,
-        albumImageUrl,
-        artist,
-        isPlaying,
-        songUrl,
-        title,
-      });
+        setNowPlaying({
+          album,
+          albumImageUrl,
+          artist,
+          isPlaying,
+          songUrl,
+          title,
+        });
+      } catch (e) {
+        setNowPlaying(null);
+      }
     });
   }
 
