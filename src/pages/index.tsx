@@ -8,7 +8,7 @@ import SiteConfigs from "../../SiteConfigs";
 
 const IndexPage: React.FC = () => {
   return (
-    <Layout title="About Me">
+    <Layout title="Home">
       <Balloons birthDate={SiteConfigs.BIRTHDATE} />
       <hr />
       <HeroBanner />
