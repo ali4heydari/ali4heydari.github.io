@@ -17,8 +17,8 @@ export const NowPlaying = () => {
 
         // check playing advertisement
         if (song.currently_playing_type == "ad") {
+          return;
         }
-        return;
 
         const isPlaying = song.is_playing;
         const title = song.item.name;
