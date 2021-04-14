@@ -2,9 +2,7 @@
   "parser": "@typescript-eslint/parser",
   "extends": [
     "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
-    "prettier"
+    "plugin:prettier/recommended"
   ],
   "plugins": ["@typescript-eslint", "react", "prettier"],
   "rules": {
