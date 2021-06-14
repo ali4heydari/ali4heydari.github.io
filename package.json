@@ -26,6 +26,9 @@
     "prepublishOnly": "pinst --disable",
     "postpublish": "pinst --enable",
     "serve": "gatsby serve",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "config": {
@@ -108,6 +111,8 @@
     "@typescript-eslint/eslint-plugin": "^4.23.0",
     "@typescript-eslint/parser": "^4.23.0",
     "babel-eslint": "^10.1.0",
+    "cypress": "^7.5.0",
+    "cypress-terminal-report": "^3.2.2",
     "cz-conventional-changelog": "3.3.0",
     "eslint": "^7.26.0",
     "eslint-config-airbnb": "^18.2.1",
@@ -123,6 +128,7 @@
     "husky": "^6.0.0",
     "prettier": "^2.3.0",
     "pretty-quick": "^3.1.0",
+    "start-server-and-test": "^1.12.5",
     "stylelint": "^13.13.1",
     "stylelint-config-recommended": "^5.0.0",
     "stylelint-config-styled-components": "^0.1.1",
