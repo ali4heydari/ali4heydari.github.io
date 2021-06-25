@@ -15,3 +15,5 @@ jobs:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: master
           skip-publish: true
+        env:
+          GATSBY_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
