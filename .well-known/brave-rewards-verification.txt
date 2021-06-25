@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: ali4heydari.github.io
+Token: cd099c140a71429252423849934c114b130c7f683619bdb11659ba00414d4a23
