@@ -27,8 +27,9 @@
     "postpublish": "pinst --enable",
     "serve": "gatsby serve",
     "cy:open": "cypress open",
-    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
-    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run",
+    "cy:run": "cypress run",
+    "test:e2e": "start-server-and-test 'yarn build && yarn serve' http://localhost:9000 cy:open",
+    "test:e2e:ci": "start-server-and-test 'yarn build && yarn serve' http://localhost:9000 cy:run",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "config": {
