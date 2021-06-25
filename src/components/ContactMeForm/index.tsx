@@ -48,6 +48,11 @@ export function ContactMe({ submitButtonText = "Send", textOnLeft = true }) {
                 name="message"
                 placeholder="Your Message Here"
               />
+              <input
+                type="hidden"
+                id="captchaResponse"
+                name="g-recaptcha-response"
+              />
               <Styled.SubmitButton type="submit">
                 {submitButtonText}
               </Styled.SubmitButton>
