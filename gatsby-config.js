@@ -159,6 +159,14 @@ module.exports = {
         shortname: "ali4heydari-github-io",
       },
     },
+    {
+      resolve: "gatsby-plugin-hotjar-tracking",
+      options: {
+        includeInDevelopment: false,
+        id: process.env.GATSBY_HOTJAR_ID,
+        sv: process.env.GATSBY_HOTJAR_SNIPPET_VERSION,
+      },
+    },
     /* Must be placed at the end */
     withServiceWorker
       ? {
