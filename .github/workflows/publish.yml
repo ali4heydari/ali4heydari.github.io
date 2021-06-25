@@ -25,3 +25,7 @@ jobs:
         with:
           access-token: ${{ secrets.ACCESS_TOKEN }}
           deploy-branch: master
+        env:
+          GATSBY_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+          GATSBY_HOTJAR_SNIPPET_VERSION: ${{ secrets.HOTJAR_SNIPPET_VERSION }}
+          GATSBY_HOTJAR_ID: ${{ secrets.HOTJAR_ID }}

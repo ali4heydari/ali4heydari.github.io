@@ -103,7 +103,11 @@ const SEO: React.FC<Props> = ({
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+      <script
+        src={`https://www.google.com/recaptcha/api.js?render=${process.env.GATSBY_RECAPTCHA_SITE_KEY}`}
+      />
+    </Helmet>
   );
 };
 

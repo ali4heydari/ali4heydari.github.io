@@ -47,6 +47,7 @@ __metadata:
     gatsby-plugin-catch-links: ^3.4.0
     gatsby-plugin-disqus: ^1.2.2
     gatsby-plugin-google-analytics: ^3.4.0
+    gatsby-plugin-hotjar-tracking: ^1.1.0
     gatsby-plugin-image: ^1.4.1
     gatsby-plugin-manifest: ^3.4.0
     gatsby-plugin-mdx: ^2.4.0
@@ -1494,6 +1495,15 @@ __metadata:
     core-js-pure: ^3.0.0
     regenerator-runtime: ^0.13.4
   checksum: cbf4de5c0e73197447c112b31e1e7bb48b7940c815fdc6e8aee28a9e33f57f5c3991ba0598dfbfb8bc4d22a7cfe3b2eced0f08c12f8e618aa2ccf73684ced051
+  languageName: node
+  linkType: hard
+
+"@babel/runtime@npm:^7.0.0":
+  version: 7.14.6
+  resolution: "@babel/runtime@npm:7.14.6"
+  dependencies:
+    regenerator-runtime: ^0.13.4
+  checksum: dd931f6ef1c8dab295c4a00c592db6352bf12a5c443f8222304d5c1d3e88d795fa949afcb6f053eec2e69e9827a17ff274524c1cd43813f56b61e3a540274d2f
   languageName: node
   linkType: hard
 
@@ -10067,6 +10077,17 @@ fsevents@^1.2.7:
     react: ^16.9.0 || ^17.0.0
     react-dom: ^16.9.0 || ^17.0.0
   checksum: af3af0982351dcf3a30675bb15e73db02544510eba760adb7617b0ccc0b4b0da29b5ceb30a64c3548232f828837154fee8bd398ced5ab2dd14e896cc9aa8c2ed
+  languageName: node
+  linkType: hard
+
+"gatsby-plugin-hotjar-tracking@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "gatsby-plugin-hotjar-tracking@npm:1.1.0"
+  dependencies:
+    "@babel/runtime": ^7.0.0
+  peerDependencies:
+    gatsby: ^2.0.0
+  checksum: 328fa1d05c8fb5ed0e0e45b3c02b136d7d564193a33374d14539a01dcb36ba7b5a63b497cf76f13a59aff1c9e8687a5ec3a5ecee02b124456cbe5f2e25bcd318
   languageName: node
   linkType: hard
 
