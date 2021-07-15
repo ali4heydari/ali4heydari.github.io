@@ -7,40 +7,42 @@ export const NowPlaying = () => {
   const [nowPlaying, setNowPlaying] = useState<any | null>(null);
 
   function getAndSetNowPlayingSong() {
-    getNowPlaying().then(async (response) => {
-      if (response.status === 204 || response.status > 400) {
-        setNowPlaying(null);
-      }
-
-      try {
-        const song = await response.json();
-
-        // check playing advertisement
-        if (song.currently_playing_type == "ad") {
-          return;
+    if (process.env.NODE_ENV === "production") {
+      getNowPlaying().then(async (response) => {
+        if (response.status === 204 || response.status > 400) {
+          setNowPlaying(null);
         }
 
-        const isPlaying = song.is_playing;
-        const title = song.item.name;
-        const artist = song.item.artists
-          .map((_artist) => _artist.name)
-          .join(", ");
-        const album = song.item.album.name;
-        const albumImageUrl = song.item.album.images[0].url;
-        const songUrl = song.item.external_urls.spotify;
+        try {
+          const song = await response.json();
 
-        setNowPlaying({
-          album,
-          albumImageUrl,
-          artist,
-          isPlaying,
-          songUrl,
-          title,
-        });
-      } catch (e) {
-        setNowPlaying(null);
-      }
-    });
+          // check playing advertisement
+          if (song.currently_playing_type == "ad") {
+            return;
+          }
+
+          const isPlaying = song.is_playing;
+          const title = song.item.name;
+          const artist = song.item.artists
+            .map((_artist) => _artist.name)
+            .join(", ");
+          const album = song.item.album.name;
+          const albumImageUrl = song.item.album.images[0].url;
+          const songUrl = song.item.external_urls.spotify;
+
+          setNowPlaying({
+            album,
+            albumImageUrl,
+            artist,
+            isPlaying,
+            songUrl,
+            title,
+          });
+        } catch (e) {
+          setNowPlaying(null);
+        }
+      });
+    }
   }
 
   useEffect(() => {
