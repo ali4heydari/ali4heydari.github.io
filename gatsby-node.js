@@ -5,6 +5,7 @@
  */
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
+const childProcess = require(`child_process`);
 
 // https://github.com/gatsbyjs/gatsby/issues/11934#issuecomment-646966955
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
@@ -132,4 +133,19 @@ exports.createPages = async ({ graphql, actions }) => {
       });
     });
   });
+};
+
+// Works only on macOS. Should do nothing on other platforms.
+const notify = (title, text) =>
+  `osascript -e 'display notification "${text}" ` +
+  `with title "${title}" sound name "default"'`;
+
+exports.onCreateDevServer = () => {
+  const cmd = notify(`Done!`, `gatsby developed finished`);
+  childProcess.exec(cmd);
+};
+
+exports.onPostBuild = () => {
+  const cmd = notify(`Done!`, `gatsby build finished`);
+  childProcess.exec(cmd);
 };

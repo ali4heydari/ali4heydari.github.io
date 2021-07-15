@@ -1,11 +1,9 @@
 import { ToggleMode as ToggleModeButtonBase } from "./styles";
 import React from "react";
-import { ContextType, ThemeContext } from "../../ThemeContext";
+import { useDarkMode } from "../../../hooks";
 
 export const ToggleMode = () => {
-  const { colorMode, setColorMode } = React.useContext<ContextType>(
-    ThemeContext
-  );
+  const [colorMode, setColorMode] = useDarkMode();
 
   if (!colorMode) {
     return null;

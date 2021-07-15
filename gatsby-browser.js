@@ -29,14 +29,13 @@ export const onServiceWorkerUpdateReady = async (args) => {
   const permissionResponse = await Notification.requestPermission();
   if (permissionResponse === "granted") {
     await args.serviceWorker.showNotification("Website update", {
-      body:
-        "Our website just got a little bit better. We reloaded the site with the update to ensure a smooth experience for you.",
+      body: "Our website just got a little bit better. We reloaded the site with the update to ensure a smooth experience for you.",
       icon: `/icons/icon-512x512.png`,
     });
   }
   typeof window !== "undefined" && window.location.reload(true);
 };
 
-export const wrapRootElement = ({ element }) => {
-  return <App>{element}</App>;
+export const wrapPageElement = ({ element, props }) => {
+  return <App {...props}>{element}</App>;
 };

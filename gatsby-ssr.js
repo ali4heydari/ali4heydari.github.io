@@ -1,14 +1,4 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/ssr-apis/
- */
-
-// You can delete this file if you're not using it
-
 import React from "react";
-import Terser from "terser";
-
 import {
   COLOR_MODE_KEY,
   COLORS,
@@ -18,36 +8,33 @@ import {
 import { App } from "./src/components/App";
 
 function setColorsByTheme() {
-  const colors = "🌈";
-  const colorModeKey = "🔑";
-  const colorModeCssProp = "⚡️";
+  // Don't use backticks around emojis. Breaks replacement in boundFn below.
+  const [colors, colorModeKey, colorModeCssProp] = ["🌈", "🔑", "⚡️"];
+  // Default value if the user never used DarkToggle is to use the OS color mode.
+  let colorMode = `osPref`;
 
-  const mql = window.matchMedia("(prefers-color-scheme: dark)");
-  const prefersDarkFromMQ = mql.matches;
-  const persistedPreference = localStorage.getItem(colorModeKey);
-
-  let colorMode = "light";
-
-  const hasUsedToggle = typeof persistedPreference === "string";
-
-  if (hasUsedToggle) {
+  // Only try to parse value from localStorage if there seems to be one.
+  const persistedPreference =
+    localStorage[colorModeKey] && JSON.parse(localStorage[colorModeKey]);
+  if ([`light`, `dark`, `osPref`].includes(persistedPreference))
     colorMode = persistedPreference;
-  } else {
-    colorMode = prefersDarkFromMQ ? "dark" : "light";
+
+  document.body.style.setProperty(colorModeCssProp, colorMode);
+
+  // Here we set the actual colors for the page after SSR.
+  // colorByMode only supports `dark` or `light`. So if colorMode
+  // is `osPref` we pick either of those depending on prefersDarkFromMQ.
+  if (colorMode === `osPref`) {
+    const mq = window.matchMedia(`(prefers-color-scheme: dark)`);
+    const prefersDarkFromMQ = mq.matches;
+    colorMode = prefersDarkFromMQ ? `dark` : `light`;
   }
 
-  let root = document.documentElement;
-
-  root.style.setProperty(colorModeCssProp, colorMode);
-
-  Object.entries(colors).forEach(([name, colorByTheme]) => {
-    const cssVarName = `--color-${name}`;
-
-    root.style.setProperty(cssVarName, colorByTheme[colorMode]);
-  });
+  for (const [name, colorByMode] of Object.entries(colors))
+    document.body.style.setProperty(`--color-${name}`, colorByMode[colorMode]);
 }
 
-const MagicScriptTag = () => {
+function RssSetColorsByTheme() {
   const boundFn = String(setColorsByTheme)
     .replace('"🌈"', JSON.stringify(COLORS))
     .replace("🔑", COLOR_MODE_KEY)
@@ -55,44 +42,33 @@ const MagicScriptTag = () => {
 
   let calledFunction = `(${boundFn})()`;
 
-  calledFunction = Terser.minify(calledFunction).code;
-
-  // eslint-disable-next-line react/no-danger
+  // Turn boundFn into an IIFE so it runs asap. Also avoids polluting global namespace.
   return <script dangerouslySetInnerHTML={{ __html: calledFunction }} />;
-};
+}
 
-/**
- * If the user has JS disabled, the injected script will never fire!
- * This means that they won't have any colors set, everything will be default
- * black and white.
- * We can solve for this by injecting a `<style>` tag into the head of the
- * document, which sets default values for all of our colors.
- * Only light mode will be available for users with JS disabled.
- */
-const FallbackStyles = () => {
+// If the user disabled JS, the injected script setColorsByTheme will
+// never run and no colors will be set. Everything will be default
+// black and white. By injecting a `<style>` tag into the head of the
+// document, we can set default values for all of our colors. Only
+// light mode will be available for users with JS disabled.
+function FallbackStyles({ cssColors = `` }) {
   // Create a string holding each CSS variable:
-  /*
-    `--color-text: black;
-    --color-background: white;`
-  */
+  // `--color-text: black;\n--color-background: white;\n...`
 
-  const cssVariableString = Object.entries(COLORS).reduce(
-    (acc, [name, colorByTheme]) => {
-      return `${acc}\n--color-${name}: ${colorByTheme.light};`;
-    },
-    ""
-  );
+  for (const [name, colorByMode] of Object.entries(COLORS))
+    cssColors += `--color-${name}: ${colorByMode.light};\n`;
 
-  const wrappedInSelector = `html { ${cssVariableString} }`;
+  const wrappedInSelector = `html { ${cssColors} }`;
 
   return <style>{wrappedInSelector}</style>;
-};
+}
 
 export const onRenderBody = ({ setPreBodyComponents, setHeadComponents }) => {
-  setHeadComponents(<FallbackStyles />);
-  setPreBodyComponents(<MagicScriptTag />);
+  // Keys just to prevent warning: Each child in a list should have a unique "key" prop.
+  setHeadComponents(<FallbackStyles key="foo" />);
+  setPreBodyComponents(<RssSetColorsByTheme key="bar" />);
 };
 
-export const wrapPageElement = ({ element }) => {
-  return <App>{element}</App>;
+export const wrapPageElement = ({ element, props }) => {
+  return <App {...props}>{element}</App>;
 };
