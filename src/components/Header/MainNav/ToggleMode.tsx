@@ -1,5 +1,5 @@
 import { ToggleMode as ToggleModeButtonBase } from "./styles";
-import React from "react";
+import React, { useMemo } from "react";
 import { useDarkMode } from "../../../hooks";
 import { Moon, Sun } from "styled-icons/fa-solid";
 
@@ -26,14 +26,17 @@ export const Icons = {
   SunMoon: (props) => <SunSlashMoon {...props} width="1.2em" />,
 };
 
-const modes = {
-  light: [`Light Mode`, Icons.Sun, `dark`],
-  dark: [`Dark Mode`, Icons.Moon, `osPref`],
-  osPref: [`OS setting`, Icons.SunMoon, `light`],
-};
-
 export const ToggleMode = () => {
-  const [colorMode, setColorMode] = useDarkMode();
+  const [colorMode = "osPref", setColorMode] = useDarkMode();
+
+  const modes = useMemo(
+    () => ({
+      light: [`Light Mode`, Icons.Sun, `dark`],
+      dark: [`Dark Mode`, Icons.Moon, `osPref`],
+      osPref: [`OS setting`, Icons.SunMoon, `light`],
+    }),
+    []
+  );
 
   const [title, Icon, nextMode] = modes[colorMode];
 
