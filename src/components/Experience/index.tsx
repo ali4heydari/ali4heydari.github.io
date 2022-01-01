@@ -1,85 +1,33 @@
-import { useStaticQuery, graphql } from "gatsby";
-
-import Timeline from "components/ui/Timeline";
-import Container from "components/ui/Container";
-import TitleSection from "components/ui/TitleSection";
+import TimelineItem from "src/components/ui/Timeline";
+import Container from "src/components/ui/Container";
+import TitleSection from "src/components/ui/TitleSection";
 import React from "react";
+import { Experience } from ".contentlayer/types";
 
-import { SectionTitle } from "definitions";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-
-interface Experience {
-  node: {
-    id: string;
-    body: string;
-    frontmatter: {
-      company: string;
-      position: string;
-      startDate: string;
-      endDate: string;
-    };
-  };
-}
-
-const Experience: React.FC = () => {
-  const { mdx, allMdx } = useStaticQuery(graphql`
-    query {
-      mdx(frontmatter: { category: { eq: "experiences section" } }) {
-        frontmatter {
-          title
-          subtitle
-        }
-      }
-      allMdx(
-        filter: { frontmatter: { category: { eq: "experiences" } } }
-        sort: { order: DESC, fields: fileAbsolutePath }
-      ) {
-        edges {
-          node {
-            id
-            body
-            frontmatter {
-              company
-              position
-              startDate
-              endDate
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const sectionTitle: SectionTitle = mdx.frontmatter;
-  const experiences: Experience[] = allMdx.edges;
-
+const TimeLine: React.FC<{
+  allExperiences: Experience[];
+}> = ({ allExperiences }) => {
   return (
     <Container section maxWidth="lg">
       <TitleSection
-        title={sectionTitle.title}
-        subtitle={sectionTitle.subtitle}
+        title={"Companies and university"}
+        subtitle={"My Experience"}
       />
 
-      {experiences.map((item) => {
-        const {
-          id,
-          body,
-          frontmatter: { company, position, startDate, endDate },
-        } = item.node;
-
-        return (
-          <Timeline
-            key={id}
+      {allExperiences.map(
+        ({ company, position, body: { code }, startDate, endDate, _id }) => (
+          <TimelineItem
+            key={_id}
             title={company}
             subtitle={position}
-            content={<MDXRenderer>{body}</MDXRenderer>}
+            code={code}
             startDate={startDate}
             endDate={endDate}
           />
-        );
-      })}
+        )
+      )}
     </Container>
   );
 };
 
-export default Experience;
+export default TimeLine;

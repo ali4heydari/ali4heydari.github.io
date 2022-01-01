@@ -1,21 +1,26 @@
-import * as Styled from "./styles";
 import React from "react";
+import styles from "./Button.module.css";
+import classNames from "classnames";
+import { motion } from "framer-motion";
 
-interface Props extends Styled.StyledProps {
-  children: React.ReactNode;
+interface ButtonProps {
+  primary?: boolean;
+  block?: boolean;
 }
 
 const Button: React.FC<
-  Props & React.ButtonHTMLAttributes<HTMLButtonElement>
+  ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
 > = ({ primary, block, children }) => (
-  <Styled.Button
-    primary={primary}
-    block={block}
+  <motion.button
+    className={classNames(styles.btnBase, {
+      [styles.primary]: primary,
+      [styles.block]: block,
+    })}
     whileHover={{ scale: 1.05 }}
     whileTap={{ scale: 0.95 }}
   >
     {children}
-  </Styled.Button>
+  </motion.button>
 );
 
 export default Button;

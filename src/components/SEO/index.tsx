@@ -1,9 +1,6 @@
-import Helmet from "react-helmet";
-import { useStaticQuery, graphql } from "gatsby";
+import Head from "next/head";
 import React from "react";
-import { Languages } from "../../utils/enums";
 import { useTranslation } from "react-i18next";
-import { getSrc } from "gatsby-plugin-image";
 
 type Meta =
   | {
@@ -28,86 +25,14 @@ const SEO: React.FC<Props> = ({
   meta = [],
   title,
 }) => {
-  const {
-    i18n: { language = lang },
-  } = useTranslation();
-  const { site, file } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-            author
-          }
-        }
-        file(relativePath: { eq: "profile.jpg" }) {
-          childImageSharp {
-            gatsbyImageData(
-              placeholder: BLURRED
-              formats: [AUTO, WEBP]
-              width: 500
-              height: 500
-            )
-          }
-        }
-      }
-    `
-  );
+  const { i18n } = useTranslation();
 
-  const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description;
 
   return (
-    <Helmet
-      htmlAttributes={{
-        lang: language === Languages.CI_MODE ? Languages.ENGLISH : language,
-        dir: language === Languages.PERSIAN ? "rtl" : "ltr",
-      }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: `${title} | ${site.siteMetadata.title}`,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          property: `og:image`,
-          content: getSrc(file),
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: `${title} | ${site.siteMetadata.title}`,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
-    >
-      <script
-        src={`https://www.google.com/recaptcha/api.js?render=${process.env.GATSBY_RECAPTCHA_SITE_KEY}`}
-      />
-    </Helmet>
+    <Head>
+      <title>{title}</title>
+    </Head>
   );
 };
 

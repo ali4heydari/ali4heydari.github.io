@@ -1,0 +1,25 @@
+.titleSection {
+  @apply flex flex-col w-full;
+}
+
+.songTitle {
+  @apply uppercase mb-4 text-lg font-bold w-full text-left;
+}
+
+.subTitle {
+  @apply text-xs text-interactive w-full text-left;
+}
+
+.separator {
+  @apply relative w-2 h-8 mb-6 -mt-2;
+
+  &:before {
+    @apply bg-inverse h-full w-px absolute left-0;
+    content: "";
+  }
+
+  &:after {
+    @apply bg-inverse h-6 w-px absolute ml-1;
+    content: "";
+  }
+}

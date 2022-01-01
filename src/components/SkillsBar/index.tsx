@@ -1,12 +1,9 @@
-import { useStaticQuery, graphql } from "gatsby";
+import Container from "src/components/ui/Container";
+import TitleSection from "src/components/ui/TitleSection";
+import ProgressBar from "src/components/ui/ProgressBar";
+import styles from "./SkillsBar.module.css";
+import { SectionTitle } from "src/definitions";
 
-import Container from "components/ui/Container";
-import TitleSection from "components/ui/TitleSection";
-import ProgressBar from "components/ui/ProgressBar";
-
-import { SectionTitle } from "definitions";
-
-import * as Styled from "./styles";
 import React from "react";
 
 interface Skill {
@@ -20,33 +17,9 @@ interface Skill {
 }
 
 const Skills: React.FC = () => {
-  const { mdx, allMdx } = useStaticQuery(graphql`
-    query {
-      mdx(frontmatter: { category: { eq: "skills section" } }) {
-        frontmatter {
-          title
-          subtitle
-        }
-      }
-      allMdx(
-        filter: { frontmatter: { category: { eq: "skills" } } }
-        sort: { fields: fileAbsolutePath }
-      ) {
-        edges {
-          node {
-            id
-            frontmatter {
-              title
-              percentage
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const sectionTitle: SectionTitle = mdx.frontmatter;
-  const skills: Skill[] = allMdx.edges;
+  // @ts-ignore
+  const sectionTitle: SectionTitle = {};
+  const skills: Skill[] = [];
 
   return (
     <Container section maxWidth="lg">
@@ -55,7 +28,7 @@ const Skills: React.FC = () => {
         subtitle={sectionTitle.subtitle}
         center
       />
-      <Styled.Skills>
+      <div className={styles.skills}>
         {skills.map((item) => {
           const {
             id,
@@ -63,12 +36,12 @@ const Skills: React.FC = () => {
           } = item.node;
 
           return (
-            <Styled.Skill key={id}>
+            <div className={styles.skill} key={id}>
               <ProgressBar title={title} percentage={percentage} />
-            </Styled.Skill>
+            </div>
           );
         })}
-      </Styled.Skills>
+      </div>
     </Container>
   );
 };

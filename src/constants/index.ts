@@ -1,27 +1,27 @@
 export const COLORS = {
   "text-primary": {
-    dark: "#f7fafc", // white
     light: "#2d3748", // near-black
+    dark: "#f7fafc", // white
   },
   "text-secondary": {
-    dark: "#e2e8f0", // white
     light: "#4a5568", // near-black
+    dark: "#e2e8f0", // white
   },
   "text-interactive": {
-    dark: "#1da1f2",
     light: "#553c9a",
+    dark: "#1da1f2",
   },
   "text-error": {
-    dark: "#e53e3e",
     light: "#e53e3e",
+    dark: "#e53e3e",
   },
   "text-disabled": {
-    dark: "#a0aec0",
     light: "#a0aec0",
+    dark: "#a0aec0",
   },
   "text-inverse": {
-    dark: "#2d3748",
     light: "#f7fafc",
+    dark: "#2d3748",
   },
   "bg-primary": {
     light: "#ffffff", // white
@@ -43,3 +43,34 @@ export const COLORS = {
 
 export const COLOR_MODE_KEY = "color-mode";
 export const INITIAL_COLOR_MODE_CSS_PROP = "--initial-color-mode";
+
+export const mainNavItems = [
+  {
+    title: "Home",
+    slug: "/",
+  },
+  {
+    title: "Resume",
+    slug: "/resume/",
+  },
+  {
+    title: "Skills",
+    slug: "/skills/",
+  },
+  {
+    title: "Tools",
+    slug: "/tools/",
+  },
+  {
+    title: "Projects",
+    slug: "/projects/",
+  },
+  {
+    title: "Blog",
+    slug: "/blog/",
+  },
+  {
+    title: "Contact Me",
+    slug: "/contact/",
+  },
+];

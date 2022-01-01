@@ -1,16 +1,12 @@
-import { useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import Loadable from "@loadable/component";
 
-import Container from "components/ui/Container";
-import TitleSection from "components/ui/TitleSection";
+import Container from "src/components/ui/Container";
+import TitleSection from "src/components/ui/TitleSection";
 import React from "react";
-import { SectionTitle } from "definitions";
+import { SectionTitle } from "src/definitions";
+import styles from "./Testimonials.module.css";
 
-import * as Styled from "./styles";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-
-const Carousel = Loadable(() => import("components/ui/Carousel"));
+const Carousel = Loadable(() => import("src/components/ui/Carousel"));
 
 interface Testimonial {
   node: {
@@ -18,50 +14,15 @@ interface Testimonial {
     body: string;
     frontmatter: {
       title: string;
-      cover: {
-        childImageSharp: {
-          gatsbyImageData: IGatsbyImageData;
-        };
-      };
+      cover: string;
     };
   };
 }
 
 const Testimonials: React.FC = () => {
-  const { mdx, allMdx } = useStaticQuery(graphql`
-    query {
-      mdx(frontmatter: { category: { eq: "testimonials section" } }) {
-        frontmatter {
-          title
-          subtitle
-        }
-      }
-      allMdx(filter: { frontmatter: { category: { eq: "testimonials" } } }) {
-        edges {
-          node {
-            id
-            body
-            frontmatter {
-              title
-              cover {
-                childImageSharp {
-                  gatsbyImageData(
-                    layout: CONSTRAINED
-                    placeholder: BLURRED
-                    formats: [AUTO, WEBP]
-                    width: 80
-                  )
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const sectionTitle: SectionTitle = mdx.frontmatter;
-  const testimonials: Testimonial[] = allMdx.edges;
+  // @ts-ignore
+  const sectionTitle: SectionTitle = {};
+  const testimonials: Testimonial[] = [];
 
   return (
     <Container section maxWidth="lg">
@@ -70,7 +31,7 @@ const Testimonials: React.FC = () => {
         subtitle={sectionTitle.subtitle}
         center
       />
-      <Styled.Testimonials>
+      <div className={styles.testimonials}>
         <Carousel>
           {testimonials.map((item) => {
             const {
@@ -80,20 +41,17 @@ const Testimonials: React.FC = () => {
             } = item.node;
 
             return (
-              <Styled.Testimonial key={id}>
-                <Styled.Image>
-                  <GatsbyImage
-                    image={cover.childImageSharp.gatsbyImageData}
-                    alt={title}
-                  />
-                </Styled.Image>
-                <Styled.Title>{title}</Styled.Title>
-                <MDXRenderer>{body}</MDXRenderer>
-              </Styled.Testimonial>
+              <div className={styles.testimonial} key={id}>
+                <figure className={styles.image}>
+                  <img src={cover} alt={title} />
+                </figure>
+                <h3 className={styles.title}>{title}</h3>
+                {/*<MDXRenderer>{body}</MDXRenderer>*/}
+              </div>
             );
           })}
         </Carousel>
-      </Styled.Testimonials>
+      </div>
     </Container>
   );
 };

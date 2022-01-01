@@ -1,11 +1,9 @@
-import { useStaticQuery, graphql } from "gatsby";
-
-import Container from "components/ui/Container";
-import Button from "components/ui/Button";
-import TitleSection from "components/ui/TitleSection";
-import { SectionTitle } from "definitions";
-
-import * as Styled from "./styles";
+import Container from "src/components/ui/Container";
+import Button from "src/components/ui/Button";
+import TitleSection from "src/components/ui/TitleSection";
+import { SectionTitle } from "src/definitions";
+import React from "react";
+import styles from "./Newsletter.module.css";
 
 interface Newsletter extends SectionTitle {
   namePlaceholder: string;
@@ -14,42 +12,34 @@ interface Newsletter extends SectionTitle {
 }
 
 const Newsletter: React.FC = () => {
-  const { mdx } = useStaticQuery(graphql`
-    query {
-      mdx(frontmatter: { category: { eq: "newsletter section" } }) {
-        frontmatter {
-          title
-          subtitle
-          namePlaceholder
-          emailPlaceholder
-          submitPlaceholder
-        }
-      }
-    }
-  `);
-
-  const newsletter: Newsletter = mdx.frontmatter;
+  // @ts-ignore
+  const newsletter: Newsletter = {};
 
   return (
-    <Styled.Newsletter>
+    <section className={styles.newsletter}>
       <Container section maxWidth="lg">
         <TitleSection
           title={newsletter.title}
           subtitle={newsletter.subtitle}
           center
         />
-        <Styled.Form>
-          <Styled.Input type="text" placeholder={newsletter.namePlaceholder} />
-          <Styled.Input
+        <div className={styles.form}>
+          <input
+            className={styles.input}
+            type="text"
+            placeholder={newsletter.namePlaceholder}
+          />
+          <input
+            className={styles.input}
             type="email"
             placeholder={newsletter.emailPlaceholder}
           />
           <Button primary block>
             {newsletter.submitPlaceholder}
           </Button>
-        </Styled.Form>
+        </div>
       </Container>
-    </Styled.Newsletter>
+    </section>
   );
 };
 

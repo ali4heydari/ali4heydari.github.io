@@ -1,0 +1,30 @@
+.footer {
+  @apply border-t border-gray-200 py-4;
+}
+.links {
+  @apply flex flex-wrap items-center justify-center w-full;
+  a {
+    @apply text-interactive hover:text-interactive mx-2;
+  }
+}
+.link {
+  @apply cursor-pointer inline-block transition duration-300 mx-4;
+  @apply text-primary hover:text-primary;
+}
+.separator {
+  @apply relative w-2 h-8 mb-2 mt-2;
+
+  &:before {
+    content: "";
+    @apply bg-inverse h-full w-px absolute left-0;
+  }
+
+  &:after {
+    content: "";
+    @apply bg-inverse h-6 w-px absolute ml-1;
+  }
+}
+
+.nowPlaying {
+  @apply flex flex-wrap items-center justify-center w-full;
+}

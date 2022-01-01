@@ -1,124 +1,53 @@
-import { useStaticQuery, graphql } from "gatsby";
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
-import Link from "gatsby-link";
 import { motion } from "framer-motion";
 import React from "react";
-import Container from "components/ui/Container";
-import TitleSection from "components/ui/TitleSection";
+import Container from "src/components/ui/Container";
+import TitleSection from "src/components/ui/TitleSection";
 import { useTranslation } from "react-i18next";
-import { SectionTitle } from "definitions";
+import styles from "./Projects.module.css";
+import Link from "next/link";
+import { allProjects } from ".contentlayer/data";
+import type { Project } from ".contentlayer/types";
 
-import * as Styled from "./styles";
 import { Chip } from "../ui/Chip";
-
-interface Project {
-  node: {
-    id: string;
-    fields: {
-      slug: string;
-    };
-    frontmatter: {
-      title: string;
-      description: string;
-      startDate: string;
-      endDate: string;
-      tags: string[];
-      cover: {
-        childImageSharp: {
-          gatsbyImageData: IGatsbyImageData;
-        };
-      };
-    };
-  };
-}
 
 const Projects: React.FC = () => {
   const { i18n } = useTranslation();
-  const { mdx, allMdx } = useStaticQuery(graphql`
-    query {
-      mdx(frontmatter: { category: { eq: "projects section" } }) {
-        frontmatter {
-          title
-          subtitle
-        }
-      }
-      allMdx(
-        filter: {
-          frontmatter: { category: { eq: "project" }, published: { eq: true } }
-        }
-        sort: { fields: frontmatter___endDate, order: DESC }
-      ) {
-        edges {
-          node {
-            id
-            body
-            fields {
-              slug
-            }
-            frontmatter {
-              title
-              description
-              startDate
-              endDate
-              tags
-              cover {
-                childImageSharp {
-                  gatsbyImageData(
-                    layout: CONSTRAINED
-                    placeholder: BLURRED
-                    formats: [AUTO, WEBP]
-                    width: 800
-                  )
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const sectionTitle: SectionTitle = mdx.frontmatter;
-  const posts: Project[] = allMdx.edges;
 
   return (
     <Container section maxWidth="lg">
       <TitleSection
-        title={sectionTitle.title}
-        subtitle={sectionTitle.subtitle}
+        title={"Projects"}
+        subtitle={"Some of my Projects"}
         center
       />
-      <Styled.Posts>
-        {posts.map((item) => {
+      <div className={styles.posts}>
+        {allProjects.map((item: Project) => {
           const {
-            id,
-            fields: { slug },
-            frontmatter: {
-              title,
-              cover,
-              description,
-              startDate,
-              endDate,
-              tags,
-            },
-          } = item.node;
+            title,
+            cover,
+            description,
+            startDate,
+            endDate,
+            tags = [],
+            _id,
+            slug,
+          } = item;
+
+          console.log({ item });
 
           return (
-            <Styled.Post key={id}>
-              <Link to={slug}>
+            <div className={styles.post} key={_id}>
+              <Link href={`/projects/${slug}`}>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 1 }}
                 >
-                  <Styled.Card>
-                    <Styled.Image>
-                      <GatsbyImage
-                        image={cover.childImageSharp.gatsbyImageData}
-                        alt={title}
-                      />
-                    </Styled.Image>
-                    <Styled.Content>
-                      <Styled.Date>
+                  <div className={styles.card}>
+                    <figure className={styles.image}>
+                      <img src={cover} alt={title} />
+                    </figure>
+                    <div className={styles.content}>
+                      <time className={styles.date}>
                         {new Date(startDate).toLocaleDateString(i18n.language, {
                           year: "numeric",
                           month: "short",
@@ -128,22 +57,22 @@ const Projects: React.FC = () => {
                           year: "numeric",
                           month: "short",
                         })}
-                      </Styled.Date>
-                      <Styled.Title>{title}</Styled.Title>
-                      <Styled.Description>{description}</Styled.Description>
-                    </Styled.Content>
-                    <Styled.Tags>
+                      </time>
+                      <h3 className={styles.title}>{title}</h3>
+                      <p>{description}</p>
+                    </div>
+                    <div className={styles.tags}>
                       {tags.map((item) => (
                         <Chip key={item}>{item}</Chip>
                       ))}
-                    </Styled.Tags>
-                  </Styled.Card>
+                    </div>
+                  </div>
                 </motion.div>
               </Link>
-            </Styled.Post>
+            </div>
           );
         })}
-      </Styled.Posts>
+      </div>
     </Container>
   );
 };

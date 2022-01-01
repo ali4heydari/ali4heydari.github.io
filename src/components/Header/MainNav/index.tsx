@@ -1,49 +1,34 @@
 import React, { useState } from "react";
-
-import * as Styled from "./styles";
+import styles from "./MainNav.module.css";
+import classNames from "classnames";
+import Link from "next/link";
 import { ToggleMode } from "./ToggleMode";
-import { graphql, useStaticQuery } from "gatsby";
+import { mainNavItems } from "src/constants";
 
 const MainNav: React.FC = () => {
-  const {
-    site: {
-      siteMetadata: { mainNavItems },
-    },
-  } = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          mainNavItems {
-            title
-            slug
-          }
-        }
-      }
-    }
-  `);
-
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <Styled.MainNav open={open}>
+      <nav className={classNames(styles.mainNav, open && "flex")}>
         {mainNavItems.map((item, index) => (
-          <Styled.MainNavItem
-            key={item.slug}
-            to={item.slug}
-            activeClassName="active"
-            whileTap={{ scale: 0.9 }}
-          >
-            {item.title}
-          </Styled.MainNavItem>
+          <Link key={item.slug} href={item.slug}>
+            <a className={styles.mainNavItem}>{item.title}</a>
+          </Link>
         ))}
-      </Styled.MainNav>
+      </nav>
       <ToggleMode />
-      <Styled.ToggleMainNav open={open} onClick={() => setOpen(!open)}>
+      <button
+        className={classNames(
+          styles.toggleMainNav,
+          open ? styles.toggleMainNavOpen : styles.toggleMainNavClose
+        )}
+        onClick={() => setOpen(!open)}
+      >
         <span />
         <span />
         <span />
-      </Styled.ToggleMainNav>
+      </button>
     </>
   );
 };

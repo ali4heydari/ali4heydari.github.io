@@ -1,39 +1,17 @@
 import React from "react";
-
-import * as Styled from "./styles";
-import { graphql, useStaticQuery } from "gatsby";
+import styles from "./MainNav.module.css";
+import Link from "next/link";
+import { mainNavItems } from "src/constants";
 
 const MainNav: React.FC = () => {
-  const {
-    site: {
-      siteMetadata: { mainNavItems },
-    },
-  } = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          mainNavItems {
-            title
-            slug
-          }
-        }
-      }
-    }
-  `);
-
   return (
-    <Styled.MainNav>
+    <nav className={styles.mainNav}>
       {mainNavItems.map((item, index) => (
-        <Styled.MainNavItem
-          key={item.slug}
-          to={item.slug}
-          activeClassName="active"
-          whileTap={{ scale: 0.9 }}
-        >
-          {item.title}
-        </Styled.MainNavItem>
+        <Link key={item.slug} href={item.slug}>
+          <a className={styles.mainNavItem}>{item.title}</a>
+        </Link>
       ))}
-    </Styled.MainNav>
+    </nav>
   );
 };
 

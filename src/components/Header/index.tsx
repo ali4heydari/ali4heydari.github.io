@@ -1,20 +1,20 @@
 import MainNav from "./MainNav";
 import Logo from "./Logo";
 
-import * as Styled from "./styles";
 import React from "react";
-
+import Container from "../ui/Container";
+import styles from "./Header.module.css";
 interface Props {
   siteTitle: string;
 }
 
 const Header: React.FC<Props> = ({ siteTitle }) => (
-  <Styled.Header>
-    <Styled.Wrapper>
+  <header className={styles.header}>
+    <Container className={styles.wrapper}>
       <Logo />
       <MainNav />
-    </Styled.Wrapper>
-  </Styled.Header>
+    </Container>
+  </header>
 );
 
 Header.defaultProps = {

@@ -1,12 +1,10 @@
 import React from "react";
-import * as Styled from "./styles";
+import { ContextType, ThemeContext } from "../../ThemeContext";
 import { useTranslation } from "react-i18next";
-import { useDarkMode } from "../../../hooks";
+import { DiscussionEmbed } from "disqus-react";
 
-export const CommentThread: React.FC<Styled.DisqusProps> = (
-  props: Styled.DisqusProps
-) => {
-  const [colorMode] = useDarkMode();
+export const CommentThread: React.FC<any> = (props) => {
+  const { colorMode } = React.useContext<ContextType>(ThemeContext);
   const { i18n } = useTranslation();
 
   const {
@@ -15,11 +13,12 @@ export const CommentThread: React.FC<Styled.DisqusProps> = (
   } = props;
 
   return (
-    <Styled.DisqusThread
+    <DiscussionEmbed
       config={{
         language,
         ...rest,
       }}
+      // @ts-ignore
       theme={theme}
     />
   );

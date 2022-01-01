@@ -1,6 +1,5 @@
-import tw from "twin.macro";
 import React from "react";
-import * as Styled from "./styles";
+import styles from "./Section.module.css";
 
 interface SectionProps {
   id?: string;
@@ -9,6 +8,7 @@ interface SectionProps {
   subheading?: string;
   children?: React.ReactNode;
 }
+
 export const Section: React.FC<SectionProps> = ({
   heading,
   subheading,
@@ -17,29 +17,19 @@ export const Section: React.FC<SectionProps> = ({
   id,
 }: SectionProps) => {
   return (
-    <div css={tw`relative`} id={id}>
-      <Styled.SectionContainer
-        css={tw`flex flex-col items-center md:items-stretch md:flex-row flex-wrap md:justify-center max-w-screen-lg mx-auto py-20 md:py-24`}
-      >
+    <div className={"relative"} id={id}>
+      <div className={styles.sectionContainer}>
         {subheading ? (
-          <Styled.SectionSubheading>{subheading}</Styled.SectionSubheading>
+          <h5 className={styles.sectionSubheading}>{subheading}</h5>
         ) : null}
-        <Styled.SectionHeading
-          css={tw`text-4xl sm:text-5xl font-black tracking-wide text-center w-full`}
-        >
-          {heading}
-        </Styled.SectionHeading>
+        <h2 className={styles.sectionHeading}>{heading}</h2>
         {description ? (
-          <Styled.SectionDescription
-            css={tw`w-full text-center mt-4 text-sm md:text-base lg:text-lg font-medium leading-relaxed text-primary max-w-xl`}
-          >
-            {description}
-          </Styled.SectionDescription>
+          <p className={styles.sectionHeading}>{description}</p>
         ) : null}
         {children}
-      </Styled.SectionContainer>
+      </div>
       {/*<div*/}
-      {/*  css={tw`pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-48 `}*/}
+      {/*  className={`pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-48 `}*/}
       {/*/>*/}
     </div>
   );

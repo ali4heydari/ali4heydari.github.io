@@ -2,14 +2,14 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
+    "baseUrl": ".",
     "emitDecoratorMetadata": true,
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
-    "jsx": "react",
-    "lib": ["dom", "es2017", "esnext", "es2015", "es2016", "es2017"],
+    "jsx": "preserve",
+    "lib": ["dom", "es2017", "esnext", "es2015", "es2016"],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -17,9 +17,10 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "es5",
-    "types": ["styled-components", "node"]
+    "target": "ES2015",
+    "types": ["styled-components", "node"],
+    "incremental": true
   },
   "exclude": ["node_modules"],
-  "include": ["./src/**/*", "@types"]
+  "include": ["next-env.d.ts", "*.ts", "**/*.ts", "**/*.tsx"]
 }

@@ -1,12 +1,12 @@
-import Container from "components/ui/Container";
+import Container from "src/components/ui/Container";
 
-import * as Styled from "./styles";
 import Typist from "react-typist";
 import React from "react";
-import { IGatsbyImageData } from "gatsby-plugin-image";
 import { socialMedias } from "../../../socialMedias";
-import styled from "styled-components";
-import tw from "twin.macro";
+import styles from "./Banner.module.css";
+import classNames from "classnames";
+import SvgDecoratorBlob1 from "mdi-react/DragIcon";
+import QuotesLeftIconBase from "mdi-react/FormatQuoteOpenIcon";
 
 interface Props {
   heading: string;
@@ -16,7 +16,7 @@ interface Props {
   linkText: string;
   imageDecoratorBlob?: boolean;
   quote?: string;
-  image: IGatsbyImageData;
+  image: string;
 }
 
 const Banner: React.FC<Props> = ({
@@ -30,56 +30,69 @@ const Banner: React.FC<Props> = ({
   image,
 }) => {
   return (
-    <Styled.Banner>
+    <section className={styles.banner}>
       <Container section>
-        <Styled.Row>
-          <Styled.TextColumn>
+        <div className={styles.row}>
+          <div className={styles.textColumn}>
             <Typist startDelay={500} cursor={{ show: false }}>
-              <Styled.SectionHeading>{heading}</Styled.SectionHeading>
-              <Styled.Heading>{subheading}</Styled.Heading>
+              <h2 className={styles.sectionHeading}>{heading}</h2>
+              <h2 className={classNames(styles.sectionHeading, styles.heading)}>
+                {subheading}
+              </h2>
             </Typist>
-            <Styled.Description>{description}</Styled.Description>
-            <Styled.Button rounded href={linkTo}>
+            <p
+              className={classNames(
+                styles.sectionDescription,
+                styles.description
+              )}
+            >
+              {description}
+            </p>
+            <a
+              className={classNames(styles.button, "rounded-full")}
+              href={linkTo}
+            >
               {linkText}
-            </Styled.Button>
-            <Styled.Links>
+            </a>
+            <div className={styles.links}>
               {socialMedias.map((media) => {
-                const Icon = styled(media.icon)`
-                  ${tw`w-8 h-8 m-1`}
-                `;
-
                 return (
-                  <Styled.Link
+                  <a
+                    className={styles.link}
                     key={media.link}
                     href={media.link}
                     target="_blank"
                     rel="nofollow noopener noreferrer"
                     aria-label={`link to author's ${media.name} account`}
                   >
-                    <Icon />
-                  </Styled.Link>
+                    <media.icon className={"w-8 h-8 m-1"} />
+                  </a>
                 );
               })}
-            </Styled.Links>
-          </Styled.TextColumn>
-          <Styled.ImageColumn>
-            <Styled.ImageContainer>
-              {image ? <Styled.Image image={image} alt={"banner"} /> : null}
-              {imageDecoratorBlob && <Styled.ImageDecoratorBlob />}
-              {quote ? (
-                <Styled.Testimonial>
-                  <>
-                    <Styled.QuotesLeftIcon />
-                    <Styled.Quote>{quote}</Styled.Quote>
-                  </>
-                </Styled.Testimonial>
+            </div>
+          </div>
+          <div className={styles.imageColumn}>
+            <div className={styles.imageContainer}>
+              {image ? (
+                <img className={styles.image} src={image} alt={"banner"} />
               ) : null}
-            </Styled.ImageContainer>
-            <Styled.Offsetbackground />
-          </Styled.ImageColumn>
-        </Styled.Row>
+              {imageDecoratorBlob && (
+                <SvgDecoratorBlob1 className={styles.imageDecoratorBlob} />
+              )}
+              {quote ? (
+                <div className={styles.testimonial}>
+                  <>
+                    <QuotesLeftIconBase className={styles.quotesLeftIcon} />
+                    <blockquote className={styles.quote}>{quote}</blockquote>
+                  </>
+                </div>
+              ) : null}
+            </div>
+            <div className={styles.offsetBackground} />
+          </div>
+        </div>
       </Container>
-    </Styled.Banner>
+    </section>
   );
 };
 

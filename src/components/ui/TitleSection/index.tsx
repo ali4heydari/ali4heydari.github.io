@@ -1,6 +1,7 @@
-import * as Styled from "./styles";
 import { StyledProps } from "./styles";
 import React from "react";
+import styles from "./TitleSection.module.css";
+import classNames from "classnames";
 
 interface Props extends StyledProps {
   title: string;
@@ -9,11 +10,17 @@ interface Props extends StyledProps {
 }
 
 const TitleSection: React.FC<Props> = ({ center, title, subtitle }) => (
-  <Styled.TitleSection>
-    {subtitle && <Styled.SubTitle center={center}>{title}</Styled.SubTitle>}
-    <Styled.Title center={center}>{subtitle}</Styled.Title>
-    <Styled.Separator center={center} />
-  </Styled.TitleSection>
+  <div className={styles.titleSection}>
+    {subtitle && (
+      <h4 className={classNames(styles.subTitle, { "text-center": center })}>
+        {title}
+      </h4>
+    )}
+    <h2 className={classNames(styles.title, { "text-center": center })}>
+      {subtitle}
+    </h2>
+    <h2 className={classNames(styles.separator, { "mx-auto": center })} />
+  </div>
 );
 
 export default TitleSection;
