@@ -1,8 +1,8 @@
-import Layout from "components/Layout";
-import ContactInfo from "components/ContactInfo";
+import Layout from "src/components/Layout";
+import ContactInfo from "src/components/ContactInfo";
 import React from "react";
 import { InlineWidget } from "react-calendly";
-import SiteConfigs from "../../SiteConfigs";
+import SiteConfigs from "../SiteConfigs";
 
 const ContactPage: React.FC = () => {
   return (

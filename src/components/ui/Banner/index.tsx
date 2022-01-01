@@ -1,9 +1,8 @@
-import Container from "components/ui/Container";
+import Container from "src/components/ui/Container";
 
 import * as Styled from "./styles";
 import Typist from "react-typist";
 import React from "react";
-import { IGatsbyImageData } from "gatsby-plugin-image";
 import { socialMedias } from "../../../socialMedias";
 import styled from "styled-components";
 import tw from "twin.macro";
@@ -16,7 +15,7 @@ interface Props {
   linkText: string;
   imageDecoratorBlob?: boolean;
   quote?: string;
-  image: IGatsbyImageData;
+  image: string;
 }
 
 const Banner: React.FC<Props> = ({

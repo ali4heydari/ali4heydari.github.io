@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import tw from "twin.macro";
-import { Link } from "gatsby";
+import Link from "next/link";
 
 export const Logo = styled(Link)`
   ${tw`flex items-center mr-auto text-interactive hover:text-interactive`};

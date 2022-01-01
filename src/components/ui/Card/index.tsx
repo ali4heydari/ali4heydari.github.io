@@ -1,5 +1,5 @@
 import React, { ComponentType } from "react";
-import * as Styled from "./styles";
+import styles from "./Card.module.css";
 
 interface CardProps {
   icon: React.ReactElement | ComponentType<any>;
@@ -13,12 +13,12 @@ export const Card: React.FC<CardProps> = ({
   icon,
 }: CardProps) => {
   return (
-    <Styled.CardRoot>
-      <Styled.CardIcon>{icon}</Styled.CardIcon>
-      <Styled.CardContent>
-        <Styled.CardTitle>{title}</Styled.CardTitle>
-        <Styled.CardDescription>{description}</Styled.CardDescription>
-      </Styled.CardContent>
-    </Styled.CardRoot>
+    <div className={styles.root}>
+      <span className={styles.icon}>{icon}</span>
+      <span className={styles.content}>
+        <span className={styles.title}>{title}</span>
+        <p className={styles.description}>{description}</p>
+      </span>
+    </div>
   );
 };

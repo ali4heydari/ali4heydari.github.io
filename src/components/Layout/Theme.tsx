@@ -1,9 +1,9 @@
 import { StyleSheetManager, ThemeProvider } from "styled-components";
 import resolveConfig from "tailwindcss/resolveConfig";
-import tailwindConfig from "../../../tailwind.config.js";
+import tailwindConfig from "tailwind.config.js";
 import rtlPlugin from "stylis-plugin-rtl";
 import { useTranslation } from "react-i18next";
-import { Languages } from "utils/enums";
+import { Languages } from "src/utils/enums";
 import React from "react";
 
 const { theme } = resolveConfig(tailwindConfig);

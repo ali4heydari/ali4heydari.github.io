@@ -1,6 +1,6 @@
-import * as Styled from "./styles";
 import { useTranslation } from "react-i18next";
 import React from "react";
+import styles from "./Timeline.module.css";
 
 interface Props {
   title: string;
@@ -20,10 +20,10 @@ const Timeline: React.FC<Props> = ({
   const { i18n } = useTranslation();
 
   return (
-    <Styled.Timeline>
-      <Styled.Point />
-      <Styled.Details>
-        <Styled.Date>
+    <div className={styles.timeline}>
+      <span className={styles.point} />
+      <div className={styles.details}>
+        <time className={styles.date}>
           {new Date(startDate).toLocaleDateString(i18n.language, {
             year: "numeric",
             month: "short",
@@ -36,12 +36,12 @@ const Timeline: React.FC<Props> = ({
                 year: "numeric",
                 month: "short",
               })}
-        </Styled.Date>
-        <Styled.Title>{title}</Styled.Title>
-        <Styled.Subtitle>{subtitle}</Styled.Subtitle>
-      </Styled.Details>
-      <Styled.Content>{content}</Styled.Content>
-    </Styled.Timeline>
+        </time>
+        <div className={styles.title}>{title}</div>
+        <div className={styles.subTitle}>{subtitle}</div>
+      </div>
+      <div className={styles.content}>{content}</div>
+    </div>
   );
 };
 

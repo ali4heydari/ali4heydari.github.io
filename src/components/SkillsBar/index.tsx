@@ -1,10 +1,10 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-import Container from "components/ui/Container";
-import TitleSection from "components/ui/TitleSection";
-import ProgressBar from "components/ui/ProgressBar";
+import Container from "src/components/ui/Container";
+import TitleSection from "src/components/ui/TitleSection";
+import ProgressBar from "src/components/ui/ProgressBar";
 
-import { SectionTitle } from "definitions";
+import { SectionTitle } from "src/definitions";
 
 import * as Styled from "./styles";
 import React from "react";

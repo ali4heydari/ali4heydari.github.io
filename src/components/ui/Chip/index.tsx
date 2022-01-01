@@ -1,5 +1,5 @@
 import React from "react";
-import * as Styled from "./styles";
+import styles from "./Chip.module.css";
 
 interface ChipProps {
   href?: string;
@@ -8,8 +8,10 @@ interface ChipProps {
 
 export const Chip: React.FC<ChipProps> = ({ children, href }: ChipProps) => {
   return (
-    <Styled.ChipRoot>
-      <Styled.ChipContent href={href}>{children}</Styled.ChipContent>
-    </Styled.ChipRoot>
+    <div className={styles.root}>
+      <a className={styles.content} href={href}>
+        {children}
+      </a>
+    </div>
   );
 };

@@ -1,10 +1,10 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-import Container from "components/ui/Container";
-import Button from "components/ui/Button";
-import TitleSection from "components/ui/TitleSection";
-import { SectionTitle } from "definitions";
-
+import Container from "src/components/ui/Container";
+import Button from "src/components/ui/Button";
+import TitleSection from "src/components/ui/TitleSection";
+import { SectionTitle } from "src/definitions";
+import React from "react";
 import * as Styled from "./styles";
 
 interface Newsletter extends SectionTitle {

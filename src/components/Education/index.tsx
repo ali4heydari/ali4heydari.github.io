@@ -1,10 +1,10 @@
 import { useStaticQuery, graphql } from "gatsby";
 
-import Timeline from "components/ui/Timeline";
-import Container from "components/ui/Container";
-import TitleSection from "components/ui/TitleSection";
+import Timeline from "src/components/ui/Timeline";
+import Container from "src/components/ui/Container";
+import TitleSection from "src/components/ui/TitleSection";
 import React from "react";
-import { SectionTitle } from "definitions";
+import { SectionTitle } from "src/definitions";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 
 interface Education {

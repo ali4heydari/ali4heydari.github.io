@@ -1,17 +1,17 @@
 import { graphql } from "gatsby";
 import Link from "gatsby-link";
 
-import Layout from "components/Layout";
-import SEO from "components/SEO";
-import Container from "components/ui/Container";
-import TitleSection from "components/ui/TitleSection";
+import Layout from "src/components/Layout";
+import SEO from "src/components/SEO";
+import Container from "src/components/ui/Container";
+import TitleSection from "src/components/ui/TitleSection";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
 import * as Styled from "./styles";
-import { Chip } from "../../components/ui/Chip";
-import { MarkDown } from "../../components/utils/MarkDown";
-import { CommentThread } from "../../components/ui/CommentThread";
+import { Chip } from "src/components/ui/Chip";
+import { MarkDown } from "src/components/utils/MarkDown";
+import { CommentThread } from "src/components/ui/CommentThread";
 
 interface BlogPost {
   body: string;
@@ -73,14 +73,14 @@ const BlogPost: React.FC<Props> = ({ data, pageContext }) => {
         <Styled.Links>
           <span>
             {previous && (
-              <Link to={previous.fields.slug} rel="previous">
+              <Link href={previous.fields.slug} rel="previous">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </span>
           <span>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Link href={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}

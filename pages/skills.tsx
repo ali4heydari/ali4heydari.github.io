@@ -1,5 +1,5 @@
-import Layout from "components/Layout";
-import { SkillsCard } from "../components/SkillsCard";
+import Layout from "src/components/Layout";
+import { SkillsCard } from "../src/components/SkillsCard";
 import React from "react";
 
 const ResumePage: React.FC = () => (

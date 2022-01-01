@@ -1,0 +1,3 @@
+.container {
+  @apply flex flex-wrap w-full mx-auto p-5;
+}

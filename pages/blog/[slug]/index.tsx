@@ -1,19 +1,19 @@
 import { graphql } from "gatsby";
 import Link from "gatsby-link";
 
-import Layout from "components/Layout";
-import SEO from "components/SEO";
-import Container from "components/ui/Container";
-import TitleSection from "components/ui/TitleSection";
+import Layout from "src/components/Layout";
+import SEO from "src/components/SEO";
+import Container from "src/components/ui/Container";
+import TitleSection from "src/components/ui/TitleSection";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
 import * as Styled from "./styles";
-import { Chip } from "../../components/ui/Chip";
-import { MarkDown } from "../../components/utils/MarkDown";
-import { CommentThread } from "../../components/ui/CommentThread";
+import { Chip } from "src/components/ui/Chip";
+import { MarkDown } from "src/components/utils/MarkDown";
+import { CommentThread } from "src/components/ui/CommentThread";
 
-interface Project {
+interface BlogPost {
   body: string;
   fields: {
     slug: string;
@@ -21,58 +21,51 @@ interface Project {
   frontmatter: {
     title: string;
     description: string;
-    startDate: string;
-    endDate: string;
+    date: string;
     tags: string[];
   };
 }
 
 interface Props {
   data: {
-    mdx: Project;
+    mdx: BlogPost;
   };
   pageContext: {
     slug: string;
-    next: Project;
-    previous: Project;
+    next: BlogPost;
+    previous: BlogPost;
     id: string;
     siteUrl: string;
   };
 }
 
-const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
-  const project = data.mdx;
+const BlogPost: React.FC<Props> = ({ data, pageContext }) => {
+  const blogPost = data.mdx;
   const { i18n } = useTranslation();
   const { previous, next, slug, id, siteUrl } = pageContext;
 
   return (
     <Layout>
-      <SEO title={project.frontmatter.title} />
+      <SEO title={blogPost.frontmatter.title} />
       <Container section maxWidth="lg">
         <TitleSection
-          title={`${new Date(project.frontmatter.startDate).toLocaleDateString(
-            i18n.language,
-            {
-              year: "numeric",
-              month: "short",
-            }
-          )} - ${new Date(project.frontmatter.endDate).toLocaleDateString(
+          title={`${new Date(blogPost.frontmatter.date).toLocaleDateString(
             i18n.language,
             {
               year: "numeric",
               month: "short",
             }
           )}`}
-          subtitle={project.frontmatter.title}
+          subtitle={blogPost.frontmatter.title}
         />
         <Styled.Description>
-          {project.frontmatter.description}
+          {blogPost.frontmatter.description}
         </Styled.Description>
-        <MarkDown content={project.body} />
+        <MarkDown content={blogPost.body} />
         <Container section maxWidth="sm">
           <Styled.Tags>
             <Styled.TagsHeader>Tech Stack:</Styled.TagsHeader>
-            {project.frontmatter.tags.map((tag) => (
+            {blogPost.frontmatter.tags.map((tag) => (
               <Chip key={tag}>{tag}</Chip>
             ))}
           </Styled.Tags>
@@ -80,14 +73,14 @@ const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
         <Styled.Links>
           <span>
             {previous && (
-              <Link to={previous.fields.slug} rel="previous">
+              <Link href={previous.fields.slug} rel="previous">
                 ← {previous.frontmatter.title}
               </Link>
             )}
           </span>
           <span>
             {next && (
-              <Link to={next.fields.slug} rel="next">
+              <Link href={next.fields.slug} rel="next">
                 {next.frontmatter.title} →
               </Link>
             )}
@@ -97,7 +90,7 @@ const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
           config={{
             url: `${siteUrl}/${slug}`,
             identifier: id,
-            title: project.frontmatter.title,
+            title: blogPost.frontmatter.title,
           }}
         />
       </Container>
@@ -105,10 +98,10 @@ const ProjectPost: React.FC<Props> = ({ data, pageContext }) => {
   );
 };
 
-export default ProjectPost;
+export default BlogPost;
 
 export const pageQuery = graphql`
-  query ProjectPostBySlug($slug: String!) {
+  query BlogPostBySlug($slug: String!) {
     mdx(fields: { slug: { eq: $slug } }) {
       body
       frontmatter {

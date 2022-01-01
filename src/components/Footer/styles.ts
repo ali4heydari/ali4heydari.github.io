@@ -1,11 +1,8 @@
 import styled from "styled-components";
 import tw from "twin.macro";
 import { StyledProps } from "../ui/TitleSection/styles";
-import {
-  OutboundLink,
-  OutboundLinkProps,
-} from "gatsby-plugin-google-analytics";
 import * as React from "react";
+import NextLink, { LinkProps } from "next/link";
 
 export const Footer = styled.footer`
   ${tw`border-t border-gray-200 py-4`};
@@ -19,8 +16,8 @@ export const Links = styled.div`
   }
 `;
 
-export const Link = styled(OutboundLink)<
-  OutboundLinkProps & React.HTMLProps<HTMLAnchorElement>
+export const Link = styled(NextLink)<
+  LinkProps & React.HTMLProps<HTMLAnchorElement>
 >`
   ${tw`cursor-pointer inline-block transition duration-300 mx-4`};
   ${tw`text-primary hover:text-primary`};

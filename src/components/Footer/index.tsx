@@ -1,4 +1,4 @@
-import Container from "components/ui/Container";
+import Container from "src/components/ui/Container";
 
 import * as Styled from "./styles";
 import React from "react";

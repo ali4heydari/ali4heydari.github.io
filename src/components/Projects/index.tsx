@@ -3,10 +3,10 @@ import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image";
 import Link from "gatsby-link";
 import { motion } from "framer-motion";
 import React from "react";
-import Container from "components/ui/Container";
-import TitleSection from "components/ui/TitleSection";
+import Container from "src/components/ui/Container";
+import TitleSection from "src/components/ui/TitleSection";
 import { useTranslation } from "react-i18next";
-import { SectionTitle } from "definitions";
+import { SectionTitle } from "src/definitions";
 
 import * as Styled from "./styles";
 import { Chip } from "../ui/Chip";
@@ -105,7 +105,7 @@ const Projects: React.FC = () => {
 
           return (
             <Styled.Post key={id}>
-              <Link to={slug}>
+              <Link href={slug}>
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 1 }}

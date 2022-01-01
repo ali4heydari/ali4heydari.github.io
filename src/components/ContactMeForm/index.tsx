@@ -1,9 +1,9 @@
 import React from "react";
 import tw from "twin.macro";
-import EmailIllustrationSrc from "../../assets/svg/email-illustration.svg";
+import EmailIllustrationSrc from "src/assets/svg/email-illustration.svg";
 import Container from "../ui/Container";
 import * as Styled from "./styles";
-import SiteConfigs from "../../../SiteConfigs";
+import SiteConfigs from "SiteConfigs";
 
 export function ContactMe({ submitButtonText = "Send", textOnLeft = true }) {
   // The textOnLeft boolean prop can be used to display either the text on left or right side of the image.
