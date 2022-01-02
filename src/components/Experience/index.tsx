@@ -1,12 +1,9 @@
-import { useStaticQuery, graphql } from "gatsby";
-
 import Timeline from "src/components/ui/Timeline";
 import Container from "src/components/ui/Container";
 import TitleSection from "src/components/ui/TitleSection";
 import React from "react";
 
 import { SectionTitle } from "src/definitions";
-import { MDXRenderer } from "gatsby-plugin-mdx";
 
 interface Experience {
   node: {
@@ -22,36 +19,9 @@ interface Experience {
 }
 
 const Experience: React.FC = () => {
-  const { mdx, allMdx } = useStaticQuery(graphql`
-    query {
-      mdx(frontmatter: { category: { eq: "experiences section" } }) {
-        frontmatter {
-          title
-          subtitle
-        }
-      }
-      allMdx(
-        filter: { frontmatter: { category: { eq: "experiences" } } }
-        sort: { order: DESC, fields: fileAbsolutePath }
-      ) {
-        edges {
-          node {
-            id
-            body
-            frontmatter {
-              company
-              position
-              startDate
-              endDate
-            }
-          }
-        }
-      }
-    }
-  `);
-
-  const sectionTitle: SectionTitle = mdx.frontmatter;
-  const experiences: Experience[] = allMdx.edges;
+  // @ts-ignore
+  const sectionTitle: SectionTitle = {};
+  const experiences: Experience[] = [];
 
   return (
     <Container section maxWidth="lg">
@@ -72,7 +42,7 @@ const Experience: React.FC = () => {
             key={id}
             title={company}
             subtitle={position}
-            content={<MDXRenderer>{body}</MDXRenderer>}
+            content={body}
             startDate={startDate}
             endDate={endDate}
           />

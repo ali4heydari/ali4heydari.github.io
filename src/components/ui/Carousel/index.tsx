@@ -1,4 +1,4 @@
-import Helmet from "react-helmet";
+import Head from "next/head";
 import Slider from "react-slick";
 import React from "react";
 import "./slick.css";
@@ -20,7 +20,7 @@ const settings = {
 
 const Carousel: React.FC<Props> = ({ children }) => (
   <>
-    <Helmet>
+    <Head>
       <link
         rel="stylesheet"
         type="text/css"
@@ -31,7 +31,7 @@ const Carousel: React.FC<Props> = ({ children }) => (
         type="text/css"
         href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
       />
-    </Helmet>
+    </Head>
     <Slider {...settings}>{children}</Slider>
   </>
 );

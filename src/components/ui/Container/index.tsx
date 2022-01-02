@@ -2,15 +2,17 @@ import React, { useMemo } from "react";
 import classNames from "classnames";
 import styles from "./Container.module.css";
 
-interface ContainerProps {
+type ContainerProps = {
   section?: boolean;
   maxWidth?: "sm" | "md" | "lg" | "xl";
-}
+} & React.HTMLAttributes<HTMLDivElement>;
 
 const Container: React.FC<ContainerProps> = ({
   section,
   children,
   maxWidth = "md",
+  className,
+  ...rest
 }) => {
   const screenWidths = useMemo(
     () => ({
@@ -24,9 +26,15 @@ const Container: React.FC<ContainerProps> = ({
 
   return (
     <div
-      className={classNames(styles.container, screenWidths[maxWidth], {
-        "py-8 sm:py-16": section,
-      })}
+      className={classNames(
+        className,
+        styles.container,
+        screenWidths[maxWidth],
+        {
+          "py-8 sm:py-16": section,
+        }
+      )}
+      {...rest}
     >
       {children}
     </div>

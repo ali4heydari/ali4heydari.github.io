@@ -1,21 +1,16 @@
 import React from "react";
-
-import * as Styled from "./styles";
+import styles from "./MainNav.module.css";
+import Link from "next/link";
 
 const MainNav: React.FC = () => {
   return (
-    <Styled.MainNav>
-      {[].map((item, index) => (
-        <Styled.MainNavItem
-          key={item.slug}
-          to={item.slug}
-          activeClassName="active"
-          whileTap={{ scale: 0.9 }}
-        >
-          {item.title}
-        </Styled.MainNavItem>
+    <nav className={styles.mainNav}>
+      {[{ slug: "hi", title: "hi" }].map((item, index) => (
+        <Link key={item.slug} href={item.slug}>
+          <a className={styles.mainNavItem}>{item.title}</a>
+        </Link>
       ))}
-    </Styled.MainNav>
+    </nav>
   );
 };
 

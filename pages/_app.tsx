@@ -1,19 +1,16 @@
-// import App from 'next/app'
+import "tailwindcss/tailwind.css";
+// Required: Pick a PrismJS theme
+// import "prismjs/themes/prism-tomorrow.css";
+// Optional: Add line numbering
+// import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+// Optional: Add shell prompt
+// import "prismjs/plugins/command-line/prism-command-line.css";
+import "src/styles/global.css";
 
 import React from "react";
-import "tailwindcss/tailwind.css";
 
-// Required: Pick a PrismJS theme
-import "prismjs/themes/prism-tomorrow.css";
-
-// Optional: Add line numbering
-import "prismjs/plugins/line-numbers/prism-line-numbers.css";
-
-// Optional: Add shell prompt
-import "prismjs/plugins/command-line/prism-command-line.css";
 import type { AppProps /*, AppContext */ } from "next/app";
 
-import { ThemeProvider } from "src/components/ThemeContext";
 import { I18nextProvider } from "react-i18next";
 import i18n from "src/i18n/config";
 import Theme from "src/components/Layout/Theme";
@@ -22,9 +19,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <I18nextProvider i18n={i18n}>
       <Theme>
-        <ThemeProvider>
-          <Component {...pageProps} />
-        </ThemeProvider>
+        <Component {...pageProps} />
       </Theme>
     </I18nextProvider>
   );

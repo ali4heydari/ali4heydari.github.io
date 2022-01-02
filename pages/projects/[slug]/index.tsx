@@ -1,5 +1,4 @@
-import { graphql } from "gatsby";
-import Link from "gatsby-link";
+import Link from "next/link";
 
 import Layout from "src/components/Layout";
 import SEO from "src/components/SEO";
@@ -7,8 +6,7 @@ import Container from "src/components/ui/Container";
 import TitleSection from "src/components/ui/TitleSection";
 import React from "react";
 import { useTranslation } from "react-i18next";
-
-import * as Styled from "./styles";
+import styles from "./index.module.css";
 import { Chip } from "src/components/ui/Chip";
 import { MarkDown } from "src/components/utils/MarkDown";
 import { CommentThread } from "src/components/ui/CommentThread";
@@ -58,34 +56,32 @@ const BlogPost: React.FC<Props> = ({ data, pageContext }) => {
           )}`}
           subtitle={blogPost.frontmatter.title}
         />
-        <Styled.Description>
-          {blogPost.frontmatter.description}
-        </Styled.Description>
+        <p>{blogPost.frontmatter.description}</p>
         <MarkDown content={blogPost.body} />
         <Container section maxWidth="sm">
-          <Styled.Tags>
-            <Styled.TagsHeader>Tech Stack:</Styled.TagsHeader>
+          <div className={styles.tags}>
+            <h6 className={styles.tagsHeader}>Tech Stack:</h6>
             {blogPost.frontmatter.tags.map((tag) => (
               <Chip key={tag}>{tag}</Chip>
             ))}
-          </Styled.Tags>
+          </div>
         </Container>
-        <Styled.Links>
+        <div className={styles.links}>
           <span>
             {previous && (
-              <Link href={previous.fields.slug} rel="previous">
-                ← {previous.frontmatter.title}
+              <Link href={previous.fields.slug}>
+                <a rel="previous">← {previous.frontmatter.title}</a>
               </Link>
             )}
           </span>
           <span>
             {next && (
-              <Link href={next.fields.slug} rel="next">
-                {next.frontmatter.title} →
+              <Link href={next.fields.slug}>
+                <a rel="next">{next.frontmatter.title} →</a>
               </Link>
             )}
           </span>
-        </Styled.Links>
+        </div>
         <CommentThread
           config={{
             url: `${siteUrl}/${slug}`,
@@ -99,18 +95,3 @@ const BlogPost: React.FC<Props> = ({ data, pageContext }) => {
 };
 
 export default BlogPost;
-
-export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    mdx(fields: { slug: { eq: $slug } }) {
-      body
-      frontmatter {
-        title
-        description
-        startDate
-        endDate
-        tags
-      }
-    }
-  }
-`;

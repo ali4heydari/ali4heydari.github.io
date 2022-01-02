@@ -11,7 +11,7 @@ const IndexPage: React.FC = () => {
     <Layout title="Home">
       {/*<Balloons birthDate={SiteConfigs.BIRTHDATE} />*/}
       <hr />
-      <HeroBanner />
+      {/*<HeroBanner />*/}
       <hr />
       {/*<Experience />*/}
       <hr />

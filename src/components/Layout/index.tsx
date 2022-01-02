@@ -1,14 +1,11 @@
-import { useStaticQuery, graphql } from "gatsby";
 import { motion, AnimatePresence } from "framer-motion";
 
 import Header from "src/components/Header";
 import Footer from "src/components/Footer";
+import SEO from "src/components/SEO";
 
-import "src/assets/styles/global.css";
-import GlobalStyles from "src/assets/styles/globalStyles";
-import * as Styled from "./styles";
 import React from "react";
-import SEO from "../SEO";
+import styles from "./Layout.module.css";
 
 interface Props {
   children: React.ReactNode;
@@ -18,10 +15,9 @@ interface Props {
 const Layout: React.FC<Props> = ({ children, title = "" }) => {
   return (
     <>
-      <GlobalStyles />
       <SEO title={title} />
       <AnimatePresence exitBeforeEnter>
-        <Styled.Layout>
+        <main className={styles.layout}>
           <Header siteTitle={"title"} />
           <motion.div
             initial={{ y: 30, opacity: 0 }}
@@ -32,7 +28,7 @@ const Layout: React.FC<Props> = ({ children, title = "" }) => {
             {children}
             <Footer />
           </motion.div>
-        </Styled.Layout>
+        </main>
       </AnimatePresence>
     </>
   );

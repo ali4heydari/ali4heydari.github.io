@@ -18,7 +18,7 @@
   @apply text-left text-4xl sm:text-5xl font-black tracking-wide;
 }
 
-.offsetbackground {
+.offsetBackground {
   @apply absolute inset-0 bg-primary rounded xl:-mb-8;
 }
 
@@ -73,7 +73,7 @@
 
 .links {
   @apply flex flex-wrap items-center justify-center w-full mt-5
-  a {
+  & a {
     @apply text-interactive hover:text-interactive mx-2;
   }
 }

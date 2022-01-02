@@ -1,0 +1,11 @@
+.newsletter {
+  @apply bg-secondary border-t border-indigo-100 mt-auto;
+}
+
+.form {
+  @apply flex flex-col items-center justify-center mx-auto mt-4;
+}
+
+.input {
+  @apply bg-primary focus:outline-none focus:ring border border-gray-300 rounded-md py-2 px-4 block w-full appearance-none leading-normal mb-3;
+}

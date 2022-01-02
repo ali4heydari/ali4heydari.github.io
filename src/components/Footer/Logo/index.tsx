@@ -1,15 +1,15 @@
 import React from "react";
-
-import * as Styled from "./styles";
+import Link from "next/link";
+import styles from "./Logo.module.css";
 
 const Logo: React.FC = () => {
   return (
-    <Styled.Logo to="/">
-      <Styled.Image>
-        {/*<GatsbyImage image={logoImage} alt={logoTitle} />*/}
-      </Styled.Image>
-      {/*<Styled.Text>{logoTitle}</Styled.Text>*/}
-    </Styled.Logo>
+    <Link href={"/"}>
+      <a>
+        {/*<img className={styles.image} src={logoImage} alt={logoTitle} />*/}
+        {/*<h1 className={styles.text}>{logoTitle}</h1>*/}
+      </a>
+    </Link>
   );
 };
 

@@ -1,0 +1,7 @@
+.skills {
+  @apply flex flex-wrap w-full;
+}
+
+.skill {
+  @apply w-full sm:w-1/2;
+}

@@ -1,5 +1,3 @@
-import { useStaticQuery, graphql } from "gatsby";
-
 import Banner from "src/components/ui/Banner";
 
 import { SectionTitle } from "src/definitions";
@@ -13,32 +11,8 @@ interface SectionHeroBanner extends SectionTitle {
 }
 
 const HeroBanner: React.FC = () => {
-  const { mdx, file } = useStaticQuery(graphql`
-    query {
-      mdx(frontmatter: { category: { eq: "hero section" } }) {
-        frontmatter {
-          title
-          subtitle
-          content
-          linkTo
-          linkText
-          quote
-        }
-      }
-      file(relativePath: { eq: "hero-photo.jpg" }) {
-        base
-        childImageSharp {
-          gatsbyImageData(
-            layout: CONSTRAINED
-            placeholder: BLURRED
-            formats: [AUTO, WEBP]
-          )
-        }
-      }
-    }
-  `);
-
-  const heroBanner: SectionHeroBanner = mdx.frontmatter;
+  // @ts-ignore
+  const heroBanner: SectionHeroBanner = {};
 
   return (
     <Banner
@@ -47,7 +21,7 @@ const HeroBanner: React.FC = () => {
       description={heroBanner.content}
       linkTo={heroBanner.linkTo}
       linkText={heroBanner.linkText}
-      image={file.childImageSharp.gatsbyImageData}
+      image={""}
       quote={heroBanner.quote}
     />
   );

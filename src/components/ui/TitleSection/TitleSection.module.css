@@ -2,7 +2,7 @@
   @apply flex flex-col w-full;
 }
 
-.title {
+.songTitle {
   @apply uppercase mb-4 text-lg font-bold w-full text-left;
 }
 

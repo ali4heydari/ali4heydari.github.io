@@ -1,7 +1,7 @@
 .timeline {
   @apply flex flex-col sm:flex-row w-full p-4 relative border-l border-indigo-200;
 
-  a {
+  & a {
     @apply text-interactive hover:text-interactive underline;
     text-decoration-style: wavy;
 
@@ -34,7 +34,7 @@
   @apply text-xs;
 }
 
-.title {
+.songTitle {
   @apply font-semibold mt-3;
 }
 

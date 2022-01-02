@@ -1,18 +1,18 @@
-import { ToggleMode as ToggleModeButtonBase } from "./styles";
 import React from "react";
 import { ContextType, ThemeContext } from "../../ThemeContext";
+import styles from "./MainNav.module.css";
 
 export const ToggleMode = () => {
-  const { colorMode, setColorMode } = React.useContext<ContextType>(
-    ThemeContext
-  );
+  const { colorMode, setColorMode } =
+    React.useContext<ContextType>(ThemeContext);
 
   if (!colorMode) {
     return null;
   }
 
   return (
-    <ToggleModeButtonBase
+    <button
+      className={styles.toggleMode}
       aria-label="toggle color mode"
       onClick={() =>
         setColorMode && setColorMode(colorMode === "dark" ? "light" : "dark")
@@ -51,6 +51,6 @@ export const ToggleMode = () => {
           />
         </svg>
       )}
-    </ToggleModeButtonBase>
+    </button>
   );
 };

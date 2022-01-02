@@ -1,0 +1,28 @@
+.mainNav {
+  @apply flex flex-wrap items-center justify-center w-full;
+  & a {
+    @apply text-interactive hover:text-interactive mx-2;
+  }
+}
+
+.mainNavItem {
+  @apply relative text-interactive border-b border-transparent hover:text-interactive ml-3 sm:ml-8 mt-3 sm:mt-0;
+  width: max-content;
+  &.active {
+    @apply border-primary;
+  }
+
+  &:before {
+    @apply absolute w-full bg-primary h-px left-0 invisible;
+    content: "";
+    bottom: -1px;
+    transform: scaleX(0);
+    transition: 0.2s;
+  }
+
+  &:hover:before {
+    @apply visible;
+    @apply bg-inverse;
+    transform: scaleX(1);
+  }
+}

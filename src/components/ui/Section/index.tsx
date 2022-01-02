@@ -29,7 +29,7 @@ export const Section: React.FC<SectionProps> = ({
         {children}
       </div>
       {/*<div*/}
-      {/*  css={tw`pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-48 `}*/}
+      {/*  className={`pointer-events-none absolute right-0 bottom-0 w-64 opacity-25 transform translate-x-32 translate-y-48 `}*/}
       {/*/>*/}
     </div>
   );

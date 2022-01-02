@@ -1,0 +1,7 @@
+.header {
+  @apply bg-ternary border-b border-gray-200 -mb-px;
+}
+
+.wrapper {
+  @apply items-center max-w-screen-lg;
+}

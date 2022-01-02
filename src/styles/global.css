@@ -1,16 +1,38 @@
-/* purgecss start ignore */
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-/* purgecss end ignore */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-@import "tailwindcss/utilities";
+html {
+  --color-text-primary: #2d3748;
+  --color-text-secondary: #4a5568;
+  --color-text-interactive: #553c9a;
+  --color-text-error: #e53e3e;
+  --color-text-disabled: #a0aec0;
+  --color-text-inverse: #f7fafc;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f7fafc;
+  --color-bg-ternary: #eaeff5;
+  --color-bg-inverse: #2d3748;
+}
+
+body {
+  @apply m-0 text-primary bg-primary;
+}
+
+a {
+  @apply text-interactive hover:text-interactive;
+}
+
+p + p {
+  @apply mt-3;
+}
 
 @font-face {
   font-family: Behdad;
-  src: url("../../fonts/behdad/Behdad-Regular.woff2") format("woff2"),
-    url("../../fonts/behdad/Behdad-Regular.woff") format("woff"),
-    url("../../fonts/behdad/Behdad-Regular.ttf") format("truetype"),
-    url("../../fonts/behdad/Behdad-Regular.otf") format("opentype");
+  src: url("../fonts/behdad/Behdad-Regular.woff2") format("woff2"),
+    url("../fonts/behdad/Behdad-Regular.woff") format("woff"),
+    url("../fonts/behdad/Behdad-Regular.ttf") format("truetype"),
+    url("../fonts/behdad/Behdad-Regular.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
