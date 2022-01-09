@@ -43,3 +43,34 @@ export const COLORS = {
 
 export const COLOR_MODE_KEY = "color-mode";
 export const INITIAL_COLOR_MODE_CSS_PROP = "--initial-color-mode";
+
+export const mainNavItems = [
+  {
+    title: "Home",
+    slug: "/",
+  },
+  {
+    title: "Resume",
+    slug: "/resume/",
+  },
+  {
+    title: "Skills",
+    slug: "/skills/",
+  },
+  {
+    title: "Tools",
+    slug: "/tools/",
+  },
+  {
+    title: "Projects",
+    slug: "/projects/",
+  },
+  {
+    title: "Blog",
+    slug: "/blog/",
+  },
+  {
+    title: "Contact Me",
+    slug: "/contact/",
+  },
+];

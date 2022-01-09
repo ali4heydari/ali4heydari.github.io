@@ -12,9 +12,7 @@ const Footer: React.FC = () => {
   return (
     <footer className={styles.footer}>
       <Container maxWidth="lg">
-        <div className={styles.nowPlaying}>
-          <NowPlaying />
-        </div>
+        <div className={styles.nowPlaying}>{/*<NowPlaying />*/}</div>
         <div className={styles.links}>
           {socialMedias.map((media) => {
             return (

@@ -10,88 +10,77 @@ import styles from "./index.module.css";
 import { Chip } from "src/components/ui/Chip";
 import { MarkDown } from "src/components/utils/MarkDown";
 import { CommentThread } from "src/components/ui/CommentThread";
+import { allProjects } from ".contentlayer/data";
+import type { Project } from ".contentlayer/types";
+import { useMDXComponent } from "next-contentlayer/hooks";
 
-interface BlogPost {
-  body: string;
-  fields: {
-    slug: string;
-  };
-  frontmatter: {
-    title: string;
-    description: string;
-    date: string;
-    tags: string[];
-  };
-}
-
-interface Props {
-  data: {
-    mdx: BlogPost;
-  };
-  pageContext: {
-    slug: string;
-    next: BlogPost;
-    previous: BlogPost;
-    id: string;
-    siteUrl: string;
-  };
-}
-
-const BlogPost: React.FC<Props> = ({ data, pageContext }) => {
-  const blogPost = data.mdx;
+const BlogPost: React.FC<{ project: Project }> = ({ project }) => {
   const { i18n } = useTranslation();
-  const { previous, next, slug, id, siteUrl } = pageContext;
+  const Component = useMDXComponent(project.body.code);
 
   return (
     <Layout>
-      <SEO title={blogPost.frontmatter.title} />
+      <SEO title={project.title} />
       <Container section maxWidth="lg">
         <TitleSection
-          title={`${new Date(blogPost.frontmatter.date).toLocaleDateString(
+          title={`${new Date(project.startDate).toLocaleDateString(
             i18n.language,
             {
               year: "numeric",
               month: "short",
             }
           )}`}
-          subtitle={blogPost.frontmatter.title}
+          subtitle={project.title}
         />
-        <p>{blogPost.frontmatter.description}</p>
-        <MarkDown content={blogPost.body} />
+        <Component />
+        <p>{project.description}</p>
         <Container section maxWidth="sm">
           <div className={styles.tags}>
             <h6 className={styles.tagsHeader}>Tech Stack:</h6>
-            {blogPost.frontmatter.tags.map((tag) => (
+            {project.tags?.map((tag) => (
               <Chip key={tag}>{tag}</Chip>
             ))}
           </div>
         </Container>
-        <div className={styles.links}>
-          <span>
-            {previous && (
-              <Link href={previous.fields.slug}>
-                <a rel="previous">← {previous.frontmatter.title}</a>
-              </Link>
-            )}
-          </span>
-          <span>
-            {next && (
-              <Link href={next.fields.slug}>
-                <a rel="next">{next.frontmatter.title} →</a>
-              </Link>
-            )}
-          </span>
-        </div>
-        <CommentThread
-          config={{
-            url: `${siteUrl}/${slug}`,
-            identifier: id,
-            title: blogPost.frontmatter.title,
-          }}
-        />
+        {/*<div className={styles.links}>*/}
+        {/*  <span>*/}
+        {/*    {previous && (*/}
+        {/*      <Link href={previous.fields.slug}>*/}
+        {/*        <a rel="previous">← {previous.frontmatter.title}</a>*/}
+        {/*      </Link>*/}
+        {/*    )}*/}
+        {/*  </span>*/}
+        {/*  <span>*/}
+        {/*    {next && (*/}
+        {/*      <Link href={next.fields.slug}>*/}
+        {/*        <a rel="next">{next.frontmatter.title} →</a>*/}
+        {/*      </Link>*/}
+        {/*    )}*/}
+        {/*  </span>*/}
+        {/*</div>*/}
+        {/*<CommentThread*/}
+        {/*  config={{*/}
+        {/*    url: `${siteUrl}/${slug}`,*/}
+        {/*    identifier: id,*/}
+        {/*    title: project.title,*/}
+        {/*  }}*/}
+        {/*/>*/}
       </Container>
     </Layout>
   );
 };
+
+export async function getStaticPaths() {
+  return {
+    paths: allProjects.map((p) => ({ params: { slug: p.slug } })),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const project = allProjects.find((project) => project.slug === params.slug);
+
+  return { props: { project } };
+}
 
 export default BlogPost;
