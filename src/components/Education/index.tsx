@@ -4,19 +4,6 @@ import TitleSection from "src/components/ui/TitleSection";
 import React from "react";
 import { SectionTitle } from "src/definitions";
 
-interface Education {
-  node: {
-    id: string;
-    body: string;
-    frontmatter: {
-      university: string;
-      degree: string;
-      startDate: string;
-      endDate: string;
-    };
-  };
-}
-
 const Education: React.FC = () => {
   // @ts-ignore
   const sectionTitle: SectionTitle = {};

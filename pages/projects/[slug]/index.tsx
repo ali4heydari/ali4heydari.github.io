@@ -14,7 +14,7 @@ import { allProjects } from ".contentlayer/data";
 import type { Project } from ".contentlayer/types";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
-const BlogPost: React.FC<{ project: Project }> = ({ project }) => {
+const ProjectPage: React.FC<{ project: Project }> = ({ project }) => {
   const { i18n } = useTranslation();
   const Component = useMDXComponent(project.body.code);
 
@@ -83,4 +83,4 @@ export async function getStaticProps({ params }) {
   return { props: { project } };
 }
 
-export default BlogPost;
+export default ProjectPage;

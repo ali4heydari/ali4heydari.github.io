@@ -13,14 +13,11 @@ import type { AppProps /*, AppContext */ } from "next/app";
 
 import { I18nextProvider } from "react-i18next";
 import i18n from "src/i18n/config";
-import Theme from "src/components/Layout/Theme";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <I18nextProvider i18n={i18n}>
-      <Theme>
-        <Component {...pageProps} />
-      </Theme>
+      <Component {...pageProps} />
     </I18nextProvider>
   );
 };

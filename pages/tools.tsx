@@ -2,33 +2,27 @@ import Layout from "src/components/Layout";
 import React from "react";
 import Container from "../src/components/ui/Container";
 import TitleSection from "../src/components/ui/TitleSection";
-import { MarkDown } from "../src/components/utils/MarkDown";
 import { CommentThread } from "../src/components/ui/CommentThread";
+import { allTools } from ".contentlayer/data";
+import { Tool } from ".contentlayer/types";
+import { useMDXComponent } from "next-contentlayer/hooks";
 
-const ToolsPage: React.FC = () => {
-  const frontmatter = {
-    title: "",
-    subtitle: "",
-  };
+const ToolsPage: React.FC<{ tools: Tool }> = ({ tools }) => {
+  const Component = useMDXComponent(tools.body.code);
 
   return (
-    <Layout title={frontmatter.title}>
+    <Layout title={tools.title}>
       <Container section maxWidth="lg">
-        <TitleSection
-          title={frontmatter.title}
-          subtitle={frontmatter.subtitle}
-        />
-        <MarkDown content={"body"} />
-        <CommentThread
-          config={{
-            url: `${window.location.host}/tools`,
-            identifier: "tools",
-            title: frontmatter.title,
-          }}
-        />
+        <TitleSection title={tools.title} subtitle={tools.subtitle} />
+        <Component />
       </Container>
     </Layout>
   );
 };
+
+export async function getStaticProps({ params }) {
+  const [tools] = allTools;
+  return { props: { tools } };
+}
 
 export default ToolsPage;
