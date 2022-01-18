@@ -1,10 +1,10 @@
-import Timeline from "src/components/ui/Timeline";
+import TimelineItem from "src/components/ui/Timeline";
 import Container from "src/components/ui/Container";
 import TitleSection from "src/components/ui/TitleSection";
 import React from "react";
 import { Experience } from ".contentlayer/types";
 
-const Experience: React.FC<{
+const TimeLine: React.FC<{
   allExperiences: Experience[];
 }> = ({ allExperiences }) => {
   return (
@@ -16,7 +16,7 @@ const Experience: React.FC<{
 
       {allExperiences.map(
         ({ company, position, body: { code }, startDate, endDate, _id }) => (
-          <Timeline
+          <TimelineItem
             key={_id}
             title={company}
             subtitle={position}
@@ -30,4 +30,4 @@ const Experience: React.FC<{
   );
 };
 
-export default Experience;
+export default TimeLine;

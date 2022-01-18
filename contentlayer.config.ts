@@ -83,9 +83,22 @@ const Experience = defineDocumentType(() => ({
   computedFields,
 }));
 
+const Education = defineDocumentType(() => ({
+  name: "Education",
+  filePathPattern: "educations/**/*.mdx",
+  bodyType: "mdx",
+  fields: {
+    university: { type: "string", required: true },
+    degree: { type: "string", required: true },
+    startDate: { type: "string", required: true },
+    endDate: { type: "string", required: true },
+  },
+  computedFields,
+}));
+
 const contentLayerConfig = makeSource({
   contentDirPath: "_markdowns",
-  documentTypes: [Blog, Project, Tool, Experience],
+  documentTypes: [Blog, Project, Tool, Experience, Education],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

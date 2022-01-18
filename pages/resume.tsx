@@ -1,6 +1,6 @@
 import Layout from "src/components/Layout";
 import SEO from "src/components/SEO";
-import Experience from "src/components/Experience";
+import TimeLine from "src/components/Experience";
 import Education from "src/components/Education";
 import React from "react";
 import { useMDXComponent } from "next-contentlayer/hooks";
@@ -12,7 +12,7 @@ import Container from "src/components/ui/Container";
 const ResumePage: React.FC<any> = ({ allExperiences }) => {
   return (
     <Layout title="Resume">
-      <Experience allExperiences={allExperiences} />
+      <TimeLine allExperiences={allExperiences} />
       <hr />
       {/*<Education />*/}
     </Layout>
