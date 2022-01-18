@@ -16,7 +16,7 @@ const ContactInfo: React.FC = () => {
       />
       <img
         className={styles.image}
-        src={"/images/profile-high-resuloution.jpg"}
+        src={"/images/profile-high-resolution.jpg"}
         alt={SiteConfigs.SHORT_NAME}
       />
       <div className={styles.links}>

@@ -1,26 +1,3 @@
 {
-  "parser": "@typescript-eslint/parser",
-  "extends": [
-    "plugin:@typescript-eslint/recommended",
-    "plugin:prettier/recommended"
-  ],
-  "plugins": ["@typescript-eslint", "react", "prettier"],
-  "rules": {
-    "import/no-unresolved": "off",
-    "react/prefer-stateless-function": "off",
-    "react/prop-types": "off",
-    "react/no-danger": "off",
-    "jsx-a11y/href-no-hash": "off",
-    "jsx-a11y/anchor-is-valid": "off"
-  },
-  "settings": {
-    "import/core-modules": [],
-    "import/resolver": {
-      "typescript": {}
-    }
-  },
-  "env": {
-    "browser": true,
-    "node": true
-  }
+  "extends": "next/core-web-vitals"
 }
