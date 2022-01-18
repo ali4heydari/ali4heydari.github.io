@@ -56,7 +56,7 @@
 }
 
 .input {
-  @apply ps-1 mt-6 text-black first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hocus:border-primary;
+  @apply ps-1 mt-6 text-black first:mt-0 border-b-2 py-3 focus:outline-none font-medium transition duration-300 hover:border-primary focus:border-primary;
 }
 
 .textarea {
@@ -64,6 +64,6 @@
 }
 
 .submitButton {
-  @apply px-8 py-3 text-center font-bold rounded bg-purple-500 text-white hocus:bg-purple-800
-  @apply hocus:text-white focus:ring focus:outline-none transition duration-300 inline-block mt-8;
+  @apply px-8 py-3 text-center font-bold rounded bg-purple-500 text-white hover:bg-purple-800 focus:bg-purple-800;
+  @apply hover:text-white focus:text-white focus:ring focus:outline-none transition duration-300 inline-block mt-8;
 }

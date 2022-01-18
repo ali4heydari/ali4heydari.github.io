@@ -1,28 +1,21 @@
 import Banner from "src/components/ui/Banner";
 
-import { SectionTitle } from "src/definitions";
 import React from "react";
 
-interface SectionHeroBanner extends SectionTitle {
-  content: string;
-  linkTo: string;
-  linkText: string;
-  quote: string;
-}
-
 const HeroBanner: React.FC = () => {
-  // @ts-ignore
-  const heroBanner: SectionHeroBanner = {};
-
   return (
     <Banner
-      heading={heroBanner.title}
-      subheading={heroBanner.subtitle}
-      description={heroBanner.content}
-      linkTo={heroBanner.linkTo}
-      linkText={heroBanner.linkText}
-      image={""}
-      quote={heroBanner.quote}
+      heading={"Hi, I'm"}
+      subheading={"Ali Heydari"}
+      description={
+        "A developer who loves cats, traveling, photography and learning new things"
+      }
+      linkTo={
+        "https://github.com/ali4heydari/CV/releases/download/2.1.0/CV.pdf"
+      }
+      linkText={"Download my resume"}
+      image={"/images/hero-photo.jpg"}
+      quote={"Be the change that you want to see in the world."}
     />
   );
 };

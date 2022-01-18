@@ -35,7 +35,6 @@
 }
 
 .quote {
-  @apply;
 }
 
 .imageColumn {
@@ -63,7 +62,7 @@
 }
 
 .button {
-  @apply px-8 font-bold rounded bg-purple-500 text-white hocus:bg-purple-800 hocus:text-white focus:ring focus:outline-none transition duration-300
+  @apply px-8 font-bold rounded bg-purple-500 text-white hover:bg-purple-800 focus:bg-purple-800 hover:text-white focus:text-white focus:ring focus:outline-none transition duration-300;
   @apply mt-8 inline-block w-56 tracking-wide text-center py-5;
 }
 
@@ -72,7 +71,7 @@
 }
 
 .links {
-  @apply flex flex-wrap items-center justify-center w-full mt-5
+  @apply flex flex-wrap items-center justify-center w-full mt-5;
   & a {
     @apply text-interactive hover:text-interactive mx-2;
   }

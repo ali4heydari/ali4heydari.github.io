@@ -14,7 +14,11 @@ const ContactInfo: React.FC = () => {
         subtitle={"For more info contact me"}
         center
       />
-      <img className={styles.image} src={""} alt={SiteConfigs.SHORT_NAME} />
+      <img
+        className={styles.image}
+        src={"/images/profile-high-resuloution.jpg"}
+        alt={SiteConfigs.SHORT_NAME}
+      />
       <div className={styles.links}>
         {socialMedias.map((media) => {
           return (

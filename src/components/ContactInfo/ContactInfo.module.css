@@ -2,7 +2,7 @@
   @apply w-full;
 }
 .links {
-  @apply mt-8 flex flex-wrap items-center justify-center w-full
+  @apply mt-8 flex flex-wrap items-center justify-center w-full;
   & a {
     @apply text-interactive hover:text-interactive mx-2;
   }
