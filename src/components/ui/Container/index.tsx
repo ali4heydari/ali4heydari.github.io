@@ -10,7 +10,7 @@ type ContainerProps = {
 const Container: React.FC<ContainerProps> = ({
   section,
   children,
-  maxWidth = "md",
+  maxWidth,
   className,
   ...rest
 }) => {
@@ -29,7 +29,7 @@ const Container: React.FC<ContainerProps> = ({
       className={classNames(
         className,
         styles.container,
-        screenWidths[maxWidth],
+        maxWidth ? screenWidths[maxWidth] : null,
         {
           "py-8 sm:py-16": section,
         }
