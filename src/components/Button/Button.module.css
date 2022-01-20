@@ -1,0 +1,12 @@
+.btnBase {
+  @apply py-2 px-8 rounded-full border border-black text-blue-400;
+  outline: none;
+}
+
+.primary {
+  @apply dark:bg-gray-800;
+}
+
+.block {
+  @apply w-full;
+}

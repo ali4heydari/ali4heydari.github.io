@@ -1,5 +1,5 @@
 .newsletter {
-  @apply bg-secondary border-t border-indigo-100 mt-auto;
+  @apply bg-gray-500 border-t border-indigo-100 mt-auto;
 }
 
 .form {
@@ -7,5 +7,5 @@
 }
 
 .input {
-  @apply bg-primary focus:outline-none focus:ring border border-gray-300 rounded-md py-2 px-4 block w-full appearance-none leading-normal mb-3;
+  @apply dark:bg-gray-800 focus:outline-none focus:ring border border-gray-300 rounded-md py-2 px-4 block w-full appearance-none leading-normal mb-3;
 }

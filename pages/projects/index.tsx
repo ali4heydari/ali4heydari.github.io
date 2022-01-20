@@ -1,5 +1,5 @@
 import Layout from "src/components/Layout";
-import Projects from "src/components/Projects";
+import Projects from "src/features/Projects";
 import React from "react";
 
 const ProjectsPage: React.FC = () => {

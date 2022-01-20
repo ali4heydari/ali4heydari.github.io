@@ -1,8 +1,8 @@
 import Layout from "src/components/Layout";
 import React from "react";
-import Container from "../src/components/ui/Container";
-import TitleSection from "../src/components/ui/TitleSection";
-import { CommentThread } from "../src/components/ui/CommentThread";
+import Container from "../src/components/Container";
+import TitleSection from "../src/components/TitleSection";
+import { CommentThread } from "../src/components/CommentThread";
 import { allTools } from ".contentlayer/data";
 import { Tool } from ".contentlayer/types";
 import { useMDXComponent } from "next-contentlayer/hooks";

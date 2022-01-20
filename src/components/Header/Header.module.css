@@ -1,5 +1,5 @@
 .header {
-  @apply bg-ternary border-b border-gray-200 -mb-px;
+  @apply bg-gray-100 border-b border-gray-200 -mb-px;
 }
 
 .wrapper {

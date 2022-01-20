@@ -1,6 +1,6 @@
-import Container from "src/components/ui/Container";
-import Button from "src/components/ui/Button";
-import TitleSection from "src/components/ui/TitleSection";
+import Container from "src/components/Container";
+import Button from "src/components/Button";
+import TitleSection from "src/components/TitleSection";
 import { SectionTitle } from "src/definitions";
 import React from "react";
 import styles from "./Newsletter.module.css";

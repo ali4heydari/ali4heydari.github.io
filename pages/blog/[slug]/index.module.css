@@ -11,5 +11,5 @@
   @apply text-lg  text-center m-2 w-full;
 }
 .tag {
-  @apply text-xs text-interactive border border-primary rounded-full px-2 py-1 mr-2;
+  @apply text-xs text-blue-400 border border-black rounded-full px-2 py-1 mr-2;
 }

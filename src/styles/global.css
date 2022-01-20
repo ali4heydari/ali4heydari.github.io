@@ -7,7 +7,7 @@ html {
   --color-text-secondary: #4a5568;
   --color-text-interactive: #553c9a;
   --color-text-error: #e53e3e;
-  --color-text-disabled: #a0aec0;
+  --color-text-gray-300: #a0aec0;
   --color-text-inverse: #f7fafc;
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f7fafc;
@@ -16,11 +16,11 @@ html {
 }
 
 body {
-  @apply m-0 text-primary bg-primary;
+  @apply m-0 dark:text-gray-50 dark:bg-gray-800;
 }
 
 a {
-  @apply text-interactive hover:text-interactive;
+  @apply text-blue-400 hover:text-blue-400;
 }
 
 p + p {
@@ -99,7 +99,7 @@ body {
 
 /* Links */
 .markdown a {
-  @apply text-interactive;
+  @apply text-blue-400;
   @apply underline;
   text-decoration-style: wavy;
 }

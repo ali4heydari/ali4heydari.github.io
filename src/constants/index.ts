@@ -3,7 +3,7 @@ export const COLORS = {
     light: "#2d3748", // near-black
     dark: "#f7fafc", // white
   },
-  "text-secondary": {
+  "dark:text-blue-50": {
     light: "#4a5568", // near-black
     dark: "#e2e8f0", // white
   },

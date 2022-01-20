@@ -1,19 +1,19 @@
 .mainNav {
   @apply flex flex-wrap items-center justify-center w-full;
   & a {
-    @apply text-interactive hover:text-interactive mx-2;
+    @apply text-blue-400 hover:text-blue-400 mx-2;
   }
 }
 
 .mainNavItem {
-  @apply relative text-interactive border-b border-transparent hover:text-interactive ml-3 sm:ml-8 mt-3 sm:mt-0;
+  @apply relative text-blue-400 border-b border-transparent hover:text-blue-400 ml-3 sm:ml-8 mt-3 sm:mt-0;
   width: max-content;
   &.active {
-    @apply border-primary;
+    @apply border-black;
   }
 
   &:before {
-    @apply absolute w-full bg-primary h-px left-0 invisible;
+    @apply absolute w-full dark:bg-gray-800 h-px left-0 invisible;
     content: "";
     bottom: -1px;
     transform: scaleX(0);
@@ -22,7 +22,7 @@
 
   &:hover:before {
     @apply visible;
-    @apply bg-inverse;
+    @apply bg-gray-100;
     transform: scaleX(1);
   }
 }

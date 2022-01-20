@@ -2,7 +2,7 @@ import MainNav from "./MainNav";
 import Logo from "./Logo";
 
 import React from "react";
-import Container from "../ui/Container";
+import Container from "../Container";
 import styles from "./Header.module.css";
 interface Props {
   siteTitle: string;

@@ -17,7 +17,6 @@ const MainNav: React.FC = () => {
           </Link>
         ))}
       </nav>
-      <ToggleMode />
       <button
         className={classNames(
           styles.toggleMainNav,

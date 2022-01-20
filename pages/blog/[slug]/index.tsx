@@ -1,14 +1,14 @@
 import styles from "./index.module.css";
 import Layout from "src/components/Layout";
 import SEO from "src/components/SEO";
-import Container from "src/components/ui/Container";
-import TitleSection from "src/components/ui/TitleSection";
+import Container from "src/components/Container";
+import TitleSection from "src/components/TitleSection";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
-import { Chip } from "src/components/ui/Chip";
+import { Chip } from "src/components/Chip";
 import { MarkDown } from "src/components/utils/MarkDown";
-import { CommentThread } from "src/components/ui/CommentThread";
+import { CommentThread } from "src/components/CommentThread";
 
 interface BlogPost {
   body: string;

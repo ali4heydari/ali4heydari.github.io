@@ -1,4 +1,4 @@
-import Container from "src/components/ui/Container";
+import Container from "src/components/Container";
 
 import React from "react";
 import MainNav from "./MainNav";

@@ -1,0 +1,16 @@
+.testimonials {
+  @apply bg-gray-100 rounded max-w-screen-sm mx-auto w-full px-0 sm:px-16 mb-4;
+}
+.testimonial {
+  @apply flex flex-col items-center text-center mt-4;
+}
+.image {
+  @apply w-16 h-16 mx-auto border border-black rounded-full;
+
+  & img {
+    @apply border-4 border-white rounded-full;
+  }
+}
+.songTitle {
+  @apply font-semibold my-4;
+}

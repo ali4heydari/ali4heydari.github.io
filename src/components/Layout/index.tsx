@@ -2,7 +2,6 @@ import { motion, AnimatePresence } from "framer-motion";
 
 import Header from "src/components/Header";
 import Footer from "src/components/Footer";
-import SEO from "src/components/SEO";
 
 import React from "react";
 import styles from "./Layout.module.css";
@@ -15,7 +14,6 @@ interface Props {
 const Layout: React.FC<Props> = ({ children, title = "" }) => {
   return (
     <>
-      <SEO title={title} />
       <AnimatePresence exitBeforeEnter>
         <main className={styles.layout}>
           <Header siteTitle={"title"} />
