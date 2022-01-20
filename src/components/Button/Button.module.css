@@ -1,5 +1,5 @@
 .btnBase {
-  @apply py-2 px-8 rounded-full border border-black text-blue-400;
+  @apply py-2 px-8 rounded-full border border-black text-blue-400 hover:scale-105 active:scale-95;
   outline: none;
 }
 

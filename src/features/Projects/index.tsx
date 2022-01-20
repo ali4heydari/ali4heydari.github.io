@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import React from "react";
 import Container from "src/components/Container";
 import TitleSection from "src/components/TitleSection";
@@ -36,10 +35,7 @@ const Projects: React.FC = () => {
           return (
             <div className={styles.post} key={_id}>
               <Link href={`/projects/${slug}`}>
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 1 }}
-                >
+                <div className={styles.postWrapper}>
                   <div className={styles.card}>
                     <figure className={styles.image}>
                       <img src={cover} alt={title} />
@@ -65,7 +61,7 @@ const Projects: React.FC = () => {
                       ))}
                     </div>
                   </div>
-                </motion.div>
+                </div>
               </Link>
             </div>
           );

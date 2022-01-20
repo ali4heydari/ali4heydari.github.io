@@ -2,6 +2,9 @@
   @apply w-full flex flex-wrap;
 }
 
+.postWrapper {
+  @apply hover:scale-105 active:scale-100;
+}
 .post {
   @apply w-full sm:w-1/2 p-3;
 }
