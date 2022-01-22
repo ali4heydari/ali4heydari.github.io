@@ -3,7 +3,7 @@ import TitleSection from "src/components/TitleSection";
 import React from "react";
 import styles from "./styles/styles.module.css";
 
-import { socialMedias } from "src/socialMedias";
+import { socialMedias } from "src/constants/socialMedias";
 import SiteConfigs from "SiteConfigs";
 
 const ContactInfo: React.FC = () => {

@@ -2,7 +2,7 @@ import Container from "src/components/Container";
 
 import React from "react";
 import MainNav from "./MainNav";
-import { socialMedias } from "src/socialMedias";
+import { socialMedias } from "src/constants/socialMedias";
 import { NowPlaying } from "../Spotify";
 import styles from "./Footer.module.css";
 import Link from "next/link";

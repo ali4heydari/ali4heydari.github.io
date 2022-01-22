@@ -2,7 +2,7 @@ import Container from "src/components/Container";
 
 import Typist from "react-typist";
 import React from "react";
-import { socialMedias } from "../../../../socialMedias";
+import { socialMedias } from "src/constants/socialMedias";
 import styles from "./Banner.module.css";
 import classNames from "classnames";
 import SvgDecoratorBlob1 from "mdi-react/DragIcon";

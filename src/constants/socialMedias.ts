@@ -1,4 +1,4 @@
-import SiteConfigs from "../SiteConfigs";
+import SiteConfigs from "../../SiteConfigs";
 import EmailIcon from "mdi-react/EmailIcon";
 import PhoneIcon from "mdi-react/PhoneIcon";
 import FacebookIcon from "mdi-react/FacebookIcon";
