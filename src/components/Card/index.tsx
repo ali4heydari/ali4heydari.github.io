@@ -7,11 +7,7 @@ interface CardProps {
   description: React.ReactElement | string;
 }
 
-export const Card: React.FC<CardProps> = ({
-  title,
-  description,
-  icon,
-}: CardProps) => {
+const Card: React.FC<CardProps> = ({ title, description, icon }: CardProps) => {
   return (
     <div className={styles.root}>
       <span className={styles.icon}>{icon}</span>
@@ -22,3 +18,5 @@ export const Card: React.FC<CardProps> = ({
     </div>
   );
 };
+
+export default Card;

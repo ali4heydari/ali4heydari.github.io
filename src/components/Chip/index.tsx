@@ -6,7 +6,7 @@ interface ChipProps {
   children?: React.ReactNode;
 }
 
-export const Chip: React.FC<ChipProps> = ({ children, href }: ChipProps) => {
+const Chip: React.FC<ChipProps> = ({ children, href }: ChipProps) => {
   return (
     <div className={styles.root}>
       <a className={styles.content} href={href}>
@@ -15,3 +15,5 @@ export const Chip: React.FC<ChipProps> = ({ children, href }: ChipProps) => {
     </div>
   );
 };
+
+export default Chip;
