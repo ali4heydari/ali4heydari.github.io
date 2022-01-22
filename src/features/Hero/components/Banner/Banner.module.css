@@ -1,5 +1,5 @@
 .banner {
-  @apply bg-gray-500 border-b border-indigo-100;
+  @apply border-b border-indigo-100;
 }
 
 .content {
@@ -19,7 +19,7 @@
 }
 
 .offsetBackground {
-  @apply absolute inset-0 dark:bg-gray-800 rounded xl:-mb-8;
+  @apply absolute inset-0 rounded xl:-mb-8;
 }
 
 .imageDecoratorBlob {
