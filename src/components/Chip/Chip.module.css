@@ -1,8 +1,38 @@
 .root {
-  @apply inline justify-center items-center m-1 font-medium px-1 py-0 dark:bg-gray-800 rounded-full border;
-  @apply dark:dark:text-gray-50 dark:bg-gray-500 dark:border-green-300;
+  @apply flex justify-center items-center m-1 font-medium px-1 py-0 rounded-full border;
 }
 
-.content {
-  @apply table-cell text-xs font-normal leading-none max-w-full flex-initial;
+.default {
+  @apply text-black bg-gray-100 border-black;
+  @apply dark:text-white dark:bg-gray-800 dark:border-white;
+}
+
+.primary {
+  @apply text-blue-700 bg-blue-300 border-blue-700;
+  @apply dark:text-blue-50 dark:bg-blue-700 border-blue-50;
+}
+
+.secondary {
+  @apply text-gray-700 bg-gray-300 border-gray-700;
+  @apply dark:text-gray-50 dark:bg-gray-700 dark:border-green-50;
+}
+
+.success {
+  @apply text-green-700 bg-green-200 border-green-700;
+  @apply dark:text-green-50 dark:bg-green-700 dark:border-green-50;
+}
+
+.danger {
+  @apply text-red-800 bg-red-200 border-red-800;
+  @apply dark:text-red-50 dark:bg-red-700 dark:border-green-50;
+}
+
+.warning {
+  @apply text-yellow-700 bg-yellow-100 border-yellow-700;
+  @apply dark:text-yellow-50 dark:bg-yellow-700 dark:border-yellow-50;
+}
+
+.info {
+  @apply text-teal-700 bg-teal-100 border-teal-700;
+  @apply dark:text-teal-50 dark:bg-teal-700 dark:border-teal-50;
 }
