@@ -1,19 +1,23 @@
 .mainNav {
   @apply flex flex-wrap items-center justify-center w-full;
   & a {
-    @apply text-blue-400 hover:text-blue-400 mx-2;
+    @apply text-blue-700 hover:text-blue-700 mx-2;
+    @apply dark:text-blue-100 dark:hover:text-blue-50;
   }
 }
 
 .mainNavItem {
-  @apply relative text-blue-400 border-b border-transparent hover:text-blue-400 ml-3 sm:ml-8 mt-3 sm:mt-0;
+  @apply relative  border-b border-transparent ml-3 sm:ml-8 mt-3 sm:mt-0;
+  @apply text-blue-700 hover:text-blue-600;
+  @apply dark:text-blue-100 dark:hover:text-blue-50;
+  @apply max-w-max hover:before:visible hover:before:bg-gray-100;
   width: max-content;
   &.active {
     @apply border-black;
   }
 
   &:before {
-    @apply absolute w-full dark:bg-gray-800 h-px left-0 invisible;
+    @apply absolute w-full h-px left-0 invisible;
     content: "";
     bottom: -1px;
     transform: scaleX(0);
@@ -21,8 +25,6 @@
   }
 
   &:hover:before {
-    @apply visible;
-    @apply bg-gray-100;
     transform: scaleX(1);
   }
 }

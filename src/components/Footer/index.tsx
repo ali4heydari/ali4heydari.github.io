@@ -3,16 +3,14 @@ import Container from "src/components/Container";
 import React from "react";
 import MainNav from "./MainNav";
 import { socialMedias } from "src/constants/socialMedias";
-import { NowPlaying } from "../Spotify";
 import styles from "./Footer.module.css";
 import Link from "next/link";
 import classNames from "classnames";
 
-const Footer: React.FC = () => {
+const Footer = () => {
   return (
     <footer className={styles.footer}>
       <Container maxWidth="lg">
-        <div className={styles.nowPlaying}>{/*<NowPlaying />*/}</div>
         <div className={styles.links}>
           {socialMedias.map((media) => {
             return (

@@ -1,10 +1,13 @@
 .footer {
-  @apply border-t border-gray-200 py-4;
+  @apply border-t py-4;
+  @apply border-gray-500 dark:border-gray-200;
+  @apply bg-gray-100 dark:bg-gray-800;
 }
 .links {
   @apply flex flex-wrap items-center justify-center w-full;
   a {
     @apply text-blue-400 hover:text-blue-400 mx-2;
+    @apply dark:text-blue-100 hover:dark:text-blue-50;
   }
 }
 .link {
@@ -23,8 +26,4 @@
     content: "";
     @apply bg-gray-100 h-6 w-px absolute ml-1;
   }
-}
-
-.nowPlaying {
-  @apply flex flex-wrap items-center justify-center w-full;
 }
