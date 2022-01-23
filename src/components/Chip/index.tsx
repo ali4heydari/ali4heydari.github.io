@@ -4,6 +4,8 @@ import classNames from "classnames";
 
 interface ChipProps {
   children?: React.ReactNode;
+  rounded?: boolean;
+  className?: string;
   type?:
     | "default"
     | "primary"
@@ -16,10 +18,23 @@ interface ChipProps {
 
 const Chip: React.FC<ChipProps> = ({
   children,
+  rounded = true,
+  className,
   type = "default",
 }: ChipProps) => {
   return (
-    <div className={classNames(styles.root, styles[type])}>{children}</div>
+    <div
+      className={classNames(
+        styles.root,
+        styles[type],
+        {
+          "rounded-full": rounded,
+        },
+        className
+      )}
+    >
+      {children}
+    </div>
   );
 };
 

@@ -7,6 +7,11 @@ export default {
   title: "Molecules/Chip",
   component: Chip,
   argTypes: {
+    rounded: {
+      control: {
+        type: "boolean",
+      },
+    },
     children: {
       control: {
         type: "text",
@@ -24,6 +29,11 @@ export default {
           "warning",
           "info",
         ],
+      },
+    },
+    className: {
+      control: {
+        type: "text",
       },
     },
   },
@@ -53,6 +63,7 @@ const Template: ComponentStory<typeof Chip> = (args) => (
 export const Primary = Template.bind({});
 
 Primary.args = {
-  children: "this in children",
-  type: "primary",
+  children: "Not enough credit!",
+  type: "danger",
+  className: "w-56",
 };

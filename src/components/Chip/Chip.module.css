@@ -1,5 +1,5 @@
 .root {
-  @apply flex justify-center items-center m-1 font-medium px-1 py-0 rounded-full border;
+  @apply flex justify-center items-center m-1 font-medium px-1 py-0 border;
 }
 
 .default {
