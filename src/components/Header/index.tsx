@@ -1,24 +1,20 @@
-import MainNav from "./MainNav";
-import Logo from "./Logo";
-
 import React from "react";
-import Container from "../Container";
 import styles from "./Header.module.css";
-interface Props {
-  siteTitle: string;
-}
+import { mainNavItems } from "../../constants";
+import Link from "next/link";
 
-const Header: React.FC<Props> = ({ siteTitle }) => (
-  <header className={styles.header}>
-    <Container className={styles.wrapper}>
-      <Logo />
-      <MainNav />
-    </Container>
-  </header>
+const Header = () => (
+  <div className={styles.wrapper}>
+    <header className={styles.header}>
+      <nav className="py-3 px-2">
+        {mainNavItems.map((item, index) => (
+          <Link key={item.slug} href={item.slug}>
+            <a className={styles.navItem}>{item.title}</a>
+          </Link>
+        ))}
+      </nav>
+    </header>
+  </div>
 );
-
-Header.defaultProps = {
-  siteTitle: ``,
-};
 
 export default Header;
