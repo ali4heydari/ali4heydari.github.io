@@ -23,7 +23,7 @@
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
     "postinstall": "husky install",
     "lint:css": "stylelint \"**/*.{js,jsx,ts,tsx}\"",
-    "storybook": "start-storybook -s public -p 6006",
+    "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "resolutions": {
