@@ -1,5 +1,5 @@
-import HeroBanner from "src/features/Hero";
-import TimeLine from "src/features/WorkExperiences";
+import Hero from "src/features/Hero";
+import Experiences from "src/features/Experiences";
 import { ContactMe } from "src/features/ContactMe";
 import { allExperiences } from ".contentlayer/data";
 
@@ -8,12 +8,12 @@ import MainLayout from "../src/layouts/MainLayout";
 
 const IndexPage: React.FC<any> = ({ allExperiences }) => {
   return (
-    <MainLayout>
+    <MainLayout container>
       {/*<Balloons birthDate={SiteConfigs.BIRTHDATE} />*/}
       <hr />
-      <HeroBanner />
+      <Hero />
       <hr />
-      <TimeLine allExperiences={allExperiences} />
+      <Experiences allExperiences={allExperiences} />
       <hr />
       <ContactMe />
     </MainLayout>
