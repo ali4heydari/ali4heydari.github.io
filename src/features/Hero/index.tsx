@@ -1,22 +1,13 @@
-import Banner from "src/features/Hero/components/Banner";
-
 import React from "react";
+import Introduction from "./components/Introduction";
+import Banner from "./components/Banner";
 
 const HeroBanner: React.FC = () => {
   return (
-    <Banner
-      heading={"Hi, I'm"}
-      subheading={"Ali Heydari"}
-      description={
-        "A developer who loves cats, traveling, photography and learning new things"
-      }
-      linkTo={
-        "https://github.com/ali4heydari/CV/releases/download/2.1.0/CV.pdf"
-      }
-      linkText={"Download my resume"}
-      image={"/images/hero-photo.jpg"}
-      quote={"Be the change that you want to see in the world."}
-    />
+    <div className="flex flex-row-reverse items-center">
+      <Banner />
+      <Introduction />
+    </div>
   );
 };
 
