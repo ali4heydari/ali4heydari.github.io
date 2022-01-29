@@ -1,25 +1,25 @@
 .titleSection {
-  @apply flex flex-col w-full;
+  @apply flex w-full flex-col;
 }
 
-.songTitle {
-  @apply uppercase mb-4 text-lg font-bold w-full text-left;
+.title {
+  @apply text-2xl text-blue-400 dark:text-white;
 }
 
 .subTitle {
-  @apply text-xs text-blue-400 w-full text-left;
+  @apply w-full text-left text-xs text-blue-400 dark:text-blue-200;
 }
 
 .separator {
-  @apply relative w-2 h-8 mb-6 -mt-2;
+  @apply relative mb-6 mt-2 h-8 w-2;
 
   &:before {
-    @apply bg-gray-100 h-full w-px absolute left-0;
+    @apply absolute left-0 h-full w-px bg-gray-100;
     content: "";
   }
 
   &:after {
-    @apply bg-gray-100 h-6 w-px absolute ml-1;
+    @apply absolute ml-1 h-6 w-px bg-gray-100;
     content: "";
   }
 }
