@@ -1,4 +1,5 @@
 {
   "semi": true,
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "tailwindConfig": "./tailwind.config.js"
 }
