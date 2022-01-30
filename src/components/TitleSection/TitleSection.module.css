@@ -7,7 +7,7 @@
 }
 
 .subTitle {
-  @apply w-full text-left text-xs text-blue-400 dark:text-blue-200;
+  @apply w-full text-xs text-blue-400 dark:text-blue-200;
 }
 
 .separator {

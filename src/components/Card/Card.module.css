@@ -1,19 +1,19 @@
 .description {
-  @apply mt-1 sm:mt-4 font-medium dark:text-gray-50 leading-loose;
+  @apply mt-1 font-medium leading-loose dark:text-gray-50 sm:mt-4;
 }
 
-.songTitle {
-  @apply mt-4 tracking-wide font-bold text-2xl leading-none;
+.title {
+  @apply mt-4 text-2xl font-bold leading-none tracking-wide dark:text-purple-300;
 }
 
 .icon {
-  @apply border text-center rounded-full p-1 flex-shrink-0;
+  @apply flex-shrink-0 rounded-full border p-1 text-center;
 }
 
 .content {
-  @apply sm:ml-4 mt-4 sm:mt-2;
+  @apply mt-4 sm:ml-4 sm:mt-2;
 }
 
 .root {
-  @apply flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left h-full mx-4 px-2 py-8;
+  @apply mx-4 flex h-full flex-col items-center px-2 py-8 text-center sm:flex-row sm:items-start sm:text-left;
 }
