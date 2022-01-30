@@ -24,8 +24,8 @@ import CypressIcon from "src/assets/svg/cypress.svg";
 import PostgreSqlIcon from "src/assets/svg/postgresql.svg";
 import NextJsIcon from "src/assets/svg/next-js.svg";
 import GithubIcon from "mdi-react/GithubIcon";
-import { Card } from "src/components/Card";
-import { Chip } from "src/components/Chip";
+import Card from "src/components/Card";
+import Chip from "src/components/Chip";
 
 const ChipContainer = ({
   projects,
@@ -39,10 +39,10 @@ const ChipContainer = ({
   title?: string;
 }) => {
   return (
-    <div>
+    <div className={"flex flex-wrap justify-center"}>
       <div className={"dark:text-gray-50"}>{title}</div>
       {projects.map(({ name, href, emoji }) => (
-        <Chip key={name} href={href}>
+        <Chip key={name}>
           <span role="img" aria-label={`${name}'s emoji`}>
             {emoji}{" "}
           </span>
@@ -56,7 +56,7 @@ const ChipContainer = ({
 export const SkillsCard: React.FC = () => {
   const cards = [
     {
-      icon: <TypeScriptIcon className={`w-20 h-20 text-blue-500`} />,
+      icon: <TypeScriptIcon className={`h-20 w-20 text-blue-500`} />,
       title: "TypeScript",
       description: (
         <>
@@ -85,7 +85,7 @@ export const SkillsCard: React.FC = () => {
     },
     {
       icon: (
-        <div className={`w-20 h-20 flex items-center justify-center font-bold`}>
+        <div className={`flex h-20 w-20 items-center justify-center font-bold`}>
           <span>
             L<sup>A</sup>T<sub>E</sub>X
           </span>
@@ -100,7 +100,7 @@ export const SkillsCard: React.FC = () => {
           <ChipContainer
             projects={[
               {
-                name: "DiscreteMathematics Assignments",
+                name: "Discrete Mathematics Assignments",
                 href: "https://github.com/ali4heydari/DiscreteMathematicsLaTeX",
                 emoji: "➕",
               },
@@ -120,7 +120,7 @@ export const SkillsCard: React.FC = () => {
       ),
     },
     {
-      icon: <CsharpIcon className={`w-20 h-20`} />,
+      icon: <CsharpIcon className={`h-20 w-20`} />,
       title: "C#",
       description: (
         <>
@@ -152,24 +152,24 @@ export const SkillsCard: React.FC = () => {
       ),
     },
     {
-      icon: <GraphqlIcon className={`w-20 h-20 text-pink-500`} />,
+      icon: <GraphqlIcon className={`h-20 w-20 text-pink-500`} />,
       title: "GraphQL",
       description:
         "Experience with Apollo GraphQL client v2 & v3, graphql-code-gen and Graphene library in Django",
     },
     {
-      icon: <JavascriptIcon className={`w-20 h-20 text-yellow-500`} />,
+      icon: <JavascriptIcon className={`h-20 w-20 text-yellow-500`} />,
       title: "JavaScript",
       description:
         "Skilled at ES5+. Knowledge about Promises, spread, Map etc.",
     },
     {
-      icon: <ReactIcon className={`w-20 h-20 text-blue-400`} />,
+      icon: <ReactIcon className={`h-20 w-20 text-blue-400`} />,
       title: "React",
       description: "Skilled at React.js, functional components & hooks ⚓",
     },
     {
-      icon: <GatsbyIcon className={`text-purple-700 w-20 h-20`} />,
+      icon: <GatsbyIcon className={`h-20 w-20 text-purple-700`} />,
       title: "Gatsby",
       description: (
         <>
@@ -193,12 +193,12 @@ export const SkillsCard: React.FC = () => {
     },
 
     {
-      icon: <GitlabIcon className={`text-orange-500 w-20 h-20`} />,
+      icon: <GitlabIcon className={`h-20 w-20 text-orange-500`} />,
       title: "GitLab",
       description: "Familiar with GitLab CI/CD and private registries",
     },
     {
-      icon: <TailwindIcon className={`text-teal-400 w-20 h-20`} />,
+      icon: <TailwindIcon className={`h-20 w-20 text-teal-400`} />,
       title: "Tailwind CSS",
       description: (
         <>
@@ -216,43 +216,43 @@ export const SkillsCard: React.FC = () => {
       ),
     },
     {
-      icon: <JavaIcon className={`text-orange-500 w-20 h-20`} />,
+      icon: <JavaIcon className={`h-20 w-20 text-orange-500`} />,
       title: "Java",
       description:
         "Skilled at Java 8. Familiar with maven, gradle and experienced in JavaFX",
     },
     {
-      icon: <DockerIcon className={`w-20 h-20 text-blue-600`} />,
+      icon: <DockerIcon className={`h-20 w-20 text-blue-600`} />,
       title: "Docker",
       description: "Basic containerization (docker & docker-compose) knowledge",
     },
     {
-      icon: <GitIcon className={`w-20 h-20 text-red-500`} />,
+      icon: <GitIcon className={`h-20 w-20 text-red-500`} />,
       title: "Git",
       description:
         "Solid experience with Git and Git-flow. familiar with advanced commands like squash, pick, rebase, bisect etc.",
     },
 
     {
-      icon: <PythonIcon className={`text-yellow-500 w-20 h-20`} />,
+      icon: <PythonIcon className={`h-20 w-20 text-yellow-500`} />,
       title: "Python",
       description:
         "Skilled at python. had worked with Django, numpy, pandas, beautiful soup",
     },
     {
-      icon: <MicrosoftAzureDevopsIcon className={`text-blue-400 w-20 h-20`} />,
+      icon: <MicrosoftAzureDevopsIcon className={`h-20 w-20 text-blue-400`} />,
       title: "AzureDevOps",
       description:
         "Familiar with Microsoft AzureDevOps ecosystem; like azure-pipelines, feeds, board etc",
     },
     {
-      icon: <NextJsIcon className={`w-20 h-20`} />,
+      icon: <NextJsIcon className={`h-20 w-20`} />,
       title: "Next.js",
       description:
         "Experienced in development PWA using Next.js. Familiar with popular Next plugins",
     },
     {
-      icon: <BashIcon className={`text-orange-500 w-20 h-20`} />,
+      icon: <BashIcon className={`h-20 w-20 text-orange-500`} />,
       title: "Bash",
       description: (
         <>
@@ -271,24 +271,24 @@ export const SkillsCard: React.FC = () => {
       ),
     },
     {
-      icon: <DotNetIcon className={`text-purple-500 w-20 h-20`} />,
+      icon: <DotNetIcon className={`h-20 w-20 text-purple-500`} />,
       title: "ASP.NET",
       description:
         "Skilled at ASP.Net framework and Core. Worked with MVVM architecture, Razor views, build web APIs etc",
     },
     {
-      icon: <AndroidIcon className={`text-green-500 w-20 h-20`} />,
+      icon: <AndroidIcon className={`h-20 w-20 text-green-500`} />,
       title: "Android",
       description:
         "Having some experience in Android. worked with Google Map view, retrofit, Telephonary",
     },
     {
-      icon: <CypressIcon className={`text-gray-300 w-20 h-20`} />,
+      icon: <CypressIcon className={`h-20 w-20 text-gray-300`} />,
       title: "Cypress",
       description: "Familiar with Cypress. mocking APIs and E2E testing",
     },
     {
-      icon: <NestJsIcon className={`text-red-500 w-20 h-20`} />,
+      icon: <NestJsIcon className={`h-20 w-20 text-red-500`} />,
       title: "Nest.js",
       description: (
         <>
@@ -307,7 +307,7 @@ export const SkillsCard: React.FC = () => {
       ),
     },
     {
-      icon: <PostgreSqlIcon className={`text-blue-400 w-20 h-20`} />,
+      icon: <PostgreSqlIcon className={`h-20 w-20 text-blue-400`} />,
       title: "PostgreSQL",
       description: "Familiar with Standard Query Language and Postgre",
     },
@@ -318,16 +318,22 @@ export const SkillsCard: React.FC = () => {
     //     "Skilled at react-redux. with both class component and hooks",
     // },
     {
-      icon: <img src={""} className={`w-20 h-20`} alt={"logo"} />,
+      icon: (
+        <img
+          src={"/images/proteus-logo.png"}
+          className={`h-20 w-20`}
+          alt={"logo"}
+        />
+      ),
       title: "Proteus 8",
       description: "Experienced in proteus 8",
     },
   ];
 
   return (
-    <div>
+    <div className={"flex flex-wrap items-center justify-center gap-1"}>
       {cards.map((card, i) => (
-        <div className={`md:w-1/2 lg:w-1/3 max-w-sm`} key={card.title}>
+        <div className={`max-w-sm md:w-1/2 lg:w-1/3`} key={card.title}>
           <Card
             title={card.title}
             description={card.description}
