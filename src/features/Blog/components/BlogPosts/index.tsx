@@ -5,7 +5,7 @@ import TitleSection from "src/components/TitleSection";
 import { useTranslation } from "react-i18next";
 import styles from "./BlogPost.module.css";
 
-import { Chip } from "src/components/Chip";
+import Chip from "src/components/Chip";
 
 const BlogPosts: React.FC = () => {
   const { i18n } = useTranslation();

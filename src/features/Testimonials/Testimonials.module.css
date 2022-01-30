@@ -1,16 +1,16 @@
 .testimonials {
-  @apply bg-gray-100 rounded max-w-screen-sm mx-auto w-full px-0 sm:px-16 mb-4;
+  @apply mx-auto mb-4 w-full max-w-screen-sm rounded bg-gray-100 px-0 sm:px-16;
 }
-.testimonial {
-  @apply flex flex-col items-center text-center mt-4;
+.wrapper {
+  @apply mt-4 flex flex-col items-center text-center;
 }
 .image {
-  @apply w-16 h-16 mx-auto border border-black rounded-full;
+  @apply mx-auto h-16 w-16 rounded-full border border-black;
 
   & img {
-    @apply border-4 border-white rounded-full;
+    @apply rounded-full border-4 border-white;
   }
 }
 .songTitle {
-  @apply font-semibold my-4;
+  @apply my-4 font-semibold;
 }
