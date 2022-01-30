@@ -7,7 +7,7 @@ import Link from "next/link";
 import { allProjects } from ".contentlayer/data";
 import type { Project } from ".contentlayer/types";
 
-import { Chip } from "src/components/Chip";
+import Chip from "src/components/Chip";
 
 const Projects: React.FC = () => {
   const { i18n } = useTranslation();
@@ -57,7 +57,13 @@ const Projects: React.FC = () => {
                     </div>
                     <div className={styles.tags}>
                       {tags.map((item) => (
-                        <Chip key={item}>{item}</Chip>
+                        <Chip
+                          type={"primary"}
+                          className={"max-w-20 overflow-clip px-2"}
+                          key={item}
+                        >
+                          {item}
+                        </Chip>
                       ))}
                     </div>
                   </div>

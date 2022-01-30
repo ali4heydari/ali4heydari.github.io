@@ -1,16 +1,16 @@
 .posts {
-  @apply w-full flex flex-wrap;
+  @apply flex w-full flex-wrap;
 }
 
 .postWrapper {
   @apply hover:scale-105 active:scale-100;
 }
 .post {
-  @apply w-full sm:w-1/2 p-3;
+  @apply w-full p-3 sm:w-1/2;
 }
 
 .card {
-  @apply w-full h-full rounded-lg flex flex-col overflow-hidden border border-gray-300;
+  @apply flex h-full w-full flex-col overflow-hidden rounded-lg border border-gray-300;
 }
 
 .content {
@@ -22,7 +22,7 @@
 }
 
 .songTitle {
-  @apply font-semibold mb-4;
+  @apply mb-4 font-semibold;
 }
 
 .description {
@@ -33,9 +33,9 @@
 }
 
 .tags {
-  @apply p-4 pt-2 mt-auto;
+  @apply flex flex-wrap p-4 pt-2;
 }
 
 .tag {
-  @apply text-xs text-blue-400 border border-black rounded-full px-2 py-1 mr-2;
+  @apply mr-2 rounded-full border border-black px-2 py-1 text-xs text-blue-400;
 }
