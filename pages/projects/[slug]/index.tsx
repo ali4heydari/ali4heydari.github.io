@@ -1,26 +1,20 @@
-import Link from "next/link";
-
-import Layout from "src/components/Layout";
-import SEO from "src/components/SEO";
 import Container from "src/components/Container";
 import TitleSection from "src/components/TitleSection";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./index.module.css";
-import { Chip } from "src/components/Chip";
-import { MarkDown } from "src/components/utils/MarkDown";
-import { CommentThread } from "src/components/CommentThread";
+import Chip from "src/components/Chip";
 import { allProjects } from ".contentlayer/data";
 import type { Project } from ".contentlayer/types";
 import { useMDXComponent } from "next-contentlayer/hooks";
+import MainLayout from "src/layouts/MainLayout";
 
 const ProjectPage: React.FC<{ project: Project }> = ({ project }) => {
   const { i18n } = useTranslation();
   const Component = useMDXComponent(project.body.code);
 
   return (
-    <Layout>
-      <SEO title={project.title} />
+    <MainLayout>
       <Container section maxWidth="lg">
         <TitleSection
           title={`${new Date(project.startDate).toLocaleDateString(
@@ -66,7 +60,7 @@ const ProjectPage: React.FC<{ project: Project }> = ({ project }) => {
         {/*  }}*/}
         {/*/>*/}
       </Container>
-    </Layout>
+    </MainLayout>
   );
 };
 

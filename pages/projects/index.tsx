@@ -1,12 +1,12 @@
-import Layout from "src/components/Layout";
 import Projects from "src/features/Projects";
 import React from "react";
+import MainLayout from "../../src/layouts/MainLayout";
 
 const ProjectsPage: React.FC = () => {
   return (
-    <Layout title="Projects">
+    <MainLayout>
       <Projects />
-    </Layout>
+    </MainLayout>
   );
 };
 

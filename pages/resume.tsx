@@ -1,16 +1,17 @@
 import Layout from "src/components/Layout";
-import TimeLine from "src/features/WorkExperiences";
+import Experiences from "src/features/Experiences";
 import React from "react";
 import { allExperiences, allEducation } from ".contentlayer/data";
 import Educations from "src/features/Education";
+import MainLayout from "../src/layouts/MainLayout";
 
 const ResumePage: React.FC<any> = ({ allExperiences, allEducation }) => {
   return (
-    <Layout title="Resume">
-      <TimeLine allExperiences={allExperiences} />
+    <MainLayout>
+      <Experiences allExperiences={allExperiences} />
       <hr />
       <Educations allEducation={allEducation} />
-    </Layout>
+    </MainLayout>
   );
 };
 

@@ -1,12 +1,12 @@
-import Layout from "src/components/Layout";
 import BlogPosts from "src/features/Blog/components/BlogPosts";
 import React from "react";
+import MainLayout from "../../src/layouts/MainLayout";
 
 const BlogPage: React.FC = () => {
   return (
-    <Layout title="Blog">
+    <MainLayout>
       <BlogPosts />
-    </Layout>
+    </MainLayout>
   );
 };
 
