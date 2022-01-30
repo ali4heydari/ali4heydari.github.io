@@ -14,7 +14,9 @@ const ToolsPage: React.FC<{ tools: Tool }> = ({ tools }) => {
     <Layout title={tools.title}>
       <Container section maxWidth="lg">
         <TitleSection title={tools.title} subtitle={tools.subtitle} />
-        <Component />
+        <div className="prose prose-headings:underline prose-a:text-blue-600 prose-img:rounded-xl dark:text-white">
+          <Component />
+        </div>
       </Container>
     </Layout>
   );
