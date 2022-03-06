@@ -14,7 +14,7 @@ const MainLayout = ({ children, container }: Props): JSX.Element => {
       <Header />
       <main
         className={classNames({
-          "container px-8": container,
+          "container mx-auto px-8": container,
         })}
       >
         {children}
