@@ -1,7 +1,7 @@
 import ContactInfo from "src/features/ContactInfo";
 import React from "react";
 import { InlineWidget } from "react-calendly";
-import SiteConfigs from "../SiteConfigs";
+import siteConfig from "site.config";
 import MainLayout from "../src/layouts/MainLayout";
 
 const ContactPage: React.FC = () => {
@@ -10,7 +10,7 @@ const ContactPage: React.FC = () => {
       <ContactInfo />
       <InlineWidget
         styles={{ height: "660px" }}
-        url={`https://calendly.com/${SiteConfigs.CALENDLY_ID}/${SiteConfigs.CALENDLY_EVENT_LINK}`}
+        url={`https://calendly.com/${siteConfig.CALENDLY_ID}/${siteConfig.CALENDLY_EVENT_LINK}`}
       />
     </MainLayout>
   );

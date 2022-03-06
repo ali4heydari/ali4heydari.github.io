@@ -1,7 +1,7 @@
 import React from "react";
 import EmailIllustrationSrc from "src/assets/svg/email-illustration.svg";
 import Container from "src/components/Container";
-import SiteConfigs from "SiteConfigs";
+import SiteConfigs from "site.config";
 import styles from "./ContactMeForm.module.css";
 import classNames from "classnames";
 

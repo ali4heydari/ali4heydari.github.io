@@ -1,4 +1,7 @@
-export default {
+/**
+ * @type {{GITLAB_ID: string, TWITTER_ID: string, CONTACT_GET_FORM_ID: string, DISCUSS_SHORTNAME: string, SITE_TITLE: string, CALENDLY_EVENT_LINK: string, BIRTHDATE: Date, CALENDLY_ID: string, CONTACT_PHONE: string, SITE_DESCRIPTION: string, TWITCH_ID: string, SHORT_NAME: string, INSTAGRAM_ID: string, SITE_AUTHOR: string, SPOTIFY_ID: string, GITHUB_ID: string, STACK_OVER_FLOW_ID: string, DISCORD_SERVER_ID: string, LINKEDIN_ID: string, SKYPE_INVITE_ID: string, SLIDES_ID: string, CONTACT_EMAIL: string, FACEBOOK_ID: string, NODE_ENV: string}}
+ */
+const siteConfig = {
   FACEBOOK_ID: "",
   TWITTER_ID: "",
   INSTAGRAM_ID: "",
@@ -21,4 +24,8 @@ export default {
   SLIDES_ID: "ali4heydari",
   CONTACT_GET_FORM_ID: "b721c787-7978-40ec-9253-5fefaaa6d1e0",
   DISCORD_SERVER_ID: "7Z4Wk2zUuj",
+  DISCUSS_SHORTNAME: process.env.NEXT_PUBLIC_DISCUSS_SHORTNAME,
+  NODE_ENV: process.env.NODE_ENV,
 };
+
+export default siteConfig;

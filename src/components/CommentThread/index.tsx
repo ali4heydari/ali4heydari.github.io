@@ -1,20 +1,13 @@
 import React from "react";
-import { useTranslation } from "react-i18next";
 import { DiscussionEmbed } from "disqus-react";
+import siteConfig from "site.config";
 
 const CommentThread: React.FC<any> = (props) => {
-  const { i18n } = useTranslation();
-
-  const {
-    config: { language = i18n.language, ...rest },
-  } = props;
-
   return (
     <DiscussionEmbed
-      shortname={""}
+      shortname={siteConfig.DISCUSS_SHORTNAME}
       config={{
-        language,
-        ...rest,
+        language: "en-US",
       }}
     />
   );

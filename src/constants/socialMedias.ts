@@ -1,4 +1,4 @@
-import SiteConfigs from "../../SiteConfigs";
+import siteConfig from "site.config";
 import EmailIcon from "mdi-react/EmailIcon";
 import PhoneIcon from "mdi-react/PhoneIcon";
 import FacebookIcon from "mdi-react/FacebookIcon";
@@ -17,91 +17,91 @@ import TwitchIcon from "mdi-react/TwitchIcon";
 
 export const socialMedias = [
   {
-    id: SiteConfigs.CONTACT_EMAIL,
+    id: siteConfig.CONTACT_EMAIL,
     link: `mailto:`,
     name: "email",
     icon: EmailIcon,
   },
   {
-    id: SiteConfigs.CONTACT_PHONE,
+    id: siteConfig.CONTACT_PHONE,
     name: "telephone",
     link: `tel:`,
     icon: PhoneIcon,
   },
   {
-    id: SiteConfigs.FACEBOOK_ID,
+    id: siteConfig.FACEBOOK_ID,
     link: `https://facebook.com/`,
     name: "facebook",
     icon: FacebookIcon,
   },
   {
-    id: SiteConfigs.TWITTER_ID,
+    id: siteConfig.TWITTER_ID,
     link: `https://twitter.com/`,
     name: "twitter",
     icon: TwitterIcon,
   },
   {
-    id: SiteConfigs.INSTAGRAM_ID,
+    id: siteConfig.INSTAGRAM_ID,
     link: `https://instagram.com/`,
     name: "instagram",
     icon: InstagramIcon,
   },
   {
-    id: SiteConfigs.TWITCH_ID,
+    id: siteConfig.TWITCH_ID,
     link: `https://www.twitch.tv/`,
     name: "twitch",
     icon: TwitchIcon,
   },
   {
-    id: SiteConfigs.SPOTIFY_ID,
+    id: siteConfig.SPOTIFY_ID,
     link: `https://open.spotify.com/user/`,
     icon: SpotifyIcon,
     name: "spotify.com",
   },
   {
-    id: SiteConfigs.LINKEDIN_ID,
+    id: siteConfig.LINKEDIN_ID,
     link: `https://linkedin.com/in/`,
     name: "linkedin",
     icon: LinkedinIcon,
   },
   {
-    id: SiteConfigs.GITHUB_ID,
+    id: siteConfig.GITHUB_ID,
     link: `https://github.com/`,
     name: "github",
     icon: GithubIcon,
   },
   {
-    id: SiteConfigs.GITLAB_ID,
+    id: siteConfig.GITLAB_ID,
     link: `https://gitlab.com/`,
     icon: GitlabIcon,
     name: "gitlab",
   },
   {
-    id: SiteConfigs.STACK_OVER_FLOW_ID,
+    id: siteConfig.STACK_OVER_FLOW_ID,
     link: `https://stackoverflow.com/users/`,
     icon: StackOverflowIcon,
     name: "stackoverflow",
   },
   {
-    id: SiteConfigs.SKYPE_INVITE_ID,
+    id: siteConfig.SKYPE_INVITE_ID,
     link: `https://join.skype.com/invite/`,
     icon: SkypeIcon,
     name: "skype",
   },
   {
-    id: SiteConfigs.DISCORD_SERVER_ID,
+    id: siteConfig.DISCORD_SERVER_ID,
     link: `https://discord.gg/`,
     icon: DiscordIcon,
     name: "discord",
   },
   {
-    id: SiteConfigs.CALENDLY_ID,
+    id: siteConfig.CALENDLY_ID,
     link: `https://calendly.com/`,
     icon: CalendarIcon,
     name: "calendly",
   },
   {
-    id: SiteConfigs.SLIDES_ID,
+    id: siteConfig.SLIDES_ID,
     link: `https://slides.com/`,
     icon: SlideIcon,
     name: "slides.com",

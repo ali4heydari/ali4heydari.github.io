@@ -4,7 +4,7 @@ import React from "react";
 import styles from "./styles/styles.module.css";
 
 import { socialMedias } from "src/constants/socialMedias";
-import SiteConfigs from "SiteConfigs";
+import SiteConfigs from "site.config";
 
 const ContactInfo: React.FC = () => {
   return (
@@ -30,7 +30,7 @@ const ContactInfo: React.FC = () => {
               rel="nofollow noopener noreferrer"
               aria-label={`link to authors'${media.name} account`}
             >
-              <media.icon className={"w-16 h-16 m-1"} />
+              <media.icon className={"m-1 h-16 w-16"} />
             </a>
           );
         })}
