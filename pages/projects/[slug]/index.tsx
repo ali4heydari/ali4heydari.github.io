@@ -4,14 +4,13 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import styles from "./index.module.css";
 import Chip from "src/components/Chip";
-import { allProjects } from ".contentlayer/data";
-import type { Project } from ".contentlayer/types";
+import { allProjects } from ".contentlayer/generated";
+import type { Project } from ".contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import MainLayout from "src/layouts/MainLayout";
 
 const ProjectPage: React.FC<{ project: Project }> = ({ project }) => {
   const { i18n } = useTranslation();
-  const Component = useMDXComponent(project.body.code);
 
   return (
     <MainLayout>
@@ -26,7 +25,7 @@ const ProjectPage: React.FC<{ project: Project }> = ({ project }) => {
           )}`}
           subtitle={project.title}
         />
-        <Component />
+        <div dangerouslySetInnerHTML={{ __html: project.body.html }} />
         <p>{project.description}</p>
         <Container section maxWidth="sm">
           <div className={styles.tags}>

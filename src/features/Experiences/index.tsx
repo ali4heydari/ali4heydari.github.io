@@ -2,8 +2,7 @@ import Container from "src/components/Container";
 import TitleSection from "src/components/TitleSection";
 import React from "react";
 import Timeline from "../../components/Timeline";
-import MdxRenderer from "../../components/MdxRenderer";
-import type { Experience } from ".contentlayer/types";
+import type { Experience } from ".contentlayer/generated";
 
 const Educations: React.FC<{
   allExperiences: Experience[];
@@ -15,13 +14,13 @@ const Educations: React.FC<{
         company: title,
         startDate,
         endDate,
-        body: { code },
+        body: { html },
       }) => ({
         title,
         subtitle,
         startDate,
         endDate,
-        children: <MdxRenderer code={code} />,
+        children: <div dangerouslySetInnerHTML={{ __html: html }} />,
       })
     )
     .reverse();

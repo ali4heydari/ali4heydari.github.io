@@ -4,8 +4,8 @@ import TitleSection from "src/components/TitleSection";
 import { useTranslation } from "react-i18next";
 import styles from "./Projects.module.css";
 import Link from "next/link";
-import { allProjects } from ".contentlayer/data";
-import type { Project } from ".contentlayer/types";
+import { allProjects } from ".contentlayer/generated";
+import type { Project } from ".contentlayer/generated";
 
 import Chip from "src/components/Chip";
 
@@ -32,6 +32,7 @@ const Projects: React.FC = () => {
             slug,
           } = item;
 
+          // @ts-ignore
           return (
             <div className={styles.post} key={_id}>
               <Link href={`/projects/${slug}`}>
@@ -47,10 +48,13 @@ const Projects: React.FC = () => {
                           month: "short",
                         })}
                         {" - "}
-                        {new Date(endDate).toLocaleDateString(i18n.language, {
-                          year: "numeric",
-                          month: "short",
-                        })}
+                        {
+                          // @ts-ignore
+                          new Date(endDate).toLocaleDateString(i18n.language, {
+                            year: "numeric",
+                            month: "short",
+                          })
+                        }
                       </time>
                       <h3 className={styles.title}>{title}</h3>
                       <p>{description}</p>

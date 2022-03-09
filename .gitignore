@@ -80,3 +80,9 @@ yarn-error.log
 !.yarn/sdks
 !.yarn/versions
 .pnp.*
+
+
+# Contentlayer
+.contentlayer
+
+tsconfig*.tsbuildinfo

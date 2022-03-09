@@ -3,8 +3,8 @@ import React from "react";
 import Container from "../src/components/Container";
 import TitleSection from "../src/components/TitleSection";
 import { CommentThread } from "../src/components/CommentThread";
-import { allTools } from ".contentlayer/data";
-import { Tool } from ".contentlayer/types";
+import { allTools } from ".contentlayer/generated";
+import { Tool } from "contentlayer/generated";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 const ToolsPage: React.FC<{ tools: Tool }> = ({ tools }) => {
