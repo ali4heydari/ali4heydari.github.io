@@ -12,14 +12,20 @@ import React from "react";
 import type { AppProps /*, AppContext */ } from "next/app";
 
 import Head from "next/head";
+import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
+  const [queryClient] = React.useState(() => new QueryClient());
   return (
     <>
       <Head>
         <title>Ali Heydari Personal website</title>
       </Head>
-      <Component {...pageProps} />
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <Component {...pageProps} />
+        </Hydrate>
+      </QueryClientProvider>
     </>
   );
 };
