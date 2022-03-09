@@ -18,7 +18,7 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "ES2015",
-    "types": ["styled-components", "node"],
+    "types": ["node"],
     "incremental": true
   },
   "exclude": ["node_modules"],
