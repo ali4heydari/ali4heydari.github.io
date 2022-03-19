@@ -6,11 +6,13 @@ import { socialMedias } from "src/constants/socialMedias";
 import styles from "./Footer.module.css";
 import Link from "next/link";
 import classNames from "classnames";
+import NowPlaying from "../../features/Spotify/components/NowPlaying";
 
 const Footer = () => {
   return (
     <footer className={styles.footer}>
       <Container maxWidth="lg">
+        <NowPlaying />
         <div className={styles.links}>
           {socialMedias.map((media) => {
             return (
@@ -24,7 +26,7 @@ const Footer = () => {
                   rel="nofollow noopener noreferrer"
                   className={styles.link}
                 >
-                  <media.icon className={"w-6 h-6 m-1"} />
+                  <media.icon className={"m-1 h-6 w-6"} />
                 </a>
               </Link>
             );
