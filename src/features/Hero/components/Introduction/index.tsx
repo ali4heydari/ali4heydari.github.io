@@ -3,7 +3,7 @@ import React from "react";
 type Props = {};
 
 const Header = (props: Props) => (
-  <div className="flex w-1/2 items-center justify-center">
+  <div className="flex w-full items-center justify-center md:w-1/2">
     <div>
       <p className="text-6xl leading-relaxed text-purple-500 dark:text-purple-200">
         Hi there!

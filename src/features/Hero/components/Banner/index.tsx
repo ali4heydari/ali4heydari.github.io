@@ -5,8 +5,8 @@ type Props = {};
 
 const Banner = (props: Props) => {
   return (
-    <div className="flex w-1/2 items-center justify-center">
-      <div className="w-2/3">
+    <div className="flex w-full items-center justify-center md:w-1/2">
+      <div className="w-full md:w-2/3">
         <img
           src="/images/hero-banner.jpg"
           alt="Hero Banner"
