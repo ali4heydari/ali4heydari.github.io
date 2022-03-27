@@ -9,7 +9,7 @@ const siteConfig = {
   LINKEDIN_ID: "ali4heydari",
   TWITCH_ID: "ali4heydari",
   BIRTHDATE: new Date(1997, 0, 30),
-  CALENDLY_EVENT_LINK: "15min",
+  CALENDLY_EVENT_LINK: "30min",
   CALENDLY_ID: "ali4heydari",
   CONTACT_EMAIL: "ali4heydari+githubio@gmail.com",
   CONTACT_PHONE: "",
