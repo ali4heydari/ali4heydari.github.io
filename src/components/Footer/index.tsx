@@ -8,7 +8,9 @@ import Link from "next/link";
 import classNames from "classnames";
 import NowPlaying from "../../features/Spotify/components/NowPlaying";
 
-const Footer = () => {
+type FooterProps = {};
+
+const Footer = ({}: FooterProps) => {
   return (
     <footer className={styles.footer}>
       <Container maxWidth="lg">

@@ -4,7 +4,9 @@ import { mainNavItems } from "src/constants";
 import Link from "next/link";
 import { useTheme } from "next-themes";
 
-const Header = () => {
+type HeaderProps = {};
+
+const Header = ({}: HeaderProps) => {
   const { theme, setTheme } = useTheme();
 
   const onChangeTheme = (event) => {
