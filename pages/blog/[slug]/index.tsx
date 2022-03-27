@@ -1,96 +1,79 @@
 import styles from "./index.module.css";
-import Layout from "src/components/Layout";
-import SEO from "src/components/SEO";
 import Container from "src/components/Container";
 import TitleSection from "src/components/TitleSection";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import Link from "next/link";
-import { Chip } from "src/components/Chip";
-import { MarkDown } from "src/components/utils/MarkDown";
-import { CommentThread } from "src/components/CommentThread";
+import Chip from "src/components/Chip";
+import type { Blog } from ".contentlayer/generated";
+import CommentThread from "src/components/CommentThread";
+import MainLayout from "src/layouts/MainLayout";
+import { allBlogs } from ".contentlayer/generated";
 
-interface BlogPost {
-  body: string;
-  fields: {
-    slug: string;
-  };
-  frontmatter: {
-    title: string;
-    description: string;
-    date: string;
-    tags: string[];
-  };
-}
-
-interface Props {
-  data: {
-    mdx: BlogPost;
-  };
-  pageContext: {
-    slug: string;
-    next: BlogPost;
-    previous: BlogPost;
-    id: string;
-    siteUrl: string;
-  };
-}
-
-const BlogPost: React.FC<Props> = ({ data, pageContext }) => {
-  const blogPost = data.mdx;
+const BlogPost: React.FC<{ blog: Blog }> = ({ blog }) => {
   const { i18n } = useTranslation();
-  const { previous, next, slug, id, siteUrl } = pageContext;
 
   return (
-    <Layout>
-      <SEO title={blogPost.frontmatter.title} />
+    <MainLayout>
       <Container section maxWidth="lg">
         <TitleSection
-          title={`${new Date(blogPost.frontmatter.date).toLocaleDateString(
+          title={`${new Date(blog.publishedAt).toLocaleDateString(
             i18n.language,
             {
               year: "numeric",
               month: "short",
             }
           )}`}
-          subtitle={blogPost.frontmatter.title}
+          subtitle={blog.title}
         />
-        <p>{blogPost.frontmatter.description}</p>
-        <MarkDown content={blogPost.body} />
+        <div dangerouslySetInnerHTML={{ __html: blog.body.html }} />
         <Container section maxWidth="sm">
           <div className={styles.tags}>
             <h6 className={styles.tagsHeader}>Tech Stack:</h6>
-            {blogPost.frontmatter.tags.map((tag) => (
-              <Chip key={tag}>{tag}</Chip>
-            ))}
+            {/*{blog.tags.map((tag) => (*/}
+            {/*  <Chip key={tag}>{tag}</Chip>*/}
+            {/*))}*/}
           </div>
         </Container>
-        <div className={styles.links}>
-          <span>
-            {previous && (
-              <Link href={previous.fields.slug}>
-                <a rel="previous">← {previous.frontmatter.title}</a>
-              </Link>
-            )}
-          </span>
-          <span>
-            {next && (
-              <Link href={next.fields.slug}>
-                <a rel="next">{next.frontmatter.title} →</a>
-              </Link>
-            )}
-          </span>
-        </div>
-        <CommentThread
-          config={{
-            url: `${siteUrl}/${slug}`,
-            identifier: id,
-            title: blogPost.frontmatter.title,
-          }}
-        />
+        {/*<div className={styles.links}>*/}
+        {/*  <span>*/}
+        {/*    {previous && (*/}
+        {/*      <Link href={previous.fields.slug}>*/}
+        {/*        <a rel="previous">← {previous.frontmatter.title}</a>*/}
+        {/*      </Link>*/}
+        {/*    )}*/}
+        {/*  </span>*/}
+        {/*  <span>*/}
+        {/*    {next && (*/}
+        {/*      <Link href={next.fields.slug}>*/}
+        {/*        <a rel="next">{next.frontmatter.title} →</a>*/}
+        {/*      </Link>*/}
+        {/*    )}*/}
+        {/*  </span>*/}
+        {/*</div>*/}
+        {/*<CommentThread*/}
+        {/*  config={{*/}
+        {/*    url: `${siteUrl}/${slug}`,*/}
+        {/*    identifier: id,*/}
+        {/*    title: blogPost.frontmatter.title,*/}
+        {/*  }}*/}
+        {/*/>*/}
       </Container>
-    </Layout>
+    </MainLayout>
   );
 };
+
+export async function getStaticPaths() {
+  return {
+    paths: allBlogs.map((p) => ({ params: { slug: p.slug } })),
+    fallback: false,
+  };
+}
+
+export async function getStaticProps({ params }) {
+  const blog = allBlogs.find((blog) => blog.slug === params.slug);
+
+  return { props: { project: blog } };
+}
 
 export default BlogPost;

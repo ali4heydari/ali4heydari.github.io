@@ -1,4 +1,3 @@
-import Layout from "src/components/Layout";
 import Experiences from "src/features/Experiences";
 import React from "react";
 import { allExperiences, allEducation } from ".contentlayer/generated";

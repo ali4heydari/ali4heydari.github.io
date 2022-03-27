@@ -1,4 +1,3 @@
-import Layout from "src/components/Layout";
 import React from "react";
 import Container from "../src/components/Container";
 import TitleSection from "../src/components/TitleSection";
@@ -6,10 +5,11 @@ import CommentThread from "../src/components/CommentThread";
 import { allTools } from ".contentlayer/generated";
 import { Tool } from ".contentlayer/generated";
 import { NextPage } from "next";
+import MainLayout from "../src/layouts/MainLayout";
 
 const ToolsPage: NextPage<{ tools: Tool }> = ({ tools, ...rest }) => {
   return (
-    <Layout title={tools.title}>
+    <MainLayout>
       <Container section maxWidth="lg">
         <TitleSection title={tools.title} subtitle={tools.subtitle} />
         <main
@@ -18,7 +18,7 @@ const ToolsPage: NextPage<{ tools: Tool }> = ({ tools, ...rest }) => {
         />
         <CommentThread />
       </Container>
-    </Layout>
+    </MainLayout>
   );
 };
 
