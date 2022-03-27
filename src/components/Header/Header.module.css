@@ -1,18 +1,24 @@
 .wrapper {
-  @apply sticky w-full top-0 left-0 right-0 z-50;
+  @apply sticky top-0 left-0 right-0 z-50 w-full;
   @apply bg-gray-100 dark:bg-gray-800;
   @apply dark:border-b-2 dark:border-gray-50;
 }
 
 .header {
-  @apply flex justify-center items-center h-20;
+  @apply flex h-20 items-center justify-around;
   @apply w-full border-gray-200 shadow;
 }
 
 .navItem {
-  @apply m-2 p-1 px-2 rounded-lg border-2;
-  @apply text-blue-700 border-blue-300;
+  @apply m-2 rounded-lg border-2 p-1 px-2;
+  @apply border-blue-300 text-blue-700;
   @apply hover:bg-blue-800 hover:bg-gray-200 hover:shadow-2xl;
-  @apply dark:text-blue-100 dark:border-blue-100;
-  @apply hover:dark:text-blue-50 hover:dark:bg-gray-700;
+  @apply dark:border-blue-100 dark:text-blue-100;
+  @apply hover:dark:bg-gray-700 hover:dark:text-blue-50;
+}
+
+.themeSelect {
+  @apply mt-1 block rounded-md border-gray-300 py-2 pl-3 pr-10 text-base sm:text-sm;
+  @apply text-blue-700 focus:border-blue-300 focus:outline-none focus:ring-blue-300;
+  @apply dark:bg-gray-700 dark:text-blue-100 dark:focus:border-blue-700 dark:focus:outline-none dark:focus:ring-blue-700;
 }

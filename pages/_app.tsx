@@ -13,6 +13,7 @@ import type { AppProps /*, AppContext */ } from "next/app";
 
 import Head from "next/head";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
+import { ThemeProvider } from "next-themes";
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   const [queryClient] = React.useState(() => new QueryClient());
@@ -23,7 +24,9 @@ const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
       </Head>
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <Component {...pageProps} />
+          <ThemeProvider attribute="class">
+            <Component {...pageProps} />
+          </ThemeProvider>
         </Hydrate>
       </QueryClientProvider>
     </>
