@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <div className={styles.wrapper}>
       <header className={styles.header}>
-        <nav className="py-3 px-2">
+        <nav className="hidden w-auto flex-wrap py-3 px-2 md:flex">
           {mainNavItems.map((item, index) => (
             <Link key={item.slug} href={item.slug}>
               <a className={styles.navItem}>{item.title}</a>
@@ -22,6 +22,7 @@ const Header = () => {
           ))}
         </nav>
         <select
+          name="theme"
           value={theme}
           onChange={onChangeTheme}
           className={styles.themeSelect}

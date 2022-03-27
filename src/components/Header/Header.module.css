@@ -5,7 +5,7 @@
 }
 
 .header {
-  @apply flex h-20 items-center justify-around;
+  @apply flex h-20 flex-wrap items-center px-2 md:justify-around;
   @apply w-full border-gray-200 shadow;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .themeSelect {
-  @apply mt-1 block rounded-md border-gray-300 py-2 pl-3 pr-10 text-base sm:text-sm;
+  @apply mt-1 block rounded-md border-gray-300 py-1 px-3 text-base text-sm;
   @apply text-blue-700 focus:border-blue-300 focus:outline-none focus:ring-blue-300;
   @apply dark:bg-gray-700 dark:text-blue-100 dark:focus:border-blue-700 dark:focus:outline-none dark:focus:ring-blue-700;
 }
