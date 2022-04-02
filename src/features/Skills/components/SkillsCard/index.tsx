@@ -26,6 +26,7 @@ import NextJsIcon from "src/assets/svg/next-js.svg";
 import GithubIcon from "mdi-react/GithubIcon";
 import Card from "src/components/Card";
 import Chip from "src/components/Chip";
+import Link from "next/link";
 
 const ChipContainer = ({
   projects,
@@ -39,16 +40,20 @@ const ChipContainer = ({
   title?: string;
 }) => {
   return (
-    <div className={"flex flex-wrap justify-center"}>
+    <div>
       <div className={"dark:text-gray-50"}>{title}</div>
-      {projects.map(({ name, href, emoji }) => (
-        <Chip key={name}>
-          <span role="img" aria-label={`${name}'s emoji`}>
-            {emoji}{" "}
-          </span>
-          {name}
-        </Chip>
-      ))}
+      <div className={"flex flex-wrap justify-center"}>
+        {projects.map(({ name, href, emoji }) => (
+          <a key={name} href={href}>
+            <Chip key={name}>
+              <span role="img" aria-label={`${name}'s emoji`}>
+                {emoji}{" "}
+              </span>
+              {name}
+            </Chip>
+          </a>
+        ))}
+      </div>
     </div>
   );
 };
@@ -331,16 +336,25 @@ export const SkillsCard: React.FC = () => {
   ];
 
   return (
-    <div className={"flex flex-wrap items-center justify-center gap-1"}>
-      {cards.map((card, i) => (
-        <div className={`max-w-sm md:w-1/2 lg:w-1/3`} key={card.title}>
-          <Card
-            title={card.title}
-            description={card.description}
-            icon={card.icon}
-          />
-        </div>
-      ))}
+    <div>
+      <div className={"flex flex-wrap items-stretch justify-center gap-1"}>
+        {cards.map(({ icon, title, description }, i) => (
+          <div
+            key={i}
+            className="flex w-full max-w-sm flex-col items-center rounded-lg border bg-white p-1 shadow-md dark:border-gray-700 dark:bg-gray-800 md:w-1/2  md:max-w-xl md:flex-row lg:w-1/3"
+          >
+            <div>{icon}</div>
+            <div className="flex flex-col justify-between p-4 leading-normal">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                {title}
+              </h5>
+              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                {description}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
