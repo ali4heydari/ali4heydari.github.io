@@ -7,6 +7,7 @@ import styles from "./Footer.module.css";
 import Link from "next/link";
 import classNames from "classnames";
 import SpotifyNowPlaying from "./components/SpotifyNowPlaying";
+import SteamNowPlaying from "./components/SteamNowPlaying";
 
 type FooterProps = {};
 
@@ -15,6 +16,7 @@ const Footer = ({}: FooterProps) => {
     <footer className={styles.footer}>
       <Container maxWidth="lg">
         <SpotifyNowPlaying />
+        <SteamNowPlaying />
         <div className={styles.links}>
           {socialMedias.map((media) => {
             return (
