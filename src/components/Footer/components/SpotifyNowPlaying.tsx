@@ -1,6 +1,6 @@
 import useMasterQuery from "src/hooks/useMasterQuery";
 
-export default function NowPlaying() {
+export default function SpotifyNowPlaying() {
   const { data } = useMasterQuery("/api/spotify/now-playing", () =>
     fetch("/api/spotify/now-playing", {}).then((res) => res.json())
   );
@@ -17,7 +17,7 @@ export default function NowPlaying() {
           </svg>
           {data?.songUrl ? (
             <a
-              className="capsize max-w-max truncate font-medium  text-green-800 dark:text-green-200"
+              className="capsize max-w-max truncate break-words  font-medium text-green-800 underline dark:text-green-200"
               href={data.songUrl}
               target="_blank"
               rel="noopener noreferrer"
