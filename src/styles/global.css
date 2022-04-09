@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: Behdad;
-  src: url("/fonts/behdad/Behdad-Regular.woff2") format("woff2"),
-    url("/fonts/behdad/Behdad-Regular.woff") format("woff"),
-    url("/fonts/behdad/Behdad-Regular.ttf") format("truetype"),
-    url("/fonts/behdad/Behdad-Regular.otf") format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 html [lang^="fa"] {
-  font-family: Behdad, serif;
+  font-family: Vazirmatn, serif;
 }
