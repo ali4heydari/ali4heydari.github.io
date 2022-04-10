@@ -46,8 +46,8 @@ const Header = ({}: HeaderProps) => {
                           key={item.title}
                           className={classNames(
                             router.pathname === item.slug
-                              ? "bg-blue-800 text-white dark:bg-blue-500"
-                              : "bg-blue-200 text-blue-900 hover:text-white dark:bg-blue-200",
+                              ? "border border-blue-800 bg-blue-600 text-white dark:border-blue-100 dark:bg-gray-700"
+                              : "bg-blue-200 text-gray-900 hover:text-white dark:bg-blue-100",
                             "rounded-md px-3 py-2 text-sm font-medium hover:shadow-2xl"
                           )}
                           aria-current={
