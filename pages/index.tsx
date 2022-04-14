@@ -1,6 +1,6 @@
 import Hero from "src/features/Hero";
 import Experiences from "src/features/Experiences";
-import { ContactMe } from "src/features/ContactMe";
+import { ContactMe } from "src/features/ContactForm";
 import { allExperiences } from ".contentlayer/generated";
 
 import React from "react";

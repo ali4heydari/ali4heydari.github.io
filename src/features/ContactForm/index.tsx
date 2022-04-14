@@ -2,7 +2,7 @@ import React from "react";
 import EmailIllustrationSrc from "src/assets/svg/email-illustration.svg";
 import Container from "src/components/Container";
 import SiteConfigs from "site.config";
-import styles from "./ContactMeForm.module.css";
+import styles from "./ContactForm.module.css";
 import classNames from "classnames";
 
 export const ContactMe = ({ submitButtonText = "Send", textOnLeft = true }) => {
@@ -35,25 +35,26 @@ export const ContactMe = ({ submitButtonText = "Send", textOnLeft = true }) => {
               action={`https://getform.io/f/${SiteConfigs.CONTACT_GET_FORM_ID}`}
               method="POST"
             >
+              <label className="mt-2">Name:</label>
               <input
                 className={styles.input}
                 required
                 type="text"
                 name="name"
-                placeholder="Name"
               />
+              <label className="mt-2">Email:</label>
               <input
                 className={styles.input}
                 required
                 type="email"
                 name="email"
-                placeholder="eMail"
               />
+              <label className="mt-2">Message:</label>
               <textarea
                 className={styles.textarea}
                 required
                 name="message"
-                placeholder="Your Message Here"
+                placeholder="Your Message"
               />
               <button className={styles.submitButton} type="submit">
                 {submitButtonText}

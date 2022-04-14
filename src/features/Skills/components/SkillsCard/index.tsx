@@ -79,10 +79,6 @@ export const SkillsCard: React.FC = () => {
                 href: "https://github.com/ali4heydari/upmed",
                 emoji: "🩺",
               },
-              {
-                name: "rhf-mui",
-                href: "https://github.com/ali4heydari/rhf-mui",
-              },
             ]}
           />
         </>

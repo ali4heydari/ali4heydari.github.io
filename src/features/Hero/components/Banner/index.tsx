@@ -11,7 +11,7 @@ const Banner = (props: Props) => {
           src="/images/hero-banner.jpg"
           alt="Hero Banner"
           className={
-            "w-full border border-2 border-purple-700 dark:border-purple-200"
+            "w-full border border-2 border-blue-700 dark:border-blue-200"
           }
         />
         <Quote quote="Be the change that you want to see in the world." />
