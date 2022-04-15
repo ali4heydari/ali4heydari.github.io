@@ -2,7 +2,6 @@ import Container from "src/components/Container";
 import TitleSection from "src/components/TitleSection";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import styles from "./index.module.css";
 import Chip from "src/components/Chip";
 import { allProjects } from ".contentlayer/generated";
 import type { Project } from ".contentlayer/generated";
@@ -16,20 +15,18 @@ const ProjectPage: React.FC<{ project: Project }> = ({ project }) => {
     <MainLayout>
       <Container section maxWidth="lg">
         <TitleSection
-          title={`${new Date(project.startDate).toLocaleDateString(
-            i18n.language,
-            {
-              year: "numeric",
-              month: "short",
-            }
-          )}`}
-          subtitle={project.title}
+          title={project.title}
+          subtitle={`${project.description} - ${new Date(
+            project.startDate
+          ).toLocaleDateString(i18n.language, {
+            year: "numeric",
+            month: "short",
+          })}`}
         />
         <div dangerouslySetInnerHTML={{ __html: project.body.html }} />
-        <p>{project.description}</p>
         <Container section maxWidth="sm">
-          <div className={styles.tags}>
-            <h6 className={styles.tagsHeader}>Tech Stack:</h6>
+          <h6 className="m-2 w-full text-center text-lg">Tech Stack:</h6>
+          <div className="flex flex-wrap justify-center">
             {project.tags?.map((tag) => (
               <Chip key={tag}>{tag}</Chip>
             ))}
