@@ -2,7 +2,7 @@
   "name": "@ali4heydari/portfolio",
   "private": true,
   "description": "My personal portfolio",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
