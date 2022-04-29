@@ -41,6 +41,9 @@ build/Release
 node_modules/
 jspm_packages/
 
+# Typescript
+tsconfig*.tsbuildinfo
+
 # Typescript v1 declaration files
 typings/
 
@@ -61,6 +64,7 @@ typings/
 
 # next files
 .next
+build
 
 # Mac files
 .DS_Store
@@ -85,4 +89,3 @@ yarn-error.log
 # Contentlayer
 .contentlayer
 
-tsconfig*.tsbuildinfo
