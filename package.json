@@ -17,7 +17,7 @@
   "license": "MIT",
   "scripts": {
     "build": "contentlayer build && next build",
-    "export": "contentlayer build && next export -o build",
+    "export": "yarn build && next export -o build",
     "start": "next start",
     "dev": "contentlayer build && next dev",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
