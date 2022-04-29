@@ -1,0 +1,85 @@
+name: Deploy to Github Pages
+
+on:
+  push:
+    branches:
+      - master
+
+  workflow_dispatch:
+
+jobs:
+  deployment:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      # https://github.com/actions/cache/blob/master/examples.md#node---yarn
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - name: Restore yarn cache
+        uses: actions/cache@v2
+        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
+      - name: Restore next build
+        uses: actions/cache@v2
+        id: restore-build-cache
+        env:
+          cache-name: cache-next-build
+        with:
+          path: .next/cache
+          # change this if you prefer a more strict cache
+          key: ${{ runner.os }}-build-${{ env.cache-name }}
+
+      - name: Build Next.js app
+        run: |
+          yarn install --frozen-lockfile
+          yarn export
+        env:
+          NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.GOOGLE_ANALYTICS_CODE }}
+          NEXT_PUBLIC_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}
+          NEXT_PUBLIC_HOTJAR_ID: ${{ secrets.HOTJAR_ID }}
+          NEXT_PUBLIC_HOTJAR_SNIPPET_VERSION: ${{ secrets.HOTJAR_SNIPPET_VERSION }}
+          NEXT_PUBLIC_SENTRY_DSN: ${{ secrets.SENTRY_DSN }}
+          NEXT_PUBLIC_DISCUSS_SHORTNAME: ${{ secrets.DISCUSS_SHORTNAME }}
+
+      # Here's the first place where next-bundle-analysis' own script is used
+      # This step pulls the raw bundle stats for the current bundle
+      - name: Analyze bundle
+        run: npx -p nextjs-bundle-analysis report
+
+      - name: Upload bundle
+        uses: actions/upload-artifact@v2
+        with:
+          name: bundle
+          path: .next/analyze/__bundle_analysis.json
+
+      - name: Download base branch bundle stats
+        uses: dawidd6/action-download-artifact@v2
+        if: success() && github.event.number
+        with:
+          workflow: nextjs_bundle_analysis.yml
+          branch: ${{ github.event.pull_request.base.ref }}
+          path: .next/analyze/base
+
+      - name: Deploy Next.js app
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          deploy_key: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+          publish_dir: ./build
