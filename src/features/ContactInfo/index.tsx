@@ -1,9 +1,9 @@
 import Container from "src/components/Container";
 import TitleSection from "src/components/TitleSection";
 import React from "react";
-import styles from "./styles/styles.module.css";
 import { socialMedias } from "src/constants/socialMedias";
 import SiteConfigs from "site.config";
+import classNames from "classnames";
 
 const ContactInfo: React.FC = () => {
   return (
@@ -14,15 +14,19 @@ const ContactInfo: React.FC = () => {
         center
       />
       <img
-        className={styles.image}
+        className="w-full"
         src={"/images/profile-high-resolution.jpg"}
         alt={SiteConfigs.SHORT_NAME}
       />
-      <div className={styles.links}>
+      <div className="mt-8 flex w-full flex-wrap items-center justify-center">
         {socialMedias.map((media) => {
           return (
             <a
-              className={styles.link}
+              className={classNames(
+                "mx-2 text-blue-400 hover:text-blue-400",
+                "mx-4 inline-block cursor-pointer transition duration-300",
+                "dark:text-gray-50 hover:dark:text-gray-50"
+              )}
               key={media.link}
               href={media.link}
               target="_blank"
