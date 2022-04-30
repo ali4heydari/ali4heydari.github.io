@@ -110,5 +110,8 @@
   "engines": {
     "node": ">=14",
     "yarn": ">=1"
+  },
+  "nextBundleAnalysis": {
+    "buildOutputDirectory": ".next"
   }
 }
