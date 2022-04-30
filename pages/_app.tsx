@@ -11,17 +11,15 @@ import React from "react";
 
 import type { AppProps /*, AppContext */ } from "next/app";
 
-import Head from "next/head";
 import { Hydrate, QueryClient, QueryClientProvider } from "react-query";
 import { ThemeProvider } from "next-themes";
+import { DefaultNextSeo } from "src/components/Seo";
 
 const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => {
   const [queryClient] = React.useState(() => new QueryClient());
   return (
     <>
-      <Head>
-        <title>Ali Heydari Personal website</title>
-      </Head>
+      <DefaultNextSeo />
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <ThemeProvider attribute="class">
