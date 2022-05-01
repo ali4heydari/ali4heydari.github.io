@@ -10,7 +10,6 @@ const IndexPage: React.FC<any> = ({ allExperiences }) => {
   return (
     <MainLayout container>
       {/*<Balloons birthDate={SiteConfigs.BIRTHDATE} />*/}
-      <hr />
       <Hero />
       <hr />
       <Experiences allExperiences={allExperiences} />
