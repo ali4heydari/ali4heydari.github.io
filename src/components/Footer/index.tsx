@@ -6,17 +6,21 @@ import { socialMedias } from "src/constants/socialMedias";
 import styles from "./Footer.module.css";
 import Link from "next/link";
 import classNames from "classnames";
-import SpotifyNowPlaying from "./components/SpotifyNowPlaying";
+import SpotifyNowListening from "./components/SpotifyNowListening";
 import SteamNowPlaying from "./components/SteamNowPlaying";
+import useMasterQuery from "../../hooks/useMasterQuery";
 
 type FooterProps = {};
 
 const Footer = ({}: FooterProps) => {
+  const { data } = useMasterQuery("/api/now-playing", () =>
+    fetch("/api/now-playing", {}).then((res) => res.json())
+  );
   return (
     <footer className={styles.footer}>
       <Container maxWidth="lg">
-        <SpotifyNowPlaying />
-        <SteamNowPlaying />
+        <SpotifyNowListening {...data?.spotify} />
+        <SteamNowPlaying {...data?.steam} />
         <div className={styles.links}>
           {socialMedias.map((media) => {
             return (

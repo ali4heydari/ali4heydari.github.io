@@ -1,11 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import * as spotifyApi from "src/lib/spotify";
+import * as spotifyApi from "src/api/spotify";
 
 const topTracks = async (_: NextApiRequest, res: NextApiResponse) => {
   try {
-    const response = await spotifyApi.getTopTracks();
-    const { items } = await response.json();
+    const {
+      data: { items },
+    } = await spotifyApi.getTopTracks();
 
     const tracks = items.slice(0, 10).map((track) => ({
       artist: track.artists.map((_artist) => _artist.name).join(", "),

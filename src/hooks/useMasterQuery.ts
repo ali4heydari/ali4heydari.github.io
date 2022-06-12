@@ -5,6 +5,7 @@ import type {
   UseQueryOptions,
   UseQueryResult,
 } from "react-query";
+import { defaultQueryFn } from "../lib/defaultQueryFn";
 
 const useMasterQuery = <
   TQueryFnData = unknown,
@@ -13,7 +14,7 @@ const useMasterQuery = <
   TQueryKey extends QueryKey = QueryKey
 >(
   queryKey: TQueryKey,
-  queryFn: QueryFunction<TQueryFnData, TQueryKey>,
+  queryFn: QueryFunction<TQueryFnData, TQueryKey> = defaultQueryFn,
   options?: Omit<
     UseQueryOptions<TQueryFnData, TError, TData, TQueryKey>,
     "queryKey" | "queryFn"
