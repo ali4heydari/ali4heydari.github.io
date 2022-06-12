@@ -11,7 +11,10 @@ const nowPlaying = async (_: NextApiRequest, res: NextApiResponse) => {
 
   try {
     const [steamPromiseResult, spotifyPromiseResult] = await Promise.allSettled(
-      [steamApi.getNowPlaying(), spotifyApi.getNowPlaying()]
+      [
+        steamApi.getNowPlaying(),
+        spotifyApi.getNowPlaying({ additional_types: "track,episode" }),
+      ]
     );
 
     let steamData: any = null;
@@ -57,6 +60,7 @@ const nowPlaying = async (_: NextApiRequest, res: NextApiResponse) => {
 
       if (media.currently_playing_type === "episode") {
         const isPlaying = media.is_playing;
+        console.log({ media });
         const title = media.item.name;
         const artist = media.item.show.name;
         const album = media.item.show.publisher;

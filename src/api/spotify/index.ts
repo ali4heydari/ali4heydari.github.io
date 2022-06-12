@@ -34,6 +34,9 @@ const getAccessToken = async () => {
 
 const spotifyClient = axios.create({
   baseURL: "https://api.spotify.com/v1",
+
+  // https://stackoverflow.com/a/68774331/8777320
+  timeout: 5 * 1000 - 100,
 });
 
 spotifyClient.interceptors.response.use(
