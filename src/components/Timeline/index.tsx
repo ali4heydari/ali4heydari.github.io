@@ -1,18 +1,16 @@
 import { TimelineProps } from "./@types";
-import { useTranslation } from "react-i18next";
+
 import classNames from "classnames";
 import React from "react";
 
 const Timeline = ({ events, wrapperClassName }: TimelineProps) => {
-  const { i18n } = useTranslation();
-
   const isValidDate = (date: string | number) =>
     Object.prototype.toString.call(date) === "[object Date]" &&
     !Number.isNaN(date);
 
   const getDate = (dateStr) => {
     return isValidDate(dateStr)
-      ? new Date(dateStr).toLocaleDateString(i18n.language, {
+      ? new Date(dateStr).toLocaleDateString("en-GB", {
           year: "numeric",
           month: "short",
         })

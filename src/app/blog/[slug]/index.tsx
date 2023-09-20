@@ -2,28 +2,26 @@ import styles from "./index.module.css";
 import Container from "src/components/Container";
 import TitleSection from "src/components/TitleSection";
 import React from "react";
-import { useTranslation } from "react-i18next";
-import Link from "next/link";
-import Chip from "src/components/Chip";
-import type { Blog } from ".contentlayer/generated";
-import CommentThread from "src/components/CommentThread";
 import MainLayout from "src/layouts/MainLayout";
-import { allBlogs } from ".contentlayer/generated";
+import { allBlogs } from "../../../../.contentlayer/generated";
+import { NextPage } from "next";
+import { notFound } from "next/navigation";
 
-const BlogPost: React.FC<{ blog: Blog }> = ({ blog }) => {
-  const { i18n } = useTranslation();
+const BlogPost: NextPage<{ params: { slug: string } }> = ({ params }) => {
+  const blog = allBlogs.find((blog) => blog.slug === params.slug);
+
+  if (!blog) {
+    return notFound();
+  }
 
   return (
     <MainLayout>
       <Container section maxWidth="lg">
         <TitleSection
-          title={`${new Date(blog.publishedAt).toLocaleDateString(
-            i18n.language,
-            {
-              year: "numeric",
-              month: "short",
-            }
-          )}`}
+          title={`${new Date(blog.publishedAt).toLocaleDateString("en-GB", {
+            year: "numeric",
+            month: "short",
+          })}`}
           subtitle={blog.title}
         />
         <div dangerouslySetInnerHTML={{ __html: blog.body.html }} />
@@ -63,17 +61,8 @@ const BlogPost: React.FC<{ blog: Blog }> = ({ blog }) => {
   );
 };
 
-export async function getStaticPaths() {
-  return {
-    paths: allBlogs.map((p) => ({ params: { slug: p.slug } })),
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const blog = allBlogs.find((blog) => blog.slug === params.slug);
-
-  return { props: { project: blog } };
+export async function generateStaticParams() {
+  return allBlogs.map((p) => ({ params: { slug: p.slug } }));
 }
 
 export default BlogPost;

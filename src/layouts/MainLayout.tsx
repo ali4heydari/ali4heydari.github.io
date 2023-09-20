@@ -1,3 +1,4 @@
+"use client";
 import Header from "src/components/Header";
 import Footer from "src/components/Footer";
 import type { ReactNode } from "react";
@@ -23,7 +24,6 @@ const MainLayout = ({
 
   return (
     <div className="min-h-screen">
-      <NextSeo />
       <Header />
       <hr />
       <div

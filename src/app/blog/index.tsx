@@ -1,8 +1,9 @@
 import BlogPosts from "src/features/Blog/components/BlogPosts";
 import React from "react";
-import MainLayout from "../../src/layouts/MainLayout";
+import MainLayout from "../../layouts/MainLayout";
+import { NextPage } from "next";
 
-const BlogPage: React.FC = () => {
+const BlogPage: NextPage = () => {
   return (
     <MainLayout>
       <BlogPosts />

@@ -1,24 +1,26 @@
 import Container from "src/components/Container";
 import TitleSection from "src/components/TitleSection";
 import React from "react";
-import { useTranslation } from "react-i18next";
 import Chip from "src/components/Chip";
-import { allProjects } from ".contentlayer/generated";
-import type { Project } from ".contentlayer/generated";
-import { useMDXComponent } from "next-contentlayer/hooks";
-import MainLayout from "src/layouts/MainLayout";
+import { allProjects } from "../../../../.contentlayer/generated";
+import { NextPage } from "next";
+import { notFound } from "next/navigation";
 
-const ProjectPage: React.FC<{ project: Project }> = ({ project }) => {
-  const { i18n } = useTranslation();
+const ProjectPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
+  const project = allProjects.find((project) => project.slug === params.slug);
+
+  if (!project) {
+    return notFound();
+  }
 
   return (
-    <MainLayout>
+    <>
       <Container section maxWidth="lg">
         <TitleSection
           title={project.title}
           subtitle={`${project.description} - ${new Date(
             project.startDate
-          ).toLocaleDateString(i18n.language, {
+          ).toLocaleDateString("en-GB", {
             year: "numeric",
             month: "short",
           })}`}
@@ -56,21 +58,12 @@ const ProjectPage: React.FC<{ project: Project }> = ({ project }) => {
         {/*  }}*/}
         {/*/>*/}
       </Container>
-    </MainLayout>
+    </>
   );
 };
 
-export async function getStaticPaths() {
-  return {
-    paths: allProjects.map((p) => ({ params: { slug: p.slug } })),
-    fallback: false,
-  };
-}
-
-export async function getStaticProps({ params }) {
-  const project = allProjects.find((project) => project.slug === params.slug);
-
-  return { props: { project } };
+export async function generateStaticParams() {
+  return allProjects.map((p) => ({ params: { slug: p.slug } }));
 }
 
 export default ProjectPage;

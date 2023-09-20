@@ -2,14 +2,12 @@ import Link from "next/link";
 import React from "react";
 import Container from "src/components/Container";
 import TitleSection from "src/components/TitleSection";
-import { useTranslation } from "react-i18next";
+
 import styles from "./BlogPost.module.css";
 
 import Chip from "src/components/Chip";
 
 const BlogPosts: React.FC = () => {
-  const { i18n } = useTranslation();
-
   return (
     <Container section maxWidth="lg">
       <TitleSection
@@ -36,7 +34,7 @@ const BlogPosts: React.FC = () => {
                     </figure>
                     <div className={styles.content}>
                       <time className={styles.date}>
-                        {new Date(date).toLocaleDateString(i18n.language, {
+                        {new Date(date).toLocaleDateString("en-GB", {
                           year: "numeric",
                           month: "short",
                           day: "numeric",

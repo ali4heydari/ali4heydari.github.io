@@ -1,10 +1,10 @@
-import { useQuery } from "react-query";
+import { useQuery } from "@tanstack/react-query";
 import type {
   QueryFunction,
   QueryKey,
   UseQueryOptions,
   UseQueryResult,
-} from "react-query";
+} from "@tanstack/react-query";
 
 const useMasterQuery = <
   TQueryFnData = unknown,

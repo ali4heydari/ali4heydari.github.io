@@ -5,13 +5,13 @@ import { useTheme } from "next-themes";
 import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import classNames from "classnames";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 type HeaderProps = {};
 
 const Header = ({}: HeaderProps) => {
   const { theme, setTheme } = useTheme();
-  const router = useRouter();
+  const pathname = usePathname();
 
   const onChangeTheme = (event) => {
     setTheme(event.target?.value || "light");
@@ -45,13 +45,13 @@ const Header = ({}: HeaderProps) => {
                         href={item.slug}
                         key={item.title}
                         className={classNames(
-                          router.pathname === item.slug
+                          pathname === item.slug
                             ? "border border-blue-800 bg-blue-600 text-white dark:border-blue-100 dark:bg-gray-700"
                             : "bg-blue-200 text-gray-900 hover:text-white dark:bg-blue-100",
                           "rounded-md px-3 py-2 text-sm font-medium hover:shadow-2xl"
                         )}
                         aria-current={
-                          router.pathname === item.slug ? "page" : undefined
+                          pathname === item.slug ? "page" : undefined
                         }
                       >
                         {item.title}
@@ -87,14 +87,12 @@ const Header = ({}: HeaderProps) => {
                   as="a"
                   href={item.slug}
                   className={classNames(
-                    router.pathname === item.slug
+                    pathname === item.slug
                       ? "bg-gray-900 text-white"
                       : "text-gray-300 hover:bg-gray-700 hover:text-white",
                     "block rounded-md px-3 py-2 text-base font-medium"
                   )}
-                  aria-current={
-                    router.pathname === item.slug ? "page" : undefined
-                  }
+                  aria-current={pathname === item.slug ? "page" : undefined}
                 >
                   {item.title}
                 </Disclosure.Button>

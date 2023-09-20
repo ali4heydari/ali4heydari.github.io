@@ -13,7 +13,7 @@ import useMasterQuery from "../../hooks/useMasterQuery";
 type FooterProps = {};
 
 const Footer = ({}: FooterProps) => {
-  const { data } = useMasterQuery("/api/now-playing", () =>
+  const { data } = useMasterQuery(["/api/now-playing"], () =>
     fetch("/api/now-playing", {}).then((res) => res.json())
   );
   return (

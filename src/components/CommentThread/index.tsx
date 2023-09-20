@@ -1,19 +1,19 @@
 import React from "react";
 import { DiscussionEmbed, CommentEmbed } from "disqus-react";
 import siteConfig from "site.config";
-import { useRouter } from "next/router";
+import { useRouter, usePathname } from "next/navigation";
 
 const CommentThread: React.FC<any> = (props) => {
-  const router = useRouter();
+  const pathname = usePathname();
   return (
     <DiscussionEmbed
       shortname={siteConfig.DISCUSS_SHORTNAME}
       config={{
         language: "en-US",
-        url: router.asPath,
+        url: pathname,
         // TODO: add title
         // title: "test",
-        identifier: router.asPath,
+        identifier: pathname,
       }}
     />
   );

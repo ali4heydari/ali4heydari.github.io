@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "src/components/Container";
 import TitleSection from "src/components/TitleSection";
-import { useTranslation } from "react-i18next";
+
 import styles from "./Projects.module.css";
 import Link from "next/link";
 import { allProjects } from ".contentlayer/generated";
@@ -10,8 +10,6 @@ import type { Project } from ".contentlayer/generated";
 import Chip from "src/components/Chip";
 
 const Projects: React.FC = () => {
-  const { i18n } = useTranslation();
-
   return (
     <Container section maxWidth="lg">
       <TitleSection
@@ -43,14 +41,14 @@ const Projects: React.FC = () => {
                     </figure>
                     <div className={styles.content}>
                       <time className={styles.date}>
-                        {new Date(startDate).toLocaleDateString(i18n.language, {
+                        {new Date(startDate).toLocaleDateString("en-GB", {
                           year: "numeric",
                           month: "short",
                         })}
                         {" - "}
                         {
                           // @ts-ignore
-                          new Date(endDate).toLocaleDateString(i18n.language, {
+                          new Date(endDate).toLocaleDateString("en-GB", {
                             year: "numeric",
                             month: "short",
                           })
