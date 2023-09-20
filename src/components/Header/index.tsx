@@ -6,16 +6,12 @@ import { Disclosure } from "@headlessui/react";
 import { MenuIcon, XIcon } from "@heroicons/react/outline";
 import classNames from "classnames";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "../atoms/ThemeToggle/ThemeToggle";
 
 type HeaderProps = {};
 
 const Header = ({}: HeaderProps) => {
-  const { theme, setTheme } = useTheme();
   const pathname = usePathname();
-
-  const onChangeTheme = (event) => {
-    setTheme(event.target?.value || "light");
-  };
 
   return (
     <Disclosure
@@ -61,20 +57,7 @@ const Header = ({}: HeaderProps) => {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <select
-                  name="theme"
-                  value={theme}
-                  onChange={onChangeTheme}
-                  className={classNames(
-                    "mt-1 block rounded-md border-gray-300 py-1 px-3 text-base text-sm",
-                    "text-blue-700 focus:border-blue-300 focus:outline-none focus:ring-blue-300",
-                    "dark:bg-gray-700 dark:text-blue-100 dark:focus:border-blue-700 dark:focus:outline-none dark:focus:ring-blue-700"
-                  )}
-                >
-                  <option value="system">System</option>
-                  <option value="light">Light</option>
-                  <option value="dark">Dark</option>
-                </select>
+                <ThemeToggle />
               </div>
             </div>
           </div>
