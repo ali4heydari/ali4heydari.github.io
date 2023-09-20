@@ -28,7 +28,7 @@ const BlogPosts: React.FC = () => {
 
           return (
             <div className={styles.post} key={id}>
-              <Link href={slug}>
+              <Link href={slug} legacyBehavior>
                 <div>
                   <div className={styles.card}>
                     <figure className={styles.image}>

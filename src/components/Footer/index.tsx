@@ -28,14 +28,11 @@ const Footer = ({}: FooterProps) => {
                 key={media.link}
                 href={media.link}
                 aria-label={`link to authors'${media.name} account`}
+                target="_blank"
+                rel="nofollow noopener noreferrer"
+                className={styles.link}
               >
-                <a
-                  target="_blank"
-                  rel="nofollow noopener noreferrer"
-                  className={styles.link}
-                >
-                  <media.icon className={"m-1 h-6 w-6"} />
-                </a>
+                <media.icon className={"m-1 h-6 w-6"} />
               </Link>
             );
           })}

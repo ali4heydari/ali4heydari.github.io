@@ -35,7 +35,7 @@ const Projects: React.FC = () => {
           // @ts-ignore
           return (
             <div className={styles.post} key={_id}>
-              <Link href={`/projects/${slug}`}>
+              <Link href={`/projects/${slug}`} legacyBehavior>
                 <div className={styles.postWrapper}>
                   <div className={styles.card}>
                     <figure className={styles.image}>
