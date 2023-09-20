@@ -3,30 +3,23 @@ const path = require("path");
 
 module.exports = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+
   /** Expose public folder to storybook as static */
   staticDirs: ["../public"],
+
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-backgrounds",
-    {
-      name: "@storybook/addon-postcss",
-      options: {
-        cssLoaderOptions: {
-          importLoaders: 1,
-        },
-        postcssLoaderOptions: {
-          implementation: require("postcss"),
-        },
-      },
-    },
     "storybook-css-modules-preset",
     "storybook-tailwind-dark-mode",
   ],
-  framework: "@storybook/react",
-  core: {
-    builder: "webpack5",
+
+  framework: {
+    name: "@storybook/nextjs",
+    options: {},
   },
+
   webpackFinal: async (config) => {
     /**
      * Add support for alias-imports
@@ -90,6 +83,11 @@ module.exports = {
 
     return config;
   },
+
   // https://github.com/storybookjs/storybook/issues/15336#issuecomment-888528747
   typescript: { reactDocgen: false },
+
+  docs: {
+    autodocs: true,
+  },
 };

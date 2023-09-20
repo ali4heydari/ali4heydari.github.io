@@ -89,3 +89,5 @@ yarn-error.log
 # Contentlayer
 .contentlayer
 
+cypress/videos
+cypress/screenshots
