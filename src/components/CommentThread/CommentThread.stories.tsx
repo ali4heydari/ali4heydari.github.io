@@ -1,14 +1,14 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 
 import CommentThread from "../CommentThread";
 
 export default {
   title: "Molecules/CommentThread",
   component: CommentThread,
-} as ComponentMeta<typeof CommentThread>;
+} as Meta<typeof CommentThread>;
 
-const Template: ComponentStory<typeof CommentThread> = (args) => (
+const Template: StoryFn<typeof CommentThread> = (args) => (
   <CommentThread {...args} />
 );
 

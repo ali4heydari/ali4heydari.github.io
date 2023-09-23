@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 import * as tailwindColors from "tailwindcss/colors";
 import Footer from "../Footer";
 
@@ -21,9 +21,9 @@ export default {
       ],
     },
   },
-} as ComponentMeta<typeof Footer>;
+} as Meta<typeof Footer>;
 
-const Template: ComponentStory<typeof Footer> = (args) => <Footer {...args} />;
+const Template: StoryFn<typeof Footer> = (args) => <Footer {...args} />;
 
 export const Primary = Template.bind({});
 

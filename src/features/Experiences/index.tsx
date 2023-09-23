@@ -6,7 +6,8 @@ import type { Experience } from ".contentlayer/generated";
 
 const Educations: React.FC<{
   allExperiences: Experience[];
-}> = ({ allExperiences }) => {
+  rootClassName?: string;
+}> = ({ allExperiences, rootClassName }) => {
   const events = allExperiences
     .map(
       ({
@@ -26,13 +27,10 @@ const Educations: React.FC<{
     .reverse();
 
   return (
-    <Container section maxWidth="lg">
-      <TitleSection
-        title={"MY EXPERIENCE"}
-        subtitle={"Companies and university"}
-      />
+    <div className={rootClassName}>
+      <TitleSection center>Experiences</TitleSection>
       <Timeline events={events} />
-    </Container>
+    </div>
   );
 };
 

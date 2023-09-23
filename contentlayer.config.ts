@@ -31,7 +31,14 @@ const Blog = defineDocumentType(() => ({
     title: { type: "string", required: true },
     publishedAt: { type: "string", required: true },
     summary: { type: "string", required: true },
-    image: { type: "string", required: true },
+    cover: { type: "string", required: true },
+    tags: {
+      type: "list",
+      default: [],
+      of: {
+        type: "string",
+      },
+    },
   },
   computedFields,
 }));
@@ -44,7 +51,7 @@ const Project = defineDocumentType(() => ({
     category: { type: "string", required: true },
     cover: { type: "string", required: true },
     title: { type: "string", required: true },
-    description: { type: "string", required: true },
+    summary: { type: "string", required: true },
     startDate: { type: "string", required: true },
     endDate: { type: "string" },
     published: { type: "boolean" },

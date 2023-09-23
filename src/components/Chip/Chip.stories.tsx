@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 import * as tailwindColors from "tailwindcss/colors";
 import Chip from "../Chip";
 
@@ -52,9 +52,9 @@ export default {
       ],
     },
   },
-} as ComponentMeta<typeof Chip>;
+} as Meta<typeof Chip>;
 
-const Template: ComponentStory<typeof Chip> = (args) => (
+const Template: StoryFn<typeof Chip> = (args) => (
   <div className="max-w-lg">
     <Chip {...args} />
   </div>

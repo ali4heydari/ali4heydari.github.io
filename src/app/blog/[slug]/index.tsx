@@ -15,54 +15,21 @@ const BlogPost: NextPage<{ params: { slug: string } }> = ({ params }) => {
   }
 
   return (
-    <MainLayout>
-      <Container section maxWidth="lg">
-        <TitleSection
-          title={`${new Date(blog.publishedAt).toLocaleDateString("en-GB", {
-            year: "numeric",
-            month: "short",
-          })}`}
-          subtitle={blog.title}
-        />
-        <div dangerouslySetInnerHTML={{ __html: blog.body.html }} />
-        <Container section maxWidth="sm">
-          <div className={styles.tags}>
-            <h6 className={styles.tagsHeader}>Tech Stack:</h6>
-            {/*{blog.tags.map((tag) => (*/}
-            {/*  <Chip key={tag}>{tag}</Chip>*/}
-            {/*))}*/}
-          </div>
-        </Container>
-        {/*<div className={styles.links}>*/}
-        {/*  <span>*/}
-        {/*    {previous && (*/}
-        {/*      <Link href={previous.fields.slug}>*/}
-        {/*        <a rel="previous">← {previous.frontmatter.title}</a>*/}
-        {/*      </Link>*/}
-        {/*    )}*/}
-        {/*  </span>*/}
-        {/*  <span>*/}
-        {/*    {next && (*/}
-        {/*      <Link href={next.fields.slug}>*/}
-        {/*        <a rel="next">{next.frontmatter.title} →</a>*/}
-        {/*      </Link>*/}
-        {/*    )}*/}
-        {/*  </span>*/}
-        {/*</div>*/}
-        {/*<CommentThread*/}
-        {/*  config={{*/}
-        {/*    url: `${siteUrl}/${slug}`,*/}
-        {/*    identifier: id,*/}
-        {/*    title: blogPost.frontmatter.title,*/}
-        {/*  }}*/}
-        {/*/>*/}
-      </Container>
-    </MainLayout>
+    <>
+      <TitleSection>{blog.title}</TitleSection>
+      <div dangerouslySetInnerHTML={{ __html: blog.body.html }} />;
+      <div className={styles.tags}>
+        <h6 className={styles.tagsHeader}>Tech Stack:</h6>
+        {/*{blog.tags.map((tag) => (*/}
+        {/*  <Chip key={tag}>{tag}</Chip>*/}
+        {/*))}*/}
+      </div>
+    </>
   );
 };
 
 export async function generateStaticParams() {
-  return allBlogs.map((p) => ({ params: { slug: p.slug } }));
+  return allBlogs.map((p) => ({ params: { href: p.slug } }));
 }
 
 export default BlogPost;

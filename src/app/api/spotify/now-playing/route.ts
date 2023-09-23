@@ -1,0 +1,91 @@
+import { NextResponse } from "next/server";
+import * as spotifyApi from "src/api/spotify";
+
+const GET = async (_: Request) => {
+  const headers = {
+    "Cache-Control": "public, s-maxage=60, stale-while-revalidate=30",
+  };
+
+  try {
+    const { data: song, status } = await spotifyApi.getNowPlaying({
+      additional_types: "track,episode",
+    });
+
+    if (status === 204) {
+      return NextResponse.json(
+        {},
+        {
+          status: 204,
+        }
+      );
+    }
+
+    if (song.currently_playing_type === "ad") {
+      return NextResponse.json(
+        {},
+        {
+          status: 204,
+        }
+      );
+    }
+
+    if (song.currently_playing_type === "episode") {
+      const isPlaying = song.is_playing;
+      const title = song.item.name;
+      const artist = song.item.show.name;
+      const album = song.item.show.publisher;
+      const albumImageUrl = song.item.show.images[0].url;
+      const songUrl = song.item.external_urls.spotify;
+
+      return NextResponse.json(
+        {
+          album,
+          albumImageUrl,
+          artist,
+          isPlaying,
+          songUrl,
+          title,
+        },
+        {
+          status: 200,
+        }
+      );
+    }
+
+    if (song.currently_playing_type === "track") {
+      const isPlaying = song.is_playing;
+      const title = song.item.name;
+      const artist = song.item.artists
+        .map((_artist) => _artist.name)
+        .join(", ");
+      const album = song.item.album.name;
+      const albumImageUrl = song.item.album.images[0].url;
+      const songUrl = song.item.external_urls.spotify;
+
+      return NextResponse.json(
+        {
+          album,
+          albumImageUrl,
+          artist,
+          isPlaying,
+          songUrl,
+          title,
+        },
+        {
+          status: 200,
+        }
+      );
+    }
+  } catch (error) {
+    return NextResponse.json(
+      {
+        error,
+      },
+      {
+        status: 500,
+      }
+    );
+  }
+};
+
+export { GET };

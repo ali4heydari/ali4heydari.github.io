@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 import {
   randCompanyName,
   randCity,
@@ -13,11 +13,9 @@ import MdxRenderer from "../MdxRenderer";
 export default {
   title: "Molecules/Timeline",
   component: Timeline,
-} as ComponentMeta<typeof Timeline>;
+} as Meta<typeof Timeline>;
 
-const Template: ComponentStory<typeof Timeline> = (args) => (
-  <Timeline {...args} />
-);
+const Template: StoryFn<typeof Timeline> = (args) => <Timeline {...args} />;
 
 export const Primary = Template.bind({});
 

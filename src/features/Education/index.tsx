@@ -26,10 +26,10 @@ const Educations: React.FC<{
     .reverse();
 
   return (
-    <Container section maxWidth="lg">
-      <TitleSection title={"Education"} subtitle={"My Qualification"} />
+    <div>
+      <TitleSection>Education</TitleSection>
       <Timeline events={events} />
-    </Container>
+    </div>
   );
 };
 

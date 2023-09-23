@@ -1,15 +1,15 @@
 import React from "react";
 import { NextPage } from "next";
-import { allProjects } from "../../../.contentlayer/generated";
-import Link from "next/link";
 import TitleSection from "../../components/TitleSection";
+import { allBlogs } from "../../../.contentlayer/generated";
+import Link from "next/link";
 
-const ProjectsPage: NextPage = () => {
+const BlogPage: NextPage = () => {
   return (
     <section>
-      <TitleSection center>Projects</TitleSection>
+      {!!allBlogs.length && <TitleSection center>Blog posts</TitleSection>}
       <div className="grid gap-20 sm:grid-cols-2 my-10">
-        {allProjects.map(({ title, summary, _id, tags, slug, cover }) => (
+        {allBlogs.map(({ title, summary, _id, tags, slug, cover }) => (
           <article key={_id} className="w-full flex justify-between">
             <div className="w-2/3 flex flex-col justify-between">
               <div>
@@ -45,4 +45,4 @@ const ProjectsPage: NextPage = () => {
   );
 };
 
-export default ProjectsPage;
+export default BlogPage;

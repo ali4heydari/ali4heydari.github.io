@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentStory, ComponentMeta } from "@storybook/react";
+import { StoryFn, Meta } from "@storybook/react";
 import * as tailwindColors from "tailwindcss/colors";
 import Hero from "../Hero";
 
@@ -21,9 +21,9 @@ export default {
       ],
     },
   },
-} as ComponentMeta<typeof Hero>;
+} as Meta<typeof Hero>;
 
-const Template: ComponentStory<typeof Hero> = (args) => <Hero {...args} />;
+const Template: StoryFn<typeof Hero> = (args) => <Hero {...args} />;
 
 export const Main = Template.bind({});
 
