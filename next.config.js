@@ -2,6 +2,11 @@ const withPlugins = require("next-compose-plugins");
 const { withContentlayer } = require("next-contentlayer");
 /** @type { import("next").NextConfig } */
 const nextConfig = {
+  images: {
+    remotePatterns: [{ hostname: "i.scdn.co" }, { hostname: "spotify.com" }],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+  },
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,

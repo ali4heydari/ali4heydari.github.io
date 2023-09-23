@@ -95,6 +95,9 @@ dependencies:
   tailwindcss:
     specifier: ^3.0.23
     version: 3.3.3(ts-node@10.9.1)
+  tailwindcss-hocus:
+    specifier: ^0.0.7
+    version: 0.0.7(tailwindcss@3.3.3)
 
 devDependencies:
   '@babel/core':
@@ -13935,6 +13938,14 @@ packages:
 
   /tailwind-merge@1.14.0:
     resolution: {integrity: sha512-3mFKyCo/MBcgyOTlrY8T7odzZFx+w+qKSMAmdFzRvqBfLlSigU6TZnlFHK0lkMwj9Bj8OYU+9yW9lmGuS0QEnQ==}
+    dev: false
+
+  /tailwindcss-hocus@0.0.7(tailwindcss@3.3.3):
+    resolution: {integrity: sha512-KY3jLlppAoPkCLRhDqbe503c1Ryq//G1bLQqFCZz1pnB0JFzHa3VK0bXvjTa8n/dwCxgkhi5uJm1d6gp8OzPhw==}
+    peerDependencies:
+      tailwindcss: ^3.0.0
+    dependencies:
+      tailwindcss: 3.3.3(ts-node@10.9.1)
     dev: false
 
   /tailwindcss@3.3.3(ts-node@10.9.1):

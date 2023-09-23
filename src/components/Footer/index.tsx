@@ -10,7 +10,7 @@ type FooterProps = {};
 
 const Footer = ({}: FooterProps) => {
   const { data } = useMasterQuery(["/api/now-playing"], () =>
-    fetch("/api/now-playing", {}).then((res) => res.json())
+    fetch("/api/now-playing", {}).then((res) => res.json()),
   );
   return (
     <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800">
@@ -60,7 +60,7 @@ const Footer = ({}: FooterProps) => {
               </ul>
             </div>
           </div>
-          <div className="mb-6 md:mb-0">
+          <div className="my-6 flex flex-col items-center">
             <SpotifyNowListening {...data?.spotify} />
             <SteamNowPlaying {...data?.steam} />
           </div>
