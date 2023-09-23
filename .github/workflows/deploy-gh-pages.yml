@@ -24,18 +24,18 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       # https://github.com/actions/cache/blob/master/examples.md#node---yarn
-      - name: Get yarn cache directory path
-        id: yarn-cache-dir-path
-        run: echo "::set-output name=dir::$(yarn cache dir)"
+      - name: Get pnpm cache directory path
+        id: pnpm-cache-dir-path
+        run: echo "::set-output name=dir::$(pnpm config get cache)"
 
-      - name: Restore yarn cache
+      - name: Restore pnpm cache
         uses: actions/cache@v2
-        id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+        id: pnpm-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
         with:
-          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: ${{ steps.pnpm-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-pnpm-
 
       - name: Restore next build
         uses: actions/cache@v2
@@ -49,8 +49,8 @@ jobs:
 
       - name: Build Next.js app
         run: |
-          yarn install --frozen-lockfile
-          yarn export
+          pnpm install --frozen-lockfile
+          pnpm export
         env:
           NEXT_PUBLIC_GOOGLE_ANALYTICS: ${{ secrets.GOOGLE_ANALYTICS_CODE }}
           NEXT_PUBLIC_RECAPTCHA_SITE_KEY: ${{ secrets.RECAPTCHA_SITE_KEY }}

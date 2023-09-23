@@ -16,7 +16,8 @@ const GET = async (_: Request) => {
         {},
         {
           status: 204,
-        }
+          headers,
+        },
       );
     }
 
@@ -25,7 +26,8 @@ const GET = async (_: Request) => {
         {},
         {
           status: 204,
-        }
+          headers,
+        },
       );
     }
 
@@ -48,7 +50,8 @@ const GET = async (_: Request) => {
         },
         {
           status: 200,
-        }
+          headers,
+        },
       );
     }
 
@@ -73,7 +76,8 @@ const GET = async (_: Request) => {
         },
         {
           status: 200,
-        }
+          headers,
+        },
       );
     }
   } catch (error) {
@@ -83,7 +87,8 @@ const GET = async (_: Request) => {
       },
       {
         status: 500,
-      }
+        headers,
+      },
     );
   }
 };

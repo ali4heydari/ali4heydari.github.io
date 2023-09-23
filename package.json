@@ -18,7 +18,7 @@
   "types": "module",
   "scripts": {
     "build": "contentlayer build && next build",
-    "export": "yarn build && next export -o build",
+    "export": "pnpm build && next export -o build",
     "start": "next start",
     "dev": "contentlayer build && next dev",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
@@ -91,17 +91,17 @@
     "@types/react-i18next": "^8.1.0",
     "@types/react-typist": "^2.0.3",
     "@types/tailwindcss": "^3.0.9",
-    "@typescript-eslint/parser": "^5.15.0",
+    "@typescript-eslint/parser": "^6.7.2",
     "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.3",
     "cz-conventional-changelog": "3.3.0",
-    "eslint": "8.11.0",
+    "eslint": "8.50.0",
     "eslint-config-next": "^13.5.2",
     "eslint-plugin-storybook": "^0.6.13",
-    "husky": "^7.0.4",
-    "lint-staged": "^12.4.1",
-    "prettier": "^2.6.0",
-    "prettier-plugin-tailwindcss": "^0.1.8",
+    "husky": "^8.0.3",
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "prettier-plugin-tailwindcss": "^0.5.4",
     "storybook": "^7.4.3",
     "storybook-css-modules-preset": "^1.1.1",
     "storybook-tailwind-dark-mode": "^1.0.22",
@@ -113,7 +113,7 @@
   },
   "engines": {
     "node": ">=14",
-    "yarn": ">=1"
+    "pnpm": ">=8"
   },
   "nextBundleAnalysis": {
     "buildOutputDirectory": ".next"

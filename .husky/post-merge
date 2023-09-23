@@ -5,6 +5,6 @@ function changed {
   git diff --name-only HEAD@{1} HEAD | grep "^$1" > /dev/null 2>&1
 }
 
-if changed 'yarn.lock'; then
-  echo "📦 yarn.lock changed. Run yarn install to bring your dependencies up to date."
+if changed 'pnpm-lock.yaml'; then
+  echo "📦 pnpm-lock.yaml changed. Run pnpm install to bring your dependencies up to date."
 fi
