@@ -4,9 +4,11 @@ import TitleSection from "src/components/TitleSection";
 import React from "react";
 import type { Education } from ".contentlayer/generated";
 
-const Educations: React.FC<{
-  allEducation: Education[];
-}> = ({ allEducation }) => {
+const Educations: React.FC<
+  React.PropsWithChildren<{
+    allEducation: Education[];
+  }>
+> = ({ allEducation }) => {
   const events = allEducation
     .map(
       ({

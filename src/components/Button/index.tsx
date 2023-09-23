@@ -8,7 +8,9 @@ interface ButtonProps {
 }
 
 const Button: React.FC<
-  ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+  React.PropsWithChildren<
+    ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+  >
 > = ({ primary, block, children }) => (
   <button
     className={classNames(styles.btnBase, {

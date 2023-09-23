@@ -6,7 +6,10 @@ interface Props {
   percentage: number;
 }
 
-const ProgressBar: React.FC<Props> = ({ title, percentage }) => (
+const ProgressBar: React.FC<React.PropsWithChildren<Props>> = ({
+  title,
+  percentage,
+}) => (
   <div className={styles.progressBar}>
     <div className={styles.content}>
       <h3 className={styles.title}>{title}</h3>

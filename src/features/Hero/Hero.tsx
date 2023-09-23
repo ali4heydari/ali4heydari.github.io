@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const Hero: React.FC = () => {
+const Hero: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8 pb-20">
       <h1 className="mt-3 text-center max-w-2xl text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-6xl lg:col-span-2 xl:col-auto">

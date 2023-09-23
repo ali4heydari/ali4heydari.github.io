@@ -18,7 +18,7 @@ const settings = {
   slidesToScroll: 1,
 };
 
-const Carousel: React.FC<Props> = ({ children }) => (
+const Carousel: React.FC<React.PropsWithChildren<Props>> = ({ children }) => (
   <>
     <Head>
       <link

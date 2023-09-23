@@ -16,7 +16,7 @@ interface ChipProps {
     | "info";
 }
 
-const Chip: React.FC<ChipProps> = ({
+const Chip: React.FC<React.PropsWithChildren<ChipProps>> = ({
   children,
   rounded = true,
   className,

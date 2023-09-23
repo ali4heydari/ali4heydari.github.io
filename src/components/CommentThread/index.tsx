@@ -4,7 +4,7 @@ import { DiscussionEmbed, CommentEmbed } from "disqus-react";
 import siteConfig from "site.config";
 import { useRouter, usePathname } from "next/navigation";
 
-const CommentThread: React.FC<any> = (props) => {
+const CommentThread: React.FC<React.PropsWithChildren<any>> = (props) => {
   const pathname = usePathname();
   return (
     <DiscussionEmbed

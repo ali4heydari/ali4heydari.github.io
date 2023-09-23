@@ -2,12 +2,16 @@ import React, { ComponentType } from "react";
 import styles from "./Card.module.css";
 
 interface CardProps {
-  icon: React.ReactElement | ComponentType<any>;
+  icon: any;
   title: string;
   description: React.ReactElement | string;
 }
 
-const Card: React.FC<CardProps> = ({ title, description, icon }: CardProps) => {
+const Card: React.FC<React.PropsWithChildren<CardProps>> = ({
+  title,
+  description,
+  icon,
+}: CardProps) => {
   return (
     <div className={styles.root}>
       <span className={styles.icon}>{icon}</span>

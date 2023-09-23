@@ -8,7 +8,10 @@ interface Props {
 
 // style and some logic from: https://codepen.io/Jemimaabu/pen/vYEYdOy
 
-const Balloons: React.FC<Props> = ({ birthDate, hideBaloonTimeOut = 5000 }) => {
+const Balloons: React.FC<React.PropsWithChildren<Props>> = ({
+  birthDate,
+  hideBaloonTimeOut = 5000,
+}) => {
   const currentDate = new Date();
   const hideBalloonContainerTimeoutOffset = 1500;
 

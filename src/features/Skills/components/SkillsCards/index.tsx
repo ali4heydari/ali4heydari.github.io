@@ -2,7 +2,7 @@ import React from "react";
 
 import { skillCards } from "../../constants";
 
-export const SkillsCards: React.FC = () => {
+export const SkillsCards: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <div>
       <div className={"flex flex-wrap items-stretch justify-center gap-1"}>

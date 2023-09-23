@@ -7,7 +7,7 @@ type ContainerProps = {
   maxWidth?: "sm" | "md" | "lg" | "xl";
 } & React.HTMLAttributes<HTMLDivElement>;
 
-const Container: React.FC<ContainerProps> = ({
+const Container: React.FC<React.PropsWithChildren<ContainerProps>> = ({
   section,
   children,
   maxWidth,

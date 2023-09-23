@@ -4,10 +4,12 @@ import React from "react";
 import Timeline from "../../components/Timeline";
 import type { Experience } from ".contentlayer/generated";
 
-const Educations: React.FC<{
-  allExperiences: Experience[];
-  rootClassName?: string;
-}> = ({ allExperiences, rootClassName }) => {
+const Educations: React.FC<
+  React.PropsWithChildren<{
+    allExperiences: Experience[];
+    rootClassName?: string;
+  }>
+> = ({ allExperiences, rootClassName }) => {
   const events = allExperiences
     .map(
       ({

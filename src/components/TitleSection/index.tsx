@@ -7,10 +7,9 @@ interface Props {
   center?: boolean;
 }
 
-const TitleSection: React.FC<PropsWithChildren<Props>> = ({
-  center,
-  children,
-}) => (
+const TitleSection: React.FC<
+  React.PropsWithChildren<PropsWithChildren<Props>>
+> = ({ center, children }) => (
   <h2
     className={twMerge(
       "mb-10 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl",

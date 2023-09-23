@@ -2,7 +2,7 @@ import TitleSection from "src/components/TitleSection";
 import React from "react";
 import SiteConfigs from "site.config";
 
-const About: React.FC = () => {
+const About: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <>
       <TitleSection center>About me</TitleSection>
