@@ -2,5 +2,5 @@
 module.exports = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class", // or 'media' or 'class'
-  plugins: [require("@tailwindcss/typography"), require("tailwindcss-rtl")],
+  plugins: [require("@tailwindcss/typography")],
 };
