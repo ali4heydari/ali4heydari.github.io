@@ -51,8 +51,8 @@ dependencies:
     specifier: ^0.1.2
     version: 0.1.2(date-fns@2.30.0)(esbuild@0.14.54)(next@13.5.2)(react-dom@18.2.0)(react@18.2.0)(supports-color@8.1.1)
   next-themes:
-    specifier: ^0.1.1
-    version: 0.1.1(next@13.5.2)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.2.1
+    version: 0.2.1(next@13.5.2)(react-dom@18.2.0)(react@18.2.0)
   postcss:
     specifier: ^8.4.12
     version: 8.4.30
@@ -11017,10 +11017,10 @@ packages:
       - supports-color
     dev: false
 
-  /next-themes@0.1.1(next@13.5.2)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-Iqxt6rhS/KfK/iHJ0tfFjTcdLEAI0AgwFuAFrMwLOPK5e+MI3I+fzyvBoS+VaOS+NldUiazurhgwYhrfV0VXsQ==}
+  /next-themes@0.2.1(next@13.5.2)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==}
     peerDependencies:
-      next: '>=11.1.1'
+      next: '*'
       react: '*'
       react-dom: '*'
     dependencies:
