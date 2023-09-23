@@ -4,7 +4,7 @@ import SiteConfigs from "site.config";
 
 const About: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
-    <>
+    <section>
       <TitleSection center>About me</TitleSection>
       <img
         className="my-10 aspect-[3/2] w-full rounded-2xl object-cover"
@@ -35,7 +35,7 @@ const About: React.FC<React.PropsWithChildren<unknown>> = () => {
         and creativity converge, and where the symphony of code and design
         harmonize to create a captivating experience.
       </p>
-    </>
+    </section>
   );
 };
 

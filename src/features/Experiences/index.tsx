@@ -24,15 +24,15 @@ const Educations: React.FC<
         startDate,
         endDate,
         children: <div dangerouslySetInnerHTML={{ __html: html }} />,
-      })
+      }),
     )
     .reverse();
 
   return (
-    <div className={rootClassName}>
+    <section className={rootClassName}>
       <TitleSection center>Experiences</TitleSection>
       <Timeline events={events} />
-    </div>
+    </section>
   );
 };
 

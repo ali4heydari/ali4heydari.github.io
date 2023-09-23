@@ -1,1 +1,2 @@
-export { SkillsCards } from "./components/SkillsCards";
+export { default } from "./Skills";
+export { Skills } from "./Skills";
