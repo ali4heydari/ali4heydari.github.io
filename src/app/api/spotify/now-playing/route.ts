@@ -12,7 +12,7 @@ const GET = async (_: Request) => {
     });
 
     if (status === 204) {
-      return NextResponse.json(
+      return await NextResponse.json(
         {},
         {
           status: 204,
@@ -22,7 +22,7 @@ const GET = async (_: Request) => {
     }
 
     if (song.currently_playing_type === "ad") {
-      return NextResponse.json(
+      return await NextResponse.json(
         {},
         {
           status: 204,
@@ -39,7 +39,7 @@ const GET = async (_: Request) => {
       const albumImageUrl = song.item.show.images[0].url;
       const songUrl = song.item.external_urls.spotify;
 
-      return NextResponse.json(
+      return await NextResponse.json(
         {
           album,
           albumImageUrl,
@@ -65,7 +65,7 @@ const GET = async (_: Request) => {
       const albumImageUrl = song.item.album.images[0].url;
       const songUrl = song.item.external_urls.spotify;
 
-      return NextResponse.json(
+      return await NextResponse.json(
         {
           album,
           albumImageUrl,
@@ -80,8 +80,10 @@ const GET = async (_: Request) => {
         },
       );
     }
+
+    return await NextResponse.json({}, { status: 500, headers });
   } catch (error) {
-    return NextResponse.json(
+    return await NextResponse.json(
       {
         error,
       },

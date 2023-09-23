@@ -111,6 +111,7 @@ const contentLayerConfig = makeSource({
     rehypePlugins: [
       rehypeSlug,
       rehypeCodeTitles,
+      // @ts-ignore
       rehypePrism,
       [
         rehypeAutolinkHeadings,
