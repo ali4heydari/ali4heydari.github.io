@@ -3,6 +3,26 @@ import { NextPage } from "next";
 import { allProjects } from "../../../.contentlayer/generated";
 import Link from "next/link";
 import TitleSection from "../../components/TitleSection";
+import { buildOgImageUrl } from "../../utils/opengraph";
+import { getStaticMetadata } from "../../utils/metadata";
+
+export const metadata = getStaticMetadata({
+  title: "Projects – Ali Heydari",
+  description:
+    "Projects by Ali Heydari. Get to know the projects I've worked on.",
+  exactUrl: "https://ali4heydari.tech/projects",
+  keywords: [
+    "tech",
+    "software",
+    "development",
+    "project",
+    "portfolio",
+    "app",
+    "programming",
+    "open-source",
+  ],
+  image: buildOgImageUrl("projects"),
+});
 
 const ProjectsPage: NextPage = () => {
   return (

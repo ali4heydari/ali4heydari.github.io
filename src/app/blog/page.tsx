@@ -3,6 +3,29 @@ import { NextPage } from "next";
 import TitleSection from "../../components/TitleSection";
 import { allBlogs } from "../../../.contentlayer/generated";
 import Link from "next/link";
+import { buildOgImageUrl } from "../../utils/opengraph";
+import { getStaticMetadata } from "../../utils/metadata";
+
+export const metadata = getStaticMetadata({
+  title: "Blog – Ali Heydari",
+  description:
+    // eslint-disable-next-line max-len
+    "Blog posts by Ali Heydari. Here I share some thoughts, stories, information and more about software development, programming, tech or my personal life",
+  exactUrl: "https://ali4heydari.tech/blog",
+  keywords: [
+    "tech",
+    "software",
+    "development",
+    "thoughts",
+    "opinions",
+    "blog",
+    "content",
+    "story",
+    "storytelling",
+    "news",
+  ],
+  image: buildOgImageUrl("blog"),
+});
 
 const BlogPage: NextPage = () => {
   return (
@@ -46,3 +69,5 @@ const BlogPage: NextPage = () => {
 };
 
 export default BlogPage;
+
+export const runtime = "edge";
