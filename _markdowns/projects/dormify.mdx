@@ -5,6 +5,7 @@ title: "Dormify"
 summary: "Software engineering course project"
 startDate: "2020-03-30"
 endDate: "2020-06-01"
+published: true
 tags:
   - "⚓ React "
   - "🐍 Lerna"
@@ -26,7 +27,6 @@ tags:
   - "🚀 Azure pipelines"
   - "🐘 PostgreSQL"
   - "Azure feeds"
-published: true
 ---
 
 ![dormify](/static/images/_markdowns/projects/dormify/cover.png)
@@ -37,40 +37,39 @@ published: true
 
 ![validate-invitation](/static/images/_markdowns/projects/dormify/validate-invitation.png)
 
-- Carrying out team coordination and work
+I had the opportunity to work on the Dormify project, where I was involved in various aspects of the development process. Some of my responsibilities and experiences include:
+
+- Carrying out team coordination and work.
 - Meeting with dormitory managers for requirements engineering and data gathering.
-- We hold scrum meeting (planning, daily ...) in Microsoft Teams during COVID19 pandemic
-- We designed and developed a software for managing dormitory stuffs like ticketing, issue tracking, guest invitation
-- We designed fully dockerized and automated CI/CD during development of software
+- Conducting scrum meetings (planning, daily stand-ups, etc.) using Microsoft Teams, especially during the COVID-19 pandemic.
+- Designing and developing a software solution for managing dormitory operations, including ticketing, issue tracking, and guest invitation management.
+- Implementing a fully dockerized and automated CI/CD pipeline to streamline the development process.
 
-#### Description of CI/CD
+### Description of CI/CD
 
-our project contains two packages. One package called common that contains reusable components
-and utilities and main package called student-panel.
-I designed a pipeline that contains of 3 stage:
+Our project consists of two packages: a common package containing reusable components and utilities, and the main package called student-panel. I designed a pipeline with three stages:
 
-- build
-- type-coverage (using [type-coverage package](https://github.com/plantain-00/type-coverage))
-- test (unit testing with Jest and e2e testing with Cypress)
+1. Build: This stage builds the project and generates the necessary artifacts.
+2. Type Coverage: We used the [type-coverage package](https://github.com/plantain-00/type-coverage) to measure the TypeScript code coverage.
+3. Test: This stage includes unit testing with Jest and end-to-end testing with Cypress.
 
-After each build we collect artifacts containing build output, test result and coverage,
-Cypress videos and screenshots and type-coverage results.
+After each build, we collect artifacts that include the build output, test results, code coverage reports, Cypress videos and screenshots, and type coverage results.
 
-#### Some screenshots form CI/CD:
+### Some Screenshots from CI/CD:
 
 #### Pipelines
 
 ![pipelines](/static/images/_markdowns/projects/dormify/pipelines.png)
 
-#### Pipeline result
+#### Pipeline Result
 
 ![pipeline-result](/static/images/_markdowns/projects/dormify/pipeline-result.png)
 
-#### Test results
+#### Test Results
 
 ![test-results](/static/images/_markdowns/projects/dormify/test-results.png)
 
-#### Coverage results
+#### Coverage Results
 
 ![coverage-results](/static/images/_markdowns/projects/dormify/coverage-results.png)
 
@@ -82,10 +81,10 @@ Cypress videos and screenshots and type-coverage results.
 
 ![artifacts](/static/images/_markdowns/projects/dormify/artifacts.png)
 
-#### Cypress video output
+#### Cypress Video Output
 
 ![cypress-video-output](/static/images/_markdowns/projects/dormify/cypress-video-output.png)
 
-#### Azure feed (private npm registry)
+#### Azure Feed (Private npm Registry)
 
 ![azure-feed](/static/images/_markdowns/projects/dormify/feeds.png)
