@@ -19,7 +19,7 @@ export async function generateMetadata(
   return {
     title: {
       template: "%s | Ali Heydari",
-      default: "Personal website",
+      default: "Personal website - Ali Heydari",
     },
   };
 }
