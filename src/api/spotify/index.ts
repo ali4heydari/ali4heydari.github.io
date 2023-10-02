@@ -14,29 +14,35 @@ enum SpotifyEndpoints {
 }
 
 const getAccessToken = async () => {
-  const { data } = await axios.post(
-    "https://accounts.spotify.com/api/token",
-    null,
+  const headers = {
+    Authorization: `Basic ${basic}`,
+    "Content-Type": "application/x-www-form-urlencoded",
+  };
+
+  const urlSearchParams = new URLSearchParams({
+    grant_type: "refresh_token",
+    refresh_token,
+  });
+
+  const response = await fetch(
+    "https://accounts.spotify.com/api/token" + "?" + urlSearchParams.toString(),
     {
-      headers: {
-        Authorization: `Basic ${basic}`,
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      params: new URLSearchParams({
-        grant_type: "refresh_token",
-        refresh_token,
-      }),
-    }
+      method: "POST",
+      headers,
+    },
   );
 
-  return data;
+  const data = await response.json();
+  return { data, status: response.status };
 };
 
+const BASE_URL = "https://api.spotify.com/v1";
+const TIMEOUT = 5 * 1000 - 100;
 const spotifyClient = axios.create({
-  baseURL: "https://api.spotify.com/v1",
+  baseURL: BASE_URL,
 
   // https://stackoverflow.com/a/68774331/8777320
-  timeout: 5 * 1000 - 100,
+  timeout: TIMEOUT,
 });
 
 spotifyClient.interceptors.response.use(
@@ -45,7 +51,9 @@ spotifyClient.interceptors.response.use(
     const status = error.response ? error.response.status : null;
 
     if (status === 401) {
-      const { access_token } = await getAccessToken();
+      const {
+        data: { access_token },
+      } = await getAccessToken();
 
       return axios.request({
         ...error.config,
@@ -57,16 +65,36 @@ spotifyClient.interceptors.response.use(
     }
 
     return Promise.reject(error);
-  }
+  },
 );
 
 export const getTopTracks = () =>
   spotifyClient.get(SpotifyEndpoints.TOP_TRACKS_ENDPOINT);
 
-export const getNowPlaying = (params = {}) =>
-  spotifyClient.get(SpotifyEndpoints.NOW_PLAYING_ENDPOINT, {
-    params,
+export const getNowPlaying = async (params = {}) => {
+  const {
+    data: { access_token, token_type },
+  } = await getAccessToken();
+  const searchParams = new URLSearchParams({
+    ...params,
   });
+
+  console.log({ access_token, token_type });
+  const response = await fetch(
+    BASE_URL +
+      SpotifyEndpoints.NOW_PLAYING_ENDPOINT +
+      "?" +
+      searchParams.toString(),
+    {
+      headers: {
+        Authorization: `${token_type} ${access_token}`,
+      },
+    },
+  );
+
+  const data = await response.json();
+  return { data, status: response.status };
+};
 
 export const getRecentlyPlayed = () =>
   spotifyClient.get(SpotifyEndpoints.RECENTLY_PLAYED_ENDPOINT);
