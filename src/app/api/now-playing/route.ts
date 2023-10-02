@@ -3,6 +3,9 @@ import { NextResponse } from "next/server";
 import * as spotifyApi from "src/api/spotify";
 import * as steamApi from "src/api/steam";
 
+export const runtime = "edge";
+export const fetchCache = "force-no-store";
+
 const GET = async (_: Request) => {
   const headers = {
     "Cache-Control": "public, s-maxage=60, stale-while-revalidate=30",
