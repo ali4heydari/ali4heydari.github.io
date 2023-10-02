@@ -1,6 +1,8 @@
 import React from "react";
 import TitleSection from "../../components/TitleSection";
 import Image from "next/image";
+import { getStaticMetadata } from "../../utils/metadata";
+import { buildOgImageUrl } from "../../utils/opengraph";
 
 const hardwares = [
   {
@@ -56,6 +58,26 @@ const hardwares = [
     description: "For holding my monitors",
   },
 ];
+
+export const metadata = getStaticMetadata({
+  title: "Uses – Ali Heydari",
+  description:
+    "Get to know about my setup, hardware, software and tools I use on a daily basis",
+  exactUrl: "https://ali4heydari.tech/uses",
+  keywords: [
+    "hardware",
+    "software",
+    "apps",
+    "tools",
+    "extensions",
+    "stack",
+    "website",
+    "tech",
+    "uses",
+  ],
+  image: buildOgImageUrl("uses"),
+});
+
 const Uses = () => {
   return (
     <section>
