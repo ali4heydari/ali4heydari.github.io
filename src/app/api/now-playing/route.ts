@@ -13,7 +13,7 @@ const GET = async (_: Request) => {
       [
         steamApi.getNowPlaying(),
         spotifyApi.getNowPlaying({ additional_types: "track,episode" }),
-      ]
+      ],
     );
 
     let steamData: any = null;
@@ -54,7 +54,8 @@ const GET = async (_: Request) => {
           {},
           {
             status: 204,
-          }
+            headers,
+          },
         );
       }
 
@@ -63,7 +64,8 @@ const GET = async (_: Request) => {
           {},
           {
             status: 204,
-          }
+            headers,
+          },
         );
       }
 
@@ -113,7 +115,8 @@ const GET = async (_: Request) => {
       },
       {
         status: 200,
-      }
+        headers,
+      },
     );
   } catch (error) {
     return NextResponse.json(
@@ -124,7 +127,8 @@ const GET = async (_: Request) => {
       },
       {
         status: 500,
-      }
+        headers,
+      },
     );
   }
 };
