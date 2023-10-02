@@ -19,6 +19,9 @@ const GET = async (_: Request) => {
     let steamData: any = null;
     let spotifyData: any = null;
 
+    let steamError: any = null;
+    let spotifyError: any = null;
+
     if (steamPromiseResult.status === "fulfilled") {
       const {
         data: {
@@ -106,6 +109,29 @@ const GET = async (_: Request) => {
           title,
         };
       }
+    }
+    if (spotifyPromiseResult.status === "rejected") {
+      spotifyError = spotifyPromiseResult.reason;
+    }
+    if (steamPromiseResult.status === "rejected") {
+      steamError = steamPromiseResult.reason;
+    }
+
+    if (steamError || spotifyError) {
+      return NextResponse.json(
+        {
+          spotify: spotifyData,
+          steam: steamData,
+          error: {
+            spotifyError,
+            steamError,
+          },
+        },
+        {
+          status: 500,
+          headers,
+        },
+      );
     }
 
     return NextResponse.json(
