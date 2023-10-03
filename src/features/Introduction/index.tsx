@@ -1,15 +1,18 @@
 import TitleSection from "src/components/TitleSection";
 import React from "react";
 import SiteConfigs from "site.config";
+import Image from "next/image";
 
 const About: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
     <section>
       <TitleSection center>About me</TitleSection>
-      <img
+      <Image
         className="my-10 aspect-[3/2] w-full rounded-2xl object-cover"
         src={"/static/images/profile-high-resolution.jpg"}
         alt={SiteConfigs.SHORT_NAME}
+        height={600}
+        width={900}
       />
       <p className="text-lg leading-8 text-gray-600 dark:text-gray-300 pb-20">
         As a digital artisan, I proudly wield the title of a front-end
