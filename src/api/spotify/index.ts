@@ -1,4 +1,12 @@
 import axios from "axios";
+import { getJson } from "../../utils";
+import { GetCurrentlyPlaying } from "./@types/responses/current-playing";
+import { GetUsersTopItemsRequest } from "./@types/requests/top";
+import {
+  ArtistDto,
+  GetUsersTopItemsResponse,
+  TrackDto,
+} from "./@types/responses/top";
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
@@ -7,7 +15,8 @@ const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN || "";
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
 
 enum SpotifyEndpoints {
-  TOP_TRACKS_ENDPOINT = "/v1/me/top/tracks",
+  TOP_TRACKS = "/me/top/tracks",
+  TOP_ARTISTS = "/me/top/artists",
   NOW_PLAYING_ENDPOINT = "/me/player/currently-playing",
   RECENTLY_PLAYED_ENDPOINT = "/me/player/recently-played",
   PLAYER_ENDPOINT = "/me/player",
@@ -68,8 +77,53 @@ spotifyClient.interceptors.response.use(
   },
 );
 
-export const getTopTracks = () =>
-  spotifyClient.get(SpotifyEndpoints.TOP_TRACKS_ENDPOINT);
+export const getTopTracks = async ({
+  time_range = "long_term",
+  offset = 0,
+  limit = 10,
+}: GetUsersTopItemsRequest) => {
+  const {
+    data: { access_token, token_type },
+  } = await getAccessToken();
+
+  const searchParams = new URLSearchParams({
+    time_range,
+    offset: offset.toString(),
+    limit: limit.toString(),
+  });
+
+  const url =
+    BASE_URL + SpotifyEndpoints.TOP_TRACKS + "?" + searchParams.toString();
+  return await getJson<GetUsersTopItemsResponse<TrackDto>>(url, {
+    headers: {
+      Authorization: `${token_type} ${access_token}`,
+    },
+  });
+};
+
+export const getTopArtists = async ({
+  time_range = "long_term",
+  offset = 0,
+  limit = 10,
+}: GetUsersTopItemsRequest) => {
+  const {
+    data: { access_token, token_type },
+  } = await getAccessToken();
+
+  const searchParams = new URLSearchParams({
+    time_range,
+    offset: offset.toString(),
+    limit: limit.toString(),
+  });
+
+  const url = BASE_URL + SpotifyEndpoints.TOP_ARTISTS;
+  "?" + searchParams.toString();
+  return await getJson<GetUsersTopItemsResponse<ArtistDto>>(url, {
+    headers: {
+      Authorization: `${token_type} ${access_token}`,
+    },
+  });
+};
 
 export const getNowPlaying = async (params = {}) => {
   const {
@@ -79,8 +133,7 @@ export const getNowPlaying = async (params = {}) => {
     ...params,
   });
 
-  console.log({ access_token, token_type });
-  const response = await fetch(
+  return await getJson<GetCurrentlyPlaying>(
     BASE_URL +
       SpotifyEndpoints.NOW_PLAYING_ENDPOINT +
       "?" +
@@ -91,10 +144,16 @@ export const getNowPlaying = async (params = {}) => {
       },
     },
   );
-
-  const data = await response.json();
-  return { data, status: response.status };
 };
 
-export const getRecentlyPlayed = () =>
-  spotifyClient.get(SpotifyEndpoints.RECENTLY_PLAYED_ENDPOINT);
+export const getRecentlyPlayed = async () => {
+  const {
+    data: { access_token, token_type },
+  } = await getAccessToken();
+
+  return await getJson(BASE_URL + SpotifyEndpoints.RECENTLY_PLAYED_ENDPOINT, {
+    headers: {
+      Authorization: `${token_type} ${access_token}`,
+    },
+  });
+};

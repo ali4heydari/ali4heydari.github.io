@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
 import * as spotifyApi from "src/api/spotify";
+import {
+  EpisodeDto,
+  SongDto,
+} from "../../../../api/spotify/@types/responses/current-playing";
 
 const GET = async (_: Request) => {
   const headers = {
@@ -7,21 +11,23 @@ const GET = async (_: Request) => {
   };
 
   try {
-    const { data: song, status } = await spotifyApi.getNowPlaying({
+    const { data: media, status } = await spotifyApi.getNowPlaying({
       additional_types: "track,episode",
     });
 
     if (status === 204) {
       return await NextResponse.json(
-        {},
         {
-          status: 204,
+          isPlaying: false,
+        },
+        {
+          status,
           headers,
         },
       );
     }
 
-    if (song.currently_playing_type === "ad") {
+    if (media.currently_playing_type === "ad") {
       return await NextResponse.json(
         {},
         {
@@ -31,13 +37,14 @@ const GET = async (_: Request) => {
       );
     }
 
-    if (song.currently_playing_type === "episode") {
-      const isPlaying = song.is_playing;
-      const title = song.item.name;
-      const artist = song.item.show.name;
-      const album = song.item.show.publisher;
-      const albumImageUrl = song.item.show.images[0].url;
-      const songUrl = song.item.external_urls.spotify;
+    if (media.currently_playing_type === "episode") {
+      media.item = media.item as EpisodeDto;
+      const isPlaying = media.is_playing;
+      const title = media.item.name;
+      const artist = media.item.show.name;
+      const album = media.item.show.publisher;
+      const albumImageUrl = media.item.show.images[0].url;
+      const songUrl = media.item.external_urls.spotify;
 
       return await NextResponse.json(
         {
@@ -55,15 +62,16 @@ const GET = async (_: Request) => {
       );
     }
 
-    if (song.currently_playing_type === "track") {
-      const isPlaying = song.is_playing;
-      const title = song.item.name;
-      const artist = song.item.artists
+    if (media.currently_playing_type === "track") {
+      media.item = media.item as SongDto;
+      const isPlaying = media.is_playing;
+      const title = media.item.name;
+      const artist = media.item.artists
         .map((_artist) => _artist.name)
         .join(", ");
-      const album = song.item.album.name;
-      const albumImageUrl = song.item.album.images[0].url;
-      const songUrl = song.item.external_urls.spotify;
+      const album = media.item.album.name;
+      const albumImageUrl = media.item.album.images[0].url;
+      const songUrl = media.item.external_urls.spotify;
 
       return await NextResponse.json(
         {

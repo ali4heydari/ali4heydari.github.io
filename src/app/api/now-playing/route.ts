@@ -2,6 +2,10 @@ import { NextResponse } from "next/server";
 
 import * as spotifyApi from "src/api/spotify";
 import * as steamApi from "src/api/steam";
+import {
+  EpisodeDto,
+  SongDto,
+} from "../../../api/spotify/@types/responses/current-playing";
 
 export const runtime = "edge";
 export const fetchCache = "force-no-store";
@@ -76,6 +80,7 @@ const GET = async (_: Request) => {
       }
 
       if (media.currently_playing_type === "episode") {
+        media.item = media.item as EpisodeDto;
         const isPlaying = media.is_playing;
         const title = media.item.name;
         const artist = media.item.show.name;
@@ -94,6 +99,7 @@ const GET = async (_: Request) => {
       }
 
       if (media.currently_playing_type === "track") {
+        media.item = media.item as SongDto;
         const isPlaying = media.is_playing;
         const title = media.item.name;
         const artist = media.item.artists
