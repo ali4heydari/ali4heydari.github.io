@@ -116,8 +116,8 @@ export const getTopArtists = async ({
     limit: limit.toString(),
   });
 
-  const url = BASE_URL + SpotifyEndpoints.TOP_ARTISTS;
-  "?" + searchParams.toString();
+  const url =
+    BASE_URL + SpotifyEndpoints.TOP_ARTISTS + "?" + searchParams.toString();
   return await getJson<GetUsersTopItemsResponse<ArtistDto>>(url, {
     headers: {
       Authorization: `${token_type} ${access_token}`,

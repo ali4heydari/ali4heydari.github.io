@@ -34,12 +34,9 @@ const GET = async (request: Request) => {
       genres: artist.genres,
     }));
 
-    return NextResponse.json(
-      { artists },
-      {
-        status,
-      },
-    );
+    return NextResponse.json(artists, {
+      status,
+    });
   } catch (error) {
     console.error({ error });
     return NextResponse.json(

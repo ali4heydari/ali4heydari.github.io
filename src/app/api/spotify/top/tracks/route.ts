@@ -34,12 +34,9 @@ const GET = async (request: Request) => {
       title: track.name,
     }));
 
-    return NextResponse.json(
-      { tracks },
-      {
-        status,
-      },
-    );
+    return NextResponse.json(tracks, {
+      status,
+    });
   } catch (error) {
     console.error({ error });
     return NextResponse.json(
