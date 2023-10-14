@@ -18,6 +18,7 @@ enum SpotifyEndpoints {
   TOP_TRACKS = "/me/top/tracks",
   TOP_ARTISTS = "/me/top/artists",
   NOW_PLAYING_ENDPOINT = "/me/player/currently-playing",
+  SHOWS = "/me/shows",
   RECENTLY_PLAYED_ENDPOINT = "/me/player/recently-played",
   PLAYER_ENDPOINT = "/me/player",
 }
@@ -119,6 +120,27 @@ export const getTopArtists = async ({
   const url =
     BASE_URL + SpotifyEndpoints.TOP_ARTISTS + "?" + searchParams.toString();
   return await getJson<GetUsersTopItemsResponse<ArtistDto>>(url, {
+    headers: {
+      Authorization: `${token_type} ${access_token}`,
+    },
+  });
+};
+
+export const getShows = async ({
+  offset = 0,
+  limit = 10,
+}: GetUsersTopItemsRequest) => {
+  const {
+    data: { access_token, token_type },
+  } = await getAccessToken();
+
+  const searchParams = new URLSearchParams({
+    offset: offset.toString(),
+    limit: limit.toString(),
+  });
+
+  const url = BASE_URL + SpotifyEndpoints.SHOWS + "?" + searchParams.toString();
+  return await getJson(url, {
     headers: {
       Authorization: `${token_type} ${access_token}`,
     },
