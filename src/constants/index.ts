@@ -25,13 +25,8 @@ export const navigation = {
       href: "/uses",
     },
     {
-      name: "Community wall",
-      href: "/community-wall",
-    },
-    {
       name: "Source",
-      // TODO: add source code link
-      href: "https://github.com/ali4heydari",
+      href: "https://github.com/ali4heydari/ali4heydari.tech",
     },
     {
       name: "RSS",
@@ -42,14 +37,6 @@ export const navigation = {
     {
       name: "Music taste",
       href: "/music-taste",
-    },
-    {
-      name: "Wish list",
-      href: "/wish-list",
-    },
-    {
-      name: "Gallery",
-      href: "/gallery",
     },
   ],
   socialMedias,
