@@ -8,22 +8,22 @@ import Link from "../../components/atoms/Link";
 const hardwares = [
   {
     name: "Apple MacBook pro M1 14 inch",
-    image: "/static/images/uses/hardware/apple-macbook-pro-m1-14inch.jpeg",
+    image: "/static/images/uses/hardware/apple-macbook-pro-m1-14inch.png",
     description: "16GB RAM, 512GB SSD",
   },
   {
     name: "Logitech MX Vertical",
-    image: "/static/images/uses/hardware/logitech-mx-vertical.webp",
+    image: "/static/images/uses/hardware/logitech-mx-vertical.png",
     description: "For MacBook",
   },
   {
     name: "Keychron K3 Mechanical Keyboard V2 (brown switches)",
-    image: "/static/images/uses/hardware/keychron-k3.webp",
+    image: "/static/images/uses/hardware/keychron-k3.png",
     description: "For MacBook",
   },
   {
     name: "Sony WF-1000XM4",
-    image: "/static/images/uses/hardware/sony-wf1000xm4.jpg",
+    image: "/static/images/uses/hardware/sony-wf1000xm4.png",
   },
   {
     name: "Mikrotik hAP ax3",
@@ -32,11 +32,11 @@ const hardwares = [
   },
   {
     name: "TSCO TS2189",
-    image: "/static/images/uses/hardware/tsco-ts2189.webp",
+    image: "/static/images/uses/hardware/tsco-ts2189.png",
   },
   {
     name: "Asus GL502VY",
-    image: "/static/images/uses/hardware/asus-gl502vy.jpg",
+    image: "/static/images/uses/hardware/asus-gl502vy.png",
     description: "CPU i7-6700HQ, 16GB RAM, 256GB SSD, 2TB HDD, GTX 980M",
   },
   {
@@ -55,7 +55,7 @@ const hardwares = [
   },
   {
     name: "LCD arm",
-    image: "/static/images/uses/hardware/lcd-arm.jpeg",
+    image: "/static/images/uses/hardware/lcd-arm.png",
     description: "For holding my monitors",
   },
 ];
@@ -292,16 +292,16 @@ const Uses = () => {
                 <p className="text-xs text-gray-500 dark:text-gray-400">
                   {software.description}
                 </p>
-                <div className="flex justify-center gap-2 flex-wrap">
+                <p className="flex justify-center gap-2 flex-wrap">
                   {software.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-xs text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-900 rounded-lg px-2 py-1 border border-gray-200 dark:border-gray-700"
+                      className="text-xs font-light text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-900 rounded-lg px-2 py-1 border border-gray-200 dark:border-gray-700"
                     >
                       {tag}
                     </span>
                   ))}
-                </div>
+                </p>
               </div>
             </div>
           </Link>
