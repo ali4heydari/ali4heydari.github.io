@@ -127,6 +127,9 @@ devDependencies:
   '@storybook/react':
     specifier: ^7.4.6
     version: 7.4.6(react-dom@18.2.0)(react@18.2.0)(supports-color@8.1.1)(typescript@5.2.2)
+  '@types/gtag.js':
+    specifier: ^0.0.16
+    version: 0.0.16
   '@types/loadable__component':
     specifier: ^5.13.4
     version: 5.13.5
@@ -5295,6 +5298,10 @@ packages:
     resolution: {integrity: sha512-MhzcwU8aUygZroVwL2jeYk6JisJrPl/oov/gsgGCue9mkgl9wjGbzReYQClxiUgFDnib9FuHqTndccKeZKxTRw==}
     dependencies:
       '@types/node': 20.8.6
+    dev: true
+
+  /@types/gtag.js@0.0.16:
+    resolution: {integrity: sha512-TefTCQWiQYc1F7zF7KKLOd5E645me+9CjfPwJLNxWxaTK3ITKmCxtHRVH7EhSo1dl+sVGmu2h2htCOZrjWQRrQ==}
     dev: true
 
   /@types/hast@2.3.6:

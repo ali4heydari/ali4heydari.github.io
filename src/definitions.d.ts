@@ -1,6 +1,3 @@
-export type ObjectType = Record<string, any>;
+import * as Gtag from "gtag.js";
 
-export interface SectionTitle {
-  title: string;
-  subtitle: string;
-}
+declare var gtag: Gtag.Gtag;

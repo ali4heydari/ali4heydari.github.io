@@ -11,6 +11,7 @@ import { Metadata } from "next";
 import MainLayout from "../layouts/MainLayout";
 import { getStaticMetadata } from "../utils/metadata";
 import { Meta } from "./meta";
+import GoogleAnalytics from "./GoogleAnalytics";
 
 export const metadata = {
   ...getStaticMetadata({
@@ -43,6 +44,8 @@ export default function RootLayout({
         <Meta />
       </head>
       <body>
+        {process.env.NODE_ENV === "production" && <GoogleAnalytics />}
+        <GoogleAnalytics />
         <Providers>
           <MainLayout>{children}</MainLayout>
         </Providers>
