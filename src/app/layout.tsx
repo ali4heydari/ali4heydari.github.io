@@ -12,6 +12,7 @@ import MainLayout from "../layouts/MainLayout";
 import { getStaticMetadata } from "../utils/metadata";
 import { Meta } from "./meta";
 import GoogleAnalytics from "./GoogleAnalytics";
+import Hotjar from "./Hotjar";
 
 export const metadata = {
   ...getStaticMetadata({
@@ -45,6 +46,7 @@ export default function RootLayout({
       </head>
       <body>
         {process.env.NODE_ENV === "production" && <GoogleAnalytics />}
+        {process.env.NODE_ENV === "production" && <Hotjar />}
         <GoogleAnalytics />
         <Providers>
           <MainLayout>{children}</MainLayout>

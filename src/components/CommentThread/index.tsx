@@ -8,7 +8,7 @@ const CommentThread: React.FC<React.PropsWithChildren<any>> = (props) => {
   const pathname = usePathname();
   return (
     <DiscussionEmbed
-      shortname={siteConfig.DISCUSS_SHORTNAME}
+      shortname={siteConfig.DISCUSS_SHORTNAME || ""}
       config={{
         language: "en-US",
         url: pathname,
