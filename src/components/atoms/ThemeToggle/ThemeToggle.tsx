@@ -71,7 +71,7 @@ const ThemeToggle = () => {
         ),
       },
     ],
-    [systemTheme],
+    [],
   );
 
   return (
