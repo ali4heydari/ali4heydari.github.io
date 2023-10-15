@@ -66,17 +66,6 @@ const Project = defineDocumentType(() => ({
   computedFields,
 }));
 
-const Tool = defineDocumentType(() => ({
-  name: "Tool",
-  filePathPattern: "tools/**/*.mdx",
-  bodyType: "mdx",
-  fields: {
-    title: { type: "string", required: true },
-    subtitle: { type: "string", required: true },
-  },
-  computedFields,
-}));
-
 const Experience = defineDocumentType(() => ({
   name: "Experience",
   filePathPattern: "experiences/**/*.mdx",
@@ -86,6 +75,20 @@ const Experience = defineDocumentType(() => ({
     position: { type: "string", required: true },
     startDate: { type: "string", required: true },
     endDate: { type: "string", required: true },
+    tags: {
+      type: "list",
+      default: [],
+      of: {
+        type: "string",
+      },
+    },
+    stack: {
+      type: "list",
+      default: [],
+      of: {
+        type: "string",
+      },
+    },
   },
   computedFields,
 }));
@@ -105,13 +108,13 @@ const Education = defineDocumentType(() => ({
 
 const contentLayerConfig = makeSource({
   contentDirPath: "_markdowns",
-  documentTypes: [Blog, Project, Tool, Experience, Education],
+  documentTypes: [Blog, Project, Experience, Education],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       rehypeCodeTitles,
-      // @ts-ignore
+      // @ts-expect-error
       rehypePrism,
       [
         rehypeAutolinkHeadings,
