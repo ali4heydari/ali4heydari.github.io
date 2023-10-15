@@ -1,8 +1,8 @@
-import Container from "src/components/Container";
 import TitleSection from "src/components/TitleSection";
 import React from "react";
 import Timeline from "../../components/Timeline";
 import type { Experience } from ".contentlayer/generated";
+import { TimelineProps } from "../../components/Timeline/@types";
 
 const Educations: React.FC<
   React.PropsWithChildren<{
@@ -11,19 +11,23 @@ const Educations: React.FC<
   }>
 > = ({ allExperiences, rootClassName }) => {
   const events = allExperiences
-    .map(
+    .map<TimelineProps["events"][number]>(
       ({
         position: subtitle,
         company: title,
         startDate,
         endDate,
         body: { html },
+        stack,
+        tags,
       }) => ({
         title,
         subtitle,
         startDate,
         endDate,
         children: <div dangerouslySetInnerHTML={{ __html: html }} />,
+        topTags: tags,
+        bottomTags: stack,
       }),
     )
     .reverse();

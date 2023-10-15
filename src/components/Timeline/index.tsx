@@ -32,7 +32,7 @@ const Timeline = ({ events, wrapperClassName }: TimelineProps) => {
           bottomTags,
         } = event;
         return (
-          <li key={title} className="mb-10 ml-4 text-gray-900 dark:text-white">
+          <li key={index} className="mb-10 ml-4 text-gray-900 dark:text-white">
             <div
               className={
                 "absolute -left-2 mt-0.6 h-4 w-4 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
