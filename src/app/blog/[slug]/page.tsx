@@ -6,6 +6,7 @@ import CommentThread from "../../../components/CommentThread";
 import { buildOgImageUrl } from "../../../utils/opengraph";
 import { getStaticMetadata } from "../../../utils/metadata";
 import Image from "next/image";
+import { baseUrl } from "../../../constants";
 
 export async function generateMetadata({
   params,
@@ -112,6 +113,12 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
               </div>
             </div>
           </article>
+          <CommentThread
+            title={blog.title}
+            identifier={blog.slug}
+            url={`${baseUrl}/blog/${blog.slug}`}
+            language="en"
+          />
         </div>
       </main>
     </>

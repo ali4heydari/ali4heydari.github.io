@@ -15,6 +15,7 @@ const Template: StoryFn<typeof CommentThread> = (args) => (
 export const Primary = Template.bind({});
 
 Primary.args = {
-  href: "https://example.com",
-  children: "this in children",
+  url: "https://ali4heydari.tech/blog/nextjs-redirects",
+  identifier: "nextjs-redirects",
+  title: "Next.js Redirects",
 };
