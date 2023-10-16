@@ -63,7 +63,7 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
               className="mb-5 rounded-lg object-cover sm:h-64"
             />
             <header className="mb-4 lg:mb-6">
-              <address className="flex items-center mb-6 not-italic">
+              <address className="flex items-center mb-6 not-italic justify-between">
                 <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
                   <Image
                     width={64}
@@ -81,7 +81,9 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                     </p>
                     <p className="text-base text-gray-500 dark:text-gray-400">
                       <time
-                        dateTime={blog.publishedAt.split("T")[0]}
+                        dateTime={
+                          new Date(blog.publishedAt).toISOString().split("T")[0]
+                        }
                         title={publishDateText}
                       >
                         {publishDateText}
@@ -89,6 +91,7 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                     </p>
                   </div>
                 </div>
+                <p>⏳ {blog.readingTime.text}</p>
               </address>
             </header>
             <div

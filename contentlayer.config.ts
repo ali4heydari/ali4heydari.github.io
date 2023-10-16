@@ -32,6 +32,10 @@ const Blog = defineDocumentType(() => ({
     publishedAt: { type: "string", required: true },
     summary: { type: "string", required: true },
     cover: { type: "string", required: true },
+    readingTime: { type: "json" },
+    wordCount: {
+      type: "number",
+    },
     tags: {
       type: "list",
       default: [],
@@ -55,6 +59,10 @@ const Project = defineDocumentType(() => ({
     startDate: { type: "string", required: true },
     endDate: { type: "string" },
     published: { type: "boolean" },
+    readingTime: { type: "json" },
+    wordCount: {
+      type: "number",
+    },
     tags: {
       type: "list",
       default: [],
