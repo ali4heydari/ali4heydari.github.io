@@ -37,7 +37,7 @@ const BlogPage: NextPage = () => {
             <div className="w-2/3 flex flex-col justify-between">
               <div>
                 <h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
-                  <Link href={`/projects/${slug}`}>{title}</Link>
+                  <Link href={`/blog/${slug}`}>{title}</Link>
                 </h2>
                 <p className="mb-4 text-gray-500 dark:text-gray-400">
                   {summary}
@@ -54,7 +54,7 @@ const BlogPage: NextPage = () => {
                 ))}
               </div>
             </div>
-            <Link href={`/projects/${slug}`} className="">
+            <Link href={`/blog/${slug}`} className="">
               <img
                 src={cover}
                 className="mb-5 rounded-lg object-cover sm:h-64"
