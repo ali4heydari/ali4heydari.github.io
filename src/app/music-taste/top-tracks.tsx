@@ -5,6 +5,8 @@ import useMasterQuery from "../../hooks/useMasterQuery";
 import { getJson } from "../../utils";
 import { baseUrl } from "../../constants";
 import Image from "next/image";
+import classNames from "classnames";
+import { twMerge } from "tailwind-merge";
 
 const TopTracks = () => {
   const [timeRange, setTimeRange] = useState("short_term");
@@ -27,26 +29,50 @@ const TopTracks = () => {
       <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl p-3">
         Top Tracks
       </h2>
+      <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
+        These are my top tracks on Spotify. I listen to music while I&#39;m
+        working, I&#39;m a big fan of Instrumental music, and I mostly listen to
+        them while I&#39;m working. I also listen to Pop, Rock, Metal,
+        Alternative, classical/traditional Persian music, and sometimes Rap.
+      </p>
       <div className="flex justify-center mb-4">
         <div className="inline-flex rounded-md shadow-sm" role="group">
           <button
             type="button"
             onClick={() => setTimeRange("short_term")}
-            className="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-l-lg hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
+            className={twMerge(
+              "px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-l-lg",
+              "hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white",
+              "dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700",
+              timeRange === "short_term" &&
+                "bg-gray-500 text-white dark:bg-gray-700",
+            )}
           >
             Short Term
           </button>
           <button
             type="button"
             onClick={() => setTimeRange("medium_term")}
-            className="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-gray-900 hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
+            className={twMerge(
+              "px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border-t border-b border-gray-900",
+              "hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white",
+              "dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700",
+              timeRange === "medium_term" &&
+                "bg-gray-500 text-white dark:bg-gray-700",
+            )}
           >
             Medium Term
           </button>
           <button
             type="button"
             onClick={() => setTimeRange("long_term")}
-            className="px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-r-md hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500 focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700"
+            className={twMerge(
+              "px-4 py-2 text-sm font-medium text-gray-900 bg-transparent border border-gray-900 rounded-r-md",
+              "hover:bg-gray-900 hover:text-white focus:z-10 focus:ring-2 focus:ring-gray-500",
+              "focus:bg-gray-900 focus:text-white dark:border-white dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:bg-gray-700",
+              timeRange === "long_term" &&
+                "bg-gray-500 text-white dark:bg-gray-700",
+            )}
           >
             Long Term
           </button>

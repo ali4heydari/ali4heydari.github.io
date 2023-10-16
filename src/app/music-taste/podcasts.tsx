@@ -26,6 +26,15 @@ const Podcasts = () => {
       <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl p-3">
         Podcasts
       </h2>
+      <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
+        I&#39;m enthusiastic about podcasts. Podcasts are a great way to learn
+        new things and get inspired. Listening to podcasts helps me to learn
+        none-tech stuff and get inspired by other people&#39;s stories. Apart
+        from Tech, I mostly like History, Science, Psychology, and Economics
+        podcasts. I listen to podcasts while I&#39;m working, driving, or doing
+        chores. Here is a list of podcasts that I followed on Spotify. Do you
+        have any podcasts to recommend? 🤔
+      </p>
       <div className="grid gap-6 lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pb-2 mb-3">
         {(showsData?.data ?? new Array(10).fill(null)).map((show, index) =>
           isLoadingShows ? (
