@@ -55,6 +55,13 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
       <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 antialiased">
         <div className="flex justify-between px-4 mx-auto max-w-screen-xl">
           <article className="mx-auto w-full">
+            <Image
+              src={blog.cover}
+              alt={blog.title}
+              width={1200}
+              height={1000}
+              className="mb-5 rounded-lg object-cover sm:h-64"
+            />
             <header className="mb-4 lg:mb-6">
               <address className="flex items-center mb-6 not-italic">
                 <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
