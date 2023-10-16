@@ -1,0 +1,147 @@
+---
+title: "Setup your development environment on your new Windows machine"
+publishedAt: "2023-10-15"
+summary: "Automate installing applications and tools on your new Windows machine using Winget"
+cover: "/static/images/_markdowns/blog/setup-your-dev-env-on-your-new-windows/cover.png"
+tags: ["Windows", "Winget", "Chocolatey", "Automation"]
+---
+
+# Setup your development environment on your new Windows machine
+
+Installing new applications and tools for first time after you buy a new Windows machine or reinstalled it's OS is a tedious task. 
+You have to go to each application's website, download the installer, run it, and follow the installation wizard (Next, Next, Next, ... 🥴).
+This process is time consuming and boring, However, it's a must do task not only for developers but for any user. 
+Microsoft has introduced a new package manager called [Winget](https://learn.microsoft.com/en-US/windows/package-manager/winget/) to automate this process.
+
+
+## What is Winget?
+
+Here is a quick guide to get you started with Winget.
+
+- [Windows Package Manager](https://docs.microsoft.com/windows/package-manager/) (aka WinGet) comes pre-installed with Windows 11 (21H2 and later). 
+It can also be found in the [Microsoft Store](https://www.microsoft.com/p/app-installer/9nblggh4nns1) or be [installed directly](ms-appinstaller:?source=https://aka.ms/getwinget).
+
+- `winget list` shows all the applications that you currently have installed on your machine.
+- `winget search <app-name>` searches for an application in the winget repository. You can use this command to find the exact name of the application you want to install.
+- `winget install <app-name>` installs the application. You can use this command to install any application from the winget repository.
+- `winget export` exports the list of all installed applications to a JSON file. This can be helpful if you want to see what you have installed if you are planning to reinstall your OS
+or buy a new machine.
+
+You can install each app individually using the `winget install` command, but that's not the best way to do it if you have a long list of applications to install.
+You can create a PowerShell script to automate the installation process.
+
+### Option 1: export and import
+If you already have a windows machine with all the applications you need installed, you can export the list of installed applications using the `winget export` command.
+```powershell
+# export the list of installed applications to a JSON file
+winget export -o apps.json
+```
+
+This will create a JSON file with the list of all installed applications. You can use this file to install the same applications on another machine.
+
+```powershell
+# install all applications from the JSON file
+winget import -i apps.json
+```
+ Here you go, all your applications are installed on your new machine!
+
+### Option 2: create a PowerShell script
+If you don't have a machine with all the applications you need installed, you can create a PowerShell script to install all the applications you need.
+Here is a sample script that installs some of the applications I use on my machine.
+
+```powershell
+Write-Output "`e[1;33mInstalling Apps`e[0m"
+
+$apps = @(
+# browsers
+"Microsoft.Edge"
+"Google.Chrome"
+"Mozilla.Firefox.DeveloperEdition"
+"ResponsivelyApp.ResponsivelyApp"
+
+# General apps
+"RARLab.WinRAR"
+"Spotify.Spotify"
+"AnyDeskSoftwareGmbH.AnyDesk"
+"OBSProject.OBSStudio"
+"Valve.Steam"
+"ElaborateBytes.VirtualCloneDrive"
+"Logitech.GHUB"
+"Tonec.InternetDownloadManager"
+"Cisco.Jabber"
+"voidtools.Everything"
+"Adobe.Acrobat.Reader.64-bit"
+"VideoLAN.VLC"
+"Rufus.Rufus"
+"Inkscape.Inkscape"
+"WinDirStat.WinDirStat"
+"Blueberry.FlashbackExpress"
+
+# VPNs
+"Windscribe.Windscribe"
+"Fortinet.FortiClientVPN"
+"NordVPN.NordVPN"
+"OpenVPNTechnologies.OpenVPNConnect"
+"TorProject.TorBrowser"
+"Initex.Proxifier"
+
+# Messengers
+"Telegram.TelegramDesktop"
+"Discord.Discord"
+"Microsoft.Teams"
+"SlackTechnologies.Slack"
+"Zoom.Zoom"
+"WhatsApp.WhatsApp"
+
+# IDEs
+"Notepad++.Notepad++"
+"Microsoft.VisualStudioCode"
+"JetBrains.WebStorm"
+"JetBrains.Rider"
+"Microsoft.VisualStudio.2022.Community"
+"JetBrains.ReSharper"
+"JetBrains.Toolbox"
+
+# Programming languages
+"OpenJS.NodeJS.LTS"
+"Microsoft.dotnet"
+"Python.Python.3"
+"Oracle.JDK.17"
+
+# Dev tools
+"Meld.Meld"
+"Git.Git"
+"SysInternals"
+"Microsoft.PowerShell"
+"Yarn.Yarn"
+"Postman.Postman"
+"Microsoft.WindowsTerminal"
+"Microsoft.PowerToys"
+"Canonical.Ubuntu.2004"
+"Oracle.VirtualBox"
+"Docker.DockerDesktop"
+"Telerik.Fiddler.Classic"
+"Ookla.Speedtest"
+
+# Office tools
+"Microsoft.Office"
+"Microsoft.OneDrive"
+"Grammarly.ForWindows"
+"Grammarly.ForOffice"
+"Notion.Notion"
+)
+
+foreach ($app in $apps) {
+    $listApp = winget list --exact -q $app
+
+    if (![String]::Join("", $listApp).Contains($app)) {
+        Write-Host "`e[1;32mInstalling: $app`e[0m"
+        winget install -e -h --accept-source-agreements --accept-package-agreements --id $app 
+    } else {
+        Write-Host "`e[1;34mSkipping: $app (already installed)`e[0m"
+    }
+}
+
+```
+
+Tada! All your applications are installed on your new machine!
