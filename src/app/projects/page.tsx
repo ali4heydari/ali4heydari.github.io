@@ -40,7 +40,7 @@ const ProjectsPage: NextPage = () => {
             href={`/projects/${project.slug}`}
             className="border-2 border-gray-200 dark:border-gray-700 rounded-lg p-5 hover:border-gray-400 dark:hover:border-gray-500 transition-colors duration-200"
           >
-            <article className="w-full flex justify-between">
+            <article className="w-full flex flex-col-reverse lg:flex-row justify-between">
               <div className="w-2/3 flex flex-col justify-between">
                 <div>
                   <h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
