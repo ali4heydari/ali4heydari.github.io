@@ -3,39 +3,39 @@ import { socialMedias } from "./socialMedias";
 export const navigation = {
   primary: [
     {
-      name: "Home",
+      name: "🏠 Home",
       href: "/",
     },
     {
-      name: "About",
+      name: "👨🏻‍💻 About",
       href: "/about",
     },
     {
-      name: "Blog",
+      name: "📝 Blog",
       href: "/blog",
     },
     {
-      name: "Projects",
+      name: "💼 Projects",
       href: "/projects",
     },
   ],
   secondary: [
     {
-      name: "Uses",
+      name: "💻 Uses",
       href: "/uses",
     },
     {
-      name: "Source",
+      name: "🥚 Source",
       href: "https://github.com/ali4heydari/ali4heydari.tech",
     },
     {
-      name: "RSS",
+      name: "🔄 RSS",
       href: "/rss.xml",
     },
   ],
   tertiary: [
     {
-      name: "Music taste",
+      name: "🎧 Music taste",
       href: "/music-taste",
     },
   ],
