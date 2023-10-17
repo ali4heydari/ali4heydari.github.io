@@ -5,7 +5,7 @@ import { Dialog } from "@headlessui/react";
 import Bitmoji from "../atoms/Logo";
 import Link from "../atoms/Link";
 import { navigation } from "../../constants";
-import ThemeToggle from "../atoms/ThemeToggle";
+import ThemeSwitcher from "../atoms/ThemeSwitcher";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -44,7 +44,7 @@ const Header = () => {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <ThemeToggle />
+          <ThemeSwitcher />
         </div>
       </nav>
       <Dialog
@@ -104,7 +104,7 @@ const Header = () => {
             </div>
 
             <div className="py-6">
-              <ThemeToggle />
+              <ThemeSwitcher />
             </div>
           </div>
         </Dialog.Panel>

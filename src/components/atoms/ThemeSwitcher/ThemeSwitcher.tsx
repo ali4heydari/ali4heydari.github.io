@@ -2,8 +2,8 @@ import { twMerge } from "tailwind-merge";
 import { useTheme } from "next-themes";
 import { useMemo, type ChangeEventHandler } from "react";
 
-const ThemeToggle = () => {
-  const { theme, setTheme, systemTheme } = useTheme();
+const ThemeSwitcher = () => {
+  const { theme, setTheme } = useTheme();
 
   const themes = useMemo(
     () => [
@@ -29,27 +29,6 @@ const ThemeToggle = () => {
         ),
       },
       {
-        name: "Dark",
-        value: "dark",
-        svgIcon: (
-          <svg
-            height={16}
-            width={16}
-            viewBox="0 0 16 16"
-            className="mx-auto"
-            strokeLinejoin="round"
-            color="currentColor"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M5.82804 1.8717C3.30641 2.76542 1.5 5.17204 1.5 8.0001C1.5 11.5899 4.41015 14.5001 8 14.5001C10.8282 14.5001 13.2348 12.6936 14.1285 10.1718C13.3293 10.5427 12.4386 10.7499 11.5 10.7499C8.04822 10.7499 5.25 7.95172 5.25 4.49994C5.25 3.56144 5.45718 2.67078 5.82804 1.8717ZM0 8.0001C0 3.78268 3.26298 0.328073 7.40265 0.0220947L8.009 1.27881C7.22684 2.12601 6.75 3.25644 6.75 4.49994C6.75 7.12329 8.87665 9.24994 11.5 9.24994C12.7436 9.24994 13.8741 8.77304 14.7213 7.99079L15.978 8.59708C15.6722 12.7369 12.2175 16.0001 8 16.0001C3.58172 16.0001 0 12.4184 0 8.0001Z"
-              fill="currentColor"
-            />
-          </svg>
-        ),
-      },
-      {
         name: "System",
         value: "system",
         svgIcon: (
@@ -65,6 +44,27 @@ const ThemeToggle = () => {
               fillRule="evenodd"
               clipRule="evenodd"
               d="M0 2C0 1.44772 0.447715 1 1 1H15C15.5523 1 16 1.44772 16 2V10.5C16 11.0523 15.5523 11.5 15 11.5H8.75V14.5H9.75H10.5V16H9.75H6.25H5.5V14.5H6.25H7.25V11.5H1C0.447714 11.5 0 11.0523 0 10.5V2ZM1.5 2.5V10H14.5V2.5H1.5Z"
+              fill="currentColor"
+            />
+          </svg>
+        ),
+      },
+      {
+        name: "Dark",
+        value: "dark",
+        svgIcon: (
+          <svg
+            height={16}
+            width={16}
+            viewBox="0 0 16 16"
+            className="mx-auto"
+            strokeLinejoin="round"
+            color="currentColor"
+          >
+            <path
+              fillRule="evenodd"
+              clipRule="evenodd"
+              d="M5.82804 1.8717C3.30641 2.76542 1.5 5.17204 1.5 8.0001C1.5 11.5899 4.41015 14.5001 8 14.5001C10.8282 14.5001 13.2348 12.6936 14.1285 10.1718C13.3293 10.5427 12.4386 10.7499 11.5 10.7499C8.04822 10.7499 5.25 7.95172 5.25 4.49994C5.25 3.56144 5.45718 2.67078 5.82804 1.8717ZM0 8.0001C0 3.78268 3.26298 0.328073 7.40265 0.0220947L8.009 1.27881C7.22684 2.12601 6.75 3.25644 6.75 4.49994C6.75 7.12329 8.87665 9.24994 11.5 9.24994C12.7436 9.24994 13.8741 8.77304 14.7213 7.99079L15.978 8.59708C15.6722 12.7369 12.2175 16.0001 8 16.0001C3.58172 16.0001 0 12.4184 0 8.0001Z"
               fill="currentColor"
             />
           </svg>
@@ -100,4 +100,4 @@ const ThemeToggle = () => {
   );
 };
 
-export default ThemeToggle;
+export default ThemeSwitcher;
