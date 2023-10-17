@@ -1,18 +1,23 @@
-import React from "react";
+"use client";
 import useMasterQuery from "../../hooks/useMasterQuery";
 import { getJson } from "../../utils";
 import { baseUrl } from "../../constants";
-import Link from "../../components/atoms/Link";
-import Image from "next/image";
 import Card from "src/components/Card";
-import * as spotifyApi from "../../api/spotify";
 
-const Podcasts = async () => {
-  const { data } = await spotifyApi.getShows({
-    limit: 50,
-    offset: 0,
-  });
-
+const Podcasts = () => {
+  const { data: showsData, isLoading: isLoadingShows } = useMasterQuery(
+    ["/api/spotify/shows?limit=50"],
+    () =>
+      getJson<
+        {
+          image: string;
+          href: string;
+          name: string;
+          publisher: string;
+          description: string;
+        }[]
+      >(`${baseUrl}/api/spotify/shows?limit=50`),
+  );
   return (
     <div>
       <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl p-3">
@@ -28,14 +33,15 @@ const Podcasts = async () => {
         have any podcasts to recommend? 🤔
       </p>
       <div className="grid gap-6 lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-5 pb-2 mb-3">
-        {data.items.map(({ show }) => (
+        {(showsData?.data ?? new Array(10).fill(null)).map((show, index) => (
           <Card
-            key={show}
-            title={show.name}
-            subtitle={show.publisher}
-            imageSrc={show.images[0].url}
-            imageAlt={show.name}
-            href={show.external_urls.spotify}
+            key={index}
+            title={show?.name}
+            subtitle={show?.publisher}
+            imageSrc={show?.image}
+            imageAlt={show?.name}
+            href={show?.href}
+            loading={isLoadingShows}
           />
         ))}
       </div>
