@@ -129,7 +129,7 @@ export const getTopArtists = async ({
 export const getShows = async ({
   offset = 0,
   limit = 10,
-}: GetUsersTopItemsRequest) => {
+}: Omit<GetUsersTopItemsRequest, "time_range">) => {
   const {
     data: { access_token, token_type },
   } = await getAccessToken();
