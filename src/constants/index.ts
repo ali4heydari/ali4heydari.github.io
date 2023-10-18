@@ -1,42 +1,68 @@
 import { socialMedias } from "./socialMedias";
+import {
+  HomeIcon,
+  UserCircleIcon,
+  DocumentTextIcon,
+  BriefcaseIcon,
+  ComputerDesktopIcon,
+  CodeBracketIcon,
+  RssIcon,
+  MusicalNoteIcon,
+} from "@heroicons/react/24/solid";
 
 export const navigation = {
   primary: [
     {
-      name: "🏠 Home",
+      name: "Home",
       href: "/",
+      svgIcon: HomeIcon,
+      emojiIcon: "🏠",
     },
     {
-      name: "👨🏻‍💻 About",
+      name: "About",
       href: "/about",
+      svgIcon: UserCircleIcon,
+      emojiIcon: "👨🏻‍💻",
     },
     {
-      name: "📝 Blog",
+      name: "Blog",
       href: "/blog",
+      svgIcon: DocumentTextIcon,
+      emojiIcon: "📝",
     },
     {
-      name: "💼 Projects",
+      name: "Projects",
       href: "/projects",
+      svgIcon: BriefcaseIcon,
+      emojiIcon: "💼",
     },
   ],
   secondary: [
     {
-      name: "💻 Uses",
+      name: "Uses",
       href: "/uses",
+      svgIcon: ComputerDesktopIcon,
+      emojiIcon: "💻",
     },
     {
-      name: "🥚 Source",
+      name: "Source",
       href: "https://github.com/ali4heydari/ali4heydari.tech",
+      svgIcon: CodeBracketIcon,
+      emojiIcon: "🥚",
     },
     {
-      name: "🔄 RSS",
+      name: "RSS",
       href: "/rss.xml",
+      svgIcon: RssIcon,
+      emojiIcon: "🔄",
     },
   ],
   tertiary: [
     {
-      name: "🎧 Music taste",
+      name: "Music taste",
       href: "/music-taste",
+      svgIcon: MusicalNoteIcon,
+      emojiIcon: "🎧",
     },
   ],
   socialMedias,
