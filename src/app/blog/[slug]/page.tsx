@@ -7,6 +7,7 @@ import { buildOgImageUrl } from "../../../utils/opengraph";
 import { getStaticMetadata } from "../../../utils/metadata";
 import Image from "next/image";
 import { baseUrl } from "../../../constants";
+import WebShare from "../../../components/Webshare/Webshare";
 
 export async function generateMetadata({
   params,
@@ -64,7 +65,7 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
               className="mb-5 rounded-lg object-cover sm:h-64"
             />
             <header className="mb-4 lg:mb-6">
-              <address className="flex items-center mb-6 not-italic justify-between">
+              <address className="flex flex-wrap items-center mb-6 not-italic justify-end sm:justify-between">
                 <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
                   <Image
                     width={64}
@@ -80,19 +81,32 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                     >
                       Ali Heydari
                     </p>
-                    <p className="text-base text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
                       <time
+                        className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 inline-flex items-center rounded-lg"
                         dateTime={
                           new Date(blog.publishedAt).toISOString().split("T")[0]
                         }
                         title={publishDateText}
                       >
-                        {publishDateText}
+                        🗓 {publishDateText}
                       </time>
+
+                      <p className="text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 rounded-lg px-2 py-0.5 inline-flex items-center ml-2">
+                        ⏳ {blog.readingTime.text}
+                      </p>
                     </p>
                   </div>
                 </div>
-                <p>⏳ {blog.readingTime.text}</p>
+                <div className="lg:h-10 lg:w-10 w-8 h-8">
+                  <WebShare
+                    data={{
+                      title: blog.title,
+                      text: `Checkout ${blog.title} by Ali Heydari`,
+                      url: `${baseUrl}/blog/${blog.slug}`,
+                    }}
+                  />
+                </div>
               </address>
             </header>
             <div
