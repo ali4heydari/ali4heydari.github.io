@@ -47,7 +47,7 @@ winget import -i apps.json
 
 ### Option 2: create a PowerShell script
 If you don't have a machine with all the applications you need installed, you can create a PowerShell script to install all the applications you need.
-Here is a sample script that installs some of the applications I use on my machine.
+Here is my script that installs some of the applications I use on my machine.
 
 ```powershell
 Write-Output "`e[1;33mInstalling Apps`e[0m"
@@ -143,5 +143,6 @@ foreach ($app in $apps) {
 }
 
 ```
+Save this script as `install-apps.ps1` and run it using PowerShell.
 
 Tada! All your applications are installed on your new machine!
