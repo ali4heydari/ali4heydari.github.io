@@ -16,7 +16,7 @@ const Header = () => {
         className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
         aria-label="Global"
       >
-        <div className="flex lg:flex-1">
+        <div className="flex h-8 w-8 lg:h-15 lg:w-15 lg:flex-1">
           <Bitmoji />
         </div>
         <div className="flex lg:hidden">
