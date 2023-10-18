@@ -100,7 +100,7 @@ const buildFeed = (posts: Array<ReturnType<typeof getAllPostRssData>>) => {
 const defaultChannel = {
   "atom:link": {
     _attr: {
-      href: "https://ali4heydari.tech/rss.xml",
+      href: "https://ali4heydari.tech/feed.xml",
       rel: "self",
       type: "application/rss+xml",
     },

@@ -52,7 +52,7 @@ export const navigation = {
     },
     {
       name: "RSS",
-      href: "/rss.xml",
+      href: "/feed.xml",
       svgIcon: RssIcon,
       emojiIcon: "🔄",
     },
