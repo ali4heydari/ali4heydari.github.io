@@ -2,9 +2,12 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-const Logo = () => {
+export type LogoProps = {
+  className?: string;
+};
+const Logo = ({ className }: LogoProps) => {
   return (
-    <Link href="/">
+    <Link className={className} href="/">
       <Image
         src="/static/images/site/ali4heydari/bitmoji.png"
         alt="Animoji representation of Ali Heydari"
