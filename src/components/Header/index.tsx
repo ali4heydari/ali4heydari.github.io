@@ -82,6 +82,7 @@ const Header = () => {
                           onClick={() => setMobileMenuOpen(false)}
                           className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 border border-gray-300"
                         >
+                          <item.svgIcon className="w-6 h-6 mr-2 inline-block" />
                           {item.name}
                         </Link>
                       ))}
@@ -94,6 +95,7 @@ const Header = () => {
                           onClick={() => setMobileMenuOpen(false)}
                           className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 border border-gray-300"
                         >
+                          <item.svgIcon className="w-6 h-6 mr-2 inline-block" />
                           {item.name}
                         </Link>
                       ))}

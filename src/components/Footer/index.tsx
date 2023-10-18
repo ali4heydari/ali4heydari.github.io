@@ -25,6 +25,7 @@ const Footer = ({}: FooterProps) => {
                 {navigation.primary.map((it) => (
                   <li key={it.name}>
                     <Link href={it.href} className="hover:underline">
+                      <it.svgIcon className="w-4 h-4 mr-2 inline-block" />
                       {it.name}
                     </Link>
                   </li>
@@ -39,6 +40,7 @@ const Footer = ({}: FooterProps) => {
                 {navigation.secondary.map((it) => (
                   <li key={it.name}>
                     <Link href={it.href} className="hover:underline">
+                      <it.svgIcon className="w-4 h-4 mr-2 inline-block" />
                       {it.name}
                     </Link>
                   </li>
@@ -53,6 +55,7 @@ const Footer = ({}: FooterProps) => {
                 {navigation.tertiary.map((it) => (
                   <li key={it.name}>
                     <Link href={it.href} className="hover:underline">
+                      <it.svgIcon className="w-4 h-4 mr-2 inline-block" />
                       {it.name}
                     </Link>
                   </li>
