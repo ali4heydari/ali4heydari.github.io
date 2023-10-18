@@ -102,7 +102,7 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                   <WebShare
                     data={{
                       title: blog.title,
-                      text: `Checkout ${blog.title} by Ali Heydari`,
+                      text: `Checkout "${blog.title}" by "Ali Heydari"\n`,
                       url: `${baseUrl}/blog/${blog.slug}`,
                     }}
                   />
