@@ -64,3 +64,13 @@ export const colorMetaTags = [
   "msapplication-navbutton-color",
   "apple-mobile-web-app-status-bar-style",
 ];
+
+export const viewportMetaTags = [
+  "width=device-width",
+  "initial-scale=1.0",
+  "minimum-scale=1.0",
+  "maximum-scale=1.0",
+  "user-scalable=no",
+  "height=device-height",
+  "target-densitydpi=device-dpi",
+];
