@@ -32,7 +32,7 @@ const BlogPage: NextPage = () => {
   return (
     <section>
       {!!allBlogs.length && <TitleSection center>Blog posts</TitleSection>}
-      <div className="grid gap-20 sm:grid-cols-2 my-10">
+      <div className="grid gap-20 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  my-10">
         {allBlogs.map((blog) => {
           const publishDateText = new Date(blog.publishedAt).toLocaleDateString(
             "en-US",
@@ -46,7 +46,7 @@ const BlogPage: NextPage = () => {
           return (
             <article
               key={blog.title}
-              className="max-w-xs border rounded-lg border-gray-200 dark:border-gray-700 p-5 hover:shadow-xl transition-shadow duration-200 dark:hover:bg-gray-800"
+              className="w-full border rounded-lg border-gray-200 dark:border-gray-700 p-5 hover:shadow-xl transition-shadow duration-200 dark:hover:bg-gray-800"
             >
               <Link title={blog.title} href={`/blog/${blog.slug}`}>
                 <Image
