@@ -8,6 +8,7 @@ import { getStaticMetadata } from "../../../utils/metadata";
 import Image from "next/image";
 import { baseUrl } from "../../../constants";
 import WebShare from "../../../components/Webshare/Webshare";
+import { Mdx } from "../../../components/Mdx/Mdx";
 
 export async function generateMetadata({
   params,
@@ -109,10 +110,11 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                 </div>
               </address>
             </header>
-            <div
-              className="prose max-w-full dark:prose-invert"
-              dangerouslySetInnerHTML={{ __html: blog.body.html }}
-            />
+            <Mdx code={blog.body.code} />
+            {/*<div*/}
+            {/*  className="prose max-w-full dark:prose-invert"*/}
+            {/*  dangerouslySetInnerHTML={{ __html: blog.body.html }}*/}
+            {/*/>*/}
             <div className="text-center mt-5">
               <p>Tags:</p>
               <div className="flex flex-wrap gap-2 pb-3 justify-center">

@@ -10,6 +10,8 @@ import rehypeSlug from "rehype-slug";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrism from "rehype-prism-plus";
+import rehypeToc from "@jsdevtools/rehype-toc";
+import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
 const computedFields: ComputedFields = {
   readingTime: { type: "json", resolve: (doc) => readingTime(doc.body.raw) },
@@ -26,7 +28,7 @@ const computedFields: ComputedFields = {
 const Blog = defineDocumentType(() => ({
   name: "Blog",
   filePathPattern: "blog/*.mdx",
-  bodyType: "mdx",
+  contentType: "mdx",
   fields: {
     title: { type: "string", required: true },
     publishedAt: { type: "string", required: true },
@@ -50,7 +52,7 @@ const Blog = defineDocumentType(() => ({
 const Project = defineDocumentType(() => ({
   name: "Project",
   filePathPattern: "projects/**/*.mdx",
-  bodyType: "mdx",
+  contentType: "mdx",
   fields: {
     category: { type: "string", required: true },
     cover: { type: "string", required: true },
@@ -122,6 +124,9 @@ const contentLayerConfig = makeSource({
     rehypePlugins: [
       rehypeSlug,
       rehypeCodeTitles,
+      rehypeAccessibleEmojis,
+      // @ts-expect-error
+      rehypeToc,
       // @ts-expect-error
       rehypePrism,
       [
