@@ -18,7 +18,7 @@ The project had 3 main applications:
 
 It had a few other projects that were used by the main applications.
 
-## Dockerfile
+## Write Dockerfile
 I decided to use a multi-stage Dockerfile to build the application.
 The first stage is to build the application and the second stage is to run the application.
 
@@ -26,7 +26,7 @@ The first stage is to build the application and the second stage is to run the a
 As I mentioned, the project contains a Web Application (ASP.NET MVC), A Web API (ASP.NET Web API) and a Windows Service (Console Application).
 In this article, I will explain how to write a Dockerfile for the Web Application (ASP.NET MVC). 
 
-#### Step 1: Create builder image
+#### Step 1: Write builder stage
 The first stage is to build the Web Application and Web API.
 1. I used the `mcr.microsoft.com/dotnet/framework/sdk:4.8` image to build the application.
 
@@ -123,7 +123,7 @@ RUN msbuild.exe MONSTER.Web\MONSTER.Web.csproj \
 
 Boom! We have a build! Now let's create the runtime image.
 
-### Step 2: Create the runtime image
+#### Step 2: Write runner stage
 
 1. I used the `mcr.microsoft.com/dotnet/framework/runtime:4.8-20220712-windowsservercore-ltsc2019` image as the base image for the runtime image.
 
@@ -334,7 +334,7 @@ docker run \
 monster-web:1.0.0
 ```
 
-### Step 5: Test the container
+#### Test the container
 Now you can test the container by navigating to http://localhost:8080 in your browser.
 
 You are done! I hope you enjoyed this tutorial. If you have any questions or comments please feel free to contact me.
