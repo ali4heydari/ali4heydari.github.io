@@ -5,3 +5,7 @@
 html [lang^="fa"] {
   font-family: Vazirmatn, serif;
 }
+
+.mdx-article {
+  @apply prose max-w-full dark:prose-invert;
+}

@@ -10,7 +10,6 @@ import {
 } from "@ngneat/falso";
 
 import Timeline from "../Timeline";
-import MdxRenderer from "../MdxRenderer";
 
 export default {
   title: "Molecules/Timeline",
