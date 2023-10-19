@@ -1,0 +1,340 @@
+---
+title: "Write Dockerfile for traditional ASP.NET Apps (Part 1)"
+publishedAt: "2023-10-19"
+summary: "How to write multi-staged Dockerfile for traditional ASP.NET apps with best practices (Part 1). A real world example."
+cover: "/static/images/_markdowns/blog/write-dockerfile-for-traditional-asp-dot-net-apps/cover.jpeg"
+tags: ["Windows", "Docker", "ASP.NET"]
+---
+
+# Write Dockerfile for Traditional ASP.NET Apps
+I was working on a project that was using traditional ASP.NET. 
+The project was using a lot of third-party and In-house libraries/projects and it was a bit hard to maintain. 
+I decided to containerize the application and use Docker to run it.
+
+The project had 3 main applications:
+1. Web Application (ASP.NET MVC)
+2. Web API (ASP.NET Web API)
+3. Windows Service (Console Application)
+
+It had a few other projects that were used by the main applications.
+
+## Dockerfile
+I decided to use a multi-stage Dockerfile to build the application.
+The first stage is to build the application and the second stage is to run the application.
+
+### Web Application (ASP.NET MVC)
+As I mentioned, the project contains a Web Application (ASP.NET MVC), A Web API (ASP.NET Web API) and a Windows Service (Console Application).
+In this article, I will explain how to write a Dockerfile for the Web Application (ASP.NET MVC). 
+
+#### Step 1: Create builder image
+The first stage is to build the Web Application and Web API.
+1. I used the `mcr.microsoft.com/dotnet/framework/sdk:4.8` image to build the application.
+
+```dockerfile
+FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS builder
+```
+
+2. Define the working directory and all needed arguments like credentials and build configuration.
+```dockerfile
+WORKDIR /app/source
+
+ARG NEXUS_NUGET_REPO_URL=https://registry.company.com
+ARG NEXUS_USERNAME
+ARG NEXUS_PASSWORD
+ARG DOTNET_BUILD_CONFIGURATION=Release
+ARG DOTNET_BUILD_ID=1.0.0
+```
+
+3. Copy the solution file to the working directory.
+```dockerfile
+COPY [ "MONSTER.sln", "MONSTER.sln"]
+```
+
+4. Copy the `packages.config` and `.csproj` files to the working directory. before installing dependencies.
+This will help Docker to cache the dependencies and speed up the build process.
+
+```dockerfile
+COPY [ "MONSTER.API/packages.config", "MONSTER.API/packages.config"]
+COPY [ "MONSTER.ApplicationServices/packages.config", "MONSTER.ApplicationServices/packages.config"]
+COPY [ "MONSTER.ConsoleService/packages.config", "MONSTER.ConsoleService/packages.config"]
+COPY [ "MONSTER.DomainContracts/packages.config", "MONSTER.DomainContracts/packages.config"]
+COPY [ "MONSTER.DomainServices/packages.config", "MONSTER.DomainServices/packages.config"]
+COPY [ "MONSTER.DTOs/packages.config", "MONSTER.DTOs/packages.config"]
+COPY [ "MONSTER.Entites/packages.config", "MONSTER.Entites/packages.config"]
+COPY [ "MONSTER.ExternalAPIs/packages.config", "MONSTER.ExternalAPIs/packages.config"]
+COPY [ "MONSTER.Framework/packages.config", "MONSTER.Framework/packages.config"]
+COPY [ "MONSTER.NinjectInitializer/packages.config", "MONSTER.NinjectInitializer/packages.config"]
+COPY [ "MONSTER.Persistence/packages.config", "MONSTER.Persistence/packages.config"]
+COPY [ "MONSTER.ProcessManagerService/packages.config", "MONSTER.ProcessManagerService/packages.config"]
+COPY [ "MONSTER.Test/packages.config", "MONSTER.Test/packages.config"]
+COPY [ "MONSTER.Web/packages.config", "MONSTER.Web/packages.config"]
+
+COPY [ "MONSTER.API/MONSTER.API.csproj", "MONSTER.API/MONSTER.API.csproj"]
+COPY [ "MONSTER.ApplicationServices/MONSTER.ApplicationServices.csproj", "MONSTER.ApplicationServices/MONSTER.ApplicationServices.csproj"]
+COPY [ "MONSTER.ConsoleService/MONSTER.ConsoleService.csproj", "MONSTER.ConsoleService/MONSTER.ConsoleService.csproj"]
+COPY [ "MONSTER.ContactCenterMonitor/MONSTER.ContactCenterMonitor.csproj", "MONSTER.ContactCenterMonitor/MONSTER.ContactCenterMonitor.csproj"]
+COPY [ "MONSTER.DomainContracts/MONSTER.DomainContracts.csproj", "MONSTER.DomainContracts/MONSTER.DomainContracts.csproj"]
+COPY [ "MONSTER.DomainServices/MONSTER.DomainServices.csproj", "MONSTER.DomainServices/MONSTER.DomainServices.csproj"]
+COPY [ "MONSTER.DTOs/MONSTER.DTOs.csproj", "MONSTER.DTOs/MONSTER.DTOs.csproj"]
+COPY [ "MONSTER.Entites/MONSTER.Entities.csproj", "MONSTER.Entites/MONSTER.Entities.csproj"]
+COPY [ "MONSTER.ExternalAPIs/MONSTER.ExternalAPIs.csproj", "MONSTER.ExternalAPIs/MONSTER.ExternalAPIs.csproj"]
+COPY [ "MONSTER.Framework/MONSTER.Framework.csproj", "MONSTER.Framework/MONSTER.Framework.csproj"]
+COPY [ "MONSTER.NinjectInitializer/MONSTER.Initializer.csproj", "MONSTER.NinjectInitializer/MONSTER.Initializer.csproj"]
+COPY [ "MONSTER.Persistence/MONSTER.Persistence.csproj", "MONSTER.Persistence/MONSTER.Persistence.csproj"]
+COPY [ "MONSTER.ProcessManagerService/MONSTER.ProcessManagerService.csproj", "MONSTER.ProcessManagerService/MONSTER.ProcessManagerService.csproj"]
+COPY [ "MONSTER.Resources/MONSTER.Resources.csproj", "MONSTER.Resources/MONSTER.Resources.csproj"]
+COPY [ "MONSTER.Test/MONSTER.Test.csproj", "MONSTER.Test/MONSTER.Test.csproj"]
+COPY [ "MONSTER.Web/MONSTER.Web.csproj", "MONSTER.Web/MONSTER.Web.csproj"]
+COPY [ "MONSTER.Web.Test.Integration/MONSTER.Web.Test.Integration.csproj", "MONSTER.Web.Test.Integration/MONSTER.Web.Test.Integration.csproj"]
+COPY [ "MONSTER.Web.Test.Unit/MONSTER.Web.Test.Unit.csproj", "MONSTER.Web.Test.Unit/MONSTER.Web.Test.Unit.csproj"]
+```
+
+5. (Optional) In that project I had to install the NuGet packages from a private repository. So I disabled the default NuGet repository and added the private repository.
+If you don't have a private repository, you can skip this step.
+```dockerfile
+RUN  nuget.exe sources Disable -Name nuget.org; \
+     nuget.exe sources Add -Name NexusNuget \ 
+     -Source $Env:NEXUS_NUGET_REPO_URL \
+     -UserName $Env:NEXUS_USERNAME \
+     -Password $Env:NEXUS_PASSWORD
+```
+
+6. Install the NuGet packages. you can combine this step with the previous step if you have a private repository to reduce the number of layers.
+```dockerfile
+RUN nuget.exe restore -Verbosity detailed MONSTER.sln
+```
+
+
+7. Copy the rest of the files to the working directory.
+
+```dockerfile
+COPY . .
+```
+
+8. Let's cook!👨‍🍳 Build the project using MSBuild. (msbuild.exe is already installed in the base image)
+
+```dockerfile
+RUN msbuild.exe MONSTER.Web\MONSTER.Web.csproj \
+ -p:Configuration=$env:DOTNET_BUILD_CONFIGURATION \
+ -p:Platform='Any CPU' \
+ -p:DeployOnBuild=true \
+ -p:OutputPath="C:\build-output"
+```
+
+Boom! We have a build! Now let's create the runtime image.
+
+### Step 2: Create the runtime image
+
+1. I used the `mcr.microsoft.com/dotnet/framework/runtime:4.8-20220712-windowsservercore-ltsc2019` image as the base image for the runtime image.
+
+
+```dockerfile
+FROM mcr.microsoft.com/dotnet/framework/runtime:4.8-20220712-windowsservercore-ltsc2019 AS runner
+```
+
+2. In a Dockerfile, `SHELL` is an instruction that sets the default shell used for subsequent instructions. 
+In this case, it sets the default shell to PowerShell and passes two arguments to it: `$ErrorActionPreference = 'Stop'` and `$ProgressPreference = 'SilentlyContinue'`.
+`$ErrorActionPreference` is a preference variable that determines how PowerShell responds to non-terminating errors.
+ Setting it to `'Stop'` means that PowerShell will treat non-terminating errors as terminating errors, which will cause the script to stop running.
+`$ProgressPreference` is another preference variable that determines how PowerShell displays progress information. 
+Setting it to `'SilentlyContinue'` means that PowerShell will suppress all progress information.
+
+```dockerfile
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+```
+
+
+3. Install the necessary Windows features, remove existing files, download ServiceMonitor.exe, and update the .NET Native Image Generator (NGEN)
+```dockerfile
+RUN Add-WindowsFeature Web-Server; \
+    Add-WindowsFeature NET-Framework-45-ASPNET; \
+    Add-WindowsFeature Web-Asp-Net45; \
+    Remove-Item -Recurse C:\inetpub\wwwroot\*; \
+    Invoke-WebRequest -Uri https://dotnetbinaries.blob.core.windows.net/servicemonitor/2.0.1.10/ServiceMonitor.exe -OutFile C:\ServiceMonitor.exe; \
+    &$Env:windir\Microsoft.NET\Framework64\v4.0.30319\ngen update; \
+    &$Env:windir\Microsoft.NET\Framework\v4.0.30319\ngen update
+```
+
+4. (Optional) Install the URL Rewrite module. I needed this module to rewrite the URLs in the web.config file. So if you don't need it, you can skip this step.
+I used Chocolatey to install the module.
+```dockerfile
+RUN Set-ExecutionPolicy Bypass -Scope Process -Force; \
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; \
+iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')); \
+choco install urlrewrite --version 2.1.20190828 --confirm
+```
+
+If you don't like to install using Chocolatey, you can use the following command to download and install the module.
+```dockerfile
+ RUN cd $Env:temp; \
+  Invoke-WebRequest -uri https://download.microsoft.com/download/1/2/8/128E2E22-C1B9-44A4-BE2A-5859ED1D4592/rewrite_amd64_en-US.msi -OutFile .\rewrite_amd64_en-US.msi; \
+  Start-Process msiexec.exe -ArgumentList '/i', 'rewrite_amd64_en-US.msi', '/quiet', '/norestart' -NoNewWindow -Wait
+ ```
+
+5. Set aspnet_state service to start automatically and allow remote connections. I needed this service to store session state in a SQL Server database.
+```dockerfile
+RUN Set-Service aspnet_state -startuptype automatic; \
+ Stop-Service aspnet_state; \
+ Start-Service aspnet_state; \
+ Set-ItemProperty Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\aspnet_state\Parameters -Name  AllowRemoteConnection -Value 1
+```
+
+6. Update `SHELL` to use PowerShell and pass only one argument to it: `$ErrorActionPreference = 'Stop'`.
+```dockerfile
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
+```
+
+7. Set the working directory to `C:\inetpub\wwwroot`.
+```dockerfile
+ENV APP_ROOT C:\\inetpub\\wwwroot
+WORKDIR ${APP_ROOT}
+```
+
+8. Copy the build output from the builder image to the working directory.
+```dockerfile
+COPY --from=builder /build-output/_PublishedWebsites/MONSTER.Web .
+```
+
+9. Remove the default website and create a new website and application that listens on port 80.
+```dockerfile
+RUN Remove-Website -Name 'Default Web Site'; \
+ New-Website -Name 'monster-web' -Port 80 -PhysicalPath $Env:APP_ROOT; \
+ New-WebApplication -Name 'app' -Site 'monster-web' -PhysicalPath $Env:APP_ROOT;
+```
+
+10. Define the entry point for the container. The entry point is the command that is executed when the container starts.
+In this case, the entry point is [`ServiceMonitor.exe`](https://github.com/microsoft/IIS.ServiceMonitor), 
+which is an entrypoint process for running IIS in Windows containers. 
+```dockerfile
+ENTRYPOINT [ "Start-Process", "-FilePath", "C:\ServiceMonitor.exe", "-Wait", "-ArgumentList", "w3svc"]
+```
+Tada! We have a runtime image! Now let's create the final image.
+
+The entire Dockerfile looks like this:
+```dockerfile
+FROM mcr.microsoft.com/dotnet/framework/sdk:4.8 AS builder
+WORKDIR /app/source
+
+ARG NEXUS_NUGET_REPO_URL=https://registry.company.com
+ARG NEXUS_USERNAME
+ARG NEXUS_PASSWORD
+ARG DOTNET_BUILD_CONFIGURATION=Release
+ARG DOTNET_BUILD_ID=1.0.0
+
+COPY [ "MONSTER.sln", "MONSTER.sln"]
+
+COPY [ "MONSTER.API/packages.config", "MONSTER.API/packages.config"]
+COPY [ "MONSTER.ApplicationServices/packages.config", "MONSTER.ApplicationServices/packages.config"]
+COPY [ "MONSTER.ConsoleService/packages.config", "MONSTER.ConsoleService/packages.config"]
+COPY [ "MONSTER.DomainContracts/packages.config", "MONSTER.DomainContracts/packages.config"]
+COPY [ "MONSTER.DomainServices/packages.config", "MONSTER.DomainServices/packages.config"]
+COPY [ "MONSTER.DTOs/packages.config", "MONSTER.DTOs/packages.config"]
+COPY [ "MONSTER.Entites/packages.config", "MONSTER.Entites/packages.config"]
+COPY [ "MONSTER.ExternalAPIs/packages.config", "MONSTER.ExternalAPIs/packages.config"]
+COPY [ "MONSTER.Framework/packages.config", "MONSTER.Framework/packages.config"]
+COPY [ "MONSTER.NinjectInitializer/packages.config", "MONSTER.NinjectInitializer/packages.config"]
+COPY [ "MONSTER.Persistence/packages.config", "MONSTER.Persistence/packages.config"]
+COPY [ "MONSTER.ProcessManagerService/packages.config", "MONSTER.ProcessManagerService/packages.config"]
+COPY [ "MONSTER.Test/packages.config", "MONSTER.Test/packages.config"]
+COPY [ "MONSTER.Web/packages.config", "MONSTER.Web/packages.config"]
+
+COPY [ "MONSTER.API/MONSTER.API.csproj", "MONSTER.API/MONSTER.API.csproj"]
+COPY [ "MONSTER.ApplicationServices/MONSTER.ApplicationServices.csproj", "MONSTER.ApplicationServices/MONSTER.ApplicationServices.csproj"]
+COPY [ "MONSTER.ConsoleService/MONSTER.ConsoleService.csproj", "MONSTER.ConsoleService/MONSTER.ConsoleService.csproj"]
+COPY [ "MONSTER.ContactCenterMonitor/MONSTER.ContactCenterMonitor.csproj", "MONSTER.ContactCenterMonitor/MONSTER.ContactCenterMonitor.csproj"]
+COPY [ "MONSTER.DomainContracts/MONSTER.DomainContracts.csproj", "MONSTER.DomainContracts/MONSTER.DomainContracts.csproj"]
+COPY [ "MONSTER.DomainServices/MONSTER.DomainServices.csproj", "MONSTER.DomainServices/MONSTER.DomainServices.csproj"]
+COPY [ "MONSTER.DTOs/MONSTER.DTOs.csproj", "MONSTER.DTOs/MONSTER.DTOs.csproj"]
+COPY [ "MONSTER.Entites/MONSTER.Entities.csproj", "MONSTER.Entites/MONSTER.Entities.csproj"]
+COPY [ "MONSTER.ExternalAPIs/MONSTER.ExternalAPIs.csproj", "MONSTER.ExternalAPIs/MONSTER.ExternalAPIs.csproj"]
+COPY [ "MONSTER.Framework/MONSTER.Framework.csproj", "MONSTER.Framework/MONSTER.Framework.csproj"]
+COPY [ "MONSTER.NinjectInitializer/MONSTER.Initializer.csproj", "MONSTER.NinjectInitializer/MONSTER.Initializer.csproj"]
+COPY [ "MONSTER.Persistence/MONSTER.Persistence.csproj", "MONSTER.Persistence/MONSTER.Persistence.csproj"]
+COPY [ "MONSTER.ProcessManagerService/MONSTER.ProcessManagerService.csproj", "MONSTER.ProcessManagerService/MONSTER.ProcessManagerService.csproj"]
+COPY [ "MONSTER.Resources/MONSTER.Resources.csproj", "MONSTER.Resources/MONSTER.Resources.csproj"]
+COPY [ "MONSTER.Test/MONSTER.Test.csproj", "MONSTER.Test/MONSTER.Test.csproj"]
+COPY [ "MONSTER.Web/MONSTER.Web.csproj", "MONSTER.Web/MONSTER.Web.csproj"]
+COPY [ "MONSTER.Web.Test.Integration/MONSTER.Web.Test.Integration.csproj", "MONSTER.Web.Test.Integration/MONSTER.Web.Test.Integration.csproj"]
+COPY [ "MONSTER.Web.Test.Unit/MONSTER.Web.Test.Unit.csproj", "MONSTER.Web.Test.Unit/MONSTER.Web.Test.Unit.csproj"]
+
+RUN  nuget.exe sources Disable -Name nuget.org; \
+     nuget.exe sources Add -Name NexusNuget \ 
+     -Source $Env:NEXUS_NUGET_REPO_URL \
+     -UserName $Env:NEXUS_USERNAME \
+     -Password $Env:NEXUS_PASSWORD; \
+     nuget.exe restore -Verbosity detailed MONSTER.sln
+
+COPY . .
+
+RUN msbuild.exe MONSTER.Web\MONSTER.Web.csproj \
+ -p:Configuration=$env:DOTNET_BUILD_CONFIGURATION \
+ -p:Platform='Any CPU' \
+ -p:DeployOnBuild=true \
+ -p:OutputPath="C:\build-output"
+
+FROM mcr.microsoft.com/dotnet/framework/runtime:4.8-20220712-windowsservercore-ltsc2019 AS runner
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
+
+RUN Add-WindowsFeature Web-Server; \
+    Add-WindowsFeature NET-Framework-45-ASPNET; \
+    Add-WindowsFeature Web-Asp-Net45; \
+    Remove-Item -Recurse C:\inetpub\wwwroot\*; \
+    Invoke-WebRequest -Uri https://dotnetbinaries.blob.core.windows.net/servicemonitor/2.0.1.10/ServiceMonitor.exe -OutFile C:\ServiceMonitor.exe; \
+    &$Env:windir\Microsoft.NET\Framework64\v4.0.30319\ngen update; \
+    &$Env:windir\Microsoft.NET\Framework\v4.0.30319\ngen update
+
+RUN Set-ExecutionPolicy Bypass -Scope Process -Force; \
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; \
+iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1')); \
+choco install urlrewrite --version 2.1.20190828 --confirm
+
+RUN Set-Service aspnet_state -startuptype automatic; \
+ Stop-Service aspnet_state; \
+ Start-Service aspnet_state; \
+ Set-ItemProperty Registry::HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\aspnet_state\Parameters -Name  AllowRemoteConnection -Value 1
+
+SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop';"]
+
+ENV APP_ROOT C:\\inetpub\\wwwroot
+WORKDIR ${APP_ROOT}
+
+COPY --from=builder /build-output/_PublishedWebsites/MONSTER.Web .
+
+RUN Remove-Website -Name 'Default Web Site'; \
+ New-Website -Name 'monster-web' -Port 80 -PhysicalPath $Env:APP_ROOT; \
+ New-WebApplication -Name 'app' -Site 'monster-web' -PhysicalPath $Env:APP_ROOT;
+
+ENTRYPOINT [ "Start-Process", "-FilePath", "C:\ServiceMonitor.exe", "-Wait", "-ArgumentList", "w3svc"]
+```
+
+## Build Dockerfile
+First for building this images and running the container you need to have Docker installed on your machine if you don't have it you can download it from [here](https://www.docker.com/products/docker-desktop).
+Second you need to switch to Windows containers by right clicking on the Docker icon in the system tray and select Switch to Windows containers.
+
+Now you only need to build your Dockerfile and tag it with a name. Here is the command to build the Dockerfile:
+```powershell
+docker build \
+-t monster-web:1.0.0 \
+-f MONSTER.Web/Dockerfile \
+--build-arg NEXUS_NUGET_REPO_URL=https://nexus.example.com/repository/nuget-hosted/ \
+--build-arg NEXUS_USERNAME=johndoe \
+--build-arg NEXUS_PASSWORD=yourstrongpassword \
+--build-arg DOTNET_BUILD_CONFIGURATION=Release \
+--build-arg DOTNET_BUILD_ID=1.0.0 \
+.
+```
+
+## Run the container
+Now you can run the container using the following command:
+```powershell
+docker run \
+-d \
+-p 8080:80 \ 
+monster-web:1.0.0
+```
+
+### Step 5: Test the container
+Now you can test the container by navigating to http://localhost:8080 in your browser.
+
+You are done! I hope you enjoyed this tutorial. If you have any questions or comments please feel free to contact me.
