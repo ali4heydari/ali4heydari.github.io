@@ -2,6 +2,8 @@ const withPlugins = require("next-compose-plugins");
 const { withContentlayer } = require("next-contentlayer");
 /** @type { import("next").NextConfig } */
 const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
   images: {
     remotePatterns: [{ hostname: "i.scdn.co" }, { hostname: "spotify.com" }],
     dangerouslyAllowSVG: true,
