@@ -1,7 +1,7 @@
 import React from "react";
 import { StoryFn, Meta } from "@storybook/react";
 
-import CommentThread from "../CommentThread";
+import CommentThread from "./index";
 
 export default {
   title: "Molecules/CommentThread",

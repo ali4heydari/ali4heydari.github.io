@@ -2,7 +2,7 @@ import React from "react";
 import { NextPage } from "next";
 import { allProjects } from "../../../.contentlayer/generated";
 import Link from "next/link";
-import TitleSection from "../../components/TitleSection";
+import TitleSection from "../../components/atoms/TitleSection";
 import { buildOgImageUrl } from "../../utils/opengraph";
 import { getStaticMetadata } from "../../utils/metadata";
 import Image from "next/image";

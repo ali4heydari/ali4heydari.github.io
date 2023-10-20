@@ -1,9 +1,9 @@
-import TitleSection from "src/components/TitleSection";
+import TitleSection from "src/components/atoms/TitleSection";
 import { allProjects } from "../../../../.contentlayer/generated";
 import { Metadata, NextPage } from "next";
 import { notFound } from "next/navigation";
-import CommentThread from "../../../components/CommentThread";
-import Mdx from "../../../components/Mdx/Mdx";
+import CommentThread from "../../../components/atoms/CommentThread";
+import Mdx from "../../../components/atoms/Mdx/Mdx";
 
 export async function generateMetadata({
   params,

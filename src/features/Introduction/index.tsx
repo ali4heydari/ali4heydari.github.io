@@ -1,4 +1,4 @@
-import TitleSection from "src/components/TitleSection";
+import TitleSection from "src/components/atoms/TitleSection";
 import React from "react";
 import SiteConfigs from "site.config";
 import Image from "next/image";

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { navigation } from "../../constants";
+import { navigation } from "../../../constants";
 import classNames from "classnames";
 import { usePathname } from "next/navigation";
 

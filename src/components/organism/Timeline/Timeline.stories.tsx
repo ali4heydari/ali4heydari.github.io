@@ -9,7 +9,7 @@ import {
   randJobTitle,
 } from "@ngneat/falso";
 
-import Timeline from "../Timeline";
+import Timeline from "./index";
 
 export default {
   title: "Molecules/Timeline",

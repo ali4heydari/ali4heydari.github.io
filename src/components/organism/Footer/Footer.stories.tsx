@@ -1,7 +1,7 @@
 import React from "react";
 import { StoryFn, Meta } from "@storybook/react";
 import * as tailwindColors from "tailwindcss/colors";
-import Footer from "../Footer";
+import Footer from "./index";
 
 export default {
   title: "Organism/Footer",

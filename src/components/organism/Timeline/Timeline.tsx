@@ -2,7 +2,7 @@ import { TimelineProps } from "./@types";
 
 import classNames from "classnames";
 import React from "react";
-import { isValidDate } from "../../utils";
+import { isValidDate } from "../../../utils";
 
 const Timeline = ({ events, wrapperClassName }: TimelineProps) => {
   const getDate = (dateStr) => {
@@ -37,7 +37,7 @@ const Timeline = ({ events, wrapperClassName }: TimelineProps) => {
               className={
                 "absolute -left-2 mt-0.6 h-4 w-4 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
               }
-            ></div>
+            />
             {index === 0 && (
               <span className="animate-ping bg-indigo-500 dark:bg-indigo-400 absolute -left-2 mt-0.6 h-4 w-4 rounded-full" />
             )}

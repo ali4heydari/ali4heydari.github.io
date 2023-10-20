@@ -1,7 +1,7 @@
 import React from "react";
 import { StoryFn, Meta } from "@storybook/react";
 import * as tailwindColors from "tailwindcss/colors";
-import Header from "../Header";
+import Header from "./index";
 
 export default {
   title: "Organism/Header",

@@ -1,5 +1,5 @@
 import React from "react";
-import TitleSection from "../../components/TitleSection";
+import TitleSection from "../../components/atoms/TitleSection";
 import Image from "next/image";
 import { getStaticMetadata } from "../../utils/metadata";
 import { buildOgImageUrl } from "../../utils/opengraph";

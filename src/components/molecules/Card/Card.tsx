@@ -1,8 +1,7 @@
-import classNames from "classnames";
-import StyledLink from "../atoms/Link";
 import Image from "next/image";
-import React, { ComponentProps, useMemo } from "react";
+import React, { useMemo } from "react";
 import { PhotoIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
 
 export type CardProps = {
   title: string;
@@ -80,9 +79,9 @@ const Card = (props: CardProps) => {
 
   if (href) {
     return (
-      <StyledLink href={href} className={rootClassName}>
+      <Link href={href} className={rootClassName}>
         {Body}
-      </StyledLink>
+      </Link>
     );
   }
 

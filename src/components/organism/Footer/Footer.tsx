@@ -1,9 +1,9 @@
 "use client";
 import SpotifyNowListening from "./components/SpotifyNowListening";
 import SteamNowPlaying from "./components/SteamNowPlaying";
-import useMasterQuery from "../../hooks/useMasterQuery";
-import { navigation } from "../../constants";
-import StyledLink from "../atoms/Link";
+import useMasterQuery from "../../../hooks/useMasterQuery";
+import { navigation } from "../../../constants";
+import StyledLink from "../../atoms/Link";
 
 const Footer = () => {
   const { data } = useMasterQuery(["/api/now-playing"], () =>

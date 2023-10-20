@@ -2,7 +2,7 @@ import Link from "next/link";
 import { twMerge } from "tailwind-merge";
 import Image from "next/image";
 import SpotifyIcon from "mdi-react/SpotifyIcon";
-import siteConfig from "../../../../site.config";
+import siteConfig from "../../../../../site.config";
 
 export interface Props {
   isPlaying?: boolean;

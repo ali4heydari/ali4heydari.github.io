@@ -2,13 +2,13 @@ import React from "react";
 import { allBlogs } from "../../../../.contentlayer/generated";
 import { Metadata, NextPage } from "next";
 import { notFound } from "next/navigation";
-import CommentThread from "../../../components/CommentThread";
+import CommentThread from "../../../components/atoms/CommentThread";
 import { buildOgImageUrl } from "../../../utils/opengraph";
 import { getStaticMetadata } from "../../../utils/metadata";
 import Image from "next/image";
 import { baseUrl } from "../../../constants";
-import WebShare from "../../../components/Webshare/Webshare";
-import Mdx from "../../../components/Mdx/Mdx";
+import WebShare from "../../../components/atoms/Webshare/Webshare";
+import Mdx from "../../../components/atoms/Mdx/Mdx";
 
 export async function generateMetadata({
   params,

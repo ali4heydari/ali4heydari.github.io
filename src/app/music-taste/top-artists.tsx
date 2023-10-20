@@ -6,8 +6,8 @@ import useMasterQuery from "../../hooks/useMasterQuery";
 import { getJson } from "../../utils";
 import { baseUrl } from "../../constants";
 import { twMerge } from "tailwind-merge";
-import Card from "../../components/Card";
-import TimeRangeSelect from "../../components/TimeRangeSelect/TimeRangeSelect";
+import Card from "../../components/molecules/Card";
+import TimeRangeSelect from "../../components/molecules/TimeRangeSelect/TimeRangeSelect";
 
 const TopArtists = () => {
   const [timeRange, setTimeRange] = useState("short_term");
