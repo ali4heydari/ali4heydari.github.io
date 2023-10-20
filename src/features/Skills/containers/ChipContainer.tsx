@@ -1,6 +1,3 @@
-import Chip from "src/components/Chip";
-import React from "react";
-
 export const ChipContainer = ({
   projects,
   title = "Related open source projects:",
@@ -18,12 +15,15 @@ export const ChipContainer = ({
       <div className={"flex flex-wrap justify-center"}>
         {projects.map(({ name, href, emoji }) => (
           <a key={name} href={href}>
-            <Chip key={name}>
+            <span
+              key={name}
+              className="text-sm font-medium text-gray-900 dark:text-gray-50"
+            >
               <span role="img" aria-label={`${name}'s emoji`}>
                 {emoji}{" "}
               </span>
               {name}
-            </Chip>
+            </span>
           </a>
         ))}
       </div>

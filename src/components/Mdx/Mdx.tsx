@@ -8,7 +8,7 @@ interface MdxProps {
   className?: string;
 }
 
-export const Mdx = (props: MdxProps) => {
+const Mdx = (props: MdxProps) => {
   const MdxComponent = useMDXComponent(props.code);
   return (
     <article className={twMerge(classNames("mdx-article", props.className))}>
@@ -16,3 +16,5 @@ export const Mdx = (props: MdxProps) => {
     </article>
   );
 };
+
+export default Mdx;

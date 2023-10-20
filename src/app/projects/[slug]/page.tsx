@@ -1,11 +1,9 @@
 import TitleSection from "src/components/TitleSection";
-import React from "react";
-import Chip from "src/components/Chip";
 import { allProjects } from "../../../../.contentlayer/generated";
 import { Metadata, NextPage } from "next";
 import { notFound } from "next/navigation";
 import CommentThread from "../../../components/CommentThread";
-import { Mdx } from "../../../components/Mdx/Mdx";
+import Mdx from "../../../components/Mdx/Mdx";
 
 export async function generateMetadata({
   params,
@@ -64,7 +62,14 @@ const ProjectPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
         <Mdx code={project.body.code} />
         <h6 className="m-2 w-full text-center text-lg">Tech Stack:</h6>
         <div className="flex flex-wrap justify-center">
-          {project.tags?.map((tag) => <Chip key={tag}>{tag}</Chip>)}
+          {project.tags?.map((tag) => (
+            <span
+              key={tag}
+              className="text-xs bg-indigo-50 dark:bg-indigo-700 dark:text-gray-200 rounded-lg border border-gray-900 dark:border-gray-400 px-1.5 py-0.7 m-1"
+            >
+              {tag}
+            </span>
+          ))}
         </div>
         <CommentThread />
       </div>

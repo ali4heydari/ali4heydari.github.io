@@ -8,7 +8,7 @@ import { getStaticMetadata } from "../../../utils/metadata";
 import Image from "next/image";
 import { baseUrl } from "../../../constants";
 import WebShare from "../../../components/Webshare/Webshare";
-import { Mdx } from "../../../components/Mdx/Mdx";
+import Mdx from "../../../components/Mdx/Mdx";
 
 export async function generateMetadata({
   params,
