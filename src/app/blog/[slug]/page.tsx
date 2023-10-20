@@ -58,13 +58,10 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
       <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 antialiased">
         <div className="flex justify-between px-4 mx-auto max-w-screen-xl">
           <article className="mx-auto w-full">
-            <Image
-              src={blog.cover}
-              alt={blog.title}
-              width={1200}
-              height={1000}
-              className="mb-5 rounded-lg object-cover sm:h-64"
-            />
+            <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl md:text-5xl">
+              {blog.title}
+            </h1>
+
             <header className="mb-4 lg:mb-6">
               <address className="flex flex-wrap items-center mb-6 not-italic justify-end sm:justify-between">
                 <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
@@ -110,11 +107,14 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                 </div>
               </address>
             </header>
+            <Image
+              src={blog.cover}
+              alt={blog.title}
+              width={1200}
+              height={1000}
+              className="mb-5 rounded-lg object-cover sm:h-64"
+            />
             <Mdx code={blog.body.code} />
-            {/*<div*/}
-            {/*  className="prose max-w-full dark:prose-invert"*/}
-            {/*  dangerouslySetInnerHTML={{ __html: blog.body.html }}*/}
-            {/*/>*/}
             <div className="text-center mt-5">
               <p>Tags:</p>
               <div className="flex flex-wrap gap-2 pb-3 justify-center">

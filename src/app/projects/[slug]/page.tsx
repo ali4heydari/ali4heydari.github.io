@@ -62,10 +62,6 @@ const ProjectPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
       <div>
         <TitleSection>{project.title}</TitleSection>
         <Mdx code={project.body.code} />
-        {/*<div*/}
-        {/*  className="prose max-w-full dark:prose-invert"*/}
-        {/*  dangerouslySetInnerHTML={{ __html: project.body.html }}*/}
-        {/*/>*/}
         <h6 className="m-2 w-full text-center text-lg">Tech Stack:</h6>
         <div className="flex flex-wrap justify-center">
           {project.tags?.map((tag) => <Chip key={tag}>{tag}</Chip>)}
