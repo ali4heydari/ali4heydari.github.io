@@ -1,14 +1,11 @@
 "use client";
-import React from "react";
-import Link from "next/link";
 import SpotifyNowListening from "./components/SpotifyNowListening";
 import SteamNowPlaying from "./components/SteamNowPlaying";
 import useMasterQuery from "../../hooks/useMasterQuery";
 import { navigation } from "../../constants";
+import StyledLink from "../atoms/Link";
 
-type FooterProps = {};
-
-const Footer = ({}: FooterProps) => {
+const Footer = () => {
   const { data } = useMasterQuery(["/api/now-playing"], () =>
     fetch("/api/now-playing", {}).then((res) => res.json()),
   );
@@ -21,13 +18,13 @@ const Footer = ({}: FooterProps) => {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 General
               </h2>
-              <ul className="text-gray-600 dark:text-gray-400">
+              <ul className="text-gray-600 dark:text-gray-400 space-y-1">
                 {navigation.primary.map((it) => (
                   <li key={it.name}>
-                    <Link href={it.href} className="hover:underline">
+                    <StyledLink href={it.href} className="font-normal">
                       <it.svgIcon className="w-4 h-4 mr-2 inline-block" />
                       {it.name}
-                    </Link>
+                    </StyledLink>
                   </li>
                 ))}
               </ul>
@@ -36,13 +33,13 @@ const Footer = ({}: FooterProps) => {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Other
               </h2>
-              <ul className="text-gray-600 dark:text-gray-400">
+              <ul className="text-gray-600 dark:text-gray-400 space-y-1">
                 {navigation.secondary.map((it) => (
                   <li key={it.name}>
-                    <Link href={it.href} className="hover:underline">
+                    <StyledLink href={it.href} className="font-normal">
                       <it.svgIcon className="w-4 h-4 mr-2 inline-block" />
                       {it.name}
-                    </Link>
+                    </StyledLink>
                   </li>
                 ))}
               </ul>
@@ -51,13 +48,13 @@ const Footer = ({}: FooterProps) => {
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Personality
               </h2>
-              <ul className="text-gray-600 dark:text-gray-400">
+              <ul className="text-gray-600 dark:text-gray-400 space-y-1">
                 {navigation.tertiary.map((it) => (
                   <li key={it.name}>
-                    <Link href={it.href} className="hover:underline">
+                    <StyledLink href={it.href} className="font-normal">
                       <it.svgIcon className="w-4 h-4 mr-2 inline-block" />
                       {it.name}
-                    </Link>
+                    </StyledLink>
                   </li>
                 ))}
               </ul>
@@ -73,16 +70,16 @@ const Footer = ({}: FooterProps) => {
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © {new Date().getFullYear()} Ali Heydari . All Rights Reserved.
           </span>
-          <div className="flex flex-wrap justify-center gap-2 mt-4 space-x-6 sm:justify-center sm:mt-0">
+          <div className="flex flex-wrap justify-center mt-4 space-x-1 space-y-1 sm:justify-center sm:mt-0">
             {navigation.socialMedias.map((it) => (
-              <Link
+              <StyledLink
                 href={it.link}
                 key={it.name}
                 className="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-500"
               >
                 <span className="sr-only">{it.name}</span>
                 <it.icon />
-              </Link>
+              </StyledLink>
             ))}
           </div>
         </div>
