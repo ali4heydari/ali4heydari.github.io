@@ -18,7 +18,7 @@ const Hero: React.FC<React.PropsWithChildren<unknown>> = () => {
         </p>
         <div className="mt-10 flex items-center justify-center flex-wrap gap-6">
           <Link
-            href="/share/cv.pdf"
+            href="https://github.com/ali4heydari/CV/releases/latest/download/CV.pdf"
             className="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 dark:bg-gray-800 dark:hover:bg-gray-700"
           >
             Download my resume

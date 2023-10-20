@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Link from "../../components/atoms/Link";
+import StyledLink from "../../components/atoms/Link";
 import useMasterQuery from "../../hooks/useMasterQuery";
 import { getJson } from "../../utils";
 import { baseUrl } from "../../constants";

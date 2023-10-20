@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import Link from "../atoms/Link";
+import StyledLink from "../atoms/Link";
 import Image from "next/image";
 import React, { ComponentProps, useMemo } from "react";
 import { PhotoIcon } from "@heroicons/react/24/solid";
@@ -80,9 +80,9 @@ const Card = (props: CardProps) => {
 
   if (href) {
     return (
-      <Link href={href} className={rootClassName}>
+      <StyledLink href={href} className={rootClassName}>
         {Body}
-      </Link>
+      </StyledLink>
     );
   }
 

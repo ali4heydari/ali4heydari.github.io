@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import Link from "../../components/atoms/Link";
+import StyledLink from "../../components/atoms/Link";
 import Image from "next/image";
 import useMasterQuery from "../../hooks/useMasterQuery";
 import { getJson } from "../../utils";

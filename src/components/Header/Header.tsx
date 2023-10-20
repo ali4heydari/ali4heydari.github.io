@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Dialog } from "@headlessui/react";
 import Bitmoji from "../atoms/Logo";
-import Link from "../atoms/Link";
+import StyledLink from "../atoms/Link";
 import { navigation } from "../../constants";
 import ThemeSwitcher from "../atoms/ThemeSwitcher";
 
@@ -34,13 +34,13 @@ const Header = () => {
         </div>
         <div className="hidden lg:flex lg:gap-x-5">
           {navigation.primary.map((item) => (
-            <Link
+            <StyledLink
               key={item.name}
               href={item.href}
               className="rounded-lg px-3 py-1 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100 dark:hover:bg-gray-700"
             >
               {item.name}
-            </Link>
+            </StyledLink>
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
@@ -76,7 +76,7 @@ const Header = () => {
                   <div className="space-y-2 py-6">
                     <div className="space-y-2 border-b border-gray-500/10 pb-2">
                       {navigation.secondary.map((item) => (
-                        <Link
+                        <StyledLink
                           key={item.name}
                           href={item.href}
                           onClick={() => setMobileMenuOpen(false)}
@@ -84,12 +84,12 @@ const Header = () => {
                         >
                           <item.svgIcon className="w-6 h-6 mr-2 inline-block" />
                           {item.name}
-                        </Link>
+                        </StyledLink>
                       ))}
                     </div>
                     <div className="space-y-2 border-b border-gray-500/10 py-4">
                       {navigation.tertiary.map((item) => (
-                        <Link
+                        <StyledLink
                           key={item.name}
                           href={item.href}
                           onClick={() => setMobileMenuOpen(false)}
@@ -97,7 +97,7 @@ const Header = () => {
                         >
                           <item.svgIcon className="w-6 h-6 mr-2 inline-block" />
                           {item.name}
-                        </Link>
+                        </StyledLink>
                       ))}
                     </div>
                   </div>

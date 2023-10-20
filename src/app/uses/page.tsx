@@ -3,7 +3,7 @@ import TitleSection from "../../components/TitleSection";
 import Image from "next/image";
 import { getStaticMetadata } from "../../utils/metadata";
 import { buildOgImageUrl } from "../../utils/opengraph";
-import Link from "../../components/atoms/Link";
+import StyledLink from "../../components/atoms/Link";
 import { softwares, hardwares } from "../../constants/uses";
 
 export const metadata = getStaticMetadata({
@@ -78,7 +78,7 @@ const Uses = () => {
 
       <div className="grid gap-6 lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 pb-2">
         {softwares.map((software) => (
-          <Link key={software.name} href={software.href} target="_blank">
+          <StyledLink key={software.name} href={software.href} target="_blank">
             <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center gap-2 p-4 lg:flex-col lg:justify-center h-full">
               <Image
                 className="rounded-2xl w-36 h-26 object-cover p-1"
@@ -106,7 +106,7 @@ const Uses = () => {
                 </p>
               </div>
             </div>
-          </Link>
+          </StyledLink>
         ))}
       </div>
     </section>
