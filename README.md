@@ -4,10 +4,6 @@
 
 This is my a personal website using [Gatsby](https://www.gatsbyjs.org/), [Markdown](https://www.markdownguide.org/), [Styled Components](https://styled-components.com/), [Talwind CSS](https://tailwindcss.com/), [Framer Motion](https://www.framer.com/motion/) & [React Font Awesome](https://github.com/FortAwesome/react-fontawesome).
 
-## Lighthouse report
-
-![Lighthouse report](./light-house-report.png)
-
 ## Live Demo
 
 [Live Demo](https://ali4heydari.github.io/)

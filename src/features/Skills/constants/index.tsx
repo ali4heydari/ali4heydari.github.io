@@ -1,5 +1,5 @@
 import TypeScriptIcon from "mdi-react/LanguageTypescriptIcon";
-import { ChipContainer } from "../containers";
+import ProteusLogo from "../../../assets/images/logos/proteus-logo.png";
 import CsharpIcon from "mdi-react/LanguageCsharpIcon";
 import GraphqlIcon from "mdi-react/GraphqlIcon";
 import JavascriptIcon from "mdi-react/LanguageJavascriptIcon";
@@ -15,10 +15,8 @@ import MicrosoftAzureDevopsIcon from "mdi-react/MicrosoftAzureDevopsIcon";
 import NextJsIcon from "../../../assets/svg/next-js.svg";
 import BashIcon from "mdi-react/BashIcon";
 import DotNetIcon from "mdi-react/DotNetIcon";
-import AndroidIcon from "mdi-react/AndroidIcon";
 import CypressIcon from "../../../assets/svg/cypress.svg";
 import NestJsIcon from "../../../assets/svg/nestjs.svg";
-import PostgreSqlIcon from "../../../assets/svg/postgresql.svg";
 import React from "react";
 import Image from "next/image";
 
@@ -102,7 +100,6 @@ export const skills = [
   {
     icon: <CypressIcon className={`h-6 w-6 text-gray-300`} />,
     title: "Cypress",
-    description: "Familiar with Cypress. mocking APIs and E2E testing",
   },
   {
     icon: <NestJsIcon className={`h-6 w-6 text-red-500`} />,
@@ -111,7 +108,8 @@ export const skills = [
   {
     icon: (
       <Image
-        src={"/static/images/proteus-logo.png"}
+        src={ProteusLogo}
+        placeholder="blur"
         height={80}
         width={80}
         className={`h-6 w-6`}

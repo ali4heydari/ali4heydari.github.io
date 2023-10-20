@@ -1,6 +1,5 @@
-import Timeline from "src/components/Timeline";
-import Container from "src/components/Container";
-import TitleSection from "src/components/TitleSection";
+import Timeline from "src/components/organism/Timeline";
+import TitleSection from "src/components/atoms/TitleSection";
 import React from "react";
 import type { Education } from ".contentlayer/generated";
 
@@ -23,7 +22,7 @@ const Educations: React.FC<
         startDate,
         endDate,
         children: <div dangerouslySetInnerHTML={{ __html: html }} />,
-      })
+      }),
     )
     .reverse();
 

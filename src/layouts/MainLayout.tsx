@@ -1,8 +1,8 @@
-import Header from "src/components/Header";
-import Footer from "src/components/Footer";
+import Header from "src/components/organism/Header";
+import Footer from "src/components/organism/Footer";
 import type { PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
-import BottomNavigation from "../components/BottomNavigation/BottomNavigation";
+import BottomNavigation from "../components/molecules/BottomNavigation/BottomNavigation";
 
 const MainLayout = ({
   children,

@@ -1,6 +1,6 @@
 import React from "react";
 import { NextPage } from "next";
-import TitleSection from "../../components/TitleSection";
+import TitleSection from "../../components/atoms/TitleSection";
 import { allBlogs } from "../../../.contentlayer/generated";
 import Link from "next/link";
 import { buildOgImageUrl } from "../../utils/opengraph";

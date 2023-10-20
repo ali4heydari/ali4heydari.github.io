@@ -1,14 +1,14 @@
 "use client";
 import React, { useState } from "react";
-import Link from "../../components/atoms/Link";
+import StyledLink from "../../components/atoms/Link";
 import useMasterQuery from "../../hooks/useMasterQuery";
 import { getJson } from "../../utils";
 import { baseUrl } from "../../constants";
 import Image from "next/image";
 import classNames from "classnames";
 import { twMerge } from "tailwind-merge";
-import Card from "../../components/Card";
-import TimeRangeSelect from "../../components/TimeRangeSelect/TimeRangeSelect";
+import Card from "../../components/molecules/Card";
+import TimeRangeSelect from "../../components/molecules/TimeRangeSelect/TimeRangeSelect";
 
 const TopTracks = () => {
   const [timeRange, setTimeRange] = useState("short_term");

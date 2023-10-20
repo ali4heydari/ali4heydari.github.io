@@ -1,6 +1,6 @@
 import React from "react";
 import { skills } from "./constants";
-import TitleSection from "../../components/TitleSection";
+import TitleSection from "../../components/atoms/TitleSection";
 
 export const Skills = ({ rootClassName }: { rootClassName?: string }) => {
   return (

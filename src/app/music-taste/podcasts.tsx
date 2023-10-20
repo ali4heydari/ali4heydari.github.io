@@ -2,7 +2,7 @@
 import useMasterQuery from "../../hooks/useMasterQuery";
 import { getJson } from "../../utils";
 import { baseUrl } from "../../constants";
-import Card from "src/components/Card";
+import Card from "src/components/molecules/Card";
 
 const Podcasts = () => {
   const { data: showsData, isLoading: isLoadingShows } = useMasterQuery(

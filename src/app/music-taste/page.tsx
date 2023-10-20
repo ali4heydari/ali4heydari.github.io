@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import TitleSection from "../../components/TitleSection";
+import TitleSection from "../../components/atoms/TitleSection";
 import { getStaticMetadata } from "../../utils/metadata";
 import { buildOgImageUrl } from "../../utils/opengraph";
 import TopTracks from "./top-tracks";
