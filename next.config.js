@@ -1,4 +1,3 @@
-const withPlugins = require("next-compose-plugins");
 const { withContentlayer } = require("next-contentlayer");
 /** @type { import("next").NextConfig } */
 const nextConfig = {
@@ -15,34 +14,21 @@ const nextConfig = {
       use: ["@svgr/webpack"],
     });
 
-    const rules = config.module.rules.find((r) => !!r.oneOf);
-    rules.oneOf.forEach((loaders) => {
-      if (Array.isArray(loaders.use)) {
-        loaders.use.forEach((l) => {
-          if (
-            typeof l !== "string" &&
-            typeof l.loader === "string" &&
-            /(?<!post)css-loader/.test(l.loader)
-          ) {
-            if (!l.options.modules) return;
-            const { getLocalIdent, ...others } = l.options.modules;
-            l.options = {
-              ...l.options,
-              modules: {
-                ...others,
-                getLocalIdent: (ctx, localIdentName, localName) => {
-                  if (localName === "dark") return localName;
-                  return getLocalIdent(ctx, localIdentName, localName);
-                },
-              },
-            };
-          }
-        });
-      }
-    });
-
     return config;
   },
 };
 
-module.exports = withPlugins([[withContentlayer]], nextConfig);
+// https://github.com/cyrilwanner/next-compose-plugins/issues/59#issuecomment-1341060113
+module.exports = (phase, defaultConfig) => {
+  const plugins = [withContentlayer];
+
+  return plugins.reduce(
+    (acc, plugin) => {
+      const update = plugin(acc);
+      return typeof update === "function"
+        ? update(phase, defaultConfig)
+        : update;
+    },
+    { ...nextConfig },
+  );
+};

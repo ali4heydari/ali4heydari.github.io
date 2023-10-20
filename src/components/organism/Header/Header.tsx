@@ -11,7 +11,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky inset-x-0 top-0 right-0 left-0 z-50 bg-gray-100 dark:bg-gray-800 dark:shadow-blue-400">
+    <header className="sticky inset-x-0 top-0 right-0 left-0 z-50 bg-gray-100 dark:bg-gray-800 dark:shadow-indigo-400">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
         aria-label="Global"

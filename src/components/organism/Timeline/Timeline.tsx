@@ -65,7 +65,7 @@ const Timeline = ({ events, wrapperClassName }: TimelineProps) => {
             <div
               className={classNames(
                 "m-4 text-base font-normal text-gray-500 dark:text-gray-400",
-                "prose prose-headings:underline prose-a:text-blue-600 prose-a:underline prose-img:rounded-xl dark:text-white",
+                "prose prose-headings:underline prose-a:text-indigo-600 prose-a:underline prose-img:rounded-xl dark:text-white",
               )}
             >
               {children}
