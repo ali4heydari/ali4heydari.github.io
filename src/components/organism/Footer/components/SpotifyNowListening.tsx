@@ -35,8 +35,8 @@ export default function SpotifyNowListening({
   return (
     <Link
       className={twMerge(
-        "m-1 w-full inline-flex mx-auto items-center flex-1 gap-6 text-tertiary-txt text-2xs text-green-500",
-        "font-normal truncate hocus:text-secondary-txt hocus:no-underline max-w-xs md:max-w-sm group/music",
+        "text-tertiary-txt text-2xs m-1 mx-auto inline-flex w-full flex-1 items-center gap-6 text-green-500",
+        "hocus:text-secondary-txt group/music max-w-xs truncate font-normal hocus:no-underline md:max-w-sm",
       )}
       title={
         isPlaying
@@ -56,17 +56,17 @@ export default function SpotifyNowListening({
           width={26}
           src={albumImageUrl || ""}
           alt={`Image for album: "${album}" by "${artist}"`}
-          className={"border border-accent-dark/[0.12]"}
+          className={"border-accent-dark/[0.12] border"}
         />
       ) : (
         <SpotifyIcon
-          className={"rounded-full -p-1 text-green-400 dark:text-gray-300"}
+          className={"-p-1 rounded-full text-green-400 dark:text-gray-300"}
           size={30}
         />
       )}
       <div
         className={twMerge(
-          "flex flex-1 max-w-full gap-24 overflow-x-hidden [mask-repeat:no-repeat] [mask-position:center]",
+          "flex max-w-full flex-1 gap-24 overflow-x-hidden [mask-position:center] [mask-repeat:no-repeat]",
           isPlaying
             ? "[mask-image:linear-gradient(90deg,rgba(0,0,0,0)_0%,rgba(0,0,0,1)_25%,rgba(0,0,0,1)_75%,rgba(0,0,0,0)_100%)]"
             : "[mask-image:none]",

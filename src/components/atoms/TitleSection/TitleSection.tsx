@@ -13,7 +13,7 @@ const TitleSection: React.FC<
   <h2
     className={twMerge(
       "mb-10 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl",
-      "text-transparent bg-clip-text bg-gradient-to-r to-indigo-600 from-indigo-400",
+      "bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent",
       center && "text-center",
     )}
   >

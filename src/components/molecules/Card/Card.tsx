@@ -32,13 +32,13 @@ const Card = (props: CardProps) => {
     () => (
       <>
         <Image
-          className="rounded-2xl w-36 h-36 object-cover p-1"
+          className="h-36 w-36 rounded-2xl object-cover p-1"
           src={imageSrc}
           alt={imageAlt}
           width={width}
           height={height}
         />
-        <div className="m-2 space-y-1 text-center w-1/2 md:w-full">
+        <div className="m-2 w-1/2 space-y-1 text-center md:w-full">
           <h5
             className={
               "text-md font-bold tracking-tight text-gray-900 dark:text-white"
@@ -48,7 +48,7 @@ const Card = (props: CardProps) => {
           </h5>
           <p
             className={
-              "text-xs text-gray-500 dark:text-gray-400 flex flex-wrap justify-center gap-1 mt-2"
+              "mt-2 flex flex-wrap justify-center gap-1 text-xs text-gray-500 dark:text-gray-400"
             }
           >
             {subtitle}
@@ -63,14 +63,14 @@ const Card = (props: CardProps) => {
     return (
       <div
         role="status"
-        className="rounded shadow animate-pulse dark:bg-gray-800 dark:border-gray-700 border border-gray-200 p-4 md:p-6 flex gap-2 items-center justify-between md:block"
+        className="flex animate-pulse items-center justify-between gap-2 rounded border border-gray-200 p-4 shadow dark:border-gray-700 dark:bg-gray-800 md:block md:p-6"
       >
-        <div className="w-1/2 md:w-full flex items-center justify-center h-48 mb-4 bg-gray-300 rounded dark:bg-gray-700">
-          <PhotoIcon className="w-10 h-10 text-gray-200 dark:text-gray-600" />
+        <div className="mb-4 flex h-48 w-1/2 items-center justify-center rounded bg-gray-300 dark:bg-gray-700 md:w-full">
+          <PhotoIcon className="h-10 w-10 text-gray-200 dark:text-gray-600" />
         </div>
         <div className="w-1/2 md:w-full">
-          <div className="h-5 bg-gray-200 rounded-full dark:bg-gray-700 mb-4"></div>
-          <div className="h-4 bg-gray-200 rounded-full dark:bg-gray-700 mb-2.5"></div>
+          <div className="mb-4 h-5 rounded-full bg-gray-200 dark:bg-gray-700"></div>
+          <div className="mb-2.5 h-4 rounded-full bg-gray-200 dark:bg-gray-700"></div>
           <span className="sr-only">Loading...</span>
         </div>
       </div>

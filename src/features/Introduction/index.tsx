@@ -14,7 +14,7 @@ const About: React.FC<React.PropsWithChildren<unknown>> = () => {
         height={600}
         width={900}
       />
-      <p className="text-lg leading-8 text-gray-600 dark:text-gray-300 pb-20">
+      <p className="pb-20 text-lg leading-8 text-gray-600 dark:text-gray-300">
         Greetings, fellow wanderers of the digital realm! I am a front-end
         developer extraordinaire, with a sprinkle of back-end wizardry up my
         sleeve. I have traversed the realms of automation, danced with the

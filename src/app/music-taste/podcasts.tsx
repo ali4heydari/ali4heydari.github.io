@@ -20,10 +20,10 @@ const Podcasts = () => {
   );
   return (
     <div>
-      <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl p-3">
+      <h2 className="p-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
         Podcasts
       </h2>
-      <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
+      <p className="mb-4 text-xl text-gray-600 dark:text-gray-400">
         I&#39;m enthusiastic about podcasts. Podcasts are a great way to learn
         new things and get inspired. Listening to podcasts helps me to learn
         none-tech stuff and get inspired by other people&#39;s stories. Apart
@@ -32,7 +32,7 @@ const Podcasts = () => {
         chores. Here is a list of podcasts that I followed on Spotify. Do you
         have any podcasts to recommend? 🤔
       </p>
-      <div className="grid gap-6 lg:gap-12 grid-cols-1 md:grid-cols-2 lg:grid-cols-5 pb-2 mb-3">
+      <div className="mb-3 grid grid-cols-1 gap-6 pb-2 md:grid-cols-2 lg:grid-cols-5 lg:gap-12">
         {(showsData?.data ?? new Array(10).fill(null)).map((show, index) => (
           <Card
             key={index}

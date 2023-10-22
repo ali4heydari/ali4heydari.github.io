@@ -29,24 +29,24 @@ const ProjectsPage: NextPage = () => {
   return (
     <section>
       <TitleSection center>Projects</TitleSection>
-      <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">
+      <p className="mb-4 text-xl text-gray-600 dark:text-gray-400">
         Here is a list of projects that I&#39;ve worked on. I&#39;ve worked on
         many more projects, but I can&#39;t share them here because of the NDA.
       </p>
-      <div className="grid gap-20 grid-cols-1 lg:grid-cols-2 my-10">
+      <div className="my-10 grid grid-cols-1 gap-20 lg:grid-cols-2">
         {allProjects.map((project) => (
           <Link
             key={project._id}
             href={`/projects/${project.slug}`}
-            className="border-2 border-gray-200 dark:border-gray-700 rounded-lg p-5 hover:border-gray-400 dark:hover:border-gray-500 transition-colors duration-200"
+            className="rounded-lg border-2 border-gray-200 p-5 transition-colors duration-200 hover:border-gray-400 dark:border-gray-700 dark:hover:border-gray-500"
           >
-            <article className="w-full flex flex-col-reverse lg:flex-row justify-between">
-              <div className="w-2/3 flex flex-col justify-between">
+            <article className="flex w-full flex-col-reverse justify-between lg:flex-row">
+              <div className="flex w-2/3 flex-col justify-between">
                 <div>
                   <h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
                     {project.title}
                   </h2>
-                  <p className="flex flex-wrap font-light justify-start gap-1 text-xs text-gray-500 dark:text-gray-400">
+                  <p className="flex flex-wrap justify-start gap-1 text-xs font-light text-gray-500 dark:text-gray-400">
                     <time>
                       🗓️ {project.startDate} - {project.endDate ?? "Present"}
                     </time>
@@ -60,7 +60,7 @@ const ProjectsPage: NextPage = () => {
                   {project.tags.slice(0, 4).map((tag) => (
                     <span
                       key={tag}
-                      className="m-0.5 bg-gray-100 text-gray-800 text-xs font-light inline-flex items-center px-1.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-400 border border-gray-500"
+                      className="m-0.5 mr-2 inline-flex items-center rounded border border-gray-500 bg-gray-100 px-1.5 py-0.5 text-xs font-light text-gray-800 dark:bg-gray-700 dark:text-gray-400"
                     >
                       {tag}
                     </span>
@@ -70,7 +70,7 @@ const ProjectsPage: NextPage = () => {
 
               <Image
                 src={project.cover}
-                className="mb-5 rounded-lg object-cover h-64 aspect-[2/3]"
+                className="mb-5 aspect-[2/3] h-64 rounded-lg object-cover"
                 alt={project.title}
                 width={600}
                 height={900}

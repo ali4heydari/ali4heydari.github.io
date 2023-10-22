@@ -35,11 +35,11 @@ const Timeline = ({ events, wrapperClassName }: TimelineProps) => {
           <li key={index} className="mb-10 ml-4 text-gray-900 dark:text-white">
             <div
               className={
-                "absolute -left-2 mt-0.6 h-4 w-4 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
+                "mt-0.6 absolute -left-2 h-4 w-4 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
               }
             />
             {index === 0 && (
-              <span className="animate-ping bg-indigo-500 dark:bg-indigo-400 absolute -left-2 mt-0.6 h-4 w-4 rounded-full" />
+              <span className="mt-0.6 absolute -left-2 h-4 w-4 animate-ping rounded-full bg-indigo-500 dark:bg-indigo-400" />
             )}
             <h3 className="mx-2 text-2xl font-semibold">{title}</h3>
             {subtitle && <h4 className="mx-2 text-lg">{subtitle}</h4>}
@@ -51,11 +51,11 @@ const Timeline = ({ events, wrapperClassName }: TimelineProps) => {
               </time>
             </div>
             {topTags && (
-              <div className="inline-flex flex-wrap gap-2 mx-2">
+              <div className="mx-2 inline-flex flex-wrap gap-2">
                 {topTags?.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-lg border border-0.5 border-gray-900 dark:border-gray-400 px-1.5 py-0.7 text-xs dark:text-gray-400"
+                    className="border-0.5 py-0.7 rounded-lg border border-gray-900 px-1.5 text-xs dark:border-gray-400 dark:text-gray-400"
                   >
                     {tag}
                   </span>
@@ -71,11 +71,11 @@ const Timeline = ({ events, wrapperClassName }: TimelineProps) => {
               {children}
             </div>
             {bottomTags && (
-              <div className="inline-flex flex-wrap gap-2 mx-2">
+              <div className="mx-2 inline-flex flex-wrap gap-2">
                 {bottomTags?.map((tag) => (
                   <span
                     key={tag}
-                    className="rounded-lg border border-gray-900 dark:border-gray-400 px-1.5 py-0.7 text-xs bg-indigo-50 dark:bg-indigo-700 dark:text-gray-200"
+                    className="py-0.7 rounded-lg border border-gray-900 bg-indigo-50 px-1.5 text-xs dark:border-gray-400 dark:bg-indigo-700 dark:text-gray-200"
                   >
                     {tag}
                   </span>

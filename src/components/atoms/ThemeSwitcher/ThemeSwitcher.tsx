@@ -62,7 +62,7 @@ const ThemeSwitcher = () => {
 
   return (
     <div
-      className="shadow-none bg-none rounded-2xl flex items-center relative max-w-fit space-x-2 justify-center text-center border border-gray-300 dark:border-gray-700"
+      className="relative flex max-w-fit items-center justify-center space-x-2 rounded-2xl border border-gray-300 bg-none text-center shadow-none dark:border-gray-700"
       role="radiogroup"
     >
       {themes.map((it) => (
@@ -73,8 +73,8 @@ const ThemeSwitcher = () => {
           onClick={() => setTheme(it.value || "light")}
           className={twMerge(
             classNames(
-              "rounded-full p-1 w-8 h-8 transition duration-300 ease-in-out cursor-pointer text-gray-900 dark:text-gray-100",
-              "hocus:bg-gray-300 dark:hocus:bg-gray-600 focus:bg-gray-300 dark:focus:bg-gray-600 focus:outline-none",
+              "h-8 w-8 cursor-pointer rounded-full p-1 text-gray-900 transition duration-300 ease-in-out dark:text-gray-100",
+              "focus:bg-gray-300 focus:outline-none hocus:bg-gray-300 dark:focus:bg-gray-600 dark:hocus:bg-gray-600",
               theme === it.value && "bg-gray-200 dark:bg-gray-700",
             ),
           )}

@@ -45,7 +45,7 @@ module.exports = {
     ];
 
     const fileLoaderRule = config.module.rules.find(
-      (rule) => rule.test && rule.test.test(".svg")
+      (rule) => rule.test && rule.test.test(".svg"),
     );
     fileLoaderRule.exclude = /\.svg$/;
 

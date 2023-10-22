@@ -65,7 +65,7 @@ const ProjectPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
           {project.tags?.map((tag) => (
             <span
               key={tag}
-              className="text-xs bg-indigo-50 dark:bg-indigo-700 dark:text-gray-200 rounded-lg border border-gray-900 dark:border-gray-400 px-1.5 py-0.7 m-1"
+              className="py-0.7 m-1 rounded-lg border border-gray-900 bg-indigo-50 px-1.5 text-xs dark:border-gray-400 dark:bg-indigo-700 dark:text-gray-200"
             >
               {tag}
             </span>

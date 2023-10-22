@@ -10,19 +10,19 @@ const Footer = () => {
     fetch("/api/now-playing", {}).then((res) => res.json()),
   );
   return (
-    <footer className="p-4 bg-white sm:p-6 dark:bg-gray-800">
+    <footer className="bg-white p-4 dark:bg-gray-800 sm:p-6">
       <div className="mx-auto max-w-screen-xl">
         <div className="md:flex md:justify-between">
-          <div className="grid grid-cols-2 gap-8 sm:gap-12 sm:grid-cols-3">
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-12">
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
                 General
               </h2>
-              <ul className="text-gray-600 dark:text-gray-400 space-y-1">
+              <ul className="space-y-1 text-gray-600 dark:text-gray-400">
                 {navigation.primary.map((it) => (
                   <li key={it.name}>
                     <StyledLink href={it.href} className="font-normal">
-                      <it.svgIcon className="w-4 h-4 mr-2 inline-block" />
+                      <it.svgIcon className="mr-2 inline-block h-4 w-4" />
                       {it.name}
                     </StyledLink>
                   </li>
@@ -30,14 +30,14 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
                 Other
               </h2>
-              <ul className="text-gray-600 dark:text-gray-400 space-y-1">
+              <ul className="space-y-1 text-gray-600 dark:text-gray-400">
                 {navigation.secondary.map((it) => (
                   <li key={it.name}>
                     <StyledLink href={it.href} className="font-normal">
-                      <it.svgIcon className="w-4 h-4 mr-2 inline-block" />
+                      <it.svgIcon className="mr-2 inline-block h-4 w-4" />
                       {it.name}
                     </StyledLink>
                   </li>
@@ -45,14 +45,14 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
                 Personality
               </h2>
-              <ul className="text-gray-600 dark:text-gray-400 space-y-1">
+              <ul className="space-y-1 text-gray-600 dark:text-gray-400">
                 {navigation.tertiary.map((it) => (
                   <li key={it.name}>
                     <StyledLink href={it.href} className="font-normal">
-                      <it.svgIcon className="w-4 h-4 mr-2 inline-block" />
+                      <it.svgIcon className="mr-2 inline-block h-4 w-4" />
                       {it.name}
                     </StyledLink>
                   </li>
@@ -65,12 +65,12 @@ const Footer = () => {
             <SteamNowPlaying {...data?.steam} />
           </div>
         </div>
-        <hr className="my-6 border-gray-200 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr className="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+          <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
             © {new Date().getFullYear()} Ali Heydari . All Rights Reserved.
           </span>
-          <div className="flex flex-wrap justify-center mt-4 space-x-1 space-y-1 sm:justify-center sm:mt-0">
+          <div className="mt-4 flex flex-wrap justify-center space-x-1 space-y-1 sm:mt-0 sm:justify-center">
             {navigation.socialMedias.map((it) => (
               <StyledLink
                 href={it.link}

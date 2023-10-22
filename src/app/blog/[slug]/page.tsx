@@ -55,20 +55,20 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
   );
   return (
     <>
-      <main className="pt-8 pb-16 lg:pt-16 lg:pb-24 antialiased">
-        <div className="flex justify-between px-4 mx-auto max-w-screen-xl">
+      <main className="pb-16 pt-8 antialiased lg:pb-24 lg:pt-16">
+        <div className="mx-auto flex max-w-screen-xl justify-between px-4">
           <article className="mx-auto w-full">
             <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl md:text-5xl">
               {blog.title}
             </h1>
 
             <header className="mb-4 lg:mb-6">
-              <address className="flex flex-wrap items-center mb-6 not-italic justify-end sm:justify-between">
-                <div className="inline-flex items-center mr-3 text-sm text-gray-900 dark:text-white">
+              <address className="mb-6 flex flex-wrap items-center justify-end not-italic sm:justify-between">
+                <div className="mr-3 inline-flex items-center text-sm text-gray-900 dark:text-white">
                   <Image
                     width={64}
                     height={64}
-                    className="mr-4 w-16 h-16 rounded-full"
+                    className="mr-4 h-16 w-16 rounded-full"
                     src="/static/images/site/ali4heydari/bitmoji.png"
                     alt="Ali Heydari"
                   />
@@ -79,9 +79,9 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                     >
                       Ali Heydari
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+                    <p className="space-y-1 text-sm text-gray-500 dark:text-gray-400">
                       <time
-                        className="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 inline-flex items-center rounded-lg"
+                        className="inline-flex items-center rounded-lg bg-gray-100 px-2 py-0.5 dark:bg-gray-700"
                         dateTime={
                           new Date(blog.publishedAt).toISOString().split("T")[0]
                         }
@@ -90,13 +90,13 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                         🗓 {publishDateText}
                       </time>
 
-                      <p className="text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 rounded-lg px-2 py-0.5 inline-flex items-center ml-2">
+                      <p className="ml-2 inline-flex items-center rounded-lg bg-gray-100 px-2 py-0.5 text-gray-500 dark:bg-gray-700 dark:text-gray-400">
                         ⏳ {blog.readingTime.text}
                       </p>
                     </p>
                   </div>
                 </div>
-                <div className="lg:h-10 lg:w-10 w-8 h-8">
+                <div className="h-8 w-8 lg:h-10 lg:w-10">
                   <WebShare
                     data={{
                       title: blog.title,
@@ -115,13 +115,13 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
               className="mb-5 rounded-lg object-cover sm:h-64"
             />
             <Mdx code={blog.body.code} />
-            <div className="text-center mt-5">
+            <div className="mt-5 text-center">
               <p>Tags:</p>
-              <div className="flex flex-wrap gap-2 pb-3 justify-center">
+              <div className="flex flex-wrap justify-center gap-2 pb-3">
                 {blog.tags?.map((tag) => (
                   <span
                     key={tag}
-                    className="m-0.5 bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-2.5 py-0.5 rounded mr-2 dark:bg-gray-700 dark:text-gray-400 border border-gray-500"
+                    className="m-0.5 mr-2 inline-flex items-center rounded border border-gray-500 bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-400"
                   >
                     {tag}
                   </span>

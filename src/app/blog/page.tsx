@@ -32,7 +32,7 @@ const BlogPage: NextPage = () => {
   return (
     <section>
       {!!allBlogs.length && <TitleSection center>Blog posts</TitleSection>}
-      <div className="grid gap-20 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  my-10">
+      <div className="my-10 grid grid-cols-1 gap-20 sm:grid-cols-2  lg:grid-cols-3">
         {allBlogs.map((blog) => {
           const publishDateText = new Date(blog.publishedAt).toLocaleDateString(
             "en-US",
@@ -46,7 +46,7 @@ const BlogPage: NextPage = () => {
           return (
             <article
               key={blog.title}
-              className="w-full border rounded-lg border-gray-200 dark:border-gray-700 p-5 hover:shadow-xl transition-shadow duration-200 dark:hover:bg-gray-800"
+              className="w-full rounded-lg border border-gray-200 p-5 transition-shadow duration-200 hover:shadow-xl dark:border-gray-700 dark:hover:bg-gray-800"
             >
               <Link title={blog.title} href={`/blog/${blog.slug}`}>
                 <Image
@@ -59,7 +59,7 @@ const BlogPage: NextPage = () => {
                 <h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
                   {blog.title}
                 </h2>
-                <div className="text-xs text-gray-500 dark:text-gray-400 flex items-center mb-6 justify-between">
+                <div className="mb-6 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
                   <time
                     dateTime={blog.publishedAt.split("T")[0]}
                     title={publishDateText}
@@ -71,11 +71,11 @@ const BlogPage: NextPage = () => {
                 <p className="mb-4 text-gray-500 dark:text-gray-400">
                   {blog.summary}
                 </p>
-                <div className="flex flex-wrap pb-3 justify-center">
+                <div className="flex flex-wrap justify-center pb-3">
                   {blog.tags?.map((tag) => (
                     <span
                       key={tag}
-                      className="m-0.5 bg-gray-100 text-gray-800 text-xs font-medium inline-flex items-center px-1.5 py-0.5 rounded dark:bg-gray-700 dark:text-gray-400 border border-gray-500"
+                      className="m-0.5 inline-flex items-center rounded border border-gray-500 bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-400"
                     >
                       {tag}
                     </span>

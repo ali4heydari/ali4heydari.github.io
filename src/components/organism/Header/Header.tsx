@@ -11,7 +11,7 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky inset-x-0 top-0 right-0 left-0 z-50 bg-gray-100 dark:bg-gray-800 dark:shadow-indigo-400">
+    <header className="sticky inset-x-0 left-0 right-0 top-0 z-50 bg-gray-100 dark:bg-gray-800 dark:shadow-indigo-400">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
         aria-label="Global"
@@ -55,7 +55,7 @@ const Header = () => {
       >
         <div className="fixed inset-0 z-50" />
         <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-gray-900 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
-          <div className="flex flex-col h-full justify-between">
+          <div className="flex h-full flex-col justify-between">
             <div>
               <div className="flex items-center justify-between">
                 <Bitmoji />
@@ -80,9 +80,9 @@ const Header = () => {
                           key={item.name}
                           href={item.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 border border-gray-300"
+                          className="block rounded-lg border border-gray-300 px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
                         >
-                          <item.svgIcon className="w-6 h-6 mr-2 inline-block" />
+                          <item.svgIcon className="mr-2 inline-block h-6 w-6" />
                           {item.name}
                         </StyledLink>
                       ))}
@@ -93,9 +93,9 @@ const Header = () => {
                           key={item.name}
                           href={item.href}
                           onClick={() => setMobileMenuOpen(false)}
-                          className="block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700 border border-gray-300"
+                          className="block rounded-lg border border-gray-300 px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
                         >
-                          <item.svgIcon className="w-6 h-6 mr-2 inline-block" />
+                          <item.svgIcon className="mr-2 inline-block h-6 w-6" />
                           {item.name}
                         </StyledLink>
                       ))}
