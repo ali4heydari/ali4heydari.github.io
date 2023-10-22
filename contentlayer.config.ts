@@ -9,9 +9,9 @@ import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
-import rehypePrism from "rehype-prism-plus";
 import rehypeToc from "@jsdevtools/rehype-toc";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
+import rehypePrettyCode from "rehype-pretty-code";
 
 const computedFields: ComputedFields = {
   readingTime: { type: "json", resolve: (doc) => readingTime(doc.body.raw) },
@@ -128,7 +128,7 @@ const contentLayerConfig = makeSource({
       // @ts-expect-error
       rehypeToc,
       // @ts-expect-error
-      rehypePrism,
+      rehypePrettyCode,
       [
         rehypeAutolinkHeadings,
         {

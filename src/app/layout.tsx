@@ -1,13 +1,6 @@
 import Providers from "../providers";
 import "tailwindcss/tailwind.css";
-// Required: Pick a PrismJS theme
-import "prismjs/themes/prism-tomorrow.css";
-// Optional: Add line numbering
-import "prismjs/plugins/line-numbers/prism-line-numbers.css";
-// Optional: Add shell prompt
-import "prismjs/plugins/command-line/prism-command-line.css";
 import "src/styles/global.css";
-import { Metadata } from "next";
 import MainLayout from "../layouts/MainLayout";
 import { getStaticMetadata } from "../utils/metadata";
 import { Meta } from "./meta";
