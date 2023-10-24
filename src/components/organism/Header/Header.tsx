@@ -74,32 +74,28 @@ const Header = () => {
               <div className="mt-6 flow-root">
                 <div>
                   <div className="space-y-2 py-6">
-                    <div className="space-y-2 border-b border-gray-500/10 pb-2">
-                      {navigation.secondary.map((item) => (
-                        <StyledLink
-                          key={item.name}
-                          href={item.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block rounded-lg border border-gray-300 px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
-                        >
-                          <item.svgIcon className="mr-2 inline-block h-6 w-6" />
-                          {item.name}
-                        </StyledLink>
-                      ))}
-                    </div>
-                    <div className="space-y-2 border-b border-gray-500/10 py-4">
-                      {navigation.tertiary.map((item) => (
-                        <StyledLink
-                          key={item.name}
-                          href={item.href}
-                          onClick={() => setMobileMenuOpen(false)}
-                          className="block rounded-lg border border-gray-300 px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700"
-                        >
-                          <item.svgIcon className="mr-2 inline-block h-6 w-6" />
-                          {item.name}
-                        </StyledLink>
-                      ))}
-                    </div>
+                    {Object.keys(navigation).map((key) => {
+                      if (key === "socialMedias") return null;
+
+                      return (
+                        <div key={key}>
+                          <div className="space-y-2">
+                            {navigation[key].map((item) => (
+                              <StyledLink
+                                key={item.name}
+                                href={item.href}
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="block rounded-lg border border-gray-300 px-3 py-2 text-base font-semibold leading-7"
+                              >
+                                <item.svgIcon className="mr-2 inline-block h-6 w-6" />
+                                {item.name}
+                              </StyledLink>
+                            ))}
+                          </div>
+                          <div className="my-6 h-0.5 rounded-full bg-gray-500/10" />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
