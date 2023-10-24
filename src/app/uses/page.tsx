@@ -4,7 +4,8 @@ import Image from "next/image";
 import { getStaticMetadata } from "../../utils/metadata";
 import { buildOgImageUrl } from "../../utils/opengraph";
 import StyledLink from "../../components/atoms/Link";
-import { softwares, hardwares } from "../../constants/uses";
+import { software, hardware } from "../../constants/uses";
+import Link from "next/link";
 
 export const metadata = getStaticMetadata({
   title: "Uses – Ali Heydari",
@@ -36,13 +37,14 @@ const Uses = () => {
         These are the hardware I use on a daily basis.
       </p>
       <div className="mb-3 grid grid-cols-1 gap-6 pb-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
-        {hardwares.map((hardware) => (
+        {hardware.map((hardware) => (
           <div
             key={hardware.name}
             className="flex max-w-sm items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 shadow dark:border-gray-700 dark:bg-gray-800 lg:flex-col lg:justify-center"
           >
             <Image
               className="h-26 w-36 rounded-2xl object-cover p-1"
+              placeholder="blur"
               src={hardware.image}
               alt={hardware.name}
               width={200}
@@ -66,7 +68,7 @@ const Uses = () => {
         These are the software I use on a daily basis.
       </p>
       <div className="m-2 flex flex-wrap justify-center gap-2 py-3">
-        {["All", ...new Set(softwares.flatMap((s) => s.tags))].map((tag) => (
+        {["All", ...new Set(software.flatMap((s) => s.tags))].map((tag) => (
           <span
             key={tag}
             className="rounded-lg border border-gray-200 bg-gray-100 px-2 py-1 text-xs text-gray-500 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-400"
@@ -76,12 +78,13 @@ const Uses = () => {
         ))}
       </div>
 
-      <div className="grid grid-cols-1 gap-6 pb-2 md:grid-cols-2 lg:grid-cols-4 lg:gap-12">
-        {softwares.map((software) => (
-          <StyledLink key={software.name} href={software.href} target="_blank">
+      <div className="grid grid-cols-1 gap-6 pb-2 md:grid-cols-2 lg:grid-cols-6 lg:gap-2">
+        {software.map((software) => (
+          <Link key={software.name} href={software.href} target="_blank">
             <div className="flex h-full max-w-sm items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 shadow dark:border-gray-700 dark:bg-gray-800 lg:flex-col lg:justify-center">
               <Image
                 className="h-26 w-36 rounded-2xl object-cover p-1"
+                placeholder="blur"
                 src={software.image}
                 alt={software.name}
                 width={200}
@@ -106,7 +109,7 @@ const Uses = () => {
                 </p>
               </div>
             </div>
-          </StyledLink>
+          </Link>
         ))}
       </div>
     </section>
