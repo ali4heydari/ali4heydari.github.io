@@ -59,7 +59,7 @@ const Project = defineDocumentType(() => ({
     title: { type: "string", required: true },
     summary: { type: "string", required: true },
     startDate: { type: "string", required: true },
-    endDate: { type: "string" },
+    endDate: { type: "string", required: true },
     published: { type: "boolean" },
     readingTime: { type: "json" },
     wordCount: {
