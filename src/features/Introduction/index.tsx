@@ -2,6 +2,7 @@ import TitleSection from "src/components/atoms/TitleSection";
 import React from "react";
 import SiteConfigs from "site.config";
 import Image from "next/image";
+import meInFrontOfALaptop from "../../assets/images/me/in-front-of-a-laptop.jpg";
 
 const About: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (
@@ -9,8 +10,9 @@ const About: React.FC<React.PropsWithChildren<unknown>> = () => {
       <TitleSection center>About me</TitleSection>
       <Image
         className="my-10 aspect-[3/2] w-full rounded-2xl object-cover"
-        src={"/static/images/profile-high-resolution.jpg"}
-        alt={SiteConfigs.SHORT_NAME}
+        src={meInFrontOfALaptop}
+        placeholder="blur"
+        alt="Ali Heydari in front of a laptop"
         height={600}
         width={900}
       />

@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
+import bitMoji from "../../../assets/images/me/bitmoji.png";
 
 export type LogoProps = {
   className?: string;
@@ -9,7 +10,8 @@ const Logo = ({ className }: LogoProps) => {
   return (
     <Link className={className} href="/">
       <Image
-        src="/static/images/site/ali4heydari/bitmoji.png"
+        src={bitMoji}
+        placeholder="blur"
         alt="Animoji representation of Ali Heydari"
         width={60}
         height={60}
