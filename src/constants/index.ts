@@ -46,7 +46,7 @@ export const navigation = {
     },
     {
       name: "Source",
-      href: "https://github.com/ali4heydari/ali4heydari.tech",
+      href: "https://github.com/ali4heydari/ali4heydari.github.io",
       svgIcon: CodeBracketIcon,
       emojiIcon: "🥚",
     },
