@@ -3,12 +3,16 @@ import Footer from "src/components/organism/Footer";
 import type { PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 import BottomNavigation from "../components/molecules/BottomNavigation/BottomNavigation";
+import { Vazirmatn } from "next/font/google";
+import classNames from "classnames";
+
+const vazirmatn = Vazirmatn({ subsets: ["latin"] });
 
 const MainLayout = ({
   children,
 }: PropsWithChildren<{}>): JSX.Element | null => {
   return (
-    <div className="min-h-screen">
+    <div className={classNames("min-h-screen", vazirmatn.className)}>
       <Header />
       <hr />
       <div className="dark:bg-gradient-to-b-dark relative isolate overflow-hidden bg-gradient-to-b from-indigo-100/20 pt-14 dark:from-gray-800">
