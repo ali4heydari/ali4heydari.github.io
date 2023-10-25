@@ -3,9 +3,10 @@ import "tailwindcss/tailwind.css";
 import "src/styles/global.css";
 import MainLayout from "../layouts/MainLayout";
 import { getStaticMetadata } from "../utils/metadata";
-import { Meta } from "./meta";
-import GoogleAnalytics from "./GoogleAnalytics";
-import Hotjar from "./Hotjar";
+import Meta from "../components/molecules/Meta";
+import GoogleAnalytics from "../components/molecules/GoogleAnalytics/GoogleAnalytics";
+import Hotjar from "../components/molecules/Hotjar/Hotjar";
+import type { ReactNode } from "react";
 
 export const metadata = {
   ...getStaticMetadata({
@@ -27,11 +28,9 @@ export const metadata = {
   }),
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+type RootLayoutProps = { children: ReactNode };
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
