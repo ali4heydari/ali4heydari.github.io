@@ -10,7 +10,7 @@ export const isValidDate = (date: string | number) =>
   Object.prototype.toString.call(date) === "[object Date]" &&
   !Number.isNaN(date);
 
-type WithStatus<TResponseBody> = {
+export type WithStatus<TResponseBody> = {
   data: TResponseBody;
   status: number;
 };

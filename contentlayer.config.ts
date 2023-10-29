@@ -127,7 +127,6 @@ const contentLayerConfig = makeSource({
       rehypeAccessibleEmojis,
       // @ts-expect-error
       rehypeToc,
-      // @ts-expect-error
       rehypePrettyCode,
       [
         rehypeAutolinkHeadings,

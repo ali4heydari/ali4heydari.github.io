@@ -1,14 +1,16 @@
 "use client";
 import SpotifyNowListening from "./components/SpotifyNowListening";
 import SteamNowPlaying from "./components/SteamNowPlaying";
-import useMasterQuery from "../../../hooks/useMasterQuery";
 import { navigation } from "../../../constants";
 import StyledLink from "../../atoms/Link";
+import { useQuery } from "@tanstack/react-query";
+import { getJson } from "../../../utils";
 
 const Footer = () => {
-  const { data } = useMasterQuery(["/api/now-playing"], () =>
-    fetch("/api/now-playing", {}).then((res) => res.json()),
-  );
+  const { data } = useQuery({
+    queryKey: ["/api/now-playing"],
+    queryFn: () => getJson("/api/now-playing"),
+  });
   return (
     <footer className="bg-white p-4 dark:bg-gray-800 sm:p-6">
       <div className="mx-auto max-w-screen-xl">
@@ -61,8 +63,8 @@ const Footer = () => {
             </div>
           </div>
           <div className="my-6 flex flex-col items-center">
-            <SpotifyNowListening {...data?.spotify} />
-            <SteamNowPlaying {...data?.steam} />
+            <SpotifyNowListening {...(data as any)?.data?.spotify} />
+            <SteamNowPlaying {...(data as any)?.data?.steam} />
           </div>
         </div>
         <hr className="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />

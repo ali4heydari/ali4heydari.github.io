@@ -1,30 +1,28 @@
 "use client";
 import React, { useState } from "react";
-import StyledLink from "../../components/atoms/Link";
-import useMasterQuery from "../../hooks/useMasterQuery";
-import { getJson } from "../../utils";
+import { getJson, WithStatus } from "../../utils";
 import { baseUrl } from "../../constants";
-import Image from "next/image";
-import classNames from "classnames";
-import { twMerge } from "tailwind-merge";
 import Card from "../../components/molecules/Card";
 import TimeRangeSelect from "../../components/molecules/TimeRangeSelect/TimeRangeSelect";
+import { useQuery } from "@tanstack/react-query";
 
 const TopTracks = () => {
   const [timeRange, setTimeRange] = useState("short_term");
 
-  const { data: topTracksData, isLoading: isLoadingTopTracks } = useMasterQuery(
-    ["/api/spotify/top/tracks", timeRange],
-    () =>
-      getJson<
-        {
-          artist: string;
-          image: string;
-          url: string;
-          title: string;
-        }[]
-      >(`${baseUrl}/api/spotify/top/tracks?time_range=${timeRange}`),
-  );
+  const { data: topTracksData, isLoading: isLoadingTopTracks } = useQuery<
+    WithStatus<
+      {
+        artist: string;
+        image: string;
+        url: string;
+        title: string;
+      }[]
+    >
+  >({
+    queryKey: ["/api/spotify/top/tracks", timeRange],
+    queryFn: () =>
+      getJson(`${baseUrl}/api/spotify/top/tracks?time_range=${timeRange}`),
+  });
 
   return (
     <div>

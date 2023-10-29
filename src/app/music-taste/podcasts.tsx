@@ -1,23 +1,24 @@
 "use client";
-import useMasterQuery from "../../hooks/useMasterQuery";
-import { getJson } from "../../utils";
+import { getJson, WithStatus } from "../../utils";
 import { baseUrl } from "../../constants";
 import Card from "src/components/molecules/Card";
+import { useQuery } from "@tanstack/react-query";
 
 const Podcasts = () => {
-  const { data: showsData, isLoading: isLoadingShows } = useMasterQuery(
-    ["/api/spotify/shows?limit=50"],
-    () =>
-      getJson<
-        {
-          image: string;
-          href: string;
-          name: string;
-          publisher: string;
-          description: string;
-        }[]
-      >(`${baseUrl}/api/spotify/shows?limit=50`),
-  );
+  const { data: showsData, isLoading: isLoadingShows } = useQuery<
+    WithStatus<
+      {
+        image: string;
+        href: string;
+        name: string;
+        publisher: string;
+        description: string;
+      }[]
+    >
+  >({
+    queryKey: ["/api/spotify/shows?limit=50"],
+    queryFn: () => getJson(`${baseUrl}/api/spotify/shows?limit=50`),
+  });
   return (
     <div>
       <h2 className="p-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
