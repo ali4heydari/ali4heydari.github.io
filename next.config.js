@@ -1,4 +1,8 @@
 const { withContentlayer } = require("next-contentlayer");
+
+const appHeaders = require("./config/next/headers");
+const redirects = require("./config/next/redirects");
+
 /** @type { import("next").NextConfig } */
 const nextConfig = {
   reactStrictMode: true,
@@ -15,6 +19,12 @@ const nextConfig = {
     });
 
     return config;
+  },
+  async headers() {
+    return appHeaders;
+  },
+  async redirects() {
+    return redirects;
   },
 };
 
