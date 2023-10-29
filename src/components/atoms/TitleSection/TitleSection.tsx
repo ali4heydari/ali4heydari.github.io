@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
-import styles from "./TitleSection.module.css";
 import classNames from "classnames";
 import { twMerge } from "tailwind-merge";
+import styles from "./TitleSection.module.css";
 
 interface Props {
   center?: boolean;

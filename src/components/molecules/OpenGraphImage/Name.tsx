@@ -1,5 +1,5 @@
-import type { PathName } from "./LogoTitle";
 import { baseUrl } from "../../../constants";
+import type { PathName } from "./LogoTitle";
 
 const fontSize = 40;
 export const Name = (props: { path?: PathName }) => {

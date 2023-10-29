@@ -1,9 +1,9 @@
 import "server-only";
-/* eslint-disable @next/next/no-img-element */
+import { baseUrl } from "../../../constants";
 
+/* eslint-disable @next/next/no-img-element */
 import { LogoOrEmoji, PageTitle, PathName } from "./LogoTitle";
 import { Name } from "./Name";
-import { baseUrl } from "../../../constants";
 
 interface OgImageProps {
   path?: PathName;

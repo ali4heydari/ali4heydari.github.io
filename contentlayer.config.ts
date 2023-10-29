@@ -1,17 +1,16 @@
+import readingTime from "reading-time";
+import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeCodeTitles from "rehype-code-titles";
+import rehypePrettyCode from "rehype-pretty-code";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
 import {
   ComputedFields,
   defineDocumentType,
   makeSource,
 } from "contentlayer/source-files";
-
-import readingTime from "reading-time";
-import remarkGfm from "remark-gfm";
-import rehypeSlug from "rehype-slug";
-import rehypeCodeTitles from "rehype-code-titles";
-import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeToc from "@jsdevtools/rehype-toc";
-import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
-import rehypePrettyCode from "rehype-pretty-code";
 
 const computedFields: ComputedFields = {
   readingTime: { type: "json", resolve: (doc) => readingTime(doc.body.raw) },

@@ -1,8 +1,7 @@
-import { TimelineProps } from "./@types";
-
-import classNames from "classnames";
 import React from "react";
+import classNames from "classnames";
 import { isValidDate } from "../../../utils";
+import { TimelineProps } from "./@types";
 
 const Timeline = ({ events, wrapperClassName }: TimelineProps) => {
   const getDate = (dateStr) => {

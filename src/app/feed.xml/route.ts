@@ -105,18 +105,18 @@ const defaultChannel = {
       type: "application/rss+xml",
     },
   },
-  lastBuildDate: new Date().toUTCString(),
-  language: "en-US",
-  link: "https://ali4heydari.tech",
-  title: "Ali Heydari",
-  description: "Ali Heydari's blog",
-  image_url: "https://ali4heydari.tech/api/og",
-  image: {
+  "lastBuildDate": new Date().toUTCString(),
+  "language": "en-US",
+  "link": "https://ali4heydari.tech",
+  "title": "Ali Heydari",
+  "description": "Ali Heydari's blog",
+  "image_url": "https://ali4heydari.tech/api/og",
+  "image": {
     title: "Ali Heydari",
     link: "https://ali4heydari.tech",
     url: "https://ali4heydari.tech/api/og",
   },
-  copyright: `All rights reserved ${new Date().getFullYear()}, Ali Heydari`,
+  "copyright": `All rights reserved ${new Date().getFullYear()}, Ali Heydari`,
 };
 
 export async function GET() {
@@ -129,7 +129,7 @@ export async function GET() {
           "xmlns:dc": "http://purl.org/dc/elements/1.1/",
           "xmlns:content": "http://purl.org/rss/1.0/modules/content/",
           "xmlns:atom": "http://www.w3.org/2005/Atom",
-          version: "2.0",
+          "version": "2.0",
         },
       },
       {

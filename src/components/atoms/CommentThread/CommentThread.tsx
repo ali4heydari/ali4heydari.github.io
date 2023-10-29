@@ -1,6 +1,7 @@
 "use client";
-import { ComponentProps } from "react";
+
 import { DiscussionEmbed, CommentEmbed } from "disqus-react";
+import { ComponentProps } from "react";
 import siteConfig from "../../../../site.config";
 
 const CommentThread = (

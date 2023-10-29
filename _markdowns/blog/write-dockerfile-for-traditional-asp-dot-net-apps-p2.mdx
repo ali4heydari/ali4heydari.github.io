@@ -8,7 +8,7 @@ tags: ["Windows", "Docker", "ASP.NET"]
 
 # Introduction
 
-In continuation of [Part 1](/blog/write-dockerfile-for-traditional-asp-dot-net-apps-p1), 
+In continuation of [Part 1](/blog/write-dockerfile-for-traditional-asp-dot-net-apps-p1),
 we will see how to write multi-staged Dockerfile for traditional ASP.NET apps with best practices. We will use a real world example.
 
 # Write Dockerfile
@@ -21,7 +21,7 @@ The first stage is to build the application and the second stage is to run the a
 As I mentioned in [Part 1](/blog/write-dockerfile-for-traditional-asp-dot-net-apps-p1), The project contains a Web Application (ASP.NET MVC), A Web API (ASP.NET Web API) and a Windows Service (Console Application).
 In this article, I will explain how to write a Dockerfile for the Web Application (ASP.NET Web API).
 
-Many of the steps in the Dockerfile are the same for the Web Application. So If you read [Part 1](/blog/write-dockerfile-for-traditional-asp-dot-net-apps-p1), 
+Many of the steps in the Dockerfile are the same for the Web Application. So If you read [Part 1](/blog/write-dockerfile-for-traditional-asp-dot-net-apps-p1),
 you can skip detailed steps and go directly to the final Dockerfile.
 
 ### Step 1: Write builder stage
@@ -157,7 +157,6 @@ RUN Add-WindowsFeature Web-Server; \
     &$Env:windir\Microsoft.NET\Framework\v4.0.30319\ngen update
 ```
 
-
 4. Update `SHELL` to use PowerShell and pass only one argument to it: `$ErrorActionPreference = 'Stop'`.
 
 ```dockerfile
@@ -186,8 +185,8 @@ RUN Remove-Website -Name 'Default Web Site'; \
 ```
 
 8. Define the entry point for the container. The entry point is the command that is executed when the container starts.
-    In this case, the entry point is [`ServiceMonitor.exe`](https://github.com/microsoft/IIS.ServiceMonitor),
-    which is an entrypoint process for running IIS in Windows containers.
+   In this case, the entry point is [`ServiceMonitor.exe`](https://github.com/microsoft/IIS.ServiceMonitor),
+   which is an entrypoint process for running IIS in Windows containers.
 
 ```dockerfile
 ENTRYPOINT [ "Start-Process", "-FilePath", "C:\ServiceMonitor.exe", "-Wait", "-ArgumentList", "w3svc"]
@@ -319,4 +318,3 @@ monster-api:1.0.0
 Now you can test the container by navigating to http://localhost:8080 in your browser or calling the API using Postman.
 
 You are done! I hope you enjoyed this tutorial. If you have any questions or comments please feel free to contact me.
-

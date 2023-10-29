@@ -1,7 +1,7 @@
-import React from "react";
 import { StoryFn, Meta } from "@storybook/react";
-import * as tailwindColors from "tailwindcss/colors";
+import React from "react";
 import Hero from "../Hero";
+import * as tailwindColors from "tailwindcss/colors";
 
 export default {
   title: "Templates/Hero",

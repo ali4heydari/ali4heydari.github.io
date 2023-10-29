@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-
 import { buildOgImageUrl } from "./opengraph";
 
 type MetaImageStyle = "summary_large_image" | "summary";

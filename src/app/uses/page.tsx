@@ -1,10 +1,10 @@
 import React from "react";
+import StyledLink from "../../components/atoms/Link";
 import TitleSection from "../../components/atoms/TitleSection";
-import Image from "next/image";
+import { software, hardware } from "../../constants/uses";
 import { getStaticMetadata } from "../../utils/metadata";
 import { buildOgImageUrl } from "../../utils/opengraph";
-import StyledLink from "../../components/atoms/Link";
-import { software, hardware } from "../../constants/uses";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = getStaticMetadata({

@@ -1,7 +1,7 @@
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 import meNextToATree from "../../assets/images/me/next-to-a-tree.jpg";
+import Image from "next/image";
+import Link from "next/link";
 
 const Hero: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (

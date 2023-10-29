@@ -1,8 +1,9 @@
 "use client";
-import { getJson, WithStatus } from "../../utils";
-import { baseUrl } from "../../constants";
-import Card from "src/components/molecules/Card";
+
 import { useQuery } from "@tanstack/react-query";
+import Card from "src/components/molecules/Card";
+import { baseUrl } from "../../constants";
+import { getJson, WithStatus } from "../../utils";
 
 const Podcasts = () => {
   const { data: showsData, isLoading: isLoadingShows } = useQuery<

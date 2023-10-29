@@ -1,6 +1,6 @@
-import Timeline from "src/components/organism/Timeline";
-import TitleSection from "src/components/atoms/TitleSection";
 import React from "react";
+import TitleSection from "src/components/atoms/TitleSection";
+import Timeline from "src/components/organism/Timeline";
 import type { Education } from ".contentlayer/generated";
 
 const Educations: React.FC<

@@ -1,7 +1,7 @@
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 import bitMoji from "../../../assets/images/me/bitmoji.png";
+import Image from "next/image";
+import Link from "next/link";
 
 export type LogoProps = {
   className?: string;

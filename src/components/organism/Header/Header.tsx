@@ -1,10 +1,11 @@
 "use client";
-import React, { useState } from "react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+
 import { Dialog } from "@headlessui/react";
-import Bitmoji from "../../atoms/Logo";
-import StyledLink from "../../atoms/Link";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import React, { useState } from "react";
 import { navigation } from "../../../constants";
+import StyledLink from "../../atoms/Link";
+import Bitmoji from "../../atoms/Logo";
 import ThemeSwitcher from "../../atoms/ThemeSwitcher";
 
 const Header = () => {

@@ -1,6 +1,7 @@
 "use client";
-import { hotjar } from "react-hotjar";
+
 import { useEffect } from "react";
+import { hotjar } from "react-hotjar";
 import siteConfig from "../../../../site.config";
 
 const Hotjar = () => {

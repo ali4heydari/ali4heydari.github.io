@@ -1,7 +1,8 @@
 "use client";
-import Link from "next/link";
-import { navigation } from "../../../constants";
+
 import classNames from "classnames";
+import { navigation } from "../../../constants";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 const BottomNavigation = () => {

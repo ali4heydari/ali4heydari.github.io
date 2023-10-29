@@ -1,8 +1,8 @@
-import TitleSection from "src/components/atoms/TitleSection";
 import React from "react";
 import SiteConfigs from "site.config";
-import Image from "next/image";
+import TitleSection from "src/components/atoms/TitleSection";
 import meInFrontOfALaptop from "../../assets/images/me/in-front-of-a-laptop.jpg";
+import Image from "next/image";
 
 const About: React.FC<React.PropsWithChildren<unknown>> = () => {
   return (

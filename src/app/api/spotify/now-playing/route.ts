@@ -1,9 +1,9 @@
-import { NextResponse } from "next/server";
 import * as spotifyApi from "src/api/spotify";
 import {
   EpisodeDto,
   SongDto,
 } from "../../../../api/spotify/@types/responses/current-playing";
+import { NextResponse } from "next/server";
 
 const GET = async (_: Request) => {
   const headers = {

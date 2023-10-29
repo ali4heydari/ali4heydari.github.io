@@ -1,10 +1,11 @@
 "use client";
+
+import { useQuery } from "@tanstack/react-query";
+import { navigation } from "../../../constants";
+import { getJson } from "../../../utils";
+import StyledLink from "../../atoms/Link";
 import SpotifyNowListening from "./components/SpotifyNowListening";
 import SteamNowPlaying from "./components/SteamNowPlaying";
-import { navigation } from "../../../constants";
-import StyledLink from "../../atoms/Link";
-import { useQuery } from "@tanstack/react-query";
-import { getJson } from "../../../utils";
 
 const Footer = () => {
   const { data } = useQuery({

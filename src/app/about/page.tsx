@@ -1,8 +1,8 @@
-import Introduction from "src/features/Introduction";
 import { NextPage } from "next";
+import Introduction from "src/features/Introduction";
+import { allExperiences } from "../../../.contentlayer/generated";
 import CalendlyInlineWidget from "../../components/atoms/Calendly/CalendlyInlineWidget";
 import Experiences from "../../features/Experiences";
-import { allExperiences } from "../../../.contentlayer/generated";
 import Skills from "../../features/Skills/Skills";
 import { getStaticMetadata } from "../../utils/metadata";
 import { buildOgImageUrl } from "../../utils/opengraph";

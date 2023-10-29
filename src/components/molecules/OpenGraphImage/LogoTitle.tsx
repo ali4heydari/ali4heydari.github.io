@@ -2,27 +2,27 @@ import { baseUrl } from "../../../constants";
 
 const pathEmojiMap = {
   "404": "👻",
-  about: "😀",
+  "about": "😀",
   "music-taste": "🎵",
-  gallery: "📷",
+  "gallery": "📷",
   "community-wall": "📝",
-  projects: "💼",
-  uses: "💻",
-  blog: "📄",
-  error: "🚨",
+  "projects": "💼",
+  "uses": "💻",
+  "blog": "📄",
+  "error": "🚨",
 };
 export type PathName = keyof typeof pathEmojiMap | null;
 
 const pathTitleMap = {
   "404": "Page not found",
-  about: "About",
+  "about": "About",
   "music-taste": "Music taste",
-  gallery: "Gallery",
+  "gallery": "Gallery",
   "community-wall": "Community wall",
-  projects: "Projects",
-  uses: "Uses",
-  blog: "Blog",
-  error: "Error",
+  "projects": "Projects",
+  "uses": "Uses",
+  "blog": "Blog",
+  "error": "Error",
 };
 
 const titleFontSize = 72;

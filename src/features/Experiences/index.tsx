@@ -1,8 +1,8 @@
-import TitleSection from "src/components/atoms/TitleSection";
 import React from "react";
+import TitleSection from "src/components/atoms/TitleSection";
 import Timeline from "../../components/organism/Timeline";
-import type { Experience } from ".contentlayer/generated";
 import { TimelineProps } from "../../components/organism/Timeline/@types";
+import type { Experience } from ".contentlayer/generated";
 
 const Educations: React.FC<
   React.PropsWithChildren<{

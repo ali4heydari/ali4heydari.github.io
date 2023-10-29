@@ -1,7 +1,8 @@
 "use client";
+
 import React, { ComponentProps } from "react";
-import siteConfig from "../../../../site.config";
 import { InlineWidget } from "react-calendly";
+import siteConfig from "../../../../site.config";
 
 const CalendlyInlineWidget = ({
   styles = {

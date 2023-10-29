@@ -1,6 +1,5 @@
-import React from "react";
 import { StoryFn, Meta } from "@storybook/react";
-
+import React from "react";
 import CommentThread from "./index";
 
 export default {

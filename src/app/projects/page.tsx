@@ -1,11 +1,11 @@
 import React from "react";
 import { NextPage } from "next";
 import { allProjects } from "../../../.contentlayer/generated";
-import Link from "next/link";
 import TitleSection from "../../components/atoms/TitleSection";
-import { buildOgImageUrl } from "../../utils/opengraph";
 import { getStaticMetadata } from "../../utils/metadata";
+import { buildOgImageUrl } from "../../utils/opengraph";
 import Image from "next/image";
+import Link from "next/link";
 
 export const metadata = getStaticMetadata({
   title: "Projects – Ali Heydari",

@@ -1,7 +1,6 @@
-import { ImageResponse } from "next/og";
-
 import type { PathName } from "./LogoTitle";
 import { OpenGraphImage } from "./OpenGraphImage";
+import { ImageResponse } from "next/og";
 
 export const config = {
   runtime: "edge",

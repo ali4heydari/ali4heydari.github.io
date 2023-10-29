@@ -1,10 +1,10 @@
-import Header from "src/components/organism/Header";
-import Footer from "src/components/organism/Footer";
 import type { PropsWithChildren } from "react";
+import classNames from "classnames";
 import { twMerge } from "tailwind-merge";
+import Footer from "src/components/organism/Footer";
+import Header from "src/components/organism/Header";
 import BottomNavigation from "../components/molecules/BottomNavigation/BottomNavigation";
 import { Vazirmatn } from "next/font/google";
-import classNames from "classnames";
 
 const vazirmatn = Vazirmatn({ subsets: ["latin"] });
 

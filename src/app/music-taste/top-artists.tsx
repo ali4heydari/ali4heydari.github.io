@@ -1,10 +1,11 @@
 "use client";
+
+import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import { getJson, WithStatus } from "../../utils";
-import { baseUrl } from "../../constants";
 import Card from "../../components/molecules/Card";
 import TimeRangeSelect from "../../components/molecules/TimeRangeSelect/TimeRangeSelect";
-import { useQuery } from "@tanstack/react-query";
+import { baseUrl } from "../../constants";
+import { getJson, WithStatus } from "../../utils";
 
 const TopArtists = () => {
   const [timeRange, setTimeRange] = useState("short_term");

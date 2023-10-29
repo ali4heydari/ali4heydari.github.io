@@ -1,7 +1,6 @@
-import { NextResponse } from "next/server";
-
 import * as spotifyApi from "src/api/spotify";
 import { GetUsersTopItemsRequest } from "../../../../../api/spotify/@types/requests/top";
+import { NextResponse } from "next/server";
 
 const GET = async (request: Request) => {
   const requestSearchParams = new URL(request.url).searchParams;

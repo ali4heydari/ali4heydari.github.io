@@ -2,9 +2,9 @@ import { NextPage } from "next";
 import TitleSection from "../../components/atoms/TitleSection";
 import { getStaticMetadata } from "../../utils/metadata";
 import { buildOgImageUrl } from "../../utils/opengraph";
-import TopTracks from "./top-tracks";
 import Podcasts from "./podcasts";
 import TopArtists from "./top-artists";
+import TopTracks from "./top-tracks";
 
 export const metadata = getStaticMetadata({
   title: "Music taste – Ali Heydari",

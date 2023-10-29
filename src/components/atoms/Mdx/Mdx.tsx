@@ -1,7 +1,8 @@
 "use client";
+
 import classNames from "classnames";
-import { useMDXComponent } from "next-contentlayer/hooks";
 import { twMerge } from "tailwind-merge";
+import { useMDXComponent } from "next-contentlayer/hooks";
 
 interface MdxProps {
   code: string;

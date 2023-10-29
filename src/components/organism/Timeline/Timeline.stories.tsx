@@ -1,5 +1,6 @@
-import React from "react";
 import { StoryFn, Meta } from "@storybook/react";
+import React from "react";
+import Timeline from "./index";
 import {
   randCompanyName,
   randCity,
@@ -8,8 +9,6 @@ import {
   rand,
   randJobTitle,
 } from "@ngneat/falso";
-
-import Timeline from "./index";
 
 export default {
   title: "Molecules/Timeline",

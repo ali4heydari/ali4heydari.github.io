@@ -1,12 +1,12 @@
-import Providers from "../providers";
-import "tailwindcss/tailwind.css";
+import type { ReactNode } from "react";
 import "src/styles/global.css";
-import MainLayout from "../layouts/MainLayout";
-import { getStaticMetadata } from "../utils/metadata";
-import Meta from "../components/molecules/Meta";
 import GoogleAnalytics from "../components/molecules/GoogleAnalytics/GoogleAnalytics";
 import Hotjar from "../components/molecules/Hotjar/Hotjar";
-import type { ReactNode } from "react";
+import Meta from "../components/molecules/Meta";
+import MainLayout from "../layouts/MainLayout";
+import Providers from "../providers";
+import { getStaticMetadata } from "../utils/metadata";
+import "tailwindcss/tailwind.css";
 
 export const metadata = {
   ...getStaticMetadata({

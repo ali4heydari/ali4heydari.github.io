@@ -1,8 +1,8 @@
+import SpotifyIcon from "mdi-react/SpotifyIcon";
+import SteamIcon from "mdi-react/SteamIcon";
 import { twMerge } from "tailwind-merge";
 import siteConfig from "../../../../../site.config";
 import Image from "next/image";
-import SpotifyIcon from "mdi-react/SpotifyIcon";
-import SteamIcon from "mdi-react/SteamIcon";
 import Link from "next/link";
 
 export default function SteamNowPlaying({

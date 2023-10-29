@@ -1,8 +1,7 @@
+import { PathName } from "../../../components/molecules/OpenGraphImage/LogoTitle";
+import { OpenGraphImage } from "../../../components/molecules/OpenGraphImage/OpenGraphImage";
 import { ImageResponse } from "next/og";
 import { NextRequest } from "next/server";
-
-import { OpenGraphImage } from "../../../components/molecules/OpenGraphImage/OpenGraphImage";
-import { PathName } from "../../../components/molecules/OpenGraphImage/LogoTitle";
 
 export const runtime = "edge";
 

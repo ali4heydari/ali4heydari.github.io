@@ -1,9 +1,10 @@
 "use client";
+
 import type { ComponentProps } from "react";
-import NextLink from "next/link";
-import { usePathname } from "next/navigation";
 import classNames from "classnames";
 import { twMerge } from "tailwind-merge";
+import NextLink from "next/link";
+import { usePathname } from "next/navigation";
 
 const isLocalLink = (href?: string) =>
   href && (href.startsWith("/") || href.startsWith("#"));

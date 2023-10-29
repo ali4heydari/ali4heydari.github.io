@@ -22,7 +22,7 @@ As I mentioned in [Part 1](/blog/write-dockerfile-for-traditional-asp-dot-net-ap
 The project contains a Web Application (ASP.NET MVC), A Web API (ASP.NET Web API) and a Windows Service (Console Application).
 In this article, I will explain how to write a Dockerfile for the Windows Service (Console Application).
 
-Many of the steps in the Dockerfile are the same for the Web Application and the Web API. 
+Many of the steps in the Dockerfile are the same for the Web Application and the Web API.
 So If you read [Part 1](/blog/write-dockerfile-for-traditional-asp-dot-net-apps-p1) Or [Part 2](/blog/write-dockerfile-for-traditional-asp-dot-net-apps-p2)
 you can skip detailed steps and go directly to the final Dockerfile.
 
@@ -156,7 +156,7 @@ COPY --from=builder /build-output .
 ```
 
 5. Define the entry point for the container. The entry point is the command that is executed when the container starts.
-    In this case, the entry point is the Windows Service executable file.
+   In this case, the entry point is the Windows Service executable file.
 
 ```dockerfile
 ENTRYPOINT ["C:\\app\\MMS.ProcessManagerService.exe"]
@@ -271,8 +271,7 @@ monster-service:1.0.0
 
 # Test the container
 
-Now your container is running and you can test it by sending a request to the service. 
+Now your container is running and you can test it by sending a request to the service.
 In my case the service reads some data from a database and makes some calculations on it.
 
 You are done! I hope you enjoyed this tutorial. If you have any questions or comments please feel free to contact me.
-

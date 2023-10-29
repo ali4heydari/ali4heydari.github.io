@@ -1,8 +1,8 @@
 import React from "react";
-import Hero from "../features/Hero";
-import Experiences from "../features/Experiences";
 import { Metadata, NextPage, ResolvingMetadata } from "next";
 import { allExperiences } from "../../.contentlayer/generated";
+import Experiences from "../features/Experiences";
+import Hero from "../features/Hero";
 import { Skills } from "../features/Skills";
 
 type Props = {

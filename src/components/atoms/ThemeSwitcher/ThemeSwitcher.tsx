@@ -1,7 +1,3 @@
-import { twMerge } from "tailwind-merge";
-import { useTheme } from "next-themes";
-import classNames from "classnames";
-import { useMemo } from "react";
 import {
   MoonIcon as MoonIconOutline,
   SunIcon as SunIconOutline,
@@ -12,6 +8,10 @@ import {
   SunIcon as SunIconSolid,
   ComputerDesktopIcon as ComputerDesktopIconSolid,
 } from "@heroicons/react/24/solid";
+import { useMemo } from "react";
+import classNames from "classnames";
+import { useTheme } from "next-themes";
+import { twMerge } from "tailwind-merge";
 
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useTheme();

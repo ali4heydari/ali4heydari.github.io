@@ -1,37 +1,37 @@
 // hardware
 import appleMacbookProM1 from "../assets/images/uses/hardware/apple-macbook-pro-m1-14inch.png";
-import LogitechMXVertical from "../assets/images/uses/hardware/logitech-mx-vertical.png";
-import KeychronK3 from "../assets/images/uses/hardware/keychron-k3.png";
-import SonyWF1000XM4 from "../assets/images/uses/hardware/sony-wf1000xm4.png";
-import MikrotikhAPax3 from "../assets/images/uses/hardware/mikrotik-hap-ax3.png";
-import TSCOTS2189 from "../assets/images/uses/hardware/tsco-ts2189.png";
 import AsusGL502VY from "../assets/images/uses/hardware/asus-gl502vy.png";
-import LogitechG502Hero from "../assets/images/uses/hardware/logitech-g502-hero.png";
-import LogitechG213 from "../assets/images/uses/hardware/logitech-g213.png";
 import AsusVA24EHE from "../assets/images/uses/hardware/asus-va24ehe.png";
+import KeychronK3 from "../assets/images/uses/hardware/keychron-k3.png";
 import LCDarm from "../assets/images/uses/hardware/lcd-arm.png";
-// software
-import webstorm from "../assets/images/uses/software/webstorm.png";
-import cleanshotX from "../assets/images/uses/software/cleanshot-x.png";
-import cleanmymacX from "../assets/images/uses/software/cleanmymac-x.png";
-import raycast from "../assets/images/uses/software/raycast.png";
+import LogitechG213 from "../assets/images/uses/hardware/logitech-g213.png";
+import LogitechG502Hero from "../assets/images/uses/hardware/logitech-g502-hero.png";
+import LogitechMXVertical from "../assets/images/uses/hardware/logitech-mx-vertical.png";
+import MikrotikhAPax3 from "../assets/images/uses/hardware/mikrotik-hap-ax3.png";
+import SonyWF1000XM4 from "../assets/images/uses/hardware/sony-wf1000xm4.png";
+import TSCOTS2189 from "../assets/images/uses/hardware/tsco-ts2189.png";
 import aldentePro from "../assets/images/uses/software/aldente-pro.png";
-import rectangle from "../assets/images/uses/software/rectangle.png";
-import windirstat from "../assets/images/uses/software/windirstat.png";
+import cleanmymacX from "../assets/images/uses/software/cleanmymac-x.png";
+import cleanshotX from "../assets/images/uses/software/cleanshot-x.png";
 import everything from "../assets/images/uses/software/everything.png";
-import sysinternalsSuite from "../assets/images/uses/software/sysinternals-suite.png";
-import netsetman from "../assets/images/uses/software/netsetman.png";
-import notion from "../assets/images/uses/software/notion.png";
-import stremio from "../assets/images/uses/software/stremio.png";
-import jellyfin from "../assets/images/uses/software/jellyfin.png";
 import fiddlerClassic from "../assets/images/uses/software/fiddler-classic.png";
-import proxifier from "../assets/images/uses/software/proxifier.png";
-import obsStudio from "../assets/images/uses/software/obs-studio.png";
-import responsively from "../assets/images/uses/software/responsively.png";
 import inkscape from "../assets/images/uses/software/inkscape.png";
 import iTerm2 from "../assets/images/uses/software/iterm2.png";
+import jellyfin from "../assets/images/uses/software/jellyfin.png";
 import meld from "../assets/images/uses/software/meld.png";
+import netsetman from "../assets/images/uses/software/netsetman.png";
+import notion from "../assets/images/uses/software/notion.png";
+import obsStudio from "../assets/images/uses/software/obs-studio.png";
+import proxifier from "../assets/images/uses/software/proxifier.png";
+import raycast from "../assets/images/uses/software/raycast.png";
+import rectangle from "../assets/images/uses/software/rectangle.png";
+import responsively from "../assets/images/uses/software/responsively.png";
+import stremio from "../assets/images/uses/software/stremio.png";
+import sysinternalsSuite from "../assets/images/uses/software/sysinternals-suite.png";
 import tabby from "../assets/images/uses/software/tabby.webp";
+// software
+import webstorm from "../assets/images/uses/software/webstorm.png";
+import windirstat from "../assets/images/uses/software/windirstat.png";
 
 export const hardware = [
   {

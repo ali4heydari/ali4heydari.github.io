@@ -1,7 +1,7 @@
 import axios from "axios";
 import { getJson } from "../../utils";
-import { GetCurrentlyPlaying } from "./@types/responses/current-playing";
 import { GetUsersTopItemsRequest } from "./@types/requests/top";
+import { GetCurrentlyPlaying } from "./@types/responses/current-playing";
 import {
   ArtistDto,
   GetUsersTopItemsResponse,
@@ -25,7 +25,7 @@ enum SpotifyEndpoints {
 
 const getAccessToken = async () => {
   const headers = {
-    Authorization: `Basic ${basic}`,
+    "Authorization": `Basic ${basic}`,
     "Content-Type": "application/x-www-form-urlencoded",
   };
 

@@ -1,5 +1,5 @@
-import { NextResponse } from "next/server";
 import * as steamApi from "src/lib/steam";
+import { NextResponse } from "next/server";
 
 const GET = async (_: Request) => {
   const headers = {

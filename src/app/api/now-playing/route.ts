@@ -1,11 +1,10 @@
-import { NextResponse } from "next/server";
-
 import * as spotifyApi from "src/api/spotify";
 import * as steamApi from "src/api/steam";
 import {
   EpisodeDto,
   SongDto,
 } from "../../../api/spotify/@types/responses/current-playing";
+import { NextResponse } from "next/server";
 
 export const runtime = "edge";
 export const fetchCache = "force-no-store";

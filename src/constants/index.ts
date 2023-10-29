@@ -1,4 +1,3 @@
-import { socialMedias } from "./socialMedias";
 import {
   HomeIcon,
   UserCircleIcon,
@@ -9,6 +8,7 @@ import {
   RssIcon,
   MusicalNoteIcon,
 } from "@heroicons/react/24/solid";
+import { socialMedias } from "./socialMedias";
 
 export const navigation = {
   primary: [
