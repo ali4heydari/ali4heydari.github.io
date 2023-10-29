@@ -33,9 +33,9 @@
   "include": [
     "next-env.d.ts",
     "*.ts",
-    ".eslintrc.js",
-    ".prettierrc.js",
+    "*.js",
     "**/*.ts",
+    "**/*.js",
     "**/*.tsx",
     ".next/types/**/*.ts",
     ".contentlayer/generated"
