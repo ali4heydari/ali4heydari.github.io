@@ -1,4 +1,4 @@
-import { colorMetaTags, viewportMetaTags } from "../../../utils/metadata";
+import { colorMetaTags, viewportMetaTags } from "src/utils/metadata";
 
 const Meta = () => {
   return (

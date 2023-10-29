@@ -7,12 +7,12 @@ const defaultLogoImage =
   "https://ali4heydari.tech/static/images/site/ali4heydari/bitmoji.png";
 
 export const getStaticMetadata = (data: {
-  title: string;
   description: string;
-  keywords?: string | Array<string> | null;
   exactUrl?: string;
   image?: string;
+  keywords?: string | string[] | null;
   metaImageStyle?: MetaImageStyle;
+  title: string;
 }): Metadata => {
   const { title, description, keywords, exactUrl, image, metaImageStyle } =
     data;

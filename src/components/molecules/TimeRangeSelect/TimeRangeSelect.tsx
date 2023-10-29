@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { twMerge } from "tailwind-merge";
 
-export type TimeRangeSelectProps = {
+export interface TimeRangeSelectProps {
   setTimeRange: (timeRange: string) => void;
   timeRange: string;
-};
+}
 const TimeRangeSelect = ({ setTimeRange, timeRange }) => {
   return (
     <div className="mb-4 flex justify-center">

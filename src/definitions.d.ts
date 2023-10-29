@@ -1,3 +1,3 @@
-import * as Gtag from "gtag.js";
+import type * as Gtag from "gtag.js";
 
-declare var gtag: Gtag.Gtag;
+declare let gtag: Gtag.Gtag;

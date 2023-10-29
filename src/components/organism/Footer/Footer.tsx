@@ -1,9 +1,9 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { navigation } from "../../../constants";
-import { getJson } from "../../../utils";
-import StyledLink from "../../atoms/Link";
+import StyledLink from "src/components/atoms/Link";
+import { navigation } from "src/constants";
+import { getJson } from "src/utils";
 import SpotifyNowListening from "./components/SpotifyNowListening";
 import SteamNowPlaying from "./components/SteamNowPlaying";
 

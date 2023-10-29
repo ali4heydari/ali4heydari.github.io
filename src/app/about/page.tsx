@@ -1,11 +1,11 @@
-import { NextPage } from "next";
+import type { NextPage } from "next";
+import CalendlyInlineWidget from "src/components/atoms/Calendly/CalendlyInlineWidget";
+import Experiences from "src/features/Experiences";
 import Introduction from "src/features/Introduction";
-import { allExperiences } from "../../../.contentlayer/generated";
-import CalendlyInlineWidget from "../../components/atoms/Calendly/CalendlyInlineWidget";
-import Experiences from "../../features/Experiences";
-import Skills from "../../features/Skills/Skills";
-import { getStaticMetadata } from "../../utils/metadata";
-import { buildOgImageUrl } from "../../utils/opengraph";
+import Skills from "src/features/Skills/Skills";
+import { getStaticMetadata } from "src/utils/metadata";
+import { buildOgImageUrl } from "src/utils/opengraph";
+import { allExperiences } from ".contentlayer/generated";
 
 export const metadata = getStaticMetadata({
   title: "About – Ali Heydari",

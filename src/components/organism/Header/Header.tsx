@@ -3,10 +3,10 @@
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import React, { useState } from "react";
-import { navigation } from "../../../constants";
-import StyledLink from "../../atoms/Link";
-import Bitmoji from "../../atoms/Logo";
-import ThemeSwitcher from "../../atoms/ThemeSwitcher";
+import StyledLink from "src/components/atoms/Link";
+import Bitmoji from "src/components/atoms/Logo";
+import ThemeSwitcher from "src/components/atoms/ThemeSwitcher";
+import { navigation } from "src/constants";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);

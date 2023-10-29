@@ -1,11 +1,11 @@
 import type { ReactNode } from "react";
+import GoogleAnalytics from "src/components/molecules/GoogleAnalytics/GoogleAnalytics";
+import Hotjar from "src/components/molecules/Hotjar/Hotjar";
+import Meta from "src/components/molecules/Meta";
+import MainLayout from "src/layouts/MainLayout";
+import Providers from "src/providers";
 import "src/styles/global.css";
-import GoogleAnalytics from "../components/molecules/GoogleAnalytics/GoogleAnalytics";
-import Hotjar from "../components/molecules/Hotjar/Hotjar";
-import Meta from "../components/molecules/Meta";
-import MainLayout from "../layouts/MainLayout";
-import Providers from "../providers";
-import { getStaticMetadata } from "../utils/metadata";
+import { getStaticMetadata } from "src/utils/metadata";
 import "tailwindcss/tailwind.css";
 
 export const metadata = {
@@ -28,7 +28,9 @@ export const metadata = {
   }),
 };
 
-type RootLayoutProps = { children: ReactNode };
+interface RootLayoutProps {
+  children: ReactNode;
+}
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (

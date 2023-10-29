@@ -14,10 +14,10 @@ import MicrosoftAzureDevopsIcon from "mdi-react/MicrosoftAzureDevopsIcon";
 import ReactIcon from "mdi-react/ReactIcon";
 import TailwindIcon from "mdi-react/TailwindIcon";
 import React from "react";
-import ProteusLogo from "../../../assets/images/logos/proteus-logo.png";
-import CypressIcon from "../../../assets/svg/cypress.svg";
-import NestJsIcon from "../../../assets/svg/nestjs.svg";
-import NextJsIcon from "../../../assets/svg/next-js.svg";
+import ProteusLogo from "src/assets/images/logos/proteus-logo.png";
+import CypressIcon from "src/assets/svg/cypress.svg";
+import NestJsIcon from "src/assets/svg/nestjs.svg";
+import NextJsIcon from "src/assets/svg/next-js.svg";
 import Image from "next/image";
 
 export const skills = [

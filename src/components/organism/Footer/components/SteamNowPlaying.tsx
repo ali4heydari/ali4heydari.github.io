@@ -1,7 +1,7 @@
 import SpotifyIcon from "mdi-react/SpotifyIcon";
 import SteamIcon from "mdi-react/SteamIcon";
+import siteConfig from "site.config";
 import { twMerge } from "tailwind-merge";
-import siteConfig from "../../../../../site.config";
 import Image from "next/image";
 import Link from "next/link";
 

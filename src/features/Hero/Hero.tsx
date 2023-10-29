@@ -1,5 +1,5 @@
 import React from "react";
-import meNextToATree from "../../assets/images/me/next-to-a-tree.jpg";
+import meNextToATree from "src/assets/images/me/next-to-a-tree.jpg";
 import Image from "next/image";
 import Link from "next/link";
 

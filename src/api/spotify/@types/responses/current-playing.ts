@@ -1,14 +1,14 @@
 export interface GetCurrentlyPlaying {
-  device: Device;
-  repeat_state: string;
-  shuffle_state: boolean;
+  actions: Actions;
   context: Context;
-  timestamp: number;
-  progress_ms: number;
+  currently_playing_type: string;
+  device: Device;
   is_playing: boolean;
   item: SongDto | EpisodeDto;
-  currently_playing_type: string;
-  actions: Actions;
+  progress_ms: number;
+  repeat_state: string;
+  shuffle_state: boolean;
+  timestamp: number;
 }
 
 export interface Device {
@@ -17,15 +17,15 @@ export interface Device {
   is_private_session: boolean;
   is_restricted: boolean;
   name: string;
+  supports_volume: boolean;
   type: string;
   volume_percent: number;
-  supports_volume: boolean;
 }
 
 export interface Context {
-  type: string;
-  href: string;
   external_urls: ExternalUrls;
+  href: string;
+  type: string;
   uri: string;
 }
 
@@ -44,26 +44,26 @@ export interface SongDto {
   external_urls: ExternalUrls5;
   href: string;
   id: string;
+  is_local: boolean;
   is_playable: boolean;
   linked_from: LinkedFrom;
-  restrictions: Restrictions2;
   name: string;
   popularity: number;
   preview_url: string;
+  restrictions: Restrictions2;
   track_number: number;
   type: string;
   uri: string;
-  is_local: boolean;
 }
 
 export interface EpisodeDto {
   audio_preview_url: string;
   description: string;
-  html_description: string;
   duration_ms: number;
   explicit: boolean;
   external_urls: ExternalUrls2;
   href: string;
+  html_description: string;
   id: string;
   images: Image[];
   is_externally_hosted: boolean;
@@ -73,19 +73,19 @@ export interface EpisodeDto {
   name: string;
   release_date: string;
   release_date_precision: string;
+  show: Show;
   type: string;
   uri: string;
-  show: Show;
 }
 
 export interface Show {
   available_markets: string[];
   copyrights: any[];
   description: string;
-  html_description: string;
   explicit: boolean;
   external_urls: ExternalUrls3;
   href: string;
+  html_description: string;
   id: string;
   images: Image2[];
   is_externally_hosted: boolean;
@@ -93,14 +93,14 @@ export interface Show {
   media_type: string;
   name: string;
   publisher: string;
+  total_episodes: number;
   type: string;
   uri: string;
-  total_episodes: number;
 }
 
 export interface Album {
   album_type: string;
-  total_tracks: number;
+  artists: Artist[];
   available_markets: string[];
   external_urls: ExternalUrls2;
   href: string;
@@ -110,9 +110,9 @@ export interface Album {
   release_date: string;
   release_date_precision: string;
   restrictions: Restrictions;
+  total_tracks: number;
   type: string;
   uri: string;
-  artists: Artist[];
 }
 
 export interface ExternalUrls2 {
@@ -120,8 +120,8 @@ export interface ExternalUrls2 {
 }
 
 export interface Image {
-  url: string;
   height: number;
+  url: string;
   width: number;
 }
 
@@ -165,14 +165,14 @@ export interface Followers {
 }
 
 export interface Image2 {
-  url: string;
   height: number;
+  url: string;
   width: number;
 }
 
 export interface ExternalIds {
-  isrc: string;
   ean: string;
+  isrc: string;
   upc: string;
 }
 
@@ -180,7 +180,7 @@ export interface ExternalUrls5 {
   spotify: string;
 }
 
-export interface LinkedFrom {}
+export type LinkedFrom = unknown;
 
 export interface Restrictions2 {
   reason: string;
@@ -194,7 +194,7 @@ export interface Actions {
   skipping_next: boolean;
   skipping_prev: boolean;
   toggling_repeat_context: boolean;
-  toggling_shuffle: boolean;
   toggling_repeat_track: boolean;
+  toggling_shuffle: boolean;
   transferring_playback: boolean;
 }

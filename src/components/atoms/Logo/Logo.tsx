@@ -1,11 +1,11 @@
 import React from "react";
-import bitMoji from "../../../assets/images/me/bitmoji.png";
+import bitMoji from "src/assets/images/me/bitmoji.png";
 import Image from "next/image";
 import Link from "next/link";
 
-export type LogoProps = {
+export interface LogoProps {
   className?: string;
-};
+}
 const Logo = ({ className }: LogoProps) => {
   return (
     <Link className={className} href="/">

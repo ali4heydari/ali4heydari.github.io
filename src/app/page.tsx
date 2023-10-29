@@ -1,13 +1,13 @@
 import React from "react";
-import { Metadata, NextPage, ResolvingMetadata } from "next";
-import { allExperiences } from "../../.contentlayer/generated";
-import Experiences from "../features/Experiences";
-import Hero from "../features/Hero";
-import { Skills } from "../features/Skills";
+import type { Metadata, NextPage, ResolvingMetadata } from "next";
+import Experiences from "src/features/Experiences";
+import Hero from "src/features/Hero";
+import { Skills } from "src/features/Skills";
+import { allExperiences } from ".contentlayer/generated";
 
-type Props = {
-  searchParams: { [key: string]: string | string[] | undefined };
-};
+interface Props {
+  searchParams: Record<string, string | string[] | undefined>;
+}
 
 export async function generateMetadata(
   { searchParams }: Props,

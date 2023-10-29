@@ -1,16 +1,16 @@
 import SpotifyIcon from "mdi-react/SpotifyIcon";
+import siteConfig from "site.config";
 import { twMerge } from "tailwind-merge";
-import siteConfig from "../../../../../site.config";
 import Image from "next/image";
 import Link from "next/link";
 
 export interface Props {
-  isPlaying?: boolean;
-  title?: string;
-  artist?: string;
   album?: string;
   albumImageUrl?: string;
+  artist?: string;
+  isPlaying?: boolean;
   songUrl?: string;
+  title?: string;
 }
 
 export default function SpotifyNowListening({

@@ -1,5 +1,5 @@
-const steamApiKey = process.env.STEAM_API_KEY as string;
-const steamId = process.env.STEAM_ID as string;
+const steamApiKey = process.env.STEAM_API_KEY!;
+const steamId = process.env.STEAM_ID!;
 const GET_PLAYER_SUMMARIES_ENDPOINT =
   "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002";
 

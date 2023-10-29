@@ -1,4 +1,4 @@
-import { StoryFn, Meta } from "@storybook/react";
+import type { StoryFn, Meta } from "@storybook/react";
 import React from "react";
 import Header from "./index";
 import * as tailwindColors from "tailwindcss/colors";

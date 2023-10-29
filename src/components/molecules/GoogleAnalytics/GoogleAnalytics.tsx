@@ -1,6 +1,6 @@
 "use client";
 
-import * as gtag from "../../../utils/gtag";
+import * as gtag from "src/utils/gtag";
 import Script from "next/script";
 
 const GoogleAnalytics = () => {

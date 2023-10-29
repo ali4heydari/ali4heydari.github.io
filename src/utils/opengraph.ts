@@ -1,4 +1,4 @@
-import { baseUrl } from "../constants";
+import { baseUrl } from "src/constants";
 
 export const buildOgImageUrl = (
   path?: string,

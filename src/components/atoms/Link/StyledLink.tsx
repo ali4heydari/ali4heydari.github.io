@@ -18,6 +18,7 @@ const StyledLink = ({
   href,
   title,
   openInNewTab = !isLocalLink(
+    // eslint-disable-next-line @typescript-eslint/no-base-to-string
     typeof href !== "string" ? href.toString() : href,
   ),
   ...props

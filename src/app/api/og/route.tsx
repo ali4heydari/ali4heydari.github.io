@@ -1,11 +1,11 @@
-import { PathName } from "../../../components/molecules/OpenGraphImage/LogoTitle";
-import { OpenGraphImage } from "../../../components/molecules/OpenGraphImage/OpenGraphImage";
+import type { PathName } from "src/components/molecules/OpenGraphImage/LogoTitle";
+import { OpenGraphImage } from "src/components/molecules/OpenGraphImage/OpenGraphImage";
 import { ImageResponse } from "next/og";
-import { NextRequest } from "next/server";
+import type { NextRequest } from "next/server";
 
 export const runtime = "edge";
 
-export async function GET(req: NextRequest) {
+export function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
   const { path, title, cover } = Object.fromEntries(searchParams);
   const actualPath = (path || "").toLowerCase() as PathName;

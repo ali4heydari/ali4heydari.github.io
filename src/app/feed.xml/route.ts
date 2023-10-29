@@ -1,6 +1,6 @@
 import xml from "xml";
-import { allBlogs } from "../../../.contentlayer/generated";
-import { baseUrl } from "../../constants";
+import { baseUrl } from "src/constants";
+import { allBlogs } from ".contentlayer/generated";
 
 type BlogPost = (typeof allBlogs)[number];
 
@@ -59,13 +59,14 @@ const buildItemForFeed = (
     } else {
       newObject[k] = elem[k];
     }
-    // @ts-ignore
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     newArray.push(newObject);
   }
   return newArray;
 };
 
-const buildFeed = (posts: Array<ReturnType<typeof getAllPostRssData>>) => {
+const buildFeed = (posts: ReturnType<typeof getAllPostRssData>[]) => {
   const sortedPosts = posts.sort(function (first, second) {
     return new Date(second.date).getTime() - new Date(first.date).getTime();
   });

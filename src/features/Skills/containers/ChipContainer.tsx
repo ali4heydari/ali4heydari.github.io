@@ -3,9 +3,9 @@ export const ChipContainer = ({
   title = "Related open source projects:",
 }: {
   projects: {
-    name: string;
-    href: string;
     emoji?: string;
+    href: string;
+    name: string;
   }[];
   title?: string;
 }) => {

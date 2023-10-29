@@ -2,18 +2,19 @@
 
 import { useQuery } from "@tanstack/react-query";
 import Card from "src/components/molecules/Card";
-import { baseUrl } from "../../constants";
-import { getJson, WithStatus } from "../../utils";
+import { baseUrl } from "src/constants";
+import { getJson } from "src/utils";
+import type { WithStatus } from "src/utils";
 
 const Podcasts = () => {
   const { data: showsData, isLoading: isLoadingShows } = useQuery<
     WithStatus<
       {
-        image: string;
+        description: string;
         href: string;
+        image: string;
         name: string;
         publisher: string;
-        description: string;
       }[]
     >
   >({

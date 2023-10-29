@@ -1,5 +1,5 @@
 import * as spotifyApi from "src/api/spotify";
-import { GetUsersTopItemsRequest } from "../../../../../api/spotify/@types/requests/top";
+import type { GetUsersTopItemsRequest } from "src/api/spotify/@types/requests/top";
 import { NextResponse } from "next/server";
 
 const GET = async (request: Request) => {
@@ -16,12 +16,12 @@ const GET = async (request: Request) => {
         : {}),
       ...(requestSearchParams.has("offset")
         ? {
-            offset: parseInt(requestSearchParams.get("offset") as string, 10),
+            offset: parseInt(requestSearchParams.get("offset")!, 10),
           }
         : {}),
       ...(requestSearchParams.has("limit")
         ? {
-            limit: parseInt(requestSearchParams.get("limit") as string, 10),
+            limit: parseInt(requestSearchParams.get("limit")!, 10),
           }
         : {}),
     });

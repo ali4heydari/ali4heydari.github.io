@@ -1,4 +1,4 @@
-import { baseUrl } from "../../../constants";
+import { baseUrl } from "src/constants";
 import type { PathName } from "./LogoTitle";
 
 const fontSize = 40;

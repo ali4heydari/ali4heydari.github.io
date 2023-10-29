@@ -1,9 +1,9 @@
 import React from "react";
-import StyledLink from "../../components/atoms/Link";
-import TitleSection from "../../components/atoms/TitleSection";
-import { software, hardware } from "../../constants/uses";
-import { getStaticMetadata } from "../../utils/metadata";
-import { buildOgImageUrl } from "../../utils/opengraph";
+import StyledLink from "src/components/atoms/Link";
+import TitleSection from "src/components/atoms/TitleSection";
+import { software, hardware } from "src/constants/uses";
+import { getStaticMetadata } from "src/utils/metadata";
+import { buildOgImageUrl } from "src/utils/opengraph";
 import Image from "next/image";
 import Link from "next/link";
 

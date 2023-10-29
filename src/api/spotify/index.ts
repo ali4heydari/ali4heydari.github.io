@@ -1,8 +1,8 @@
 import axios from "axios";
-import { getJson } from "../../utils";
-import { GetUsersTopItemsRequest } from "./@types/requests/top";
-import { GetCurrentlyPlaying } from "./@types/responses/current-playing";
-import {
+import { getJson } from "src/utils";
+import type { GetUsersTopItemsRequest } from "./@types/requests/top";
+import type { GetCurrentlyPlaying } from "./@types/responses/current-playing";
+import type {
   ArtistDto,
   GetUsersTopItemsResponse,
   TrackDto,
@@ -15,12 +15,12 @@ const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN || "";
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
 
 enum SpotifyEndpoints {
-  TOP_TRACKS = "/me/top/tracks",
-  TOP_ARTISTS = "/me/top/artists",
   NOW_PLAYING_ENDPOINT = "/me/player/currently-playing",
-  SHOWS = "/me/shows",
-  RECENTLY_PLAYED_ENDPOINT = "/me/player/recently-played",
   PLAYER_ENDPOINT = "/me/player",
+  RECENTLY_PLAYED_ENDPOINT = "/me/player/recently-played",
+  SHOWS = "/me/shows",
+  TOP_ARTISTS = "/me/top/artists",
+  TOP_TRACKS = "/me/top/tracks",
 }
 
 const getAccessToken = async () => {

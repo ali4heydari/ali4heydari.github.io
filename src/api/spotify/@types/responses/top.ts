@@ -1,12 +1,12 @@
-export type GetUsersTopItemsResponse<TItem extends ArtistDto | TrackDto> = {
+export interface GetUsersTopItemsResponse<TItem extends ArtistDto | TrackDto> {
   href: string;
+  items: TItem[];
   limit: number;
   next: string;
   offset: number;
   previous: string;
   total: number;
-  items: TItem[];
-};
+}
 
 export interface ArtistDto {
   external_urls: ExternalUrls;
@@ -32,13 +32,13 @@ export interface TrackDto {
   external_urls: ExternalUrls;
   href: string;
   id: string;
+  is_local: boolean;
   name: string;
   popularity: number;
   preview_url?: string;
   track_number: number;
   type: string;
   uri: string;
-  is_local: boolean;
 }
 
 export interface Artist {
@@ -52,7 +52,7 @@ export interface Artist {
 
 export interface Album {
   album_type: string;
-  total_tracks: number;
+  artists: Artist[];
   available_markets: string[];
   external_urls: ExternalUrls;
   href: string;
@@ -61,9 +61,9 @@ export interface Album {
   name: string;
   release_date: string;
   release_date_precision: string;
+  total_tracks: number;
   type: string;
   uri: string;
-  artists: Artist[];
 }
 
 export interface ExternalUrls {
@@ -80,7 +80,7 @@ export interface Followers {
 }
 
 export interface Image {
-  url: string;
   height: number;
+  url: string;
   width: number;
 }

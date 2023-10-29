@@ -1,7 +1,7 @@
-import { NextPage } from "next";
-import TitleSection from "../../components/atoms/TitleSection";
-import { getStaticMetadata } from "../../utils/metadata";
-import { buildOgImageUrl } from "../../utils/opengraph";
+import type { NextPage } from "next";
+import TitleSection from "src/components/atoms/TitleSection";
+import { getStaticMetadata } from "src/utils/metadata";
+import { buildOgImageUrl } from "src/utils/opengraph";
 import Podcasts from "./podcasts";
 import TopArtists from "./top-artists";
 import TopTracks from "./top-tracks";

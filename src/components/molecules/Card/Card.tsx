@@ -3,17 +3,17 @@ import React, { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export type CardProps = {
-  title: string;
-  subtitle: string;
-  imageSrc: string;
-  imageAlt: string;
-  width?: number;
+export interface CardProps {
   height?: number;
   href?: string;
+  imageAlt: string;
+  imageSrc: string;
   loading?: boolean;
   rootClassName?: string;
-};
+  subtitle: string;
+  title: string;
+  width?: number;
+}
 
 const Card = (props: CardProps) => {
   const {

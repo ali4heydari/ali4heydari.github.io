@@ -1,17 +1,15 @@
-import { Metadata, NextPage } from "next";
-import { allProjects } from "../../../../.contentlayer/generated";
-import CommentThread from "../../../components/atoms/CommentThread";
-import Mdx from "../../../components/atoms/Mdx/Mdx";
-import WebShare from "../../../components/atoms/Webshare/Webshare";
-import { baseUrl } from "../../../constants";
-import { getStaticMetadata } from "../../../utils/metadata";
-import { buildOgImageUrl } from "../../../utils/opengraph";
+import type { Metadata, NextPage } from "next";
+import CommentThread from "src/components/atoms/CommentThread";
+import Mdx from "src/components/atoms/Mdx/Mdx";
+import WebShare from "src/components/atoms/Webshare/Webshare";
+import { baseUrl } from "src/constants";
+import { getStaticMetadata } from "src/utils/metadata";
+import { buildOgImageUrl } from "src/utils/opengraph";
+import { allProjects } from ".contentlayer/generated";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export async function generateMetadata({
-  params,
-}): Promise<Metadata | undefined> {
+export function generateMetadata({ params }): Metadata | undefined {
   const post = allProjects.find((post) => post.slug === params.slug);
   if (!post) {
     return;
@@ -134,7 +132,7 @@ const ProjectPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
   );
 };
 
-export const generateStaticParams = async () =>
+export const generateStaticParams = () =>
   allProjects.map((p) => ({ params: { href: p.slug } }));
 
 export default ProjectPage;

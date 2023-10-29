@@ -8,12 +8,12 @@ const GET = async (request: Request) => {
     const { data, status } = await spotifyApi.getShows({
       ...(requestSearchParams.has("offset")
         ? {
-            offset: parseInt(requestSearchParams.get("offset") as string, 10),
+            offset: parseInt(requestSearchParams.get("offset")!, 10),
           }
         : {}),
       ...(requestSearchParams.has("limit")
         ? {
-            limit: parseInt(requestSearchParams.get("limit") as string, 10),
+            limit: parseInt(requestSearchParams.get("limit")!, 10),
           }
         : {}),
     });

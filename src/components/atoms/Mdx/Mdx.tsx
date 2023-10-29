@@ -5,8 +5,8 @@ import { twMerge } from "tailwind-merge";
 import { useMDXComponent } from "next-contentlayer/hooks";
 
 interface MdxProps {
-  code: string;
   className?: string;
+  code: string;
 }
 
 const Mdx = (props: MdxProps) => {

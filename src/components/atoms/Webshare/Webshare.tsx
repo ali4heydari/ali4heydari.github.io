@@ -1,7 +1,8 @@
 "use client";
 
 import { ShareIcon } from "@heroicons/react/24/solid";
-import React, { ComponentProps } from "react";
+import type { ComponentProps } from "react";
+import React from "react";
 import { RWebShare } from "react-web-share";
 import classNames from "classnames";
 

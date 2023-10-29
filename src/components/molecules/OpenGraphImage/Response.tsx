@@ -13,7 +13,7 @@ export const config = {
 
 export const runtime = config.runtime;
 
-export const getOgImage = async (
+export const getOgImage = (
   path?: string | null,
   title?: string | null,
   hero?: string | null,

@@ -1,9 +1,9 @@
 import * as spotifyApi from "src/api/spotify";
-import * as steamApi from "src/api/steam";
-import {
+import type {
   EpisodeDto,
   SongDto,
-} from "../../../api/spotify/@types/responses/current-playing";
+} from "src/api/spotify/@types/responses/current-playing";
+import * as steamApi from "src/api/steam";
 import { NextResponse } from "next/server";
 
 export const runtime = "edge";

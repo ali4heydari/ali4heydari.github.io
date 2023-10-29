@@ -1,8 +1,8 @@
 import * as spotifyApi from "src/api/spotify";
-import {
+import type {
   EpisodeDto,
   SongDto,
-} from "../../../../api/spotify/@types/responses/current-playing";
+} from "src/api/spotify/@types/responses/current-playing";
 import { NextResponse } from "next/server";
 
 const GET = async (_: Request) => {
@@ -16,7 +16,7 @@ const GET = async (_: Request) => {
     });
 
     if (status === 204) {
-      return await NextResponse.json(
+      return NextResponse.json(
         {
           isPlaying: false,
         },
@@ -28,7 +28,7 @@ const GET = async (_: Request) => {
     }
 
     if (media.currently_playing_type === "ad") {
-      return await NextResponse.json(
+      return NextResponse.json(
         {},
         {
           status: 204,
@@ -46,7 +46,7 @@ const GET = async (_: Request) => {
       const albumImageUrl = media.item.show.images[0].url;
       const songUrl = media.item.external_urls.spotify;
 
-      return await NextResponse.json(
+      return NextResponse.json(
         {
           album,
           albumImageUrl,
@@ -73,7 +73,7 @@ const GET = async (_: Request) => {
       const albumImageUrl = media.item.album.images[0].url;
       const songUrl = media.item.external_urls.spotify;
 
-      return await NextResponse.json(
+      return NextResponse.json(
         {
           album,
           albumImageUrl,
@@ -89,9 +89,9 @@ const GET = async (_: Request) => {
       );
     }
 
-    return await NextResponse.json({}, { status: 500, headers });
+    return NextResponse.json({}, { status: 500, headers });
   } catch (error) {
-    return await NextResponse.json(
+    return NextResponse.json(
       {
         error,
       },

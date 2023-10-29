@@ -1,13 +1,13 @@
-import React from "react";
+import type React from "react";
 
 export interface EventProps {
-  title: string;
-  subtitle?: string;
-  topTags?: string[];
   bottomTags?: string[];
-  startDate: string | Date;
-  endDate: string | Date;
   children: React.ReactNode;
+  endDate: string | Date;
+  startDate: string | Date;
+  subtitle?: string;
+  title: string;
+  topTags?: string[];
 }
 
 export interface TimelineProps {

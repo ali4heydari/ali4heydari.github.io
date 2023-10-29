@@ -2,10 +2,11 @@
 
 import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
-import Card from "../../components/molecules/Card";
-import TimeRangeSelect from "../../components/molecules/TimeRangeSelect/TimeRangeSelect";
-import { baseUrl } from "../../constants";
-import { getJson, WithStatus } from "../../utils";
+import Card from "src/components/molecules/Card";
+import TimeRangeSelect from "src/components/molecules/TimeRangeSelect/TimeRangeSelect";
+import { baseUrl } from "src/constants";
+import { getJson } from "src/utils";
+import type { WithStatus } from "src/utils";
 
 const TopArtists = () => {
   const [timeRange, setTimeRange] = useState("short_term");
@@ -13,10 +14,10 @@ const TopArtists = () => {
   const { data: topArtistsData, isLoading: isLoadingTopArtists } = useQuery<
     WithStatus<
       {
-        image: string;
-        href: string;
-        name: string;
         genres: string[];
+        href: string;
+        image: string;
+        name: string;
       }[]
     >
   >({

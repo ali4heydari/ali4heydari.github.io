@@ -1,9 +1,9 @@
 import React from "react";
-import { NextPage } from "next";
-import { allProjects } from "../../../.contentlayer/generated";
-import TitleSection from "../../components/atoms/TitleSection";
-import { getStaticMetadata } from "../../utils/metadata";
-import { buildOgImageUrl } from "../../utils/opengraph";
+import type { NextPage } from "next";
+import TitleSection from "src/components/atoms/TitleSection";
+import { getStaticMetadata } from "src/utils/metadata";
+import { buildOgImageUrl } from "src/utils/opengraph";
+import { allProjects } from ".contentlayer/generated";
 import Image from "next/image";
 import Link from "next/link";
 

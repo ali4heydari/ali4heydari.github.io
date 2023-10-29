@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const steamApiKey = process.env.STEAM_API_KEY as string;
-const steamId = process.env.STEAM_ID as string;
+const steamApiKey = process.env.STEAM_API_KEY!;
+const steamId = process.env.STEAM_ID!;
 const GET_PLAYER_SUMMARIES_ENDPOINT = "/ISteamUser/GetPlayerSummaries/v0002";
 
 const BASE_URL = "https://api.steampowered.com";

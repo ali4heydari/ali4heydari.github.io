@@ -1,16 +1,14 @@
 import type { PropsWithChildren } from "react";
 import classNames from "classnames";
 import { twMerge } from "tailwind-merge";
+import BottomNavigation from "src/components/molecules/BottomNavigation/BottomNavigation";
 import Footer from "src/components/organism/Footer";
 import Header from "src/components/organism/Header";
-import BottomNavigation from "../components/molecules/BottomNavigation/BottomNavigation";
 import { Vazirmatn } from "next/font/google";
 
 const vazirmatn = Vazirmatn({ subsets: ["latin"] });
 
-const MainLayout = ({
-  children,
-}: PropsWithChildren<{}>): JSX.Element | null => {
+const MainLayout = ({ children }: PropsWithChildren) => {
   return (
     <div className={classNames("min-h-screen", vazirmatn.className)}>
       <Header />

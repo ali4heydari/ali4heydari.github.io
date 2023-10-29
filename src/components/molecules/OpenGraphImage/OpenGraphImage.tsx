@@ -1,14 +1,15 @@
 import "server-only";
-import { baseUrl } from "../../../constants";
+import { baseUrl } from "src/constants";
 
 /* eslint-disable @next/next/no-img-element */
-import { LogoOrEmoji, PageTitle, PathName } from "./LogoTitle";
+import type { PathName } from "./LogoTitle";
+import { LogoOrEmoji, PageTitle } from "./LogoTitle";
 import { Name } from "./Name";
 
 interface OgImageProps {
+  cover?: string | null;
   path?: PathName;
   title?: string | null;
-  cover?: string | null;
 }
 
 export const OpenGraphImage = (props: OgImageProps) => {
