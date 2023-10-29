@@ -9,7 +9,7 @@ const siteConfig = {
   BIRTHDATE: new Date(1997, 0, 30),
   CALENDLY_EVENT_LINK: "30min",
   CALENDLY_ID: "ali4heydari",
-  CONTACT_EMAIL: "ali4heydari+githubio@gmail.com",
+  CONTACT_EMAIL: "hi@ali4heydari.tech",
   CONTACT_PHONE: "",
   SHORT_NAME: "Ali Heydari's personal website",
   SITE_TITLE: "Ali Heydari",
