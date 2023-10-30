@@ -21,10 +21,7 @@ const nextConfig = {
 
     return config;
   },
-  async headers() {
-    return appHeaders;
-  },
-  async redirects() {
+  redirects() {
     return redirects;
   },
 };
