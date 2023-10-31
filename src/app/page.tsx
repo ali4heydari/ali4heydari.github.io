@@ -1,21 +1,11 @@
 import React from "react";
-import type { Metadata, NextPage, ResolvingMetadata } from "next";
+import type { Metadata, NextPage } from "next";
+import Hero from "src/components/molecules/Hero";
 import Experiences from "src/features/Experiences";
-import Hero from "src/features/Hero";
 import { Skills } from "src/features/Skills";
 import { allExperiences } from ".contentlayer/generated";
 
-interface Props {
-  searchParams: Record<string, string | string[] | undefined>;
-}
-
-export async function generateMetadata(
-  { searchParams }: Props,
-  parent: ResolvingMetadata,
-): Promise<Metadata> {
-  // optionally access and extend (rather than replace) parent metadata
-  const previousImages = (await parent).openGraph?.images || [];
-
+export function generateMetadata(): Metadata {
   return {
     title: {
       template: "%s | Ali Heydari",

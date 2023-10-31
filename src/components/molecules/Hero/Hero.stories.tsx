@@ -1,6 +1,6 @@
 import type { StoryFn, Meta } from "@storybook/react";
 import React from "react";
-import Hero from "src/features/Hero";
+import Hero from "./index";
 import * as tailwindColors from "tailwindcss/colors";
 
 export default {
