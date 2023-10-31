@@ -120,13 +120,13 @@ const ProjectPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
               </div>
             </div>
           </article>
-          <CommentThread
-            title={project.title}
-            identifier={project.slug}
-            url={`${baseUrl}/projects/${project.slug}`}
-            language="en"
-          />
         </div>
+        <CommentThread
+          title={project.title}
+          identifier={project.slug}
+          url={`${baseUrl}/projects/${project.slug}`}
+          language="en"
+        />
       </main>
     </>
   );

@@ -127,14 +127,14 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
               </div>
             </div>
           </article>
-          <CommentThread
-            title={blog.title}
-            identifier={blog.slug}
-            url={`${baseUrl}/blog/${blog.slug}`}
-            language="en"
-          />
         </div>
       </main>
+      <CommentThread
+        title={blog.title}
+        identifier={blog.slug}
+        url={`${baseUrl}/blogs/${blog.slug}`}
+        language="en"
+      />
     </>
   );
 };

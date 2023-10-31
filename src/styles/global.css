@@ -9,3 +9,7 @@ html [lang^="fa"] {
 .mdx-article {
   @apply prose max-w-full dark:prose-invert;
 }
+
+#disqus_thread {
+  @apply rounded-2xl bg-white px-8 py-5;
+}

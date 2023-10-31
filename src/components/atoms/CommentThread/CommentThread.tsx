@@ -1,6 +1,6 @@
 "use client";
 
-import { DiscussionEmbed, CommentEmbed } from "disqus-react";
+import { DiscussionEmbed } from "disqus-react";
 import type { ComponentProps } from "react";
 import siteConfig from "site.config";
 
