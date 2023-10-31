@@ -104,8 +104,15 @@ const Education = defineDocumentType(() => ({
   filePathPattern: "educations/**/*.mdx",
   bodyType: "mdx",
   fields: {
-    university: { type: "string", required: true },
-    degree: { type: "string", required: true },
+    title: { type: "string", required: true },
+    subtitle: { type: "string", required: true },
+    tags: {
+      type: "list",
+      default: [],
+      of: {
+        type: "string",
+      },
+    },
     startDate: { type: "string", required: true },
     endDate: { type: "string", required: true },
   },

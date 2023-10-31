@@ -3,7 +3,11 @@ import classNames from "classnames";
 import { isValidDate } from "src/utils";
 import type { TimelineProps } from "./@types";
 
-const Timeline = ({ events, wrapperClassName }: TimelineProps) => {
+const Timeline = ({
+  events,
+  wrapperClassName,
+  pingLastEvent = true,
+}: TimelineProps) => {
   const getDate = (dateStr) => {
     return isValidDate(dateStr)
       ? new Date(dateStr).toLocaleDateString("en-GB", {
@@ -37,7 +41,7 @@ const Timeline = ({ events, wrapperClassName }: TimelineProps) => {
                 "mt-0.6 absolute -left-2 h-4 w-4 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
               }
             />
-            {index === 0 && (
+            {pingLastEvent && index === 0 && (
               <span className="mt-0.6 absolute -left-2 h-4 w-4 animate-ping rounded-full bg-indigo-500 dark:bg-indigo-400" />
             )}
             <h3 className="mx-2 text-2xl font-semibold">{title}</h3>

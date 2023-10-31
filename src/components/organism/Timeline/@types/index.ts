@@ -12,5 +12,6 @@ export interface EventProps {
 
 export interface TimelineProps {
   events: EventProps[];
+  pingLastEvent?: boolean;
   wrapperClassName?: string;
 }
