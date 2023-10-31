@@ -1,9 +1,9 @@
 import React from "react";
 import type { Metadata, NextPage } from "next";
 import Hero from "src/components/molecules/Hero";
-import Experiences from "src/features/Experiences";
+import Careers from "src/features/Careers";
 import { Skills } from "src/features/Skills";
-import { allExperiences } from ".contentlayer/generated";
+import { allCareers } from ".contentlayer/generated";
 
 export function generateMetadata(): Metadata {
   return {
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Hero />
-      <Experiences allExperiences={allExperiences} />
+      <Careers allCareers={allCareers} />
       <Skills />
     </>
   );

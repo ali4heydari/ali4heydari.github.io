@@ -5,11 +5,8 @@ import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-import {
-  ComputedFields,
-  defineDocumentType,
-  makeSource,
-} from "contentlayer/source-files";
+import type { ComputedFields } from "contentlayer/source-files";
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
 import rehypeToc from "@jsdevtools/rehype-toc";
 
 const computedFields: ComputedFields = {
@@ -75,9 +72,9 @@ const Project = defineDocumentType(() => ({
   computedFields,
 }));
 
-const Experience = defineDocumentType(() => ({
-  name: "Experience",
-  filePathPattern: "experiences/**/*.mdx",
+const Career = defineDocumentType(() => ({
+  name: "Career",
+  filePathPattern: "careers/**/*.mdx",
   bodyType: "mdx",
   fields: {
     company: { type: "string", required: true },
@@ -117,14 +114,14 @@ const Education = defineDocumentType(() => ({
 
 const contentLayerConfig = makeSource({
   contentDirPath: "_markdowns",
-  documentTypes: [Blog, Project, Experience, Education],
+  documentTypes: [Blog, Project, Career, Education],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       rehypeCodeTitles,
       rehypeAccessibleEmojis,
-      // @ts-expect-error
+      // @ts-expect-error rehype-toc type is not compatible with this version of rehype
       rehypeToc,
       rehypePrettyCode,
       [
