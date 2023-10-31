@@ -1,12 +1,10 @@
 import React from "react";
-import SiteConfigs from "site.config";
 import meInFrontOfALaptop from "src/assets/images/me/in-front-of-a-laptop.jpg";
-import StyledLink from "src/components/atoms/Link";
 import TitleSection from "src/components/atoms/TitleSection";
 import Image from "next/image";
 import Link from "next/link";
 
-const About: React.FC<React.PropsWithChildren<unknown>> = () => {
+const Introduction = () => {
   return (
     <section>
       <TitleSection center>About me</TitleSection>
@@ -45,4 +43,4 @@ const About: React.FC<React.PropsWithChildren<unknown>> = () => {
   );
 };
 
-export default About;
+export default Introduction;
