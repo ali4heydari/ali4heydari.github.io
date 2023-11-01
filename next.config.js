@@ -9,7 +9,13 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    remotePatterns: [{ hostname: "i.scdn.co" }, { hostname: "spotify.com" }],
+    remotePatterns: [
+      { hostname: "i.scdn.co" },
+      { hostname: "spotify.com" },
+      {
+        hostname: "a.ltrbxd.com",
+      },
+    ],
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },

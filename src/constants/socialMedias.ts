@@ -5,6 +5,7 @@ import FacebookIcon from "mdi-react/FacebookIcon";
 import GithubIcon from "mdi-react/GithubIcon";
 import GitlabIcon from "mdi-react/GitlabIcon";
 import InstagramIcon from "mdi-react/InstagramIcon";
+import LetterIBoxIcon from "mdi-react/LetterIBoxIcon";
 import LinkedinIcon from "mdi-react/LinkedinIcon";
 import PhoneIcon from "mdi-react/PhoneIcon";
 import SkypeIcon from "mdi-react/SkypeIcon";

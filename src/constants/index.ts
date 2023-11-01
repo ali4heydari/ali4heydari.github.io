@@ -7,6 +7,7 @@ import {
   CodeBracketIcon,
   RssIcon,
   MusicalNoteIcon,
+  FilmIcon,
 } from "@heroicons/react/24/solid";
 import { socialMedias } from "./socialMedias";
 
@@ -62,7 +63,13 @@ export const navigation = {
       name: "Music taste",
       href: "/music-taste",
       svgIcon: MusicalNoteIcon,
-      emojiIcon: "🎧",
+      emojiIcon: "🎵",
+    },
+    {
+      name: "Movie taste",
+      href: "/movie-taste",
+      svgIcon: FilmIcon,
+      emojiIcon: "🎬",
     },
   ],
   socialMedias,

@@ -4,6 +4,7 @@ const pathEmojiMap = {
   "404": "👻",
   "about": "😀",
   "music-taste": "🎵",
+  "movie-taste": "🎬",
   "gallery": "📷",
   "community-wall": "📝",
   "projects": "💼",
