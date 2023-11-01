@@ -13,7 +13,7 @@ const Footer = () => {
     queryFn: () => getJson("/api/now-playing"),
   });
   return (
-    <footer className="bg-white p-4 dark:bg-gray-800 sm:p-6">
+    <footer id="footer" className="bg-white p-4 dark:bg-gray-800 sm:p-6">
       <div className="mx-auto max-w-screen-xl">
         <div className="md:flex md:justify-between">
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-12">
