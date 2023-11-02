@@ -20,7 +20,7 @@ const Educations = ({
       topTags: tags,
       children: <div dangerouslySetInnerHTML={{ __html: html }} />,
     }))
-    .reverse();
+    .sort((a, b) => (a.startDate > b.startDate ? -1 : 1));
 
   return (
     <div className={rootClassName}>
