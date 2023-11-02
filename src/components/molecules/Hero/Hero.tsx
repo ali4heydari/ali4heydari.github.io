@@ -3,13 +3,13 @@ import mePortrait from "src/assets/images/me/portrait-2023-01.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
-const Hero: React.FC<React.PropsWithChildren<unknown>> = () => {
+const Hero = () => {
   return (
-    <div className="mx-auto max-w-2xl pb-20 lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
-      <h1 className="mt-3 max-w-2xl text-center text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-6xl lg:col-span-2 xl:col-auto">
+    <div className="mx-auto max-w-2xl items-center pb-20 lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-6 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
+      <h1 className="mt-3 max-w-2xl text-center text-4xl font-bold tracking-tight text-gray-900 dark:text-gray-100 sm:text-6xl lg:col-span-2 xl:col-auto xl:mt-20">
         Hi There, I&#39;m <br />
         <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
-          Ali Heydari
+          Ali Heydari <span className="text-6xl text-white">👋</span>
         </span>
       </h1>
       <div className="mx-auto mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
