@@ -1,6 +1,7 @@
 import React from "react";
 import type { NextPage } from "next";
 import TitleSection from "src/components/atoms/TitleSection";
+import { BASE_URL } from "src/constants";
 import { getStaticMetadata } from "src/utils/metadata";
 import { buildOgImageUrl } from "src/utils/opengraph";
 import { allBlogs } from ".contentlayer/generated";
@@ -12,7 +13,7 @@ export const metadata = getStaticMetadata({
   description:
     // eslint-disable-next-line max-len
     "Blog posts by Ali Heydari. Here I share some thoughts, stories, information and more about software development, programming, tech or my personal life",
-  exactUrl: "https://ali4heydari.tech/blog",
+  exactUrl: `${BASE_URL}/blog`,
   keywords: [
     "tech",
     "software",

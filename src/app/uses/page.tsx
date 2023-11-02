@@ -1,6 +1,7 @@
 import React from "react";
 import StyledLink from "src/components/atoms/Link";
 import TitleSection from "src/components/atoms/TitleSection";
+import { BASE_URL } from "src/constants";
 import { software, hardware } from "src/constants/uses";
 import { getStaticMetadata } from "src/utils/metadata";
 import { buildOgImageUrl } from "src/utils/opengraph";
@@ -11,7 +12,7 @@ export const metadata = getStaticMetadata({
   title: "Uses – Ali Heydari",
   description:
     "Get to know about my setup, hardware, software and tools I use on a daily basis",
-  exactUrl: "https://ali4heydari.tech/uses",
+  exactUrl: `${BASE_URL}/uses`,
   keywords: [
     "hardware",
     "software",

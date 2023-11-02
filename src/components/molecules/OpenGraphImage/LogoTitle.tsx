@@ -1,4 +1,4 @@
-import { baseUrl } from "src/constants";
+import { BASE_URL } from "src/constants";
 
 const pathEmojiMap = {
   "404": "👻",
@@ -32,7 +32,7 @@ export const LogoOrEmoji = (props: { path?: PathName }) => {
   if (!emoji) {
     return (
       <img
-        src={`${baseUrl}/static/images/site/ali4heydari/bitmoji.png`}
+        src={`${BASE_URL}/static/images/site/ali4heydari/bitmoji.png`}
         alt="Animoji representation of Ali Heydari"
         style={{
           width: titleFontSize * 2,

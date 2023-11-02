@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import Card from "src/components/molecules/Card";
-import { baseUrl } from "src/constants";
+import { BASE_URL } from "src/constants";
 import { getJson } from "src/utils";
 import type { WithStatus } from "src/utils";
 
@@ -19,7 +19,7 @@ const Podcasts = () => {
     >
   >({
     queryKey: ["/api/spotify/shows?limit=50"],
-    queryFn: () => getJson(`${baseUrl}/api/spotify/shows?limit=50`),
+    queryFn: () => getJson(`${BASE_URL}/api/spotify/shows?limit=50`),
   });
   return (
     <div>

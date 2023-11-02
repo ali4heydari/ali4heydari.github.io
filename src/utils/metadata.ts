@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
+import { BASE_URL } from "src/constants";
 import { buildOgImageUrl } from "./opengraph";
 
 type MetaImageStyle = "summary_large_image" | "summary";
 
-const defaultLogoImage =
-  "https://ali4heydari.tech/static/images/site/ali4heydari/bitmoji.png";
+const defaultLogoImage = `${BASE_URL}/static/images/site/ali4heydari/bitmoji.png`;
 
 export const getStaticMetadata = (data: {
   description: string;
@@ -29,11 +29,11 @@ export const getStaticMetadata = (data: {
     title,
     description,
     keywords,
-    authors: [{ name: "Ali Heydari", url: "https://ali4heydari.tech" }],
+    authors: [{ name: "Ali Heydari", url: BASE_URL }],
     openGraph: {
       title,
       description,
-      url: exactUrl || "https://ali4heydari.tech",
+      url: exactUrl ?? BASE_URL,
       siteName: title,
       images: [{ url: actualImage }],
       locale: "en_US",
@@ -53,7 +53,7 @@ export const getStaticMetadata = (data: {
       // bing: "",
       // google: "",
     },
-    metadataBase: new URL("https://ali4heydari.tech"),
+    metadataBase: new URL(BASE_URL),
   };
 };
 

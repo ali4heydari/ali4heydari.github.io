@@ -1,4 +1,4 @@
-import { baseUrl } from "src/constants";
+import { BASE_URL } from "src/constants";
 
 export const buildOgImageUrl = (
   path?: string,
@@ -6,12 +6,12 @@ export const buildOgImageUrl = (
   cover?: string,
 ): string => {
   try {
-    const url = new URL(`${baseUrl}/api/og`);
+    const url = new URL(`${BASE_URL}/api/og`);
     if (path) url.searchParams.set("path", path);
     if (title) url.searchParams.set("title", title);
     if (cover) url.searchParams.set("cover", cover);
     return url.href;
   } catch (e) {
-    return `${baseUrl}/api/og`;
+    return `${BASE_URL}/api/og`;
   }
 };

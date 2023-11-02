@@ -1,6 +1,7 @@
 import React from "react";
 import type { NextPage } from "next";
 import TitleSection from "src/components/atoms/TitleSection";
+import { BASE_URL } from "src/constants";
 import { getStaticMetadata } from "src/utils/metadata";
 import { buildOgImageUrl } from "src/utils/opengraph";
 import { allProjects } from ".contentlayer/generated";
@@ -11,7 +12,7 @@ export const metadata = getStaticMetadata({
   title: "Projects – Ali Heydari",
   description:
     "Projects by Ali Heydari. Get to know the projects I&#39;ve worked on.",
-  exactUrl: "https://ali4heydari.tech/projects",
+  exactUrl: `${BASE_URL}/projects`,
   keywords: [
     "tech",
     "software",

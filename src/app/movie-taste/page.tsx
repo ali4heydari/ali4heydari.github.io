@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import StyledLink from "src/components/atoms/Link";
 import TitleSection from "src/components/atoms/TitleSection";
+import { BASE_URL } from "src/constants";
 import { getMovies } from "src/lib/letterboxd";
 import { getStaticMetadata } from "src/utils/metadata";
 import { buildOgImageUrl } from "src/utils/opengraph";
@@ -11,7 +12,7 @@ export const metadata = getStaticMetadata({
   title: "Movie taste – Ali Heydari",
   description:
     "Get to know about my movie taste, my favorite movies and my favorite series.",
-  exactUrl: "https://ali4heydari.tech/movie-taste",
+  exactUrl: `${BASE_URL}/movie-taste`,
   keywords: ["movie taste", "podcasts", "letterboxd", "top movies"],
   image: buildOgImageUrl("movie-taste"),
 });

@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import Card from "src/components/molecules/Card";
 import TimeRangeSelect from "src/components/molecules/TimeRangeSelect/TimeRangeSelect";
-import { baseUrl } from "src/constants";
+import { BASE_URL } from "src/constants";
 import { getJson } from "src/utils";
 import type { WithStatus } from "src/utils";
 
@@ -24,7 +24,7 @@ const TopArtists = () => {
     queryKey: ["/api/spotify/top/artists", timeRange],
 
     queryFn: () =>
-      getJson(`${baseUrl}/api/spotify/top/artists?time_range=${timeRange}`),
+      getJson(`${BASE_URL}/api/spotify/top/artists?time_range=${timeRange}`),
   });
   return (
     <div>

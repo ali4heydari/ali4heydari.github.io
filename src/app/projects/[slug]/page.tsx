@@ -2,7 +2,7 @@ import type { Metadata, NextPage } from "next";
 import CommentThread from "src/components/atoms/CommentThread";
 import Mdx from "src/components/atoms/Mdx/Mdx";
 import WebShare from "src/components/atoms/Webshare/Webshare";
-import { baseUrl } from "src/constants";
+import { BASE_URL } from "src/constants";
 import { getStaticMetadata } from "src/utils/metadata";
 import { buildOgImageUrl } from "src/utils/opengraph";
 import { allProjects } from ".contentlayer/generated";
@@ -23,7 +23,7 @@ export function generateMetadata({ params }): Metadata | undefined {
     title: `${title} | Blog – Ali Heydari`,
     description: summary || "Blog post by Ali Heydari",
     image: ogImage,
-    exactUrl: `https://ali4heydari.tech/projects/${slug}`,
+    exactUrl: `${BASE_URL}/projects/${slug}`,
   });
   return {
     ...metadata,
@@ -92,7 +92,7 @@ const ProjectPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                     data={{
                       title: project.title,
                       text: `Checkout "${project.title}" by "Ali Heydari"\n`,
-                      url: `${baseUrl}/projects/${project.slug}`,
+                      url: `${BASE_URL}/projects/${project.slug}`,
                     }}
                   />
                 </div>
@@ -124,7 +124,7 @@ const ProjectPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
         <CommentThread
           title={project.title}
           identifier={project.slug}
-          url={`${baseUrl}/projects/${project.slug}`}
+          url={`${BASE_URL}/projects/${project.slug}`}
           language="en"
         />
       </main>
