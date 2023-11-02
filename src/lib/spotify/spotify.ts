@@ -1,16 +1,20 @@
-import axios from "axios";
-import { getJson } from "src/utils";
-import type { GetUsersTopItemsRequest } from "./@types/requests/top";
-import type { GetCurrentlyPlaying } from "./@types/responses/current-playing";
 import type {
-  ArtistDto,
-  GetUsersTopItemsResponse,
+  GetUsersTopItemsRequest,
+  SpotifyPaginatedRequest,
+} from "src/lib/spotify/@types/requests/top";
+import type { GetCurrentlyPlayingResponse } from "src/lib/spotify/@types/responses/current-playing";
+import { getJson } from "src/utils";
+import type {
+  RefreshTokenResponse,
   TrackDto,
-} from "./@types/responses/top";
+  ArtistDetailed,
+  SpotifyPaginatedResponse,
+  GetCurrentPlayingRequest,
+} from "./@types";
 
 const client_id = process.env.SPOTIFY_CLIENT_ID;
 const client_secret = process.env.SPOTIFY_CLIENT_SECRET;
-const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN || "";
+const refresh_token = process.env.SPOTIFY_REFRESH_TOKEN ?? "";
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString("base64");
 
@@ -34,49 +38,16 @@ const getAccessToken = async () => {
     refresh_token,
   });
 
-  const response = await fetch(
+  return getJson<RefreshTokenResponse>(
     "https://accounts.spotify.com/api/token" + "?" + urlSearchParams.toString(),
     {
       method: "POST",
       headers,
     },
   );
-
-  const data = await response.json();
-  return { data, status: response.status };
 };
 
 const BASE_URL = "https://api.spotify.com/v1";
-const TIMEOUT = 5 * 1000 - 100;
-const spotifyClient = axios.create({
-  baseURL: BASE_URL,
-
-  // https://stackoverflow.com/a/68774331/8777320
-  timeout: TIMEOUT,
-});
-
-spotifyClient.interceptors.response.use(
-  (response) => response,
-  async (error) => {
-    const status = error.response ? error.response.status : null;
-
-    if (status === 401) {
-      const {
-        data: { access_token },
-      } = await getAccessToken();
-
-      return axios.request({
-        ...error.config,
-        headers: {
-          ...error.config.headers,
-          Authorization: `Bearer ${access_token}`,
-        },
-      });
-    }
-
-    return Promise.reject(error);
-  },
-);
 
 export const getTopTracks = async ({
   time_range = "long_term",
@@ -95,7 +66,7 @@ export const getTopTracks = async ({
 
   const url =
     BASE_URL + SpotifyEndpoints.TOP_TRACKS + "?" + searchParams.toString();
-  return await getJson<GetUsersTopItemsResponse<TrackDto>>(url, {
+  return await getJson<SpotifyPaginatedResponse<TrackDto>>(url, {
     headers: {
       Authorization: `${token_type} ${access_token}`,
     },
@@ -119,7 +90,7 @@ export const getTopArtists = async ({
 
   const url =
     BASE_URL + SpotifyEndpoints.TOP_ARTISTS + "?" + searchParams.toString();
-  return await getJson<GetUsersTopItemsResponse<ArtistDto>>(url, {
+  return await getJson<SpotifyPaginatedResponse<ArtistDetailed>>(url, {
     headers: {
       Authorization: `${token_type} ${access_token}`,
     },
@@ -129,7 +100,7 @@ export const getTopArtists = async ({
 export const getShows = async ({
   offset = 0,
   limit = 10,
-}: Omit<GetUsersTopItemsRequest, "time_range">) => {
+}: SpotifyPaginatedRequest) => {
   const {
     data: { access_token, token_type },
   } = await getAccessToken();
@@ -147,7 +118,9 @@ export const getShows = async ({
   });
 };
 
-export const getNowPlaying = async (params = {}) => {
+export const getNowListening = async (
+  params: GetCurrentPlayingRequest = {},
+) => {
   const {
     data: { access_token, token_type },
   } = await getAccessToken();
@@ -155,7 +128,7 @@ export const getNowPlaying = async (params = {}) => {
     ...params,
   });
 
-  return await getJson<GetCurrentlyPlaying>(
+  return await getJson<GetCurrentlyPlayingResponse>(
     BASE_URL +
       SpotifyEndpoints.NOW_PLAYING_ENDPOINT +
       "?" +

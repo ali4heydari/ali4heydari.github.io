@@ -1,4 +1,5 @@
-import * as spotifyApi from "src/api/spotify";
+import * as spotifyApi from "src/lib/spotify";
+import type { ShowDto } from "./@types";
 import { NextResponse } from "next/server";
 
 const GET = async (request: Request) => {
@@ -26,7 +27,7 @@ const GET = async (request: Request) => {
       description: show.description,
     }));
 
-    return NextResponse.json(shows, {
+    return NextResponse.json<ShowDto[]>(shows, {
       status,
     });
   } catch (error) {

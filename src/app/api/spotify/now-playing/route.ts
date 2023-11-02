@@ -1,17 +1,19 @@
-import * as spotifyApi from "src/api/spotify";
-import type {
-  EpisodeDto,
-  SongDto,
-} from "src/api/spotify/@types/responses/current-playing";
+import * as spotifyApi from "src/lib/spotify";
+import type { EpisodeDto, SongDto } from "src/lib/spotify";
+import type { GetNowListeningResponse } from "./@types";
 import { NextResponse } from "next/server";
 
-const GET = async (_: Request) => {
+export const runtime = "edge";
+
+export const fetchCache = "force-no-store";
+
+const GET = async () => {
   const headers = {
     "Cache-Control": "public, s-maxage=60, stale-while-revalidate=30",
   };
 
   try {
-    const { data: media, status } = await spotifyApi.getNowPlaying({
+    const { data: media, status } = await spotifyApi.getNowListening({
       additional_types: "track,episode",
     });
 
@@ -29,7 +31,9 @@ const GET = async (_: Request) => {
 
     if (media.currently_playing_type === "ad") {
       return NextResponse.json(
-        {},
+        {
+          isPlaying: false,
+        },
         {
           status: 204,
           headers,
@@ -43,23 +47,21 @@ const GET = async (_: Request) => {
       const title = media.item.name;
       const artist = media.item.show.name;
       const album = media.item.show.publisher;
-      const albumImageUrl = media.item.show.images[0].url;
-      const songUrl = media.item.external_urls.spotify;
+      const albumImage = media.item.show.images[0].url;
+      const href = media.item.external_urls.spotify;
 
-      return NextResponse.json(
-        {
-          album,
-          albumImageUrl,
-          artist,
-          isPlaying,
-          songUrl,
-          title,
-        },
-        {
-          status: 200,
-          headers,
-        },
-      );
+      const nextResponse = {
+        album,
+        albumImage,
+        artist,
+        isPlaying,
+        href,
+        title,
+      };
+      return NextResponse.json<GetNowListeningResponse>(nextResponse, {
+        status: 200,
+        headers,
+      });
     }
 
     if (media.currently_playing_type === "track") {
@@ -70,26 +72,32 @@ const GET = async (_: Request) => {
         .map((_artist) => _artist.name)
         .join(", ");
       const album = media.item.album.name;
-      const albumImageUrl = media.item.album.images[0].url;
-      const songUrl = media.item.external_urls.spotify;
+      const albumImage = media.item.album.images[0].url;
+      const href = media.item.external_urls.spotify;
 
-      return NextResponse.json(
-        {
-          album,
-          albumImageUrl,
-          artist,
-          isPlaying,
-          songUrl,
-          title,
-        },
-        {
-          status: 200,
-          headers,
-        },
-      );
+      const nextResponse = {
+        album,
+        albumImage,
+        artist,
+        isPlaying,
+        href,
+        title,
+      };
+      return NextResponse.json<GetNowListeningResponse>(nextResponse, {
+        status: 200,
+        headers,
+      });
     }
 
-    return NextResponse.json({}, { status: 500, headers });
+    return NextResponse.json(
+      {
+        isPlaying: false,
+      },
+      {
+        status,
+        headers,
+      },
+    );
   } catch (error) {
     return NextResponse.json(
       {

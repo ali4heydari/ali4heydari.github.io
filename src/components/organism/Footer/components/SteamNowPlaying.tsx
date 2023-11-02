@@ -1,17 +1,24 @@
-import SpotifyIcon from "mdi-react/SpotifyIcon";
+"use client";
+
+import { useQuery } from "@tanstack/react-query";
 import SteamIcon from "mdi-react/SteamIcon";
 import siteConfig from "site.config";
 import { twMerge } from "tailwind-merge";
-import Image from "next/image";
+import type { GetNowPlayingGameResponse } from "src/app/api/steam/now-playing/@types";
 import Link from "next/link";
 
-export default function SteamNowPlaying({
-  isPlaying = false,
-  gameUrl,
-  profileUrl,
-  personName,
-  gameName,
-}) {
+export default function SteamNowPlaying() {
+  const { data, isLoading } = useQuery<GetNowPlayingGameResponse>({
+    queryKey: ["/api/steam/now-playing"],
+    queryFn: () => fetch("/api/steam/now-playing").then((res) => res.json()),
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+
+  if (!data) return null;
+
+  const { isPlaying, profileUrl, personName, gameName, gameUrl } = data ?? {};
+
   const scrollingText = isPlaying
     ? `Playing ${gameName} • ${personName}`
     : "Not Playing • Steam";
