@@ -1,5 +1,5 @@
 import React from "react";
-import meNextToATree from "src/assets/images/me/next-to-a-tree.jpg";
+import mePortrait from "src/assets/images/me/portrait-2023-01.jpg";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -34,7 +34,7 @@ const Hero: React.FC<React.PropsWithChildren<unknown>> = () => {
         </div>
       </div>
       <Image
-        src={meNextToATree}
+        src={mePortrait}
         placeholder="blur"
         alt="Ali Heydari next to a tree with crossed arms"
         className="mx-auto mt-10 aspect-[6/5] w-full max-w-lg rounded-2xl object-cover sm:mt-16 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-5"
