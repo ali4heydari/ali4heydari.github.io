@@ -1,16 +1,12 @@
 import type { PropsWithChildren } from "react";
 import React from "react";
-import classNames from "classnames";
 import { twMerge } from "tailwind-merge";
-import styles from "./TitleSection.module.css";
 
 interface Props {
   center?: boolean;
 }
 
-const TitleSection: React.FC<
-  React.PropsWithChildren<PropsWithChildren<Props>>
-> = ({ center, children }) => (
+const TitleSection = ({ center, children }: PropsWithChildren<Props>) => (
   <h2
     className={twMerge(
       "mb-10 text-3xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl",
