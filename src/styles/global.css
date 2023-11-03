@@ -15,5 +15,5 @@ html [lang^="fa"] {
 }
 
 #disqus_thread {
-  @apply rounded-2xl bg-white px-8 py-5;
+  @apply rounded-2xl border border-gray-200 bg-white px-8 py-5 dark:border-gray-800;
 }
