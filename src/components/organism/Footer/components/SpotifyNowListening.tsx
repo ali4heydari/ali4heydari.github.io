@@ -1,6 +1,10 @@
+"use client";
+
+import { useQuery } from "@tanstack/react-query";
 import SpotifyIcon from "mdi-react/SpotifyIcon";
 import siteConfig from "site.config";
 import { twMerge } from "tailwind-merge";
+import type { GetNowListeningResponse } from "src/app/api/spotify/now-playing/@types";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,14 +17,18 @@ export interface Props {
   title?: string;
 }
 
-export default function SpotifyNowListening({
-  isPlaying,
-  title,
-  artist,
-  album,
-  albumImageUrl,
-  songUrl,
-}: Props) {
+export default function SpotifyNowListening() {
+  const { data, isLoading } = useQuery<GetNowListeningResponse>({
+    queryKey: ["/api/spotify/now-playing"],
+    queryFn: () => fetch("/api/spotify/now-playing").then((res) => res.json()),
+  });
+
+  if (isLoading) return <div>Loading...</div>;
+
+  if (!data) return null;
+
+  const { title, artist, album, albumImage, href, isPlaying } = data ?? {};
+
   const scrollingText = isPlaying
     ? `${title} • ${artist}`
     : "Not listening to anything • Spotify";
@@ -45,7 +53,7 @@ export default function SpotifyNowListening({
       }
       href={
         isPlaying
-          ? songUrl || ""
+          ? href
           : `https://open.spotify.com/user/${siteConfig.SPOTIFY_ID}`
       }
       target="_blank"
@@ -54,7 +62,7 @@ export default function SpotifyNowListening({
         <Image
           height={26}
           width={26}
-          src={albumImageUrl || ""}
+          src={albumImage}
           alt={`Image for album: "${album}" by "${artist}"`}
           className={"border-accent-dark/[0.12] border"}
         />

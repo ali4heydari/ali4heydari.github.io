@@ -3,7 +3,7 @@ import type { Metadata, NextPage } from "next";
 import CommentThread from "src/components/atoms/CommentThread";
 import Mdx from "src/components/atoms/Mdx/Mdx";
 import WebShare from "src/components/atoms/Webshare/Webshare";
-import { baseUrl } from "src/constants";
+import { BASE_URL } from "src/constants";
 import { getStaticMetadata } from "src/utils/metadata";
 import { buildOgImageUrl } from "src/utils/opengraph";
 import { allBlogs } from ".contentlayer/generated";
@@ -24,7 +24,7 @@ export function generateMetadata({ params }): Metadata | undefined {
     title: `${title} | Blog – Ali Heydari`,
     description: summary || "Blog post by Ali Heydari",
     image: ogImage,
-    exactUrl: `https://ali4heydari.tech/blog/${slug}`,
+    exactUrl: `${BASE_URL}/blog/${slug}`,
   });
   return {
     ...metadata,
@@ -99,7 +99,7 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                     data={{
                       title: blog.title,
                       text: `Checkout "${blog.title}" by "Ali Heydari"\n`,
-                      url: `${baseUrl}/blog/${blog.slug}`,
+                      url: `${BASE_URL}/blog/${blog.slug}`,
                     }}
                   />
                 </div>
@@ -132,7 +132,7 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
       <CommentThread
         title={blog.title}
         identifier={blog.slug}
-        url={`${baseUrl}/blogs/${blog.slug}`}
+        url={`${BASE_URL}/blogs/${blog.slug}`}
         language="en"
       />
     </>

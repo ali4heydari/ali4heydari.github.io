@@ -1,12 +1,12 @@
 import xml from "xml";
-import { baseUrl } from "src/constants";
+import { BASE_URL } from "src/constants";
 import { allBlogs } from ".contentlayer/generated";
 
 type BlogPost = (typeof allBlogs)[number];
 
 const formatImageUrl = (url?: string) => {
   if (!url) return "";
-  if (url.startsWith("/")) return `https://ali4heydari.tech${url}`;
+  if (url.startsWith("/")) return `${BASE_URL}${url}`;
   return url;
 };
 
@@ -18,7 +18,7 @@ const buildDescriptionHtml = (post: BlogPost): string => {
       .slice(0, post.tags.length > 5 ? 5 : post.tags.length)
       .join(", ")}</p><br/>`;
   }
-  description += `<b><a href="https://ali4heydari.tech/blog/${post.slug}">Read more...</a></b><br/><br/>`;
+  description += `<b><a href="${BASE_URL}/blog/${post.slug}">Read more...</a></b><br/><br/>`;
 
   if (post.cover) {
     description += `<p><img src="${formatImageUrl(post.cover)}" `;
@@ -31,7 +31,7 @@ const getAllPostRssData = (post: BlogPost) => {
   const descriptionHtml = buildDescriptionHtml(post);
   return {
     title: post.title,
-    url: `${baseUrl}/${post.slug}`,
+    url: `${BASE_URL}/${post.slug}`,
     date: post.publishedAt,
     description: post.summary,
     html: descriptionHtml,
@@ -101,21 +101,21 @@ const buildFeed = (posts: ReturnType<typeof getAllPostRssData>[]) => {
 const defaultChannel = {
   "atom:link": {
     _attr: {
-      href: "https://ali4heydari.tech/feed.xml",
+      href: `${BASE_URL}/feed.xml`,
       rel: "self",
       type: "application/rss+xml",
     },
   },
   "lastBuildDate": new Date().toUTCString(),
   "language": "en-US",
-  "link": "https://ali4heydari.tech",
+  "link": BASE_URL,
   "title": "Ali Heydari",
   "description": "Ali Heydari's blog",
-  "image_url": "https://ali4heydari.tech/api/og",
+  "image_url": `${BASE_URL}/api/og`,
   "image": {
     title: "Ali Heydari",
-    link: "https://ali4heydari.tech",
-    url: "https://ali4heydari.tech/api/og",
+    link: BASE_URL,
+    url: `${BASE_URL}/api/og`,
   },
   "copyright": `All rights reserved ${new Date().getFullYear()}, Ali Heydari`,
 };

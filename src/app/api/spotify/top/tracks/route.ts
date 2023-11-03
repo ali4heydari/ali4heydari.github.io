@@ -1,5 +1,6 @@
-import * as spotifyApi from "src/api/spotify";
-import type { GetUsersTopItemsRequest } from "src/api/spotify/@types/requests/top";
+import * as spotifyApi from "src/lib/spotify";
+import type { GetUsersTopItemsRequest } from "src/lib/spotify/@types/requests/top";
+import type { TrackDto } from "./@types";
 import { NextResponse } from "next/server";
 
 const GET = async (request: Request) => {
@@ -29,11 +30,11 @@ const GET = async (request: Request) => {
     const tracks = data.items.slice(0, 10).map((track) => ({
       artist: track.artists.map((_artist) => _artist.name).join(", "),
       image: track.album.images[0].url,
-      url: track.external_urls.spotify,
+      href: track.external_urls.spotify,
       title: track.name,
     }));
 
-    return NextResponse.json(tracks, {
+    return NextResponse.json<TrackDto[]>(tracks, {
       status,
     });
   } catch (error) {

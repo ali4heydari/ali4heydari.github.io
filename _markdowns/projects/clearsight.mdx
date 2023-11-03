@@ -1,0 +1,63 @@
+---
+category: "project"
+cover: "/static/images/_markdowns/projects/clearsight/store-overview-1.png"
+title: "ClearSight"
+summary: "An analytics dashboard for Amazon sellers"
+startDate: "2021-03-01"
+endDate: "2021-10-31"
+published: true
+tags:
+  - "⚓ React"
+  - "🐈 Yarn"
+  - "TypeScript"
+  - "🐜 AntDesign"
+  - "Django"
+  - "Nginx"
+  - "🐳 Docker"
+---
+
+
+## Overview
+
+This project was a collaboration with [Lion Digital Solution](https://lionsds.com/).
+The goal was to create a dashboard that would allow Amazon sellers to view their sales data in a more intuitive way than the default Amazon Seller Central dashboard.
+It used the [Amazon MWS API](https://developer.amazonservices.com/) to fetch data from Amazon, A cron job for scraping data that was not available through the API,
+A Chrome extension for scraping private data from the Amazon Seller Central dashboard, and a Django backend for storing and serving the data.
+Unfortunately, the project had only private beta release and is no longer available.
+
+## My Role
+I was the sole developer on this project. I developed both dashboard and landing page,
+and was responsible for the entire development process from start to finish.
+Also I worked on Chrome extension for scraping private data from the Amazon Seller Central dashboard.
+
+## Some screenshots of the dashboard
+![Signup](/static/images/_markdowns/projects/clearsight/signup.jpg)
+
+![Store Overview](/static/images/_markdowns/projects/clearsight/store-overview-1.png)
+![Store Overview](/static/images/_markdowns/projects/clearsight/store-overview-2.png)
+In Store overview you can see the sales data for the selected period of time.
+
+- Total sales: The total amount of sales.
+- Advertising costs: The total amount of money spent on advertising.
+- Total Orders: The total number of orders.
+- Sessions: The total number of user sessions.
+- Overall conversion rate: The overall conversion rate. Users that visited the products and made a purchase.
+
+Also you could be able to see your top 5 best and worst performing products. "WoW" is a acronym for "Week over Week" and it shows the change in sales compared to the previous week.
+
+![ASIN by ASIN](/static/images/_markdowns/projects/clearsight/asin-by-asin-1.jpg)
+![ASIN by ASIN](/static/images/_markdowns/projects/clearsight/asin-by-asin-2.jpg)
+
+In ASIN by ASIN you can see the sales data for each product (ASIN) for the selected period of time.
+
+![ASIN table](/static/images/_markdowns/projects/clearsight/asin-table.jpg)
+
+![Account settings](/static/images/_markdowns/projects/clearsight/account-settings.jpg)
+
+## A video of the dashboard (ASIN by ASIN page)
+
+<video className="w-ful" controls>
+  <source src="/static/images/_markdowns/projects/clearsight/asin-by-asin.mp4"
+          type="video/mp4" />
+</video>
+

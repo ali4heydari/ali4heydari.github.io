@@ -1,5 +1,6 @@
-import * as spotifyApi from "src/api/spotify";
-import type { GetUsersTopItemsRequest } from "src/api/spotify/@types/requests/top";
+import * as spotifyApi from "src/lib/spotify";
+import type { GetUsersTopItemsRequest } from "src/lib/spotify/@types/requests/top";
+import type { ArtistDto } from "./@types";
 import { NextResponse } from "next/server";
 
 const GET = async (request: Request) => {
@@ -33,7 +34,7 @@ const GET = async (request: Request) => {
       genres: artist.genres,
     }));
 
-    return NextResponse.json(artists, {
+    return NextResponse.json<ArtistDto[]>(artists, {
       status,
     });
   } catch (error) {

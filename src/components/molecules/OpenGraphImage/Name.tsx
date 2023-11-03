@@ -1,4 +1,4 @@
-import { baseUrl } from "src/constants";
+import { BASE_URL } from "src/constants";
 import type { PathName } from "./LogoTitle";
 
 const fontSize = 40;
@@ -14,7 +14,7 @@ export const Name = (props: { path?: PathName }) => {
       }}
     >
       <img
-        src={`${baseUrl}/static/images/site/ali4heydari/bitmoji.png`}
+        src={`${BASE_URL}/static/images/site/ali4heydari/bitmoji.png`}
         alt="Animoji representation of Ali Heydari"
         style={{
           width: fontSize * 2,

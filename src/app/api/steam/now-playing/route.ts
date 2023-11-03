@@ -1,7 +1,10 @@
 import * as steamApi from "src/lib/steam";
 import { NextResponse } from "next/server";
 
-const GET = async (_: Request) => {
+export const runtime = "edge";
+export const fetchCache = "force-no-store";
+
+const GET = async () => {
   const headers = {
     "Cache-Control": `public, s-maxage=${60 * 5}, stale-while-revalidate=${60}`,
   };
@@ -9,17 +12,23 @@ const GET = async (_: Request) => {
   try {
     const response = await steamApi.getNowPlaying();
 
-    const {
-      response: {
-        players: [playerData],
-      },
-    } = await response.json();
+    if (!response.response.players[0])
+      return NextResponse.json(
+        {
+          error: "No player found",
+        },
+        {
+          status: 404,
+        },
+      );
+
+    const playerData = response.response.players[0];
 
     const profileUrl = playerData.profileurl;
     const isPlaying = !!playerData?.gameid;
     const personName = playerData.personaname;
     const profileState = playerData.profilestate;
-    const gameName = isPlaying ? playerData.gameextrainfo : null;
+    const gameName = isPlaying ? playerData.profilestate : null;
     const gameUrl = isPlaying
       ? `https://store.steampowered.com/app/${playerData.gameid}`
       : null;

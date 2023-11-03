@@ -1,5 +1,5 @@
 import "server-only";
-import { baseUrl } from "src/constants";
+import { BASE_URL } from "src/constants";
 
 /* eslint-disable @next/next/no-img-element */
 import type { PathName } from "./LogoTitle";
@@ -33,7 +33,7 @@ export const OpenGraphImage = (props: OgImageProps) => {
       }}
     >
       <img
-        src={`${baseUrl}/${cover}`}
+        src={`${BASE_URL}/${cover}`}
         alt={title || "Hero image"}
         width={1280}
         height={720}

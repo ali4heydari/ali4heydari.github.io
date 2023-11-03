@@ -75,7 +75,7 @@ export const navigation = {
   socialMedias,
 };
 
-export const baseUrl =
+export const BASE_URL =
   process.env.NODE_ENV === "development"
     ? "http://localhost:3000"
     : process.env.VERCEL_ENV === "preview"

@@ -1,6 +1,7 @@
 import type { NextPage } from "next";
 import CalendlyInlineWidget from "src/components/atoms/Calendly/CalendlyInlineWidget";
 import TitleSection from "src/components/atoms/TitleSection";
+import { BASE_URL } from "src/constants";
 import Careers from "src/features/Careers";
 import Education from "src/features/Education";
 import Introduction from "src/features/Introduction";
@@ -13,7 +14,7 @@ export const metadata = getStaticMetadata({
   title: "About – Ali Heydari",
   description:
     "About Ali Heydari. Get to know me, my career, and my interests.",
-  exactUrl: "https://ali4heydari.tech/about",
+  exactUrl: `${BASE_URL}/about`,
   keywords: ["bio", "biography", "information", "about", "career"],
   image: buildOgImageUrl("about"),
 });
