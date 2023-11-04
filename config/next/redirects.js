@@ -7,8 +7,5 @@ const buildRedirect = (source, destination, permanent = true) => {
 };
 
 module.exports = [
-  buildRedirect(
-    "/resume",
-    "https://github.com/ali4heydari/CV/releases/latest/download/CV.pdf",
-  ),
+  buildRedirect("/cv", "/static/files/site/ali4heydari-cv.pdf"),
 ];
