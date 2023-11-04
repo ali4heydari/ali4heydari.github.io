@@ -1,0 +1,205 @@
+---
+title: "Using the Steam API with Next.js to show current playing game on your website"
+publishedAt: "2023-11-05"
+summary: "In this article, I will show you how to show your current playing game from Steam on your website using NextJS and Steam API."
+cover: "/static/images/_markdowns/blog/using-steam-api-with-nextjs/cover.jpg"
+tags: ["NextJS", "Steam", "API", "TypeScript"]
+---
+
+## Introduction
+I set up a Spotify now listening widget on my website and I thought it would be cool to have a similar widget for Steam.
+I searched for a while and I found a [Steam API](https://developer.valvesoftware.com/wiki/Steam_Web_API)
+that can be used to get the current playing game. In this article,
+I will show you how to show your current playing game from Steam on your website using NextJS and Steam API.
+
+## Create NextJS project
+First, we need to create a NextJS project. You can create it by running the following command.
+
+```bash
+npx create-next-app --ts
+```
+
+## Get Steam API Key
+Now, you need to get a Steam API key. You can get it from [here](https://steamcommunity.com/dev/apikey).
+
+> NOTE: If you haven't bought any game from Steam, you can't get a Steam API key.
+
+## Get Your Steam ID
+You can get your Steam ID from [here](https://steamidfinder.com/).
+
+## Using Steam's API
+Inside your NextJS project, create a file called `.env.local` and add `STEAM_API_KEY` and `STEAM_ID`
+from the previous steps to it.
+
+```bash
+STEAM_API_KEY=YOUR_STEAM_API_KEY
+STEAM_ID=YOUR_STEAM_ID
+```
+
+Then, create a file called `lib/steam.ts` and add the following code to it.
+
+```ts
+// It's better to have types in different file
+export interface GetPlayerSummariesResponse {
+  response: Response;
+}
+
+export interface Response {
+  players: Player[];
+}
+
+export enum PersonaState {
+  OFFLINE,
+  ONLINE,
+  BUSY,
+  AWAY,
+  SNOOZE,
+  LOOKING_TO_TRADE,
+  LOOKING_TO_PLAY,
+}
+
+export enum CommunityVisibilityState {
+  PRIVATE = 1,
+  PUBLIC = 2,
+}
+
+export enum ProfileState {
+  NOT_CONFIGURED = 0,
+  CONFIGURED = 1,
+}
+
+export interface Player {
+  avatar: string;
+  avatarfull: string;
+  avatarhash: string;
+  avatarmedium: string;
+  communityvisibilitystate: CommunityVisibilityState;
+  gameextrainfo: string;
+  gameid: string;
+  gameserverip: string;
+  lastlogoff: number;
+  loccityid: number;
+  loccountrycode: string;
+  locstatecode: string;
+  personaname: string;
+  personastate: PersonaState;
+  personastateflags: number;
+  primaryclanid: string;
+  profilestate: ProfileState;
+  profileurl: string;
+  realname: string;
+  steamid: string;
+  timecreated: number;
+}
+
+const steamApiKey = process.env.STEAM_API_KEY!;
+const steamId = process.env.STEAM_ID!;
+const GET_PLAYER_SUMMARIES_ENDPOINT =
+  "http://api.steampowered.com/ISteamUser/GetPlayerSummaries/v0002";
+
+export const getNowPlaying = async (): Promise<GetPlayerSummariesResponse> => {
+  const url = new URL(GET_PLAYER_SUMMARIES_ENDPOINT);
+  const params = {
+    key: steamApiKey,
+    steamids: steamId,
+  };
+  url.search = new URLSearchParams(params).toString();
+
+  return fetch(url.toString()).then<GetPlayerSummariesResponse>((response) =>
+    response.json(),
+  );
+};
+```
+
+## Create an API route
+
+Now, we need to create an API route to get the current playing game.
+Create a file called `app/api/steam/now-playing.ts` and add the following code to it.
+
+> I'm using NextJS app router to create API routes.
+
+```ts
+import * as steamApi from "src/lib/steam";
+import { NextResponse } from "next/server";
+
+export const runtime = "edge";
+export const fetchCache = "force-no-store";
+
+const GET = async () => {
+  const headers = {
+    "Cache-Control": `public, s-maxage=${60 * 5}, stale-while-revalidate=${60}`,
+  };
+
+  try {
+    const response = await steamApi.getNowPlaying();
+
+    if (!response.response.players[0])
+      return NextResponse.json(
+        {
+          error: "No player found",
+        },
+        {
+          status: 404,
+        },
+      );
+
+    const playerData = response.response.players[0];
+
+    const profileUrl = playerData.profileurl;
+    const isPlaying = !!playerData?.gameid;
+    const personName = playerData.personaname;
+    const profileState = playerData.profilestate;
+    const gameName = isPlaying ? playerData.profilestate : null;
+    const gameUrl = isPlaying
+      ? `https://store.steampowered.com/app/${playerData.gameid}`
+      : null;
+
+    return NextResponse.json(
+      {
+        profileUrl,
+        gameName,
+        isPlaying,
+        personName,
+        profileState,
+        gameUrl,
+      },
+      {
+        status: 200,
+        headers,
+      },
+    );
+  } catch (error) {
+    return NextResponse.json(
+      {
+        error,
+      },
+      {
+        status: 500,
+        headers,
+      },
+    );
+  }
+};
+
+export { GET };
+```
+
+## Test the API route
+Now, you can test the API route by running the following command.
+
+```bash
+curl http://localhost:3000/api/steam/now-playing
+```
+
+You should get a response like this.
+
+```json
+{
+  "profileUrl": "https://steamcommunity.com/id/ali4heydari/",
+  "gameName": "Counter-Strike: Global Offensive",
+  "isPlaying": true,
+  "personName": "ali4heydari",
+  "profileState": 1,
+  "gameUrl": "https://store.steampowered.com/app/730"
+}
+```
