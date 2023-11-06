@@ -1,16 +1,16 @@
 ---
-title: "Setup OpenVPN client with private DNS on mikrotik router"
+title: "Setup OpenVPN client with private DNS on MikroTik router"
 publishedAt: "2023-11-04"
-summary: "How to setup OpenVPN client with private DNS on mikrotik router to access private network"
+summary: "How to setup OpenVPN client with private DNS on MikroTik router to access private network"
 cover: "/static/images/_markdowns/blog/setup-ovpn-with-private-dns-on-mikrotik/cover.png"
 tags: ["Mikrotik", "OpenVPN", "DNS", "RouterOS"]
 ---
 
 # Introduction
 The company that I work for has a private network that can only be accessed through VPN.
-The VPN server is using OpenVPN. I have a mikrotik router at home and I want to setup OpenVPN client on it, so I can access the private network from home.
+The VPN server is using OpenVPN. I have a MikroTik router at home and I want to setup OpenVPN client on it, so I can access the private network from home.
 The problem is, the private network has a private DNS server that is not accessible from outside the network.
-So I need to setup the mikrotik router to use the private DNS server when accessing the private network.
+So I need to setup the MikroTik router to use the private DNS server when accessing the private network.
 
 # Import OpenVPN client as PPP interface
 First, we need to setup OpenVPN client as PPP interface.
