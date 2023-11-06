@@ -26,7 +26,7 @@ const pathTitleMap = {
   "error": "Error",
 };
 
-const titleFontSize = 72;
+const titleFontSize = 50;
 export const LogoOrEmoji = (props: { path?: PathName }) => {
   const emoji = props.path ? pathEmojiMap[props.path] : null;
   if (!emoji) {

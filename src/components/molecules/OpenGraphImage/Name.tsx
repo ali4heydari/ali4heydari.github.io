@@ -28,13 +28,14 @@ export const Name = (props: { path?: PathName }) => {
         style={{
           alignSelf: "flex-start",
           fontWeight: 700,
+          fontSize,
           color: "rgba(0, 0, 0, 0)",
           backgroundImage: "linear-gradient(to right, #88a4e6, #81c1e9)",
           backgroundClip: "text",
           filter: "saturate(150%)",
         }}
       >
-        Ali Heydari
+        Ali Heydari | {BASE_URL}
       </p>
     </div>
   );

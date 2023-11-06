@@ -34,7 +34,7 @@ export const OpenGraphImage = (props: OgImageProps) => {
     >
       <img
         src={`${BASE_URL}/${cover}`}
-        alt={title || "Hero image"}
+        alt={title ?? "Cover image"}
         width={1280}
         height={720}
         style={{
