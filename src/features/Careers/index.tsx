@@ -36,7 +36,7 @@ const Careers = ({
 
   return (
     <section className={rootClassName}>
-      <TitleSection center>Experiences</TitleSection>
+      <TitleSection center>Experience</TitleSection>
       <Timeline events={events} />
     </section>
   );
