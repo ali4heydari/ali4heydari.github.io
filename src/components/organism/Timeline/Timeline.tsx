@@ -68,7 +68,7 @@ const Timeline = ({
             <div
               className={classNames(
                 "m-4 text-base font-normal text-gray-500 dark:text-gray-400",
-                "prose prose-headings:underline prose-a:text-indigo-600 prose-a:underline prose-img:rounded-xl dark:text-white",
+                "prose prose-headings:underline prose-a:text-indigo-600 prose-a:underline prose-img:rounded-xl dark:text-white prose-a:dark:text-indigo-400",
               )}
             >
               {children}
@@ -78,7 +78,7 @@ const Timeline = ({
                 {bottomTags?.map((tag) => (
                   <span
                     key={tag}
-                    className="py-0.7 rounded-lg border border-gray-900 bg-indigo-50 px-1.5 text-xs dark:border-gray-400 dark:bg-indigo-700 dark:text-gray-200"
+                    className="py-0.7 rounded-lg border border-gray-900 bg-indigo-50 px-1.5 text-xs dark:border-gray-400 dark:bg-indigo-500 dark:text-gray-50"
                   >
                     {tag}
                   </span>
