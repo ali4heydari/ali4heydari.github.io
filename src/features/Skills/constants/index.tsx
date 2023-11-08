@@ -13,11 +13,10 @@ import TypeScriptIcon from "mdi-react/LanguageTypescriptIcon";
 import MicrosoftAzureDevopsIcon from "mdi-react/MicrosoftAzureDevopsIcon";
 import ReactIcon from "mdi-react/ReactIcon";
 import TailwindIcon from "mdi-react/TailwindIcon";
-import React from "react";
 import ProteusLogo from "src/assets/images/logos/proteus-logo.png";
-import CypressIcon from "src/assets/svg/cypress.svg";
-import NestJsIcon from "src/assets/svg/nestjs.svg";
-import NextJsIcon from "src/assets/svg/next-js.svg";
+import cypressIcon from "src/assets/svg/cypress.svg";
+import nestJsIcon from "src/assets/svg/nestjs.svg";
+import nextJsIcon from "src/assets/svg/next-js.svg";
 import Image from "next/image";
 
 export const skills = [
@@ -86,7 +85,7 @@ export const skills = [
     title: "AzureDevOps",
   },
   {
-    icon: <NextJsIcon className={`h-6 w-6`} />,
+    icon: <Image alt="Next.js" src={nextJsIcon} className={`h-6 w-6`} />,
     title: "Next.js",
   },
   {
@@ -98,11 +97,23 @@ export const skills = [
     title: "ASP.NET",
   },
   {
-    icon: <CypressIcon className={`h-6 w-6 text-gray-300`} />,
+    icon: (
+      <Image
+        alt="Cypress"
+        src={cypressIcon}
+        className={`h-6 w-6 text-gray-300`}
+      />
+    ),
     title: "Cypress",
   },
   {
-    icon: <NestJsIcon className={`h-6 w-6 text-red-500`} />,
+    icon: (
+      <Image
+        alt="Nest.js"
+        src={nestJsIcon}
+        className={`h-6 w-6 text-red-500`}
+      />
+    ),
     title: "Nest.js",
   },
   {

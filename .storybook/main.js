@@ -44,17 +44,6 @@ module.exports = {
       new TsconfigPathsPlugin(),
     ];
 
-    const fileLoaderRule = config.module.rules.find(
-      (rule) => rule.test && rule.test.test(".svg"),
-    );
-    fileLoaderRule.exclude = /\.svg$/;
-
-    config.module.rules.push({
-      test: /\.svg$/,
-      enforce: "pre",
-      loader: require.resolve("@svgr/webpack"),
-    });
-
     // https://github.com/tailwindlabs/tailwindcss/issues/3258
     config.module.rules.forEach((loaders) => {
       if (Array.isArray(loaders.use)) {

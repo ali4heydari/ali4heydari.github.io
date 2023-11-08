@@ -39,7 +39,6 @@
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@jsdevtools/rehype-toc": "^3.0.2",
-    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/typography": "^0.5.2",
     "@tanstack/react-query": "^5.7.2",
     "autoprefixer": "^10.4.2",
