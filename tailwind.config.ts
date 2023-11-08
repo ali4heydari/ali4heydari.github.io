@@ -1,8 +1,8 @@
 import hocus from "tailwindcss-hocus";
 import typography from "@tailwindcss/typography";
+import type { Config } from "tailwindcss/types/config";
 
-/** @type {import("tailwindcss/types").Config } */
-module.exports = {
+const tailwindConfig: Config = {
   content: ["./pages/**/*.{js,ts,jsx,tsx}", "./src/**/*.{js,ts,jsx,tsx}"],
   darkMode: "class", // or 'media' or 'class'
   plugins: [typography, hocus],
@@ -27,3 +27,5 @@ module.exports = {
     },
   },
 };
+
+export default tailwindConfig;

@@ -4,7 +4,7 @@ module.exports = {
   semi: true,
   endOfLine: "lf",
   quoteProps: "consistent",
-  tailwindConfig: "./tailwind.config.js",
+  tailwindConfig: "./tailwind.config.ts",
   importOrder: [
     "react",
     "^(?!react)\\w+$",
