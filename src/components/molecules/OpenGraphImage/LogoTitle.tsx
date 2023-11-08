@@ -70,7 +70,7 @@ export const PageTitle = (props: {
             }),
       }}
     >
-      {title || pathTitle || "Ali Heydari"}
+      {title || pathTitle || `Ali Heydari | ${new URL(BASE_URL).hostname}`}
     </p>
   );
 };

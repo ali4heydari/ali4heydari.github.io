@@ -35,7 +35,7 @@ export const Name = (props: { path?: PathName }) => {
           filter: "saturate(150%)",
         }}
       >
-        Ali Heydari | {BASE_URL}
+        Ali Heydari | {new URL(BASE_URL).hostname}
       </p>
     </div>
   );

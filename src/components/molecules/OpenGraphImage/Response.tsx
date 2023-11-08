@@ -16,10 +16,10 @@ export const runtime = config.runtime;
 export const getOgImage = (
   path?: string | null,
   title?: string | null,
-  hero?: string | null,
+  cover?: string | null,
 ) => {
-  const actualPath = (path || "").toLowerCase() as PathName;
-  let actualHero = hero || "/static/images/site/default-og-bg.png";
+  const actualPath = (path ?? "").toLowerCase() as PathName;
+  let actualHero = cover ?? "/static/images/site/default-og-bg.png";
   if (actualHero.startsWith("/")) actualHero = actualHero.substring(1);
 
   return new ImageResponse(
