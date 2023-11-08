@@ -1,7 +1,8 @@
-const { TsconfigPathsPlugin } = require("tsconfig-paths-webpack-plugin");
-const path = require("path");
+import path from "path";
+import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
+import { StorybookConfig } from "@storybook/nextjs";
 
-module.exports = {
+const config: StorybookConfig = {
   stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
 
   /** Expose public folder to storybook as static */
@@ -80,3 +81,5 @@ module.exports = {
     autodocs: true,
   },
 };
+
+export default config;
