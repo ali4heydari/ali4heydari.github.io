@@ -1,3 +1,4 @@
+import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import type { ReactNode } from "react";
 import GoogleAnalytics from "src/components/molecules/GoogleAnalytics/GoogleAnalytics";
 import Hotjar from "src/components/molecules/Hotjar/Hotjar";
@@ -39,9 +40,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Meta />
       </head>
       <body>
-        {process.env.NODE_ENV === "production" && <GoogleAnalytics />}
-        {process.env.NODE_ENV === "production" && <Hotjar />}
-        <GoogleAnalytics />
+        {process.env.NODE_ENV === "production" && (
+          <>
+            <GoogleAnalytics />
+            <Hotjar />
+            <VercelAnalytics />
+          </>
+        )}
         <Providers>
           <MainLayout>{children}</MainLayout>
         </Providers>
