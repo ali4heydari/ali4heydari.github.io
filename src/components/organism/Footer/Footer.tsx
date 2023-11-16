@@ -68,7 +68,7 @@ const Footer = () => {
           <div className="mt-4 flex flex-wrap justify-center space-x-1 space-y-1 sm:mt-0 sm:justify-center">
             {navigation.socialMedias.map((it) => (
               <StyledLink
-                href={it.link}
+                href={it.href}
                 key={it.name}
                 className="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-500"
               >
