@@ -1,3 +1,5 @@
+import CalendarOutlineIcon from "mdi-react/CalendarOutlineIcon";
+import ClockOutlineIcon from "mdi-react/ClockOutlineIcon";
 import React from "react";
 import type { NextPage } from "next";
 import TitleSection from "src/components/atoms/TitleSection";
@@ -70,9 +72,13 @@ const BlogPage: NextPage = () => {
                       dateTime={blog.publishedAt.split("T")[0]}
                       title={publishDateText}
                     >
-                      🗓️{publishDateText}
+                      <CalendarOutlineIcon className="mr-1 inline-block h-4 w-4" />
+                      {publishDateText}
                     </time>
-                    <p>⏳{blog.readingTime.text}</p>
+                    <span>
+                      <ClockOutlineIcon className="mr-1 inline-block h-4 w-4" />
+                      {blog.readingTime.text}
+                    </span>
                   </div>
                   <p className="mb-4 text-gray-500 dark:text-gray-400">
                     {blog.summary}

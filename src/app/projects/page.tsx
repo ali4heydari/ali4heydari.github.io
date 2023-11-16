@@ -1,3 +1,5 @@
+import CalendarOutlineIcon from "mdi-react/CalendarOutlineIcon";
+import ClockOutlineIcon from "mdi-react/ClockOutlineIcon";
 import React from "react";
 import type { NextPage } from "next";
 import TitleSection from "src/components/atoms/TitleSection";
@@ -54,9 +56,13 @@ const ProjectsPage: NextPage = () => {
                     </h2>
                     <p className="flex flex-wrap justify-start gap-1 text-xs font-light text-gray-500 dark:text-gray-400">
                       <time>
-                        🗓️ {project.startDate} - {project.endDate ?? "Present"}
+                        <CalendarOutlineIcon className="mr-1 inline-block h-4 w-4" />
+                        {project.startDate} - {project.endDate ?? "Present"}
                       </time>
-                      <span>⏳ {project.readingTime.text}</span>
+                      <span>
+                        <ClockOutlineIcon className="mr-1 inline-block h-4 w-4" />
+                        {project.readingTime.text}
+                      </span>
                     </p>
                   </div>
                   <p className="mb-4 text-gray-500 dark:text-gray-400">
