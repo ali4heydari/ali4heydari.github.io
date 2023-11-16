@@ -1,13 +1,6 @@
-import {
-  MoonIcon as MoonIconOutline,
-  SunIcon as SunIconOutline,
-  ComputerDesktopIcon as ComputerDesktopIconOutline,
-} from "@heroicons/react/24/outline";
-import {
-  MoonIcon as MoonIconSolid,
-  SunIcon as SunIconSolid,
-  ComputerDesktopIcon as ComputerDesktopIconSolid,
-} from "@heroicons/react/24/solid";
+import MonitorIcon from "mdi-react/MonitorIcon";
+import WeatherNightIcon from "mdi-react/WeatherNightIcon";
+import WeatherSunnyIcon from "mdi-react/WeatherSunnyIcon";
 import { useMemo } from "react";
 import classNames from "classnames";
 import { useTheme } from "next-themes";
@@ -21,40 +14,17 @@ const ThemeSwitcher = () => {
       {
         name: "Light",
         value: "light",
-        svgIconOutline: (
-          <SunIconOutline width={16} height={16} className="mx-auto" />
-        ),
-        svgIconSolid: (
-          <SunIconSolid width={16} height={16} className="mx-auto" />
-        ),
+        icon: <WeatherSunnyIcon className="mx-auto h-4 w-4" />,
       },
       {
         name: "System",
         value: "system",
-        svgIconOutline: (
-          <ComputerDesktopIconOutline
-            width={16}
-            height={16}
-            className="mx-auto"
-          />
-        ),
-        svgIconSolid: (
-          <ComputerDesktopIconSolid
-            width={16}
-            height={16}
-            className="mx-auto"
-          />
-        ),
+        icon: <MonitorIcon className="mx-auto h-4 w-4" />,
       },
       {
         name: "Dark",
         value: "dark",
-        svgIconOutline: (
-          <MoonIconOutline width={16} height={16} className="mx-auto" />
-        ),
-        svgIconSolid: (
-          <MoonIconSolid width={16} height={16} className="mx-auto" />
-        ),
+        icon: <WeatherNightIcon className="mx-auto h-4 w-4" />,
       },
     ],
     [],
@@ -81,7 +51,7 @@ const ThemeSwitcher = () => {
           role="radio"
           type="button"
         >
-          {theme === it.value ? it.svgIconSolid : it.svgIconOutline}
+          {it.icon}
         </button>
       ))}
     </div>

@@ -1,7 +1,8 @@
 "use client";
 
 import { Dialog } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import CloseIcon from "mdi-react/CloseIcon";
+import MenuIcon from "mdi-react/MenuIcon";
 import React, { useState } from "react";
 import StyledLink from "src/components/atoms/Link";
 import Bitmoji from "src/components/atoms/Logo";
@@ -27,7 +28,7 @@ const Header = () => {
             onClick={() => setMobileMenuOpen(true)}
           >
             <span className="sr-only">Open main menu</span>
-            <Bars3Icon
+            <MenuIcon
               className="h-6 w-6  text-gray-500 dark:text-gray-400"
               aria-hidden="true"
             />
@@ -66,7 +67,7 @@ const Header = () => {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <span className="sr-only">Close menu</span>
-                  <XMarkIcon
+                  <CloseIcon
                     className="h-6 w-6 text-gray-500 dark:text-gray-400"
                     aria-hidden="true"
                   />

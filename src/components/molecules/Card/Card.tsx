@@ -1,4 +1,4 @@
-import { PhotoIcon } from "@heroicons/react/24/solid";
+import PhotoIcon from "mdi-react/FileImageOutlineIcon";
 import React, { useMemo } from "react";
 import Image from "next/image";
 import Link from "next/link";
