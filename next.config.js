@@ -1,4 +1,5 @@
 const { withContentlayer } = require("next-contentlayer");
+const { withSentryConfig } = require("@sentry/nextjs");
 const million = require("million/compiler");
 
 const appHeaders = require("./config/next/headers");
@@ -30,7 +31,42 @@ const millionConfig = {
 
 // https://github.com/cyrilwanner/next-compose-plugins/issues/59#issuecomment-1341060113
 module.exports = (phase, defaultConfig) => {
-  const plugins = [withContentlayer, (cfg) => million.next(cfg, millionConfig)];
+  const plugins = [
+    withContentlayer,
+    (cfg) => million.next(cfg, millionConfig),
+    (cfg) =>
+      withSentryConfig(
+        cfg,
+        {
+          // For all available options, see:
+          // https://github.com/getsentry/sentry-webpack-plugin#options
+
+          // Suppresses source map uploading logs during build
+          silent: true,
+          org: "ali4heydari",
+          project: "ali4heydari-dot-tech",
+        },
+        {
+          // For all available options, see:
+          // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
+
+          // Upload a larger set of source maps for prettier stack traces (increases build time)
+          widenClientFileUpload: true,
+
+          // Transpiles SDK to be compatible with IE11 (increases bundle size)
+          transpileClientSDK: true,
+
+          // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers (increases server load)
+          tunnelRoute: "/monitoring",
+
+          // Hides source maps from generated client bundles
+          hideSourceMaps: true,
+
+          // Automatically tree-shake Sentry logger statements to reduce bundle size
+          disableLogger: true,
+        },
+      ),
+  ];
 
   return plugins.reduce(
     (acc, plugin) => {

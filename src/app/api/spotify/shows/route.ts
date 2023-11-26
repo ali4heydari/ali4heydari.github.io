@@ -1,5 +1,6 @@
 import * as spotifyApi from "src/lib/spotify";
 import type { ShowDto } from "./@types";
+import * as Sentry from "@sentry/nextjs";
 import { NextResponse } from "next/server";
 
 const GET = async (request: Request) => {
@@ -31,6 +32,7 @@ const GET = async (request: Request) => {
       status,
     });
   } catch (error) {
+    Sentry.captureException(error);
     console.error({ error });
     return NextResponse.json(
       { error },

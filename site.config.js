@@ -22,6 +22,8 @@ const siteConfig = {
   SLIDES_ID: "ali4heydari",
   CONTACT_GET_FORM_ID: "b721c787-7978-40ec-9253-5fefaaa6d1e0",
   DISCORD_SERVER_ID: "7Z4Wk2zUuj",
+  SENTRY_DSN:
+    "https://ed90590a991690c3ba11bada4ffd9aa7@o1022684.ingest.sentry.io/4506293730082816",
   DISCUSS_SHORTNAME: process.env.NEXT_PUBLIC_DISCUSS_SHORTNAME,
   NODE_ENV: process.env.NODE_ENV,
   RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
