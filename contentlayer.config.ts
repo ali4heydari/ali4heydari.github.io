@@ -130,6 +130,7 @@ const contentLayerConfig = makeSource({
       rehypeAccessibleEmojis,
       // @ts-expect-error rehype-toc type is not compatible with this version of rehype
       rehypeToc,
+      // @ts-expect-error contentlayer type is not compatible with this version of rehype-pretty-code
       rehypePrettyCode,
       [
         rehypeAutolinkHeadings,
