@@ -29,43 +29,42 @@ const millionConfig = {
   auto: { rsc: true },
 };
 
+const sentryWebpackPluginOptions = {
+  // For all available options, see:
+  // https://github.com/getsentry/sentry-webpack-plugin#options
+
+  // Suppresses source map uploading logs during build
+  silent: false,
+  org: "ali4heydari",
+  project: "ali4heydari-dot-tech",
+};
+
+const sentryOptions = {
+  // For all available options, see:
+  // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
+
+  // Upload a larger set of source maps for prettier stack traces (increases build time)
+  widenClientFileUpload: true,
+
+  // Transpiles SDK to be compatible with IE11 (increases bundle size)
+  transpileClientSDK: true,
+
+  // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers (increases server load)
+  tunnelRoute: "/monitoring",
+
+  // Hides source maps from generated client bundles
+  hideSourceMaps: true,
+
+  // Automatically tree-shake Sentry logger statements to reduce bundle size
+  disableLogger: true,
+};
+
 // https://github.com/cyrilwanner/next-compose-plugins/issues/59#issuecomment-1341060113
 module.exports = (phase, defaultConfig) => {
   const plugins = [
     withContentlayer,
     (cfg) => million.next(cfg, millionConfig),
-    (cfg) =>
-      withSentryConfig(
-        cfg,
-        {
-          // For all available options, see:
-          // https://github.com/getsentry/sentry-webpack-plugin#options
-
-          // Suppresses source map uploading logs during build
-          silent: true,
-          org: "ali4heydari",
-          project: "ali4heydari-dot-tech",
-        },
-        {
-          // For all available options, see:
-          // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
-
-          // Upload a larger set of source maps for prettier stack traces (increases build time)
-          widenClientFileUpload: true,
-
-          // Transpiles SDK to be compatible with IE11 (increases bundle size)
-          transpileClientSDK: true,
-
-          // Routes browser requests to Sentry through a Next.js rewrite to circumvent ad-blockers (increases server load)
-          tunnelRoute: "/monitoring",
-
-          // Hides source maps from generated client bundles
-          hideSourceMaps: true,
-
-          // Automatically tree-shake Sentry logger statements to reduce bundle size
-          disableLogger: true,
-        },
-      ),
+    (cfg) => withSentryConfig(cfg, sentryWebpackPluginOptions, sentryOptions),
   ];
 
   return plugins.reduce(
