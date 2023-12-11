@@ -7,6 +7,7 @@ import MainLayout from "src/layouts/MainLayout";
 import Providers from "src/providers";
 import "src/styles/global.css";
 import { getStaticMetadata } from "src/utils/metadata";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "tailwindcss/tailwind.css";
 
 export const metadata = {
@@ -45,6 +46,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <GoogleAnalytics />
             <Hotjar />
             <VercelAnalytics />
+            <SpeedInsights />
           </>
         )}
         <Providers>
