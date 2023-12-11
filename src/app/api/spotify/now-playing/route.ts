@@ -1,6 +1,7 @@
 import * as spotifyApi from "src/lib/spotify";
 import type { EpisodeDto, SongDto } from "src/lib/spotify";
 import type { GetNowListeningResponse } from "./@types";
+import * as Sentry from "@sentry/nextjs";
 import { NextResponse } from "next/server";
 
 export const runtime = "edge";
@@ -99,6 +100,8 @@ const GET = async () => {
       },
     );
   } catch (error) {
+    Sentry.captureException(error);
+    console.error({ error });
     return NextResponse.json(
       {
         error,
