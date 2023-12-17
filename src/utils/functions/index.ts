@@ -19,12 +19,11 @@ export const getJson = async <TResponseBody = any>(
   url: string,
   options?: RequestInit,
 ): Promise<WithStatus<TResponseBody>> =>
-  fetch(url, options).then((response) => {
-    if (!response.ok) {
-      throw new Error(response.statusText);
-    }
-    return response.json().then<WithStatus<TResponseBody>>((data) => ({
+  fetch(url, options).then(async (response) => {
+    const data = await response.json();
+    const result: WithStatus<TResponseBody> = {
       data,
       status: response.status,
-    }));
+    };
+    return result;
   });
