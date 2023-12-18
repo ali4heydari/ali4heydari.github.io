@@ -28,7 +28,7 @@ const GET = async () => {
     const isPlaying = !!playerData?.gameid;
     const personName = playerData.personaname;
     const profileState = playerData.profilestate;
-    const gameName = isPlaying ? playerData.profilestate : null;
+    const gameName = isPlaying ? playerData.gameextrainfo : null;
     const gameUrl = isPlaying
       ? `https://store.steampowered.com/app/${playerData.gameid}`
       : null;
