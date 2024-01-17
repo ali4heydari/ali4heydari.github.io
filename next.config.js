@@ -37,6 +37,7 @@ const sentryWebpackPluginOptions = {
   silent: false,
   org: "ali4heydari",
   project: "ali4heydari-dot-tech",
+  dryRun: process.env.SENTRY_IS_DRY_RUN === "true",
 };
 
 const sentryOptions = {
