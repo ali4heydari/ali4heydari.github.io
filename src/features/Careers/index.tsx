@@ -4,6 +4,7 @@ import TitleSection from "src/components/atoms/TitleSection";
 import Timeline from "src/components/organism/Timeline";
 import type { TimelineProps } from "src/components/organism/Timeline/@types";
 import type { Career } from ".contentlayer/generated";
+import Link from "next/link";
 
 const Careers = ({
   allCareers,
@@ -17,13 +18,20 @@ const Careers = ({
       ({
         position: subtitle,
         company: title,
+        companySite,
         startDate,
         endDate,
         body: { html },
         stack,
         tags,
       }) => ({
-        title,
+        title: companySite ? (
+          <Link target="_blank" rel="noopener noreferrer" href={companySite}>
+            {title}
+          </Link>
+        ) : (
+          title
+        ),
         subtitle,
         startDate,
         endDate,

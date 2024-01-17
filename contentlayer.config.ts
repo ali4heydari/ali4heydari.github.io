@@ -79,6 +79,7 @@ const Career = defineDocumentType(() => ({
   fields: {
     company: { type: "string", required: true },
     position: { type: "string", required: true },
+    companySite: { type: "string" },
     startDate: { type: "string", required: true },
     endDate: { type: "string", required: true },
     tags: {

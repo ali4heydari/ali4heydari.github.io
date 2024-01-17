@@ -6,7 +6,7 @@ export interface EventProps {
   endDate: string | Date;
   startDate: string | Date;
   subtitle?: string;
-  title: string;
+  title: string | React.ReactNode;
   topTags?: string[];
 }
 
