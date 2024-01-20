@@ -32,9 +32,6 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "resolutions": {
-    "webpack": "^5"
-  },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@jsdevtools/rehype-toc": "^3.0.2",
@@ -123,7 +120,7 @@
     "stylelint-config-recommended": "^14.0.0"
   },
   "engines": {
-    "node": ">=14",
+    "node": ">=18",
     "pnpm": ">=8"
   },
   "nextBundleAnalysis": {
