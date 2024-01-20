@@ -7,12 +7,14 @@ tags: ["NextJS", "Steam", "API", "TypeScript"]
 ---
 
 ## Introduction
+
 I set up a Spotify now listening widget on my website and I thought it would be cool to have a similar widget for Steam.
 I searched for a while and I found a [Steam API](https://developer.valvesoftware.com/wiki/Steam_Web_API)
 that can be used to get the current playing game. In this article,
 I will show you how to show your current playing game from Steam on your website using NextJS and Steam API.
 
 ## Create NextJS project
+
 First, we need to create a NextJS project. You can create it by running the following command.
 
 ```bash
@@ -20,14 +22,17 @@ npx create-next-app --ts
 ```
 
 ## Get Steam API Key
+
 Now, you need to get a Steam API key. You can get it from [here](https://steamcommunity.com/dev/apikey).
 
 > NOTE: If you haven't bought any game from Steam, you can't get a Steam API key.
 
 ## Get Your Steam ID
+
 You can get your Steam ID from [here](https://steamidfinder.com/).
 
 ## Using Steam's API
+
 Inside your NextJS project, create a file called `.env.local` and add `STEAM_API_KEY` and `STEAM_ID`
 from the previous steps to it.
 
@@ -185,6 +190,7 @@ export { GET };
 ```
 
 ## Test the API route
+
 Now, you can test the API route by running the following command.
 
 ```bash

@@ -7,25 +7,29 @@ tags: ["Mikrotik", "OpenVPN", "DNS", "RouterOS"]
 ---
 
 # Introduction
+
 The company that I work for has a private network that can only be accessed through VPN.
 The VPN server is using OpenVPN. I have a MikroTik router at home and I want to setup OpenVPN client on it, so I can access the private network from home.
 The problem is, the private network has a private DNS server that is not accessible from outside the network.
 So I need to setup the MikroTik router to use the private DNS server when accessing the private network.
 
 # Import OpenVPN client as PPP interface
+
 First, we need to setup OpenVPN client as PPP interface.
 Upload your `.ovpn` file to the router. You can use `Winbox` or `FTP` to upload the file.
 Then go to `PPP` > `Interface`, Click on `Import .ovpn` button and select the .ovpn file that you got from the VPN server.
 
 <center>
-  ![Import OpenVPN client as PPP interface](/static/images/_markdowns/blog/setup-ovpn-with-private-dns-on-mikrotik/01-import-ovpn.png)
+  ![Import OpenVPN client as PPP
+  interface](/static/images/_markdowns/blog/setup-ovpn-with-private-dns-on-mikrotik/01-import-ovpn.png)
 </center>
 
 Now you should select the `.ovpn` in `File Name` dropdown. Then fill the `Private key passphrase` with the passphrase that you got from the VPN server and also
 `OVPN Client User`, `OVPN Client Password` with the username and password that you got from the VPN server. Then click `Start` button.
 
 <center>
-  ![Import OpenVPN client as PPP interface](/static/images/_markdowns/blog/setup-ovpn-with-private-dns-on-mikrotik/02-import-ovpn.png)
+  ![Import OpenVPN client as PPP
+  interface](/static/images/_markdowns/blog/setup-ovpn-with-private-dns-on-mikrotik/02-import-ovpn.png)
 </center>
 
 > Note: My VPN server is using `tls-auth` which is not supported by "stable" versions of RouterOS.
@@ -33,13 +37,14 @@ Now you should select the `.ovpn` in `File Name` dropdown. Then fill the `Privat
 > From RouterOS 7.12beta2, `tls-auth` is supported. So if you got the same problem, you can try to upgrade your RouterOS to the latest testing version.
 
 <center>
-  ![Import OpenVPN client as PPP interface](/static/images/_markdowns/blog/setup-ovpn-with-private-dns-on-mikrotik/03-import-ovpn.png)
+  ![Import OpenVPN client as PPP
+  interface](/static/images/_markdowns/blog/setup-ovpn-with-private-dns-on-mikrotik/03-import-ovpn.png)
 </center>
 
-After successful import you will have a new PPP interface named `ovpn-import1699042054` or something like that 
-(I recommend to rename it to something more meaningful). 
+After successful import you will have a new PPP interface named `ovpn-import1699042054` or something like that
+(I recommend to rename it to something more meaningful).
 Also, VPN certificate will be added to the router's certificate list.
-You can check imported certificates in `System` > `Certificates` 
+You can check imported certificates in `System` > `Certificates`
 (rename the certificate to something more meaningful as well).
 
 <center>
@@ -71,6 +76,7 @@ Moreover, you will have a new route in `IP` > `Routes` list. This route will rou
 </center>
 
 # Setup DNS
+
 Now we need to setup DNS to use the private DNS server when accessing the private network.
 Go to `IP` > `DNS` > `Static` tab and add a new static DNS entry. Fill the `Name` with the domain name that you want to resolve using the private DNS server.
 For example `arr.lan`. Then select `Type` to `FWD` and check `Match Subdomains`. Then fill the `Forward to` with the IP address of the private DNS server that you
@@ -78,7 +84,8 @@ got from the VPN server, and you checked from `IP` > `DNS` > tab. Then click `OK
 Do this for all domain names and DNS IP addresses that you got from the VPN server.
 
 <center>
-  ![Static DNS](/static/images/_markdowns/blog/setup-ovpn-with-private-dns-on-mikrotik/09-static-dns.png)
+  ![Static
+  DNS](/static/images/_markdowns/blog/setup-ovpn-with-private-dns-on-mikrotik/09-static-dns.png)
 </center>
 
 Don't forget to check `Allow Remote Requests` in `IP` > `DNS` > `Settings` tab.
