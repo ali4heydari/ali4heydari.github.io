@@ -18,28 +18,18 @@ const GET = async () => {
       additional_types: "track,episode",
     });
 
-    if (status === 204) {
-      return NextResponse.json(
-        {
-          isPlaying: false,
-        },
-        {
-          status,
-          headers,
-        },
-      );
+    if (status === 204 || media === null) {
+      return NextResponse.json(null, {
+        status,
+        headers,
+      });
     }
 
     if (media.currently_playing_type === "ad") {
-      return NextResponse.json(
-        {
-          isPlaying: false,
-        },
-        {
-          status: 204,
-          headers,
-        },
-      );
+      return NextResponse.json(null, {
+        status: 204,
+        headers,
+      });
     }
 
     if (media.currently_playing_type === "episode") {

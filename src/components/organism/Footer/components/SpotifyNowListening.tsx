@@ -5,6 +5,7 @@ import SpotifyIcon from "mdi-react/SpotifyIcon";
 import siteConfig from "site.config";
 import { twMerge } from "tailwind-merge";
 import type { GetNowListeningResponse } from "src/app/api/spotify/now-playing/@types";
+import { getJson } from "src/utils";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -18,9 +19,14 @@ export interface Props {
 }
 
 export default function SpotifyNowListening() {
-  const { data, isLoading } = useQuery<GetNowListeningResponse>({
+  const { data, isLoading } = useQuery<
+    GetNowListeningResponse | Record<string, never>
+  >({
     queryKey: ["/api/spotify/now-playing"],
-    queryFn: () => fetch("/api/spotify/now-playing").then((res) => res.json()),
+    queryFn: () =>
+      getJson<GetNowListeningResponse>("/api/spotify/now-playing").then(
+        (res) => res.data,
+      ),
   });
 
   if (isLoading) return <div>Loading...</div>;

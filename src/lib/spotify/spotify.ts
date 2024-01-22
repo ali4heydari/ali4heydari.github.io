@@ -3,7 +3,7 @@ import type {
   SpotifyPaginatedRequest,
 } from "src/lib/spotify/@types/requests/top";
 import type { GetCurrentlyPlayingResponse } from "src/lib/spotify/@types/responses/current-playing";
-import { getJson } from "src/utils";
+import { getJson, WithStatus } from "src/utils";
 import type {
   RefreshTokenResponse,
   TrackDto,
@@ -38,13 +38,19 @@ const getAccessToken = async () => {
     refresh_token,
   });
 
-  return getJson<RefreshTokenResponse>(
+  const response = await getJson<RefreshTokenResponse>(
     "https://accounts.spotify.com/api/token" + "?" + urlSearchParams.toString(),
     {
       method: "POST",
       headers,
     },
   );
+
+  if (!response.data) {
+    throw new Error("Could not get access token");
+  }
+
+  return response;
 };
 
 const BASE_URL = "https://api.spotify.com/v1";
