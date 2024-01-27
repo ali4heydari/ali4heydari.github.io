@@ -19,14 +19,14 @@ const GET = async () => {
     });
 
     if (status === 204 || media === null) {
-      return NextResponse.json(null, {
-        status,
+      return new Response(null, {
+        status: 204,
         headers,
       });
     }
 
     if (media.currently_playing_type === "ad") {
-      return NextResponse.json(null, {
+      return new Response(null, {
         status: 204,
         headers,
       });
