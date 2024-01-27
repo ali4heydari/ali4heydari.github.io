@@ -15,9 +15,9 @@ const TopTracks = () => {
     WithStatus<
       {
         artist: string;
+        href: string;
         image: string;
         title: string;
-        url: string;
       }[]
     >
   >({
@@ -48,7 +48,8 @@ const TopTracks = () => {
                 subtitle={track?.artist}
                 imageSrc={track?.image}
                 imageAlt={track?.title}
-                href={track?.url}
+                href={track?.href}
+                hrefTitle={`Listen to ${track?.title} on Spotify`}
                 loading={isLoadingTopTracks}
               />
             ),

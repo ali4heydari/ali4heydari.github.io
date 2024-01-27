@@ -46,6 +46,7 @@ const TopArtists = () => {
               imageSrc={artist?.image}
               imageAlt={artist?.name}
               href={artist?.href}
+              hrefTitle={`Listen to ${artist?.name} on Spotify`}
               loading={isLoadingTopArtists}
             />
           ),

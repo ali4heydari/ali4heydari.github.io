@@ -6,6 +6,7 @@ import Link from "next/link";
 export interface CardProps {
   height?: number;
   href?: string;
+  hrefTitle?: string;
   imageAlt: string;
   imageSrc: string;
   loading?: boolean;
@@ -24,6 +25,7 @@ const Card = (props: CardProps) => {
     width = 200,
     height = 200,
     href,
+    hrefTitle,
     loading,
     rootClassName = "bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center gap-2 p-4 md:flex-col md:justify-center",
   } = props;
@@ -79,7 +81,7 @@ const Card = (props: CardProps) => {
 
   if (href) {
     return (
-      <Link href={href} className={rootClassName}>
+      <Link href={href} title={hrefTitle} className={rootClassName}>
         {Body}
       </Link>
     );
