@@ -1,12 +1,13 @@
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
 import type { ReactNode } from "react";
-import GoogleAnalytics from "src/components/molecules/GoogleAnalytics/GoogleAnalytics";
 import Hotjar from "src/components/molecules/Hotjar/Hotjar";
 import Meta from "src/components/molecules/Meta";
 import MainLayout from "src/layouts/MainLayout";
 import Providers from "src/providers";
 import "src/styles/global.css";
+import * as gtag from "src/utils/gtag";
 import { getStaticMetadata } from "src/utils/metadata";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import "tailwindcss/tailwind.css";
 
@@ -43,7 +44,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body>
         {process.env.NODE_ENV === "production" && (
           <>
-            <GoogleAnalytics />
+            <GoogleAnalytics gaId={gtag.GA_TRACKING_ID} />
             <Hotjar />
             <VercelAnalytics />
             <SpeedInsights />
