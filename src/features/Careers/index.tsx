@@ -45,7 +45,7 @@ const Careers = ({
         bottomTags: stack,
       }),
     )
-    .sort((a, b) => (a.startDate > b.startDate ? -1 : 1));
+    .sort((a, b) => (new Date(a.startDate) > new Date(b.startDate) ? 1 : -1));
 
   return (
     <section className={rootClassName}>
