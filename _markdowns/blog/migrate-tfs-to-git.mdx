@@ -1,0 +1,131 @@
+---
+title: "Migrate from TFS to GitLab"
+publishedAt: "2024-01-24"
+summary: "How I migrated from TFS to GitLab"
+cover: "/static/images/_markdowns/blog/migrate-tfs-to-git/cover.jpeg"
+tags: ["Git", "TFS", "GitLab"]
+---
+
+## Introduction
+
+I'm writing this post on 2024, However, I migrated from TFS to Git on 2020 for a company I was working for.
+
+I'm writing this post to share my experience and the steps I followed to migrate from TFS to Git.
+
+## Why Migrate? Why Me?
+
+The company I was working for was using TFS for source control with a local Team Foundation Server. 
+The company was growing and the development team was expanding. 
+We were working on multiple projects and the need for a distributed source control system was increasing.
+So, we decided to migrate to Git.
+At first DevOps team were chosen for the migration, but they said that they can't migrate the history of the source code and we will lose all the history of the source code.
+So, I took the responsibility of the migration and started to search for a solution.
+
+
+# The Plan
+## Step 1: Install prerequisites
+
+I installed the following tools on my machine:
+- [Git](https://git-scm.com/downloads)
+- [GitLab CLI](https://gitlab.com/gitlab-org/cli#installation)
+- [Git-TFS](https://github.com/git-tfs/git-tfs)
+
+
+## Step 2: Grab all projects names from TFS
+
+As I mentioned before, they used TFS with a local Team Foundation Server.
+At first, I got all projects list from the local Team Foundation Server via CSS selector and saved them to a file.
+Hence, Some project names were not valid as a name of a repository in Git, or they didn't follow our naming convention,
+I had to change the names of the repositories.
+Therefore, I added a new column to the file and wrote the new names of the repositories.
+That file was like this:
+
+```csv [projects.csv]
+PaymentID_Manager,payment-id-manager
+BankSatements,bank-satements
+InsuranceServer,insurance-server
+AutoPayment,auto-payment
+InsurancePaymentManager,insurance-payment-manager
+MMS,mms
+SpecialTerContractGenarator,special-ter-contract-genarator
+ImportPecTransactions,import-pec-transactions
+EnrollAssets,enroll-assets
+MerchantPortal,merchant-portal
+Enroll,enroll
+TMS,tms
+MerchantPortal-SSO,merchant-portal-sso
+DefineAcceptor,define-acceptor
+ImportBehpardakhtTransactions,import-behpardakht-transactions
+TMSConfigurationManagment,tms-configuration-managment
+MerchantClubLoan,merchant-club-loan
+MerchantClub,merchant-club
+SSOAssets,sso-assets
+CustomerGrading,customer-grading
+CardPaymentDetection,card-payment-detection
+DateTimeHelper,date-time-helper
+BrokerStatement - SSIS,broker-statement-ssis
+Terminal Management System,terminal-management-system
+```
+
+## Step 3: Migrate script
+
+I wrote a script to migrate all the projects from TFS to GitLab.
+
+```bat [migrate-to-git.bat]
+@echo off
+setlocal enabledelayedexpansion
+
+:: This line turns off command echoing, so commands are not displayed in the console.
+:: The `setlocal enabledelayedexpansion` enables delayed variable expansion.
+
+for /f "tokens=1,2 delims=," %%u in (projects.csv) do (
+    :: This loop reads each line from the "projects.csv" file, splitting it into two tokens (%%u and %%v)
+    :: based on the comma delimiter (","), and assigns them to variables "name" and "kebabCaseName".
+    
+    set "name=%%u"
+    set "kebabCaseName=%%v"
+    :: Assign the values of the tokens to corresponding variables.
+
+    echo Processing repo with name: !name!. Path will be: !kebabCaseName!
+    :: Display a message indicating the current repository being processed.
+
+    git tfs clone "http://tfs.ef.net:8080/tfs/DefaultCollection/" "$/!name!"
+    :: Clone the TFS (Team Foundation Server) repository using the "git tfs clone" command.
+    :: The URL specifies the TFS server, and the "$/!name!" represents the TFS project path.
+
+
+    gitlab project create --namespace-id 55 --name !kebabCaseName!
+    :: Create a new GitLab project using the GitLab CLI tool.
+    :: The "--namespace-id" specifies the namespace (group or user), and "--name" sets the project name.
+
+
+    pushd "!name!"
+    :: Change the current directory to the local repository folder named "!name!".
+
+
+    git remote add origin "https://git.efarda.ir/efarda/gameofthreads/!kebabCaseName!.git"
+    :: Add a remote named "origin" to the local Git repository.
+    :: The URL points to the GitLab repository for the project.
+
+
+    git push -u origin master
+    :: Push the local repository to the remote repository (GitLab) under the "master" branch.
+
+
+    popd
+    :: Return to the original working directory.
+)
+
+```
+
+## Step 4: Run the script
+If you run the script, it will clone all the projects to your local machine and push them to the GitLab server.
+So be careful and make sure you have enough space on your machine and the GitLab server.
+Double-check your connection to the TFS server and the GitLab server and also your credentials and permissions.
+then run the script:
+
+```bat
+> migrate-to-git.bat
+```
+
+You can see the progress of the migration in the console.
