@@ -7,6 +7,7 @@ import LogitechG213 from "src/assets/images/uses/hardware/logitech-g213.png";
 import LogitechG502Hero from "src/assets/images/uses/hardware/logitech-g502-hero.png";
 import LogitechMXVertical from "src/assets/images/uses/hardware/logitech-mx-vertical.png";
 import MikrotikhAPax3 from "src/assets/images/uses/hardware/mikrotik-hap-ax3.png";
+import MikrotikhAPaxLiteLte6 from "src/assets/images/uses/hardware/mikrotik-hap-ax-lite-lte6.png";
 import SonyWF1000XM4 from "src/assets/images/uses/hardware/sony-wf1000xm4.png";
 import TSCOTS2189 from "src/assets/images/uses/hardware/tsco-ts2189.png";
 import aldentePro from "src/assets/images/uses/software/aldente-pro.png";
@@ -55,7 +56,12 @@ export const hardware = [
   {
     name: "Mikrotik hAP ax3",
     image: MikrotikhAPax3,
-    description: "For bypassing Internet censorship and managing my network",
+    description: "For bypassing Internet censorship and managing my network 🛜",
+  },
+  {
+    name: "Mikrotik hAP ax lite LTE6",
+    image: MikrotikhAPaxLiteLte6,
+    description: "Travel router 🧳",
   },
   {
     name: "TSCO TS2189",
