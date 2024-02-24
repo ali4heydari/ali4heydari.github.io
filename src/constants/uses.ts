@@ -1,15 +1,15 @@
 import appleMacbookProM1 from "src/assets/images/uses/hardware/apple-macbook-pro-m1-14inch.png";
-import AsusGL502VY from "src/assets/images/uses/hardware/asus-gl502vy.png";
-import AsusVA24EHE from "src/assets/images/uses/hardware/asus-va24ehe.png";
-import KeychronK3 from "src/assets/images/uses/hardware/keychron-k3.png";
-import LCDarm from "src/assets/images/uses/hardware/lcd-arm.png";
-import LogitechG213 from "src/assets/images/uses/hardware/logitech-g213.png";
-import LogitechG502Hero from "src/assets/images/uses/hardware/logitech-g502-hero.png";
-import LogitechMXVertical from "src/assets/images/uses/hardware/logitech-mx-vertical.png";
-import MikrotikhAPax3 from "src/assets/images/uses/hardware/mikrotik-hap-ax3.png";
-import MikrotikhAPaxLiteLte6 from "src/assets/images/uses/hardware/mikrotik-hap-ax-lite-lte6.png";
-import SonyWF1000XM4 from "src/assets/images/uses/hardware/sony-wf1000xm4.png";
-import TSCOTS2189 from "src/assets/images/uses/hardware/tsco-ts2189.png";
+import asusGL502VY from "src/assets/images/uses/hardware/asus-gl502vy.png";
+import asusVA24EHE from "src/assets/images/uses/hardware/asus-va24ehe.png";
+import keychronK3 from "src/assets/images/uses/hardware/keychron-k3.png";
+import lcdArm from "src/assets/images/uses/hardware/lcd-arm.png";
+import logitechG213 from "src/assets/images/uses/hardware/logitech-g213.png";
+import logitechG502Hero from "src/assets/images/uses/hardware/logitech-g502-hero.png";
+import logitechMxVertical from "src/assets/images/uses/hardware/logitech-mx-vertical.png";
+import mikrotikHapAx3 from "src/assets/images/uses/hardware/mikrotik-hap-ax3.png";
+import mikrotikHapAxLiteLte6 from "src/assets/images/uses/hardware/mikrotik-hap-ax-lite-lte6.png";
+import sonyWF1000XM4 from "src/assets/images/uses/hardware/sony-wf1000xm4.png";
+import tscoTs2189 from "src/assets/images/uses/hardware/tsco-ts2189.png";
 import aldentePro from "src/assets/images/uses/software/aldente-pro.png";
 import cleanmymacX from "src/assets/images/uses/software/cleanmymac-x.png";
 import cleanshotX from "src/assets/images/uses/software/cleanshot-x.png";
@@ -40,57 +40,57 @@ export const hardware = [
   },
   {
     name: "Logitech MX Vertical",
-    image: LogitechMXVertical,
+    image: logitechMxVertical,
     description: "You wrist will thank you for this 🤌",
   },
   {
     name: "Keychron K3 Mechanical Keyboard V2 (brown switches)",
-    image: KeychronK3,
+    image: keychronK3,
     description: "Unique type experience 🤝",
   },
   {
     name: "Sony WF-1000XM4",
-    image: SonyWF1000XM4,
+    image: sonyWF1000XM4,
     description: "Excellent noise cancellation 👌",
   },
   {
     name: "Mikrotik hAP ax3",
-    image: MikrotikhAPax3,
+    image: mikrotikHapAx3,
     description: "For bypassing Internet censorship and managing my network 🛜",
   },
   {
     name: "Mikrotik hAP ax lite LTE6",
-    image: MikrotikhAPaxLiteLte6,
+    image: mikrotikHapAxLiteLte6,
     description: "Travel router 🧳",
   },
   {
     name: "TSCO TS2189",
-    image: TSCOTS2189,
+    image: tscoTs2189,
     description: "Not the best, but it does the job 🦾",
   },
   {
     name: "Asus GL502VY",
-    image: AsusGL502VY,
+    image: asusGL502VY,
     description: "CPU i7-6700HQ, 16GB RAM, 256GB SSD, 2TB HDD, GTX 980M",
   },
   {
     name: "Logitech G502 Hero",
-    image: LogitechG502Hero,
+    image: logitechG502Hero,
     description: "For gaming",
   },
   {
     name: "Logitech G213",
-    image: LogitechG213,
+    image: logitechG213,
     description: "For gaming",
   },
   {
     name: "Asus VA24EHE",
-    image: AsusVA24EHE,
+    image: asusVA24EHE,
     description: "Not the best, but it does the job 🦾",
   },
   {
     name: "LCD arm",
-    image: LCDarm,
+    image: lcdArm,
     description: "Economical and does the job 🦾",
   },
 ];
