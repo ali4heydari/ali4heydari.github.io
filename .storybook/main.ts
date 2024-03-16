@@ -3,7 +3,7 @@ import { TsconfigPathsPlugin } from "tsconfig-paths-webpack-plugin";
 import { StorybookConfig } from "@storybook/nextjs";
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.stories.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
+  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|ts|tsx)"],
 
   /** Expose public folder to storybook as static */
   staticDirs: ["../public"],

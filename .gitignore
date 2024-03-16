@@ -94,3 +94,6 @@ cypress/screenshots
 
 # Sentry Config File
 .sentryclirc
+
+# Storybook
+storybook-static
