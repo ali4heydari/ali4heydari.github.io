@@ -6,7 +6,7 @@ import TitleSection from "src/components/atoms/TitleSection";
 import { BASE_URL } from "src/constants";
 import { getStaticMetadata } from "src/utils/metadata";
 import { buildOgImageUrl } from "src/utils/opengraph";
-import { allProjects } from ".contentlayer/generated";
+import { projects } from "@/content";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -37,14 +37,14 @@ const ProjectsPage: NextPage = () => {
         many more projects, but I can&#39;t share them here because of the NDA.
       </p>
       <div className="my-10 grid grid-cols-1 gap-20 lg:grid-cols-2">
-        {allProjects
+        {projects
           .sort(
             (a, b) =>
               new Date(b.startDate).getTime() - new Date(a.startDate).getTime(),
           )
           .map((project) => (
             <Link
-              key={project._id}
+              key={project.slug}
               href={`/projects/${project.slug}`}
               className="rounded-lg border-2 border-gray-200 p-5 transition-colors duration-200 hover:border-gray-400 dark:border-gray-700 dark:hover:border-gray-500"
             >
@@ -61,7 +61,7 @@ const ProjectsPage: NextPage = () => {
                       </time>
                       <span>
                         <ClockOutlineIcon className="mr-1 inline-block h-4 w-4" />
-                        {project.readingTime.text}
+                        {project.readingTime} min read
                       </span>
                     </p>
                   </div>

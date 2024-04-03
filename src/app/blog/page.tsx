@@ -6,7 +6,7 @@ import TitleSection from "src/components/atoms/TitleSection";
 import { BASE_URL } from "src/constants";
 import { getStaticMetadata } from "src/utils/metadata";
 import { buildOgImageUrl } from "src/utils/opengraph";
-import { allBlogs } from ".contentlayer/generated";
+import { blog as allBlogs } from "@/content";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -77,7 +77,7 @@ const BlogPage: NextPage = () => {
                     </time>
                     <span>
                       <ClockOutlineIcon className="mr-1 inline-block h-4 w-4" />
-                      {blog.readingTime.text}
+                      {blog.readingTime} min read
                     </span>
                   </div>
                   <p className="mb-4 text-gray-500 dark:text-gray-400">

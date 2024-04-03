@@ -1,9 +1,9 @@
 import type { MetadataRoute } from "next";
-import { allBlogs, allProjects } from "contentlayer/generated";
 import { BASE_URL, navigation } from "src/constants";
+import { blog, projects as allProjects } from "@/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const blogs = allBlogs.map((post) => ({
+  const blogs = blog.map((post) => ({
     url: `${BASE_URL}/blog/${post.slug}`,
     lastModified: post.publishedAt.split("T")[0],
     priority: 0.6,

@@ -8,7 +8,7 @@ import Introduction from "src/features/Introduction";
 import Skills from "src/features/Skills/Skills";
 import { getStaticMetadata } from "src/utils/metadata";
 import { buildOgImageUrl } from "src/utils/opengraph";
-import { allCareers, allEducation } from ".contentlayer/generated";
+import { careers, education } from "@/content";
 
 export const metadata = getStaticMetadata({
   title: "About – Ali Heydari",
@@ -24,8 +24,8 @@ const ContactPage: NextPage = () => {
     <>
       <Introduction />
       <Skills />
-      <Careers rootClassName="my-3" allCareers={allCareers} />
-      <Education rootClassName="my-3" allEducation={allEducation} />
+      <Careers rootClassName="my-3" careers={careers} />
+      <Education rootClassName="my-3" educations={education} />
       <TitleSection center>Let&#39;s talk</TitleSection>
       <div className="rounded-2xl bg-white p-2">
         <CalendlyInlineWidget />

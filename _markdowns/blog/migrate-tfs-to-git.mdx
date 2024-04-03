@@ -14,22 +14,22 @@ I'm writing this post to share my experience and the steps I followed to migrate
 
 ## Why Migrate? Why Me?
 
-The company I was working for was using TFS for source control with a local Team Foundation Server. 
-The company was growing and the development team was expanding. 
+The company I was working for was using TFS for source control with a local Team Foundation Server.
+The company was growing and the development team was expanding.
 We were working on multiple projects and the need for a distributed source control system was increasing.
 So, we decided to migrate to Git.
 At first DevOps team were chosen for the migration, but they said that they can't migrate the history of the source code and we will lose all the history of the source code.
 So, I took the responsibility of the migration and started to search for a solution.
 
-
 # The Plan
+
 ## Step 1: Install prerequisites
 
 I installed the following tools on my machine:
+
 - [Git](https://git-scm.com/downloads)
 - [GitLab CLI](https://gitlab.com/gitlab-org/cli#installation)
 - [Git-TFS](https://github.com/git-tfs/git-tfs)
-
 
 ## Step 2: Grab all projects names from TFS
 
@@ -81,7 +81,7 @@ setlocal enabledelayedexpansion
 for /f "tokens=1,2 delims=," %%u in (projects.csv) do (
     :: This loop reads each line from the "projects.csv" file, splitting it into two tokens (%%u and %%v)
     :: based on the comma delimiter (","), and assigns them to variables "name" and "kebabCaseName".
-    
+
     set "name=%%u"
     set "kebabCaseName=%%v"
     :: Assign the values of the tokens to corresponding variables.
@@ -119,6 +119,7 @@ for /f "tokens=1,2 delims=," %%u in (projects.csv) do (
 ```
 
 ## Step 4: Run the script
+
 If you run the script, it will clone all the projects to your local machine and push them to the GitLab server.
 So be careful and make sure you have enough space on your machine and the GitLab server.
 Double-check your connection to the TFS server and the GitLab server and also your credentials and permissions.

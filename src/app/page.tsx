@@ -3,7 +3,7 @@ import type { Metadata, NextPage } from "next";
 import Hero from "src/components/molecules/Hero";
 import Careers from "src/features/Careers";
 import { Skills } from "src/features/Skills";
-import { allCareers } from ".contentlayer/generated";
+import { careers } from "@/content";
 
 export function generateMetadata(): Metadata {
   return {
@@ -18,7 +18,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Hero />
-      <Careers allCareers={allCareers} />
+      <Careers careers={careers} />
       <Skills />
     </>
   );
