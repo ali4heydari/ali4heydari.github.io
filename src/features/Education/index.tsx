@@ -1,24 +1,25 @@
 import type { PropsWithChildren } from "react";
 import React from "react";
+import Mdx from "src/components/atoms/Mdx";
 import TitleSection from "src/components/atoms/TitleSection";
 import Timeline from "src/components/organism/Timeline";
-import type { Education } from ".contentlayer/generated";
+import type { Education } from "@/content";
 
 const Educations = ({
-  allEducation,
+  educations,
   rootClassName,
 }: PropsWithChildren<{
-  allEducation: Education[];
+  educations: Education[];
   rootClassName?: string;
 }>) => {
-  const events = allEducation
-    .map(({ title, subtitle, startDate, endDate, tags, body: { html } }) => ({
+  const events = educations
+    .map(({ title, subtitle, startDate, endDate, tags, code }) => ({
       title,
       subtitle,
       startDate,
       endDate,
       topTags: tags,
-      children: <div dangerouslySetInnerHTML={{ __html: html }} />,
+      children: <Mdx code={code} />,
     }))
     .sort((a, b) => (a.startDate > b.startDate ? -1 : 1));
 

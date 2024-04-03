@@ -1,19 +1,20 @@
 import type { PropsWithChildren } from "react";
 import React from "react";
+import Mdx from "src/components/atoms/Mdx";
 import TitleSection from "src/components/atoms/TitleSection";
 import Timeline from "src/components/organism/Timeline";
 import type { TimelineProps } from "src/components/organism/Timeline/@types";
-import type { Career } from ".contentlayer/generated";
+import type { Career } from "@/content";
 import Link from "next/link";
 
 const Careers = ({
-  allCareers,
+  careers,
   rootClassName,
 }: PropsWithChildren<{
-  allCareers: Career[];
+  careers: Career[];
   rootClassName?: string;
 }>) => {
-  const events = allCareers
+  const events = careers
     .map<TimelineProps["events"][number]>(
       ({
         position: subtitle,
@@ -21,7 +22,7 @@ const Careers = ({
         companySite,
         startDate,
         endDate,
-        body: { html },
+        code,
         stack,
         tags,
       }) => ({
@@ -40,7 +41,7 @@ const Careers = ({
         subtitle,
         startDate,
         endDate,
-        children: <div dangerouslySetInnerHTML={{ __html: html }} />,
+        children: <Mdx code={code} />,
         topTags: tags,
         bottomTags: stack,
       }),

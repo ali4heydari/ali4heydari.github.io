@@ -1,4 +1,3 @@
-const { withContentlayer } = require("next-contentlayer");
 const { withSentryConfig } = require("@sentry/nextjs");
 const million = require("million/compiler");
 
@@ -60,7 +59,6 @@ const sentryOptions = {
 // https://github.com/cyrilwanner/next-compose-plugins/issues/59#issuecomment-1341060113
 module.exports = (phase, defaultConfig) => {
   const plugins = [
-    withContentlayer,
     (cfg) => million.next(cfg, millionConfig),
     (cfg) => withSentryConfig(cfg, sentryWebpackPluginOptions, sentryOptions),
   ];

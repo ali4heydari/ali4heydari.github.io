@@ -1,8 +1,8 @@
 import xml from "xml";
 import { BASE_URL } from "src/constants";
-import { allBlogs } from ".contentlayer/generated";
+import { blog } from "@/content";
 
-type BlogPost = (typeof allBlogs)[number];
+type BlogPost = (typeof blog)[number];
 
 const formatImageUrl = (url?: string) => {
   if (!url) return "";
@@ -121,7 +121,7 @@ const defaultChannel = {
 };
 
 export async function GET() {
-  const feedItems = await Promise.all(allBlogs.map(getAllPostRssData));
+  const feedItems = await Promise.all(blog.map(getAllPostRssData));
 
   const feedObject = {
     rss: [

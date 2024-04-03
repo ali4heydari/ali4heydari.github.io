@@ -6,12 +6,12 @@ import WebShare from "src/components/atoms/Webshare/Webshare";
 import { BASE_URL } from "src/constants";
 import { getStaticMetadata } from "src/utils/metadata";
 import { buildOgImageUrl } from "src/utils/opengraph";
-import { allBlogs } from ".contentlayer/generated";
+import { blog as allBlog } from "@/content";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
 export function generateMetadata({ params }): Metadata | undefined {
-  const post = allBlogs.find((post) => post.slug === params.slug);
+  const post = allBlog.find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
@@ -37,7 +37,7 @@ export function generateMetadata({ params }): Metadata | undefined {
 }
 
 const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
-  const blog = allBlogs.find((blog) => blog.slug === params.slug);
+  const blog = allBlog.find((blog) => blog.slug === params.slug);
 
   if (!blog) {
     return notFound();
@@ -89,7 +89,7 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                       </time>
 
                       <p className="ml-2 inline-flex items-center rounded-lg bg-gray-100 px-2 py-0.5 text-gray-500 dark:bg-gray-700 dark:text-gray-400">
-                        ⏳ {blog.readingTime.text}
+                        ⏳ {blog.readingTime} min read
                       </p>
                     </p>
                   </div>
@@ -112,7 +112,7 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
               height={1000}
               className="mb-5 rounded-lg object-cover sm:h-64"
             />
-            <Mdx code={blog.body.code} />
+            <Mdx code={blog.code} />
             <div className="mt-5 text-center">
               <p>Tags:</p>
               <div className="flex flex-wrap justify-center gap-2 pb-3">
@@ -140,6 +140,6 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
 };
 
 export const generateStaticParams = () =>
-  allBlogs.map((p) => ({ params: { href: p.slug } }));
+  allBlog.map((p) => ({ params: { href: p.slug } }));
 
 export default BlogPage;
