@@ -26,6 +26,7 @@ const nextConfig = {
 
 const millionConfig = {
   auto: { rsc: true },
+  rsc: true,
 };
 
 const sentryWebpackPluginOptions = {
