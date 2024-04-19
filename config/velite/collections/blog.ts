@@ -12,8 +12,7 @@ export const blog = defineCollection({
       tags: s.array(s.string()),
       cover: s.string(),
       coverSource: s.string().optional(),
-      link: s.string().optional(),
-      draft: s.boolean().optional().default(false),
+      isDraft: s.boolean().optional().default(false),
       metadata: s.metadata(),
       code: s.mdx(),
     })
