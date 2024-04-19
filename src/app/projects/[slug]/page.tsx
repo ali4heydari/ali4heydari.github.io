@@ -92,7 +92,7 @@ const ProjectPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                     data={{
                       title: project.title,
                       text: `Checkout "${project.title}" by "Ali Heydari"\n`,
-                      url: `${BASE_URL}/projects/${project.slug}`,
+                      url: `${BASE_URL}/projects/${project.slug}?utm_source=share_button`,
                     }}
                   />
                 </div>

@@ -99,7 +99,7 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                     data={{
                       title: blog.title,
                       text: `Checkout "${blog.title}" by "Ali Heydari"\n`,
-                      url: `${BASE_URL}/blog/${blog.slug}`,
+                      url: `${BASE_URL}/blog/${blog.slug}?utm_source=share_button`,
                     }}
                   />
                 </div>
