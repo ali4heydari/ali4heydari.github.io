@@ -1,8 +1,16 @@
-const { withSentryConfig } = require("@sentry/nextjs");
-const million = require("million/compiler");
+// @ts-check
+import million from "million/compiler";
+import { withSentryConfig } from "@sentry/nextjs";
+import redirects from "./config/next/redirects.mjs";
 
-const appHeaders = require("./config/next/headers");
-const redirects = require("./config/next/redirects");
+const isDev = process.argv.indexOf("dev") !== -1;
+const isBuild = process.argv.indexOf("build") !== -1;
+if (!process.env.VELITE_STARTED && (isDev || isBuild)) {
+  process.env.VELITE_STARTED = "1";
+  const { build } = await import("velite");
+  await build({ watch: isDev, clean: !isDev });
+}
+
 
 /** @type { import("next").NextConfig } */
 const nextConfig = {
@@ -13,20 +21,20 @@ const nextConfig = {
       { hostname: "i.scdn.co" },
       { hostname: "spotify.com" },
       {
-        hostname: "a.ltrbxd.com",
-      },
+        hostname: "a.ltrbxd.com"
+      }
     ],
     dangerouslyAllowSVG: true,
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
   },
   redirects() {
     return redirects;
-  },
+  }
 };
 
 const millionConfig = {
   auto: { rsc: true },
-  rsc: true,
+  rsc: true
 };
 
 const sentryWebpackPluginOptions = {
@@ -37,7 +45,7 @@ const sentryWebpackPluginOptions = {
   silent: false,
   org: "ali4heydari",
   project: "ali4heydari-dot-tech",
-  dryRun: process.env.SENTRY_IS_DRY_RUN === "true",
+  dryRun: process.env.SENTRY_IS_DRY_RUN === "true"
 };
 
 const sentryOptions = {
@@ -54,14 +62,14 @@ const sentryOptions = {
   hideSourceMaps: true,
 
   // Automatically tree-shake Sentry logger statements to reduce bundle size
-  disableLogger: true,
+  disableLogger: true
 };
 
 // https://github.com/cyrilwanner/next-compose-plugins/issues/59#issuecomment-1341060113
-module.exports = (phase, defaultConfig) => {
+export default (phase, defaultConfig) => {
   const plugins = [
     (cfg) => million.next(cfg, millionConfig),
-    (cfg) => withSentryConfig(cfg, sentryWebpackPluginOptions, sentryOptions),
+    (cfg) => withSentryConfig(cfg, sentryWebpackPluginOptions, sentryOptions)
   ];
 
   return plugins.reduce(
@@ -71,6 +79,6 @@ module.exports = (phase, defaultConfig) => {
         ? update(phase, defaultConfig)
         : update;
     },
-    { ...nextConfig },
+    { ...nextConfig }
   );
 };

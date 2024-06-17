@@ -16,8 +16,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "app:dev": "concurrently --kill-others \"pnpm velite:dev\" \"pnpm next:dev\"",
-    "app:build": "pnpm velite:build && pnpm next:build",
+    "app:dev": "next dev",
+    "app:build": "next build",
     "velite:dev": "velite --watch --verbose --debug",
     "velite:build": "velite build",
     "next:build": "next build",
@@ -118,7 +118,7 @@
     "style-loader": "^3.3.4",
     "stylelint": "^16.2.1",
     "stylelint-config-recommended": "^14.0.0",
-    "velite": "0.1.0-beta.13"
+    "velite": "0.1.0"
   },
   "engines": {
     "node": ">=18",
