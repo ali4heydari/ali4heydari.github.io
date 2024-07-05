@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 
-const REFERRER_KEY = "referrer";
+export const REFERRER_KEY = "referrer";
 
 export const ReferrerTracker = () => {
   const params = useSearchParams();
@@ -14,7 +14,9 @@ export const ReferrerTracker = () => {
     params.get("UTM_SOURCE") ??
     params.get("utm_source");
 
-  const referrers = JSON.parse(localStorage.getItem(REFERRER_KEY) ?? "{}");
+  const referrers: Record<string, number> = JSON.parse(
+    localStorage.getItem(REFERRER_KEY) ?? "{}",
+  );
 
   useEffect(() => {
     if (currentReferrer && !Array.isArray(currentReferrer)) {

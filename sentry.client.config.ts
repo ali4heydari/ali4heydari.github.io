@@ -2,6 +2,7 @@
 // The config you add here will be used whenever a users loads a page in their browser.
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 import siteConfig from "./site.config";
+import { REFERRER_KEY } from "./src/components/atoms/ReferrerTracker";
 import * as Sentry from "@sentry/nextjs";
 
 Sentry.init({
@@ -27,4 +28,15 @@ Sentry.init({
       blockAllMedia: false,
     }),
   ],
+  beforeSend(event, hint) {
+    const referrers: Record<string, number> = JSON.parse(
+      localStorage.getItem(REFERRER_KEY) ?? "{}",
+    );
+
+    event.contexts = {
+      ...event.contexts,
+      referrers,
+    };
+    return event;
+  },
 });
