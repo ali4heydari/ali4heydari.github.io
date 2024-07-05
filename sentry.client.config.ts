@@ -29,14 +29,16 @@ Sentry.init({
     }),
   ],
   beforeSend(event, hint) {
-    const referrers: Record<string, number> = JSON.parse(
-      localStorage?.getItem(REFERRER_KEY) ?? "{}",
-    );
+    if (typeof localStorage !== "undefined") {
+      const referrers: Record<string, number> = JSON.parse(
+        localStorage?.getItem(REFERRER_KEY) ?? "{}",
+      );
 
-    event.contexts = {
-      ...event.contexts,
-      referrers,
-    };
+      event.contexts = {
+        ...event.contexts,
+        referrers,
+      };
+    }
     return event;
   },
 });
