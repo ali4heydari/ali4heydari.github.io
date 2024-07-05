@@ -240,7 +240,7 @@ devDependencies:
     version: 1.1.1
   storybook-tailwind-dark-mode:
     specifier: ^1.0.22
-    version: 1.0.22(@storybook/addons@7.6.17)(@storybook/api@7.6.17)(@storybook/components@7.6.20)(@storybook/core-events@7.6.17)(@storybook/theming@7.6.17)(react-dom@18.2.0)(react@18.2.0)
+    version: 1.0.22(@storybook/addons@7.6.17)(@storybook/api@7.6.17)(@storybook/components@7.6.20)(@storybook/core-events@7.6.20)(@storybook/theming@7.6.20)(react-dom@18.2.0)(react@18.2.0)
   style-loader:
     specifier: ^3.3.4
     version: 3.3.4(webpack@5.92.0)
@@ -3397,18 +3397,11 @@ packages:
     resolution: {integrity: sha512-R8gLRTZeyp03ymzP/6Lil/28tGeGEzhx1q2k703KGWRAI1VdvPIXdG70VJc2pAMw3NA6JKL5hhFu1sJX0Mnn/A==}
     engines: {node: '>=6.0.0'}
 
-  /@jridgewell/source-map@0.3.5:
-    resolution: {integrity: sha512-UTYAUj/wviwdsMfzoSJspJxbkH5o1snzwX0//0ENX1u/55kkZZkcTZP6u9bwKGkv+dkk9at4m1Cpt0uY80kcpQ==}
-    dependencies:
-      '@jridgewell/gen-mapping': 0.3.5
-      '@jridgewell/trace-mapping': 0.3.25
-
   /@jridgewell/source-map@0.3.6:
     resolution: {integrity: sha512-1ZJTZebgqllO79ue2bm3rIGud/bOe0pP5BjSRCRxxYkEZS8STV7zN84UBbiYu7jy+eCKSnVIUgoWWE/tt+shMQ==}
     dependencies:
       '@jridgewell/gen-mapping': 0.3.5
       '@jridgewell/trace-mapping': 0.3.25
-    dev: true
 
   /@jridgewell/sourcemap-codec@1.4.15:
     resolution: {integrity: sha512-eF2rxCRulEKXHTRiDrDy6erMYWqNw4LPdQ8UQA4huuxaQsVeRPFl2oM8oDGxMFhJUWZf9McpLtJasDDZb/Bpeg==}
@@ -7168,7 +7161,7 @@ packages:
       esbuild: '>=0.10.0'
     dependencies:
       esbuild: 0.20.2
-      tslib: 2.6.2
+      tslib: 2.6.3
     dev: true
 
   /@yarnpkg/fslib@2.10.3:
@@ -16044,7 +16037,7 @@ packages:
     resolution: {integrity: sha512-wyINPOtB/8SvU7J92ePAhciBk4xoHuwrcqDNyGnSwilwHjmtHwbeEgZ1//JALOTwMB10zwz3WPONRkWec9LdGw==}
     dev: true
 
-  /storybook-tailwind-dark-mode@1.0.22(@storybook/addons@7.6.17)(@storybook/api@7.6.17)(@storybook/components@7.6.20)(@storybook/core-events@7.6.17)(@storybook/theming@7.6.17)(react-dom@18.2.0)(react@18.2.0):
+  /storybook-tailwind-dark-mode@1.0.22(@storybook/addons@7.6.17)(@storybook/api@7.6.17)(@storybook/components@7.6.20)(@storybook/core-events@7.6.20)(@storybook/theming@7.6.20)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-I0HSVCuvo3OkaGDnCjLM7V1OYmQccrUCAGZ5ZaJfl9s3e93WA6DKFpQRbuoSidci+PTy+KvgrINgE08rA16bWA==}
     peerDependencies:
       '@storybook/addons': ^7.0.0
@@ -16063,8 +16056,8 @@ packages:
       '@storybook/addons': 7.6.17(react-dom@18.2.0)(react@18.2.0)
       '@storybook/api': 7.6.17(react-dom@18.2.0)(react@18.2.0)
       '@storybook/components': 7.6.20(@types/react-dom@18.2.22)(@types/react@18.2.66)(react-dom@18.2.0)(react@18.2.0)
-      '@storybook/core-events': 7.6.17
-      '@storybook/theming': 7.6.17(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/core-events': 7.6.20
+      '@storybook/theming': 7.6.20(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: true
@@ -16644,7 +16637,7 @@ packages:
       jest-worker: 27.5.1
       schema-utils: 3.3.0
       serialize-javascript: 6.0.2
-      terser: 5.28.1
+      terser: 5.31.1
       webpack: 5.90.3(esbuild@0.20.2)
     dev: true
 
@@ -16669,18 +16662,8 @@ packages:
       jest-worker: 27.5.1
       schema-utils: 3.3.0
       serialize-javascript: 6.0.2
-      terser: 5.28.1
+      terser: 5.31.1
       webpack: 5.92.0(esbuild@0.20.2)
-
-  /terser@5.28.1:
-    resolution: {integrity: sha512-wM+bZp54v/E9eRRGXb5ZFDvinrJIOaTapx3WUokyVGZu5ucVCK55zEgGd5Dl2fSr3jUo5sDiERErUWLY6QPFyA==}
-    engines: {node: '>=10'}
-    hasBin: true
-    dependencies:
-      '@jridgewell/source-map': 0.3.5
-      acorn: 8.11.3
-      commander: 2.20.3
-      source-map-support: 0.5.21
 
   /terser@5.31.1:
     resolution: {integrity: sha512-37upzU1+viGvuFtBo9NPufCb9dwM0+l9hMxYyWfBA+fbwrPqNJAhbZ6W47bBFnZHKHTUBnMvi87434qq+qnxOg==}
@@ -16691,7 +16674,6 @@ packages:
       acorn: 8.12.0
       commander: 2.20.3
       source-map-support: 0.5.21
-    dev: true
 
   /test-exclude@6.0.0:
     resolution: {integrity: sha512-cAGWPIyOHU6zlmg88jwm7VRyXnMN7iV68OGAbYDk/Mh/xC/pzVPlQtY6ngoIH/5/tciuhGfvESU8GrHrcxD56w==}

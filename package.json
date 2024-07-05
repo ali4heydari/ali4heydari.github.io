@@ -16,8 +16,8 @@
   },
   "license": "MIT",
   "scripts": {
-    "app:dev": "next dev",
-    "app:build": "next build",
+    "app:dev": "concurrently --kill-others \"pnpm velite:dev\" \"pnpm next:dev\"",
+    "app:build": "pnpm velite:build && pnpm next:build",
     "velite:dev": "velite --watch --verbose --debug",
     "velite:build": "velite build",
     "next:build": "next build",
