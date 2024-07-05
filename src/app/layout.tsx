@@ -1,5 +1,5 @@
 import { Analytics as VercelAnalytics } from "@vercel/analytics/react";
-import type { ReactNode } from "react";
+import { Suspense, type ReactNode } from "react";
 import { ReferrerTracker } from "src/components/atoms/ReferrerTracker";
 import Hotjar from "src/components/molecules/Hotjar/Hotjar";
 import Meta from "src/components/molecules/Meta";
@@ -57,10 +57,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <SpeedInsights />
           </>
         )}
-        <ReferrerTracker />
-        <Providers>
-          <MainLayout>{children}</MainLayout>
-        </Providers>
+        <Suspense fallback={null}>
+          <ReferrerTracker />
+          <Providers>
+            <MainLayout>{children}</MainLayout>
+          </Providers>
+        </Suspense>
       </body>
     </html>
   );
