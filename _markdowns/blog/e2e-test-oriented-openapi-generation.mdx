@@ -1,0 +1,141 @@
+---
+title: "E2E test oriented Open API generation"
+publishedAt: "2024-07-05"
+summary: "Generate OpenAPI specification from E2E tests and use it to generate mock server and client SDK"
+cover: "/static/images/_markdowns/blog/e2e-test-oriented-openapi-generation/cover.png"
+tags: ["E2E", "Cypress", "OpenAPI devtools", "Open API", "Redocly"]
+---
+
+
+# Introduction
+I have been working on a project that not only doesn't have an OpenAPI specification 
+but also doesn't have any end-to-end tests.
+Every fetch function was written manually and tested manually.
+Besides, There wasn't any end-to-end tests to test the flows.
+I decided to write end-to-end tests and generate OpenAPI specification from them, 
+But end-to-end tests and Open API generation are not looking related at first glance.
+In this blog post, I will explain how I generated OpenAPI specification from end-to-end tests.
+
+
+# Idea
+The idea is simple: listening to the network requests and responses during the end-to-end tests and generating OpenAPI specification from them.
+I used [Cypress](https://www.cypress.io/) for end-to-end tests and [Open API devtools](https://github.com/AndrewWalsh/openapi-devtools) for OpenAPI generation.
+Open API devtools is a tool that generates OpenAPI specification from network traffic.
+It can be used as a browser extension, So it can be used with Cypress. You need to install the browser extension and start recording the network traffic during the end-to-end tests.
+I applied this idea to the [Cypress real world app](https://github.com/cypress-io/cypress-realworld-app) project as proof of concept.
+It's available on [My GitHub repository](https://github.com/ali4heydari/cypress-realworld-app)
+
+## Other options:
+
+### HAR to OpenAPI
+You can use [HAR to OpenAPI](https://github.com/jonluca/har-to-openapi) to convert [HAR](https://en.wikipedia.org/wiki/HAR_(file_format)) files to OpenAPI specification.
+HAR is a JSON format for recording HTTP requests and responses and you can use it to record the network traffic.
+Chrome and Firefox have built-in support for HAR files. You can export the HAR file from the browser devtools and convert it to OpenAPI specification.
+
+### API git
+[API git](https://app.apigit.com) is a website that generates OpenAPI specification from HAR files.
+You can upload the HAR file to the website and it will generate the OpenAPI specification for you.
+It uses git repository to store the OpenAPI specification.
+
+# Steps
+## Write end-to-end tests
+First, you need to write end-to-end tests with Cypress.
+You can use the following code snippet to start recording the network traffic.
+```javascript
+it(() => {
+  // sample cypress code to test transaction page
+  cy.visit("/user/transactions");
+  
+  // press search button
+  cy.get("button[type=\"submit\"]").click();
+  
+  
+});
+```
+
+## Install Open API devtools
+First, you need to install Open API devtools browser extension. It supports chrome and firefox. 
+Download the extension pack from [GitHub releases page](https://github.com/AndrewWalsh/openapi-devtools/releases) and extract it somewhere in your project.
+let's say `./cypress/tools/openapi-devtools/dist`.
+
+
+## Load extension in Cypress
+You need to load the extension in Cypress. You can use the following code snippet in your `cypress.config.ts` to load the extension.
+
+
+```javascript cypress.config.ts
+import { defineConfig } from 'cypress';
+import PluginEvents = Cypress.PluginEvents;
+import PluginConfigOptions = Cypress.PluginConfigOptions;
+import path from 'node:path';
+
+export default defineConfig({
+  defaultCommandTimeout: 10_000,
+  e2e: {
+    baseUrl: 'http://localhost:3000',
+    experimentalRunAllSpecs: true,
+    setupNodeEvents: (on: PluginEvents, config: PluginConfigOptions) => {
+      on('before:browser:launch', (browser, browserLaunchDetails) => {
+        if (browser.name === 'chrome') {
+          const extPath = path.resolve(
+            './cypress/tools/openapi-devtools/dist'
+          );
+
+          browserLaunchDetails.extensions.push(
+            extPath
+          );
+        }
+
+        return browserLaunchDetails;
+      });
+    },
+  },
+  requestTimeout: 20_000,
+  viewportWidth: 1440,
+  viewportHeight: 900,
+});
+
+```
+Then, if you run cypress with `cypress open` command you must see the open api devtools tab in the browser devtools.
+
+## Start recording and tests
+Now you are ready to start recording the network traffic and run the tests. Just open the Cypress and open the Chrome browser devtools. 
+You must have open api devtools on your browser devtools tabs. Click on the record button and run the tests.
+After all test runs, you can stop the recording and download the OpenAPI specification. It will download the OpenAPI specification as a JSON file
+in `cypress/downloads` folder with name `openapi-devtools-spec.json`.
+
+## Make Open api modular
+The generated OpenAPI specification may be too big and not modular. You can split the specification into multiple files and make it modular for further usage.
+The good news is that you don't need to split it manually. You can use [Redocly](https://redoc.ly/) to split the OpenAPI specification into multiple files.
+
+> I wrote another blog post about [code generation with OpenAPI](/blog/modular-openapi-first-code-generation)
+> It explains how to generate client SDK and mock server from OpenAPI specification.
+
+[Redocly](https://redoc.ly/) has a feature to split the OpenAPI specification into multiple files.
+It split the OpenAPI specification based on the tags and paths and the format of the OpenAPI specification.
+If you provide your OpenAPI specification in `.json` format it will split it into multiple `.json` files and same for `.yaml` format.
+I prefer `.yaml` format for OpenAPI specification because it is more readable and easy to write.
+Since `openapi-devtools` extension generates the OpenAPI specification in `.json` format, you need to convert it to `.yaml` format.
+I use [bairesdev.com/tools/json2yaml](https://www.bairesdev.com/tools/json2yaml/) to convert the OpenAPI specification to `.yaml` format.
+
+After converting the OpenAPI specification to `.yaml` format, Save the content to a file named `./cypress/downloads/openapi-devtools-spec.yaml`.
+You can use the following command to split the OpenAPI specification.
+
+For `.json` format:
+```bash
+yarn redocly split --separator / ./cypress/downloads/openapi-devtools-spec.json --outDir openapi
+```
+
+For `.yaml` format:
+```bash
+yarn redocly split --separator / ./cypress/downloads/openapi-devtools-spec.yaml --outDir openapi
+```
+
+It will split the OpenAPI specification into multiple files in the `openapi` folder. You can use these files to generate client SDK and mock server and
+it's simpler to maintain and extend for further development.
+
+# Conclusion
+
+In this blog post, I explained how to generate OpenAPI specification from end-to-end tests.
+However, You can also record the network traffic with HAR files or the openapi-devtools extension manually.
+If you are in rush, or you don't want to write end-to-end tests, you can record the network traffic manually and convert it to OpenAPI specification.
