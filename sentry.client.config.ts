@@ -30,7 +30,7 @@ Sentry.init({
   ],
   beforeSend(event, hint) {
     const referrers: Record<string, number> = JSON.parse(
-      localStorage.getItem(REFERRER_KEY) ?? "{}",
+      localStorage?.getItem(REFERRER_KEY) ?? "{}",
     );
 
     event.contexts = {
