@@ -31,7 +31,7 @@ const millionConfig = {
 
 
 /**
- * @type {import("@sentry/nextjs/types/config/types").SentryBuildOptions}
+ * @type {import("@sentry/nextjs/build/types/config/types").SentryBuildOptions}
  */
 const sentryBuildOptions = {
   // For all available options, see:

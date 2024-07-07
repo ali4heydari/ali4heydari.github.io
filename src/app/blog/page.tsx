@@ -35,7 +35,7 @@ const BlogPage: NextPage = () => {
   return (
     <section>
       {!!allBlogs.length && <TitleSection center>Blog posts</TitleSection>}
-      <div className="my-10 grid grid-cols-1 gap-20 sm:grid-cols-2  lg:grid-cols-3">
+      <div className="my-10 grid grid-cols-1 gap-20 sm:grid-cols-2 lg:grid-cols-3">
         {allBlogs
           .filter((blog) => !blog.isDraft)
           .sort(

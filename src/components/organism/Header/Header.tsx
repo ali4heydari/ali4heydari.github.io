@@ -29,7 +29,7 @@ const Header = () => {
           >
             <span className="sr-only">Open main menu</span>
             <MenuIcon
-              className="h-6 w-6  text-gray-500 dark:text-gray-400"
+              className="h-6 w-6 text-gray-500 dark:text-gray-400"
               aria-hidden="true"
             />
           </button>

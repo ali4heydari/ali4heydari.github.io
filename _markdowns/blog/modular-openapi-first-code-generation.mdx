@@ -7,23 +7,27 @@ tags: ["OpenAPI", "Code Generation", "Swagger", "React Query", "Mockoon"]
 ---
 
 # Introduction
+
 I have been working on a project that didn't have any Open API documentation.
 I decided to add Open API documentation to the project and generate code from it.
 As project was quite big, I decided to split Open API documentation into multiple files.
 So I had to figure out how to combine multiple Open API files into one and generate code from it.
 
 # Open API
+
 Open API is a specification for describing REST APIs.
 It is a standard way to describe REST APIs.
 I won't go into details about Open API, you can [read more about it](https://swagger.io/specification/).
 
 ## Structure
+
 The project structure looks like this:
+
 ```
 spec
 │  ├── components
 │  │   │     ├── examples
-│  │   │     │         └── index.yaml  
+│  │   │     │         └── index.yaml
 │  │   │     ├── parameters
 │  │   │     │         └── index.yaml
 │  │   │     ├── requestBodies
@@ -39,9 +43,11 @@ spec
 │
 └── index.yaml
 ```
+
 You can change this structure based on your needs.
 
 ### spec
+
 This folder contains Open API components. All `yaml` files in this folder are combined into one `yaml` file.
 It contains only file `openapi.yaml` that imports all other files like an entry point and, It looks like this:
 
@@ -68,12 +74,14 @@ components:
 Inside `spec` there is two folders `components` and `paths`.
 
 ### components
+
 This folder contains Open API components. It can contain all Open API components like `schemas`, `requestBodies`, `responses`, `parameters` and `examples`.
-Add sub-folders based on your needs. In my case I have added `schemas`, `requestBodies`, `responses` and `parameters`  folders.
+Add sub-folders based on your needs. In my case I have added `schemas`, `requestBodies`, `responses` and `parameters` folders.
 I recommend to add reusable components (`schemas`, `requestBodies`, `responses` and `parameters`) here.
 Read more about [full list of Open API components](https://swagger.io/specification/#components-object)
 
 #### components/schemas
+
 This folder contains Open API schemas. Schema is a definition of data structure.
 It can be used to define request body, response body or parameter.
 I recommend to add reusable schemas here. For example if you have a `user` schema that is used in multiple places, you can add it here.
@@ -106,6 +114,7 @@ User:
 ```
 
 #### components/requestBodies
+
 This folder contains Open API request bodies. Request body is a definition of request body structure.
 It can be used to define request body for multiple endpoints.
 It looks like this:
@@ -118,8 +127,10 @@ content:
 ```
 
 #### components/responses
+
 This folder contains Open API responses. Response is a definition of response body structure.
 It looks like this:
+
 ```yaml
 GeneralResponse:
   type: object
@@ -136,8 +147,10 @@ GeneralResponse:
 ```
 
 #### components/parameters
+
 This folder contains Open API parameters. Parameter is a definition of parameter structure.
 It looks like this:
+
 ```yaml
 id:
   name: id
@@ -150,6 +163,7 @@ id:
 ```
 
 ### paths
+
 This folder contains Open API paths. For each path you can create a folder and add your definition there.
 For example if you want to create a path `/users` you can create a folder `users` and add `index.yaml` file there.
 Then you need to import it in `spec/paths/index.yaml` file.
@@ -192,6 +206,7 @@ It looks like this:
 ```
 
 ##### Path structure
+
 In the example below you can see how to structure a path `/auth` with it's components.
 I use `_` prefix for special folders like `_components` and `_examples`. It helps us
 to distinguish them from subfolders (subpaths). For example if you have `/auth` path,
@@ -202,7 +217,7 @@ there is no subpath `/auth/_components`.
 auth
    ├── _components                 <---- components used only for this path, I use `_` to distinguish it from subfolder (subpath)
    │   │     ├── _examples
-   │   │     │         └── index.yaml  
+   │   │     │         └── index.yaml
    │   │     ├── _parameters
    │   │     │         └── index.yaml
    │   │     ├── _requestBodies
@@ -218,6 +233,7 @@ auth
 ```
 
 ## Combining multiple Open API files into one
+
 I use [redocly](https://redocly.com/) to combine multiple Open API files into one.
 It's a free tool that allows you to combine multiple Open API files into one.
 
@@ -226,6 +242,7 @@ pnpm install -D @redocly/openapi-cli
 ```
 
 After installing it via `pnpm` you can run command below to combine multiple Open API files into one.
+
 ```json package.json
 {
   "scripts": {
@@ -233,9 +250,11 @@ After installing it via `pnpm` you can run command below to combine multiple Ope
   }
 }
 ```
+
 It will generate `openapi.generated.yaml` file that contains all Open API files combined into one.
 
 ## Linting Open API
+
 I use [spectral](https://github.com/stoplightio/spectral) to lint Open API files.
 Install spectral via your package manager. I use pnpm so I install it like this:
 
@@ -251,16 +270,17 @@ extends: spectral:oas
 ```
 
 Now you can lint Open API files with spectral.
+
 ```json package.json
 {
   "scripts": {
     "lint": "pnpm build:spec && spectral lint ./openapi.generated.yaml"
   }
 }
-
 ```
 
 # Mocking API
+
 I use [Mockoon](https://mockoon.com/) to mock API. It's a free tool that allows you to mock API and it supports Open API documentation
 as well. You can import Open API documentation into Mockoon and it will create endpoints based on Open API documentation.
 It's very useful when you are working on frontend and backend is not ready yet.
@@ -269,6 +289,7 @@ You can mock API and work on frontend without waiting for backend to be ready.
 ```shell
 pnpm install -D @mockoon/cli
 ```
+
 to bypass CORS issue I use `local-cors-proxy` to proxy requests to actual server and mock server.
 
 ```shell
@@ -290,42 +311,46 @@ I use this scripts to start Mockoon, local-cors-proxy and Swagger UI.
   }
 }
 ```
+
 Note 1
+
 > I use `concurrently` to run multiple commands at the same time. You can install it via `pnpm install -D concurrently`.
 
 Note 2
+
 > I use `http-server` to serve Swagger UI. You can install it via `pnpm install -D http-server`.
 
 Note 3
+
 > I use `swagger-ui-dist` to serve Swagger UI. You can install it via `pnpm install -D swagger-ui-dist`.
 > In script `preview:swagger` I copy `openapi.generated.yaml` to `node_modules/swagger-ui-dist/index.yaml`
 > you will need type `/index.yaml` inside Swagger UI and click `Explore` to see the documentation.
 > Otherwise it will show documentation for `petstore.swagger.io` API.
 
-
 # Code generation
+
 There are many tools that allow you to generate code from Open API documentation.
 Since I used React Query in my project, I decided to use [@7nohe/openapi-react-query-codegen](https://github.com/7nohe/openapi-react-query-codegen) to generate code.
 
-
-
 Install `@7nohe/openapi-react-query-codegen` and `typescript`:
+
 ```shell
 pnpm install @7nohe/openapi-react-query-codegen typescript
 ```
+
 Init TypeScript:
+
 ```shell
 pnpm tsc --init
 ```
+
 And add this to `tsconfig.json`:
+
 ```json tsconfig.json
 {
   "compilerOptions": {
     "module": "esnext",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
     "target": "esnext",
     "importHelpers": true,
     // output .d.ts declaration files for consumers
@@ -356,10 +381,10 @@ And add this to `tsconfig.json`:
     // `tsdx build` ignores this option, but it is commonly used when type-checking separately with `tsc`
   }
 }
-
 ```
 
 Add `@tanstack/react-query` as peer dependency to the `package.json`:
+
 ```json package.json
 {
   "peerDependencies": {
@@ -367,11 +392,12 @@ Add `@tanstack/react-query` as peer dependency to the `package.json`:
   }
 }
 ```
+
 Now add this two scripts to `package.json` to generate code from Open API documentation:
 
 ```json package.json
 {
-  "scripts": {    
+  "scripts": {
     "build": "pnpm build:spec && pnpm generate:rq && tsc",
     "generate:rq": "pnpm openapi-rq -i openapi.generated.yaml -o generated/rq"
   }
@@ -381,7 +407,6 @@ Now add this two scripts to `package.json` to generate code from Open API docume
 Now if you run `pnpm build` it will first build Open API documentation, then generate code from it and then compile the code.
 
 I prefer to have generated code in `generated` folder. You can change it based on your needs.
-
 
 ## Code generation customization
 
@@ -423,6 +448,7 @@ If you want to package the generated code and share it with others, you must add
 ```
 
 # Repository
+
 You can find the boilerplate repository in my [GitHub](https://github.com/ali4heydari/openapi-boilerplate).
 
 # Conclusion
@@ -437,4 +463,3 @@ I hope this article helps you to setup Open API first code generation with Swagg
 If you have any questions, feel free to ask me.
 
 Happy coding!
-

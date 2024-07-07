@@ -34,7 +34,7 @@ const Hero = () => {
           <Link href="/about">
             <ShimmerButton
               borderRadius="0.375rem"
-              className="px-3.5 py-2.5 text-sm  font-semibold leading-6 text-gray-900 dark:text-gray-100"
+              className="px-3.5 py-2.5 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100"
             >
               <span className="relative z-10 whitespace-pre text-center tracking-tight text-white">
                 More about me<span aria-hidden="true"> →</span>
