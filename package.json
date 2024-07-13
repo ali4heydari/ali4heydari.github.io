@@ -16,18 +16,18 @@
   },
   "license": "MIT",
   "scripts": {
-    "app:dev": "concurrently --kill-others \"pnpm velite:dev\" \"pnpm next:dev\"",
     "app:build": "pnpm velite:build && pnpm next:build",
-    "velite:dev": "velite --watch --verbose --debug",
-    "velite:build": "velite build",
+    "app:dev": "concurrently --kill-others \"pnpm velite:dev\" \"pnpm next:dev\"",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
+    "lint:css": "stylelint \"**/*.{js,jsx,ts,tsx}\"",
     "next:build": "next build",
     "next:dev": "next dev",
     "next:export": "pnpm build && next export -o build",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
     "prepare": "husky",
-    "lint:css": "stylelint \"**/*.{js,jsx,ts,tsx}\"",
+    "storybook:build": "storybook build",
     "storybook:dev": "storybook dev -p 6006",
-    "storybook:build": "storybook build"
+    "velite:build": "velite build",
+    "velite:dev": "velite --watch --verbose --debug"
   },
   "config": {
     "commitizen": {
@@ -122,11 +122,11 @@
     "stylelint-config-recommended": "^14.0.1",
     "velite": "0.1.0"
   },
+  "packageManager": "pnpm@8.15.5",
   "engines": {
     "node": ">=18",
     "pnpm": ">=8"
   },
-  "packageManager": "pnpm@8.15.5",
   "nextBundleAnalysis": {
     "buildOutputDirectory": ".next"
   }
