@@ -8,7 +8,8 @@ import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-type GalleryImage = Omit<StaticImageData, "height" | "width"> & { alt: string };
+// revalidate: 15 minutes
+export const revalidate = 60 * 15;
 
 const Gallery = async () => {
   const notionQuery = await notionClient.databases.query({
