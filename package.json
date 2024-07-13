@@ -16,18 +16,18 @@
   },
   "license": "MIT",
   "scripts": {
-    "app:build": "pnpm velite:build && pnpm next:build",
-    "app:dev": "concurrently --kill-others \"pnpm velite:dev\" \"pnpm next:dev\"",
+    "build:app": "pnpm build:velite && pnpm build:next",
+    "build:next": "next build",
+    "build:velite": "velite build",
+    "build:storybook": "storybook build",
+    "dev:app": "concurrently --kill-others \"pnpm dev:velite\" \"pnpm dev:next\"",
+    "dev:next": "next dev",
+    "dev:storybook": "storybook dev -p 6006",
+    "dev:velite": "velite --watch --verbose --debug",
+    "export:next": "pnpm build && next export -o build",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,mdx}\"",
     "lint:css": "stylelint \"**/*.{js,jsx,ts,tsx}\"",
-    "next:build": "next build",
-    "next:dev": "next dev",
-    "next:export": "pnpm build && next export -o build",
-    "prepare": "husky",
-    "storybook:build": "storybook build",
-    "storybook:dev": "storybook dev -p 6006",
-    "velite:build": "velite build",
-    "velite:dev": "velite --watch --verbose --debug"
+    "prepare": "husky"
   },
   "config": {
     "commitizen": {
