@@ -15,11 +15,17 @@ export const ReferrerTracker = () => {
     params.get("utm_source");
 
   const referrers: Record<string, number> = JSON.parse(
-    localStorage.getItem(REFERRER_KEY) ?? "{}",
+    typeof localStorage !== "undefined"
+      ? localStorage.getItem(REFERRER_KEY) ?? "{}"
+      : "{}",
   );
 
   useEffect(() => {
-    if (currentReferrer && !Array.isArray(currentReferrer)) {
+    if (
+      typeof localStorage !== "undefined" &&
+      currentReferrer &&
+      !Array.isArray(currentReferrer)
+    ) {
       localStorage.setItem(
         REFERRER_KEY,
         JSON.stringify({

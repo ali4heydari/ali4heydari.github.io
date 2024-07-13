@@ -12,6 +12,7 @@ const nextConfig = {
     remotePatterns: [
       { hostname: "i.scdn.co" },
       { hostname: "spotify.com" },
+      { hostname: "*.amazonaws.com" }, // for notion images
       {
         hostname: "a.ltrbxd.com"
       }

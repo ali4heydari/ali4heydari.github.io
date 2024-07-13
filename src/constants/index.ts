@@ -5,6 +5,7 @@ import HomeIcon from "mdi-react/HomeIcon";
 import MonitorIcon from "mdi-react/MonitorIcon";
 import MusicIcon from "mdi-react/MusicIcon";
 import NoteTextIcon from "mdi-react/NoteTextIcon";
+import PhotographyIcon from "mdi-react/PhotographyIcon";
 import RssIcon from "mdi-react/RssIcon";
 import SourceRepositoriesIcon from "mdi-react/SourceRepositoriesIcon";
 import { socialMedias } from "./socialMedias";
@@ -68,6 +69,12 @@ export const navigation = {
       href: "/movie-taste",
       svgIcon: FilmIcon,
       emojiIcon: "🎬",
+    },
+    {
+      name: "Gallery",
+      href: "/gallery",
+      svgIcon: PhotographyIcon,
+      emojiIcon: "📷",
     },
   ],
   socialMedias,
