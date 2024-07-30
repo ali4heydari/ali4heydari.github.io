@@ -11,6 +11,8 @@ import { notFound } from "next/navigation";
 // revalidate: 15 minutes
 export const revalidate = 60 * 15;
 
+export const dynamic = "force-dynamic";
+
 const Gallery = async () => {
   const notionQuery = await notionClient.databases.query({
     database_id: process.env.GALLERY_DATABASE_ID!,
