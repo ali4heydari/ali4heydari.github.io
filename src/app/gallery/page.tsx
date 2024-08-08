@@ -11,8 +11,6 @@ import { notFound } from "next/navigation";
 // revalidate: 15 minutes
 export const revalidate = 60 * 15;
 
-export const dynamic = "force-dynamic";
-
 const Gallery = async () => {
   const notionQuery = await notionClient.databases.query({
     database_id: process.env.GALLERY_DATABASE_ID!,
@@ -29,11 +27,8 @@ const Gallery = async () => {
       const pageObjectResponse = item as PageObjectResponse;
       return (
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        pageObjectResponse.properties?.media?.files.length > 0 &&
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        pageObjectResponse.properties?.media?.files[0].file.url
+        // @ts-expect-error
+        Boolean(new URL(pageObjectResponse.properties?.imageUrl?.url))
       );
     })
     .map((item) => {
@@ -41,10 +36,10 @@ const Gallery = async () => {
 
       return {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        src: pageObjectResponse.properties?.media?.files[0].file.url as string,
+        // @ts-expect-error
+        src: pageObjectResponse.properties?.imageUrl?.url as string,
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
+        // @ts-expect-error
         alt: pageObjectResponse.properties?.name?.title[0].plain_text as string,
       };
     });
