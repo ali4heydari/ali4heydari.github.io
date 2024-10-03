@@ -8,7 +8,7 @@ const CommentThread = (
   props: ComponentProps<typeof DiscussionEmbed>["config"],
 ) => (
   <DiscussionEmbed
-    shortname={siteConfig.DISCUSS_SHORTNAME || ""}
+    shortname={siteConfig.DISCUSS_SHORTNAME ?? ""}
     config={props}
   />
 );

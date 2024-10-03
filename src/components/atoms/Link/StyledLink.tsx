@@ -31,7 +31,7 @@ const StyledLink = ({
       {...(openInNewTab
         ? {
             target: "_blank",
-            rel: `${props.rel || ""} noopener noreferrer`.trim(),
+            rel: `${props.rel ?? ""} noopener noreferrer`.trim(),
           }
         : {})}
       className={twMerge(

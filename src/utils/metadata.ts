@@ -19,11 +19,11 @@ export const getStaticMetadata = (data: {
 
   const actualDefaultImage =
     metaImageStyle === "summary" ? defaultLogoImage : buildOgImageUrl();
-  const actualImage = image || actualDefaultImage;
+  const actualImage = image ?? actualDefaultImage;
   const actualMetaImageStyle =
     actualImage === defaultLogoImage
       ? "summary"
-      : metaImageStyle || "summary_large_image";
+      : metaImageStyle ?? "summary_large_image";
 
   return {
     title,

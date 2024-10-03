@@ -75,7 +75,6 @@ module.exports = {
 
     // TODO: Remove these rules
     "@typescript-eslint/no-unsafe-assignment": "warn",
-    "@typescript-eslint/prefer-nullish-coalescing": "warn",
     "@typescript-eslint/no-unused-vars": "warn",
     "@typescript-eslint/no-unsafe-member-access": "warn",
     "@typescript-eslint/no-explicit-any": "warn",
