@@ -4,12 +4,11 @@ import TitleSection from "src/components/atoms/TitleSection";
 import { notionClient } from "src/lib/notion";
 import { addBlurDataURL } from "src/utils/addBlurDataURL";
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
 // revalidate: 15 minutes
-export const revalidate = 60 * 15;
+export const revalidate = 900;
 
 const Gallery = async () => {
   const notionQuery = await notionClient.databases.query({
