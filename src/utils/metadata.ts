@@ -23,7 +23,7 @@ export const getStaticMetadata = (data: {
   const actualMetaImageStyle =
     actualImage === defaultLogoImage
       ? "summary"
-      : metaImageStyle ?? "summary_large_image";
+      : (metaImageStyle ?? "summary_large_image");
 
   return {
     title,
