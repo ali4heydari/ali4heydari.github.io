@@ -3,8 +3,8 @@ import React from "react";
 import Card from "./Card";
 
 export default {
-  title: "Molecules/Card",
   component: Card,
+  title: "Molecules/Card",
 } as Meta<typeof Card>;
 
 const Template: StoryFn<typeof Card> = (args) => <Card {...args} />;
@@ -12,9 +12,9 @@ const Template: StoryFn<typeof Card> = (args) => <Card {...args} />;
 export const Primary = Template.bind({});
 
 Primary.args = {
-  imageSrc: "/static/images/site/ali4heydari/bitmoji.png",
   imageAlt: "Ali Heydari",
+  imageSrc: "/static/images/site/ali4heydari/bitmoji.png",
   loading: true,
-  title: "Ali Heydari",
   subtitle: "Software Engineer",
+  title: "Ali Heydari",
 };

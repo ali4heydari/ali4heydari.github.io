@@ -7,7 +7,7 @@ export const runtime = "edge";
 
 export function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl;
-  const { path, title, cover } = Object.fromEntries(searchParams);
+  const { cover, path, title } = Object.fromEntries(searchParams);
   const actualPath = (path || "").toLowerCase() as PathName;
   let actualHero = cover || "/static/images/site/default-og-bg.png";
   if (actualHero.startsWith("/")) actualHero = actualHero.substring(1);
@@ -15,8 +15,8 @@ export function GET(req: NextRequest) {
   return new ImageResponse(
     <OpenGraphImage path={actualPath} title={title} cover={actualHero} />,
     {
-      width: 1280,
       height: 720,
+      width: 1280,
     },
   );
 }

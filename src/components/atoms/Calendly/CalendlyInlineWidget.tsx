@@ -8,10 +8,10 @@ import siteConfig from "site.config";
 const CalendlyInlineWidget = ({
   styles = {
     height: "660px",
+    margin: "0 auto",
+    maxWidth: 1050,
     paddingLeft: 5,
     paddingRight: 5,
-    maxWidth: 1050,
-    margin: "0 auto",
   },
   ...props
 }: Partial<ComponentProps<typeof InlineWidget>>) => {

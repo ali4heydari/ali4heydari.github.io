@@ -1,5 +1,4 @@
-import type { CSSProperties, ReactNode } from "react";
-import type { ComponentProps } from "react";
+import type { CSSProperties, ReactNode, ComponentProps } from "react";
 import classNames from "classnames";
 
 type ShimmerButtonProps = {
@@ -13,25 +12,25 @@ type ShimmerButtonProps = {
 } & ComponentProps<"button">;
 
 const ShimmerButton = ({
-  shimmerColor = "#ffffff",
-  shimmerSize = "1px",
-  shimmerDuration = "1.5s",
-  borderRadius = "100px",
   background = "radial-gradient(ellipse 80% 50% at 50% 120%,rgb(17, 24, 39),rgb(31, 41, 55)",
-  className,
+  borderRadius = "100px",
   children,
+  className,
+  shimmerColor = "#ffffff",
+  shimmerDuration = "1.5s",
+  shimmerSize = "1px",
   ...props
 }: ShimmerButtonProps) => {
   return (
     <button
       style={
         {
-          "--spread": "90deg",
-          "--shimmer-color": shimmerColor,
-          "--radius": borderRadius,
-          "--speed": shimmerDuration,
-          "--cut": shimmerSize,
           "--bg": background,
+          "--cut": shimmerSize,
+          "--radius": borderRadius,
+          "--shimmer-color": shimmerColor,
+          "--speed": shimmerDuration,
+          "--spread": "90deg",
         } as CSSProperties
       }
       className={classNames(

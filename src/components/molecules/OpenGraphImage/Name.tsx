@@ -7,32 +7,32 @@ export const Name = (props: { path?: PathName }) => {
   return (
     <div
       style={{
-        display: "flex",
         alignItems: "center",
-        gap: 12,
+        display: "flex",
         fontSize,
+        gap: 12,
       }}
     >
       <img
         src={`${BASE_URL}/static/images/site/ali4heydari/bitmoji.png`}
         alt="Animoji representation of Ali Heydari"
         style={{
-          width: fontSize * 2,
-          height: fontSize * 2,
-          filter: "saturate(150%)",
           color: "#88a4e6",
           fill: "#88a4e6",
+          filter: "saturate(150%)",
+          height: fontSize * 2,
+          width: fontSize * 2,
         }}
       />
       <p
         style={{
           alignSelf: "flex-start",
-          fontWeight: 700,
-          fontSize,
-          color: "rgba(0, 0, 0, 0)",
-          backgroundImage: "linear-gradient(to right, #88a4e6, #81c1e9)",
           backgroundClip: "text",
+          backgroundImage: "linear-gradient(to right, #88a4e6, #81c1e9)",
+          color: "rgba(0, 0, 0, 0)",
           filter: "saturate(150%)",
+          fontSize,
+          fontWeight: 700,
         }}
       >
         Ali Heydari | {new URL(BASE_URL).hostname}

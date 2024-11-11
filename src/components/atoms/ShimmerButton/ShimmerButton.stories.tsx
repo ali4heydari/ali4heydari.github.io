@@ -3,8 +3,8 @@ import React from "react";
 import ShimmerButton from "./index";
 
 export default {
-  title: "Molecules/ShimmerButton",
   component: ShimmerButton,
+  title: "Molecules/ShimmerButton",
 } as Meta<typeof ShimmerButton>;
 
 const Template: StoryFn<typeof ShimmerButton> = (args) => (

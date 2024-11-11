@@ -22,18 +22,18 @@ export default function SpotifyNowListening() {
   const { data, isLoading } = useQuery<
     GetNowListeningResponse | Record<string, never>
   >({
-    queryKey: ["/api/spotify/now-playing"],
     queryFn: () =>
       getJson<GetNowListeningResponse>("/api/spotify/now-playing").then(
         (res) => res.data,
       ),
+    queryKey: ["/api/spotify/now-playing"],
   });
 
   if (isLoading) return <div>Loading...</div>;
 
   if (!data) return null;
 
-  const { title, artist, album, albumImage, href, isPlaying } = data ?? {};
+  const { album, albumImage, artist, href, isPlaying, title } = data ?? {};
 
   const scrollingText = isPlaying
     ? `${title} • ${artist}`

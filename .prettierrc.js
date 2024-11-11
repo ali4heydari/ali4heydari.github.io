@@ -1,10 +1,5 @@
 module.exports = {
-  printWidth: 80,
-  tabWidth: 2,
-  semi: true,
   endOfLine: "lf",
-  quoteProps: "consistent",
-  tailwindConfig: "./tailwind.config.ts",
   importOrder: [
     "react",
     "^(?!react)\\w+$",
@@ -18,4 +13,9 @@ module.exports = {
     "prettier-plugin-tailwindcss",
     "prettier-plugin-packagejson",
   ],
+  printWidth: 80,
+  quoteProps: "consistent",
+  semi: true,
+  tabWidth: 2,
+  tailwindConfig: "./tailwind.config.ts",
 };

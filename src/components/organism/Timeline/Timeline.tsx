@@ -5,14 +5,14 @@ import type { TimelineProps } from "./@types";
 
 const Timeline = ({
   events,
-  wrapperClassName,
   pingLastEvent = true,
+  wrapperClassName,
 }: TimelineProps) => {
   const getDate = (dateStr) => {
     return isValidDate(dateStr)
       ? new Date(dateStr).toLocaleDateString("en-GB", {
-          year: "numeric",
           month: "short",
+          year: "numeric",
         })
       : dateStr;
   };
@@ -26,23 +26,23 @@ const Timeline = ({
     >
       {events.map((event, index) => {
         const {
-          title,
-          subtitle,
-          topTags,
-          startDate,
-          endDate,
-          children,
           bottomTags,
+          children,
+          endDate,
+          startDate,
+          subtitle,
+          title,
+          topTags,
         } = event;
         return (
           <li key={index} className="mb-10 ml-4 text-gray-900 dark:text-white">
             <div
               className={
-                "mt-0.6 absolute -left-2 h-4 w-4 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
+                "mt-0.6 absolute -left-2 size-4 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
               }
             />
             {pingLastEvent && index === 0 && (
-              <span className="mt-0.6 absolute -left-2 h-4 w-4 animate-ping rounded-full bg-indigo-500 dark:bg-indigo-400" />
+              <span className="mt-0.6 absolute -left-2 size-4 animate-ping rounded-full bg-indigo-500 dark:bg-indigo-400" />
             )}
             <h3 className="mx-2 text-2xl font-semibold">{title}</h3>
             {subtitle && <h4 className="mx-2 text-lg">{subtitle}</h4>}
@@ -55,7 +55,7 @@ const Timeline = ({
             </div>
             {topTags && (
               <div className="mx-2 inline-flex flex-wrap gap-2">
-                {topTags?.map((tag) => (
+                {topTags.map((tag) => (
                   <span
                     key={tag}
                     className="border-0.5 py-0.7 rounded-lg border border-gray-900 px-1.5 text-xs dark:border-gray-400 dark:text-gray-400"
@@ -75,7 +75,7 @@ const Timeline = ({
             </div>
             {bottomTags && (
               <div className="mx-2 inline-flex flex-wrap gap-2">
-                {bottomTags?.map((tag) => (
+                {bottomTags.map((tag) => (
                   <span
                     key={tag}
                     className="py-0.7 rounded-lg border border-gray-900 bg-indigo-50 px-1.5 text-xs dark:border-gray-400 dark:bg-indigo-500 dark:text-gray-50"

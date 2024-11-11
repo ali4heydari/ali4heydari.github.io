@@ -30,13 +30,13 @@ const buildDescriptionHtml = (post: BlogPost): string => {
 const getAllPostRssData = (post: BlogPost) => {
   const descriptionHtml = buildDescriptionHtml(post);
   return {
-    title: post.title,
-    url: `${BASE_URL}/${post.slug}`,
     date: post.publishedAt,
     description: post.summary,
+    hero: post.cover,
     html: descriptionHtml,
     slug: post.slug,
-    hero: post.cover,
+    title: post.title,
+    url: `${BASE_URL}/${post.slug}`,
   };
 };
 
@@ -76,15 +76,15 @@ const buildFeed = (posts: ReturnType<typeof getAllPostRssData>[]) => {
     ...sortedPosts.map(function (post) {
       const description = post.html ? post.html : { _cdata: post.description };
       const actualItem = {
-        title: post.title,
-        pubDate: new Date(post.date).toUTCString(),
-        url: post.url,
+        description: { _attr: { type: "html" }, description },
+        featured_image: formatImageUrl(post.hero),
         guid: {
           _attr: { isPermaLink: true },
           guid: post.url,
         },
-        description: { _attr: { type: "html" }, description },
-        featured_image: formatImageUrl(post.hero),
+        pubDate: new Date(post.date).toUTCString(),
+        title: post.title,
+        url: post.url,
       };
 
       const feedItem = {
@@ -106,18 +106,18 @@ const defaultChannel = {
       type: "application/rss+xml",
     },
   },
-  "lastBuildDate": new Date().toUTCString(),
-  "language": "en-US",
-  "link": BASE_URL,
-  "title": "Ali Heydari",
+  "copyright": `All rights reserved ${new Date().getFullYear()}, Ali Heydari`,
   "description": "Ali Heydari's blog",
-  "image_url": `${BASE_URL}/api/og`,
   "image": {
-    title: "Ali Heydari",
     link: BASE_URL,
+    title: "Ali Heydari",
     url: `${BASE_URL}/api/og`,
   },
-  "copyright": `All rights reserved ${new Date().getFullYear()}, Ali Heydari`,
+  "image_url": `${BASE_URL}/api/og`,
+  "language": "en-US",
+  "lastBuildDate": new Date().toUTCString(),
+  "link": BASE_URL,
+  "title": "Ali Heydari",
 };
 
 export async function GET() {
@@ -127,10 +127,10 @@ export async function GET() {
     rss: [
       {
         _attr: {
-          "xmlns:dc": "http://purl.org/dc/elements/1.1/",
-          "xmlns:content": "http://purl.org/rss/1.0/modules/content/",
-          "xmlns:atom": "http://www.w3.org/2005/Atom",
           "version": "2.0",
+          "xmlns:atom": "http://www.w3.org/2005/Atom",
+          "xmlns:content": "http://purl.org/rss/1.0/modules/content/",
+          "xmlns:dc": "http://purl.org/dc/elements/1.1/",
         },
       },
       {
@@ -144,11 +144,11 @@ export async function GET() {
       indent: "  ",
     })}`,
     {
-      status: 200,
-      statusText: "OK",
       headers: {
         "Content-Type": "application/rss+xml;charset=utf-8",
       },
+      status: 200,
+      statusText: "OK",
     },
   );
 }

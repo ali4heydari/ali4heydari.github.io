@@ -21,17 +21,10 @@ Sentry.init({
   replaysSessionSampleRate: 1.0,
 
   // You can remove this option if you're not planning to use the Sentry Session Replay feature:
-  integrations: [
-    Sentry.replayIntegration({
-      // Additional Replay configuration goes in here, for example:
-      maskAllText: false,
-      blockAllMedia: false,
-    }),
-  ],
   beforeSend(event, hint) {
     if (typeof localStorage !== "undefined") {
       const referrers: Record<string, number> = JSON.parse(
-        localStorage?.getItem(REFERRER_KEY) ?? "{}",
+        localStorage.getItem(REFERRER_KEY) ?? "{}",
       );
 
       event.contexts = {
@@ -41,4 +34,11 @@ Sentry.init({
     }
     return event;
   },
+  integrations: [
+    Sentry.replayIntegration({
+      // Additional Replay configuration goes in here, for example:
+      blockAllMedia: false,
+      maskAllText: false,
+    }),
+  ],
 });

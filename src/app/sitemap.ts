@@ -4,15 +4,15 @@ import { blog, projects as allProjects } from "@/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogs = blog.map((post) => ({
-    url: `${BASE_URL}/blog/${post.slug}`,
     lastModified: post.publishedAt.split("T")[0],
     priority: 0.6,
+    url: `${BASE_URL}/blog/${post.slug}`,
   }));
 
   const projects = allProjects.map((project) => ({
-    url: `${BASE_URL}/projects/${project.slug}`,
     lastModified: new Date().toISOString().split("T")[0],
     priority: 0.5,
+    url: `${BASE_URL}/projects/${project.slug}`,
   }));
 
   const removeSlash = (it) => it.href.replace("/", "");
@@ -24,9 +24,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...navigation.secondary.filter(filterExternalLinks).map(removeSlash),
     ...navigation.tertiary.filter(filterExternalLinks).map(removeSlash),
   ].map((route) => ({
-    url: `${BASE_URL}/${route}`,
     lastModified: new Date().toISOString().split("T")[0],
     priority: route ? 0.8 : 1,
+    url: `${BASE_URL}/${route}`,
   }));
 
   return [...routes, ...blogs, ...projects].sort(

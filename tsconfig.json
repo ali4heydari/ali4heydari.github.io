@@ -33,13 +33,13 @@
   },
   "exclude": ["node_modules"],
   "include": [
-    "next-env.d.ts",
-    "**.ts",
-    "**.js",
-    "**/*.ts",
-    "**/*.js",
-    "**/*.tsx",
-    "next.config.mjs",
+    ".storybook/**/*.ts",
+    ".storybook/**/*.tsx",
+    ".velite/**/*.js",
+    "**/**.ts",
+    "**/**.js",
+    "**/**.mjs",
+    "**/**.tsx",
     ".next/types/**/*.ts"
   ]
 }

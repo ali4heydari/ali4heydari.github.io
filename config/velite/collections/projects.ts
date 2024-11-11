@@ -6,16 +6,16 @@ export const projects = defineCollection({
   schema: s
     .object({
       category: s.string(),
-      cover: s.string(),
-      title: s.string(),
-      summary: s.string(),
-      startDate: s.string(),
-      endDate: s.string(),
-      published: s.boolean(),
-      metadata: s.metadata(),
-      tags: s.array(s.string()),
       code: s.mdx(),
+      cover: s.string(),
+      endDate: s.string(),
+      metadata: s.metadata(),
+      published: s.boolean(),
       slug: s.path().transform((path) => path.split("/").pop()!),
+      startDate: s.string(),
+      summary: s.string(),
+      tags: s.array(s.string()),
+      title: s.string(),
     })
     .transform(({ metadata, ...data }) => {
       return {

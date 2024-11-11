@@ -11,8 +11,8 @@ import {
 } from "@ngneat/falso";
 
 export default {
-  title: "Molecules/Timeline",
   component: Timeline,
+  title: "Molecules/Timeline",
 } as Meta<typeof Timeline>;
 
 const Template: StoryFn<typeof Timeline> = (args) => <Timeline {...args} />;
@@ -20,14 +20,6 @@ const Template: StoryFn<typeof Timeline> = (args) => <Timeline {...args} />;
 export const Primary = Template.bind({});
 
 const events = [...Array(5)].map(() => ({
-  title: randCompanyName(),
-  subtitle: randJobTitle(),
-  startDate: randPastDate(),
-  endDate: randFutureDate(),
-  children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-  topTags: rand(["remote", "full-time", "open-source", "web3", randCity()], {
-    length: 3,
-  }),
   bottomTags: rand(
     [
       "GraphQL",
@@ -77,6 +69,14 @@ const events = [...Array(5)].map(() => ({
       length: 4,
     },
   ),
+  children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  endDate: randFutureDate(),
+  startDate: randPastDate(),
+  subtitle: randJobTitle(),
+  title: randCompanyName(),
+  topTags: rand(["remote", "full-time", "open-source", "web3", randCity()], {
+    length: 3,
+  }),
 }));
 
 Primary.args = {

@@ -11,11 +11,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = getStaticMetadata({
-  title: "Blog – Ali Heydari",
   description:
-    // eslint-disable-next-line max-len
     "Blog posts by Ali Heydari. Here I share some thoughts, stories, information and more about software development, programming, tech or my personal life",
   exactUrl: `${BASE_URL}/blog`,
+  image: buildOgImageUrl("blog"),
   keywords: [
     "tech",
     "software",
@@ -28,7 +27,7 @@ export const metadata = getStaticMetadata({
     "storytelling",
     "news",
   ],
-  image: buildOgImageUrl("blog"),
+  title: "Blog – Ali Heydari",
 });
 
 const BlogPage: NextPage = () => {
@@ -47,9 +46,9 @@ const BlogPage: NextPage = () => {
             const publishDateText = new Date(
               blog.publishedAt,
             ).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
               day: "numeric",
+              month: "long",
+              year: "numeric",
             });
 
             return (
@@ -73,11 +72,11 @@ const BlogPage: NextPage = () => {
                       dateTime={blog.publishedAt.split("T")[0]}
                       title={publishDateText}
                     >
-                      <CalendarOutlineIcon className="mr-1 inline-block h-4 w-4" />
+                      <CalendarOutlineIcon className="mr-1 inline-block size-4" />
                       {publishDateText}
                     </time>
                     <span>
-                      <ClockOutlineIcon className="mr-1 inline-block h-4 w-4" />
+                      <ClockOutlineIcon className="mr-1 inline-block size-4" />
                       {blog.readingTime} min read
                     </span>
                   </div>
@@ -85,7 +84,7 @@ const BlogPage: NextPage = () => {
                     {blog.summary}
                   </p>
                   <div className="flex flex-wrap justify-center pb-3">
-                    {blog.tags?.map((tag) => (
+                    {blog.tags.map((tag) => (
                       <span
                         key={tag}
                         className="m-0.5 inline-flex items-center rounded border border-gray-500 bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-400"

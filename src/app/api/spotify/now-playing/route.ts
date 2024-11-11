@@ -20,15 +20,15 @@ const GET = async () => {
 
     if (status === 204 || media === null) {
       return new Response(null, {
-        status: 204,
         headers,
+        status: 204,
       });
     }
 
     if (media.currently_playing_type === "ad") {
       return new Response(null, {
-        status: 204,
         headers,
+        status: 204,
       });
     }
 
@@ -45,13 +45,13 @@ const GET = async () => {
         album,
         albumImage,
         artist,
-        isPlaying,
         href,
+        isPlaying,
         title,
       };
       return NextResponse.json<GetNowListeningResponse>(nextResponse, {
-        status: 200,
         headers,
+        status: 200,
       });
     }
 
@@ -70,13 +70,13 @@ const GET = async () => {
         album,
         albumImage,
         artist,
-        isPlaying,
         href,
+        isPlaying,
         title,
       };
       return NextResponse.json<GetNowListeningResponse>(nextResponse, {
-        status: 200,
         headers,
+        status: 200,
       });
     }
 
@@ -85,8 +85,8 @@ const GET = async () => {
         isPlaying: false,
       },
       {
-        status,
         headers,
+        status,
       },
     );
   } catch (error) {
@@ -97,8 +97,8 @@ const GET = async () => {
         error,
       },
       {
-        status: 500,
         headers,
+        status: 500,
       },
     );
   }

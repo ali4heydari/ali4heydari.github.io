@@ -13,71 +13,71 @@ import { socialMedias } from "./socialMedias";
 export const navigation = {
   primary: [
     {
-      name: "Home",
-      href: "/",
-      svgIcon: HomeIcon,
       emojiIcon: "🏠",
+      href: "/",
+      name: "Home",
+      svgIcon: HomeIcon,
     },
     {
-      name: "About",
-      href: "/about",
-      svgIcon: AccountCircleIcon,
       emojiIcon: "👨🏻‍💻",
+      href: "/about",
+      name: "About",
+      svgIcon: AccountCircleIcon,
     },
     {
-      name: "Blog",
-      href: "/blog",
-      svgIcon: NoteTextIcon,
       emojiIcon: "📝",
+      href: "/blog",
+      name: "Blog",
+      svgIcon: NoteTextIcon,
     },
     {
-      name: "Projects",
-      href: "/projects",
-      svgIcon: BriefcaseIcon,
       emojiIcon: "💼",
+      href: "/projects",
+      name: "Projects",
+      svgIcon: BriefcaseIcon,
     },
   ],
   secondary: [
     {
-      name: "Uses",
-      href: "/uses",
-      svgIcon: MonitorIcon,
       emojiIcon: "💻",
+      href: "/uses",
+      name: "Uses",
+      svgIcon: MonitorIcon,
     },
     {
-      name: "Source",
-      href: "https://github.com/ali4heydari/ali4heydari.github.io",
-      svgIcon: SourceRepositoriesIcon,
       emojiIcon: "🥚",
+      href: "https://github.com/ali4heydari/ali4heydari.github.io",
+      name: "Source",
+      svgIcon: SourceRepositoriesIcon,
     },
     {
-      name: "RSS",
-      href: "/feed.xml",
-      svgIcon: RssIcon,
       emojiIcon: "🔄",
-    },
-  ],
-  tertiary: [
-    {
-      name: "Music taste",
-      href: "/music-taste",
-      svgIcon: MusicIcon,
-      emojiIcon: "🎵",
-    },
-    {
-      name: "Movie taste",
-      href: "/movie-taste",
-      svgIcon: FilmIcon,
-      emojiIcon: "🎬",
-    },
-    {
-      name: "Gallery",
-      href: "/gallery",
-      svgIcon: PhotographyIcon,
-      emojiIcon: "📷",
+      href: "/feed.xml",
+      name: "RSS",
+      svgIcon: RssIcon,
     },
   ],
   socialMedias,
+  tertiary: [
+    {
+      emojiIcon: "🎵",
+      href: "/music-taste",
+      name: "Music taste",
+      svgIcon: MusicIcon,
+    },
+    {
+      emojiIcon: "🎬",
+      href: "/movie-taste",
+      name: "Movie taste",
+      svgIcon: FilmIcon,
+    },
+    {
+      emojiIcon: "📷",
+      href: "/gallery",
+      name: "Gallery",
+      svgIcon: PhotographyIcon,
+    },
+  ],
 };
 
 export const BASE_URL =

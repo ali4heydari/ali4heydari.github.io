@@ -15,7 +15,6 @@ import "tailwindcss/tailwind.css";
 
 export const metadata = {
   ...getStaticMetadata({
-    title: "Ali Heydari – Front-end Software Engineer",
     description:
       "I'm Front-end Software Engineer. Visit my website to learn more about me and my projects",
     keywords: [
@@ -30,6 +29,7 @@ export const metadata = {
       "development",
       "web",
     ],
+    title: "Ali Heydari – Front-end Software Engineer",
   }),
 };
 

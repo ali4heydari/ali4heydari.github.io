@@ -14,10 +14,10 @@ const Gallery = async () => {
   const notionQuery = await notionClient.databases.query({
     database_id: process.env.GALLERY_DATABASE_ID!,
     filter: {
-      property: "published",
       checkbox: {
         equals: true,
       },
+      property: "published",
     },
   });
 
@@ -27,7 +27,7 @@ const Gallery = async () => {
       return (
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        Boolean(new URL(pageObjectResponse.properties?.imageUrl?.url))
+        Boolean(new URL(pageObjectResponse.properties.imageUrl.url))
       );
     })
     .map((item) => {
@@ -36,10 +36,10 @@ const Gallery = async () => {
       return {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        src: pageObjectResponse.properties?.imageUrl?.url as string,
+        src: pageObjectResponse.properties.imageUrl.url as string,
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        alt: pageObjectResponse.properties?.name?.title[0].plain_text as string,
+        alt: pageObjectResponse.properties.name.title[0].plain_text as string,
       };
     });
 

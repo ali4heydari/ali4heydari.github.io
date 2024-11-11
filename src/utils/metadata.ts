@@ -14,7 +14,7 @@ export const getStaticMetadata = (data: {
   metaImageStyle?: MetaImageStyle;
   title: string;
 }): Metadata => {
-  const { title, description, keywords, exactUrl, image, metaImageStyle } =
+  const { description, exactUrl, image, keywords, metaImageStyle, title } =
     data;
 
   const actualDefaultImage =
@@ -26,26 +26,27 @@ export const getStaticMetadata = (data: {
       : (metaImageStyle ?? "summary_large_image");
 
   return {
-    title,
+    authors: [{ name: "Ali Heydari", url: BASE_URL }],
     description,
     keywords,
-    authors: [{ name: "Ali Heydari", url: BASE_URL }],
+    metadataBase: new URL(BASE_URL),
     openGraph: {
-      title,
       description,
-      url: exactUrl ?? BASE_URL,
-      siteName: title,
       images: [{ url: actualImage }],
       locale: "en_US",
-      type: "website",
-    },
-    twitter: {
+      siteName: title,
       title,
-      description,
-      images: [{ url: actualImage }],
+      type: "website",
+      url: exactUrl ?? BASE_URL,
+    },
+    title,
+    twitter: {
       card: actualMetaImageStyle,
       creator: "@ali4heydari",
+      description,
+      images: [{ url: actualImage }],
       site: "@ali4heydari",
+      title,
     },
     verification: {
       // TODO: Add verification codes
@@ -53,7 +54,6 @@ export const getStaticMetadata = (data: {
       // bing: "",
       // google: "",
     },
-    metadataBase: new URL(BASE_URL),
   };
 };
 

@@ -30,8 +30,8 @@ const GET = async (request: Request) => {
 
     const tracks = data.items.slice(0, 10).map((track) => ({
       artist: track.artists.map((_artist) => _artist.name).join(", "),
-      image: track.album.images[0].url,
       href: track.external_urls.spotify,
+      image: track.album.images[0].url,
       title: track.name,
     }));
 
