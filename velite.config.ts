@@ -14,11 +14,9 @@ import {
 import rehypeToc from "@jsdevtools/rehype-toc";
 
 export default defineConfig({
-  collections: { blog, projects, careers, education: educations },
-  root: "./_markdowns",
+  collections: { blog, careers, education: educations, projects },
   mdx: {
     copyLinkedFiles: false,
-    remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeSlug,
       rehypeCodeTitles,
@@ -34,5 +32,7 @@ export default defineConfig({
         },
       ],
     ],
+    remarkPlugins: [remarkGfm],
   },
+  root: "./_markdowns",
 });

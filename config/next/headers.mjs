@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 const ContentSecurityPolicy = `
   default-src 'self' vercel.live;
   worker-src 'self' blob:;
@@ -46,16 +45,16 @@ const securityHeaders = [
 
 module.exports = [
   {
-    source: "/(.*)",
     headers: securityHeaders,
+    source: "/(.*)",
   },
   {
-    source: "/feed.xml",
     headers: [
       {
         key: "Content-Type",
         value: "application/rss+xml;charset=utf-8",
       },
     ],
+    source: "/feed.xml",
   },
 ];

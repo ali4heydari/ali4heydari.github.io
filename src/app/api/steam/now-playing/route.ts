@@ -6,7 +6,7 @@ export const fetchCache = "force-no-store";
 
 const GET = async () => {
   const headers = {
-    "Cache-Control": `public, s-maxage=${60 * 5}, stale-while-revalidate=${60}`,
+    "Cache-Control": `public, s-maxage=${60 * 5}, stale-while-revalidate=60`,
   };
 
   try {
@@ -25,7 +25,7 @@ const GET = async () => {
     const playerData = response.response.players[0];
 
     const profileUrl = playerData.profileurl;
-    const isPlaying = !!playerData?.gameid;
+    const isPlaying = !!playerData.gameid;
     const personName = playerData.personaname;
     const profileState = playerData.profilestate;
     const gameName = isPlaying ? playerData.gameextrainfo : null;
@@ -35,16 +35,16 @@ const GET = async () => {
 
     return NextResponse.json(
       {
-        profileUrl,
         gameName,
+        gameUrl,
         isPlaying,
         personName,
         profileState,
-        gameUrl,
+        profileUrl,
       },
       {
-        status: 200,
         headers,
+        status: 200,
       },
     );
   } catch (error) {
@@ -53,8 +53,8 @@ const GET = async () => {
         error,
       },
       {
-        status: 500,
         headers,
+        status: 500,
       },
     );
   }

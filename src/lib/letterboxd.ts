@@ -28,16 +28,16 @@ export const getMovies = async (
 
   const imageSizes = {
     BIG: {
-      width: 230,
       height: 345,
+      width: 230,
     },
     MEDIUM: {
-      width: 150,
       height: 225,
+      width: 150,
     },
     SMALL: {
-      width: 70,
       height: 105,
+      width: 70,
     },
   };
 
@@ -67,13 +67,13 @@ export const getMovies = async (
       const image = `https://a.ltrbxd.com/resized/film-poster/${slashFilmId}/${filmId}-${cleanSlug}-0-${imageWidth}-0-${imageHeight}-crop.jpg?v=${cacheBustingKey}`;
 
       return {
-        title,
-        image,
         filmId: Number(filmId),
-        imageWidth: Number(imageWidth),
-        imageHeight: Number(imageHeight),
-        releaseYear,
         href: `${baseUrl}/film/${slug}`,
+        image,
+        imageHeight: Number(imageHeight),
+        imageWidth: Number(imageWidth),
+        releaseYear,
+        title,
       };
     })
     .get();

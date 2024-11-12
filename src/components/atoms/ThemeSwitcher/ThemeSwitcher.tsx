@@ -7,24 +7,24 @@ import { useTheme } from "next-themes";
 import { twMerge } from "tailwind-merge";
 
 const ThemeSwitcher = () => {
-  const { theme, setTheme } = useTheme();
+  const { setTheme, theme } = useTheme();
 
   const themes = useMemo(
     () => [
       {
+        icon: <WeatherSunnyIcon className="mx-auto size-4" />,
         name: "Light",
         value: "light",
-        icon: <WeatherSunnyIcon className="mx-auto h-4 w-4" />,
       },
       {
+        icon: <MonitorIcon className="mx-auto size-4" />,
         name: "System",
         value: "system",
-        icon: <MonitorIcon className="mx-auto h-4 w-4" />,
       },
       {
+        icon: <WeatherNightIcon className="mx-auto size-4" />,
         name: "Dark",
         value: "dark",
-        icon: <WeatherNightIcon className="mx-auto h-4 w-4" />,
       },
     ],
     [],
@@ -40,7 +40,9 @@ const ThemeSwitcher = () => {
           key={it.value}
           aria-checked="false"
           aria-label={it.name}
-          onClick={() => setTheme(it.value || "light")}
+          onClick={() => {
+            setTheme(it.value || "light");
+          }}
           className={twMerge(
             classNames(
               "h-8 w-8 cursor-pointer rounded-full p-1 text-gray-900 transition duration-300 ease-in-out dark:text-gray-100",

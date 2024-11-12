@@ -11,10 +11,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = getStaticMetadata({
-  title: "Projects – Ali Heydari",
   description:
     "Projects by Ali Heydari. Get to know the projects I&#39;ve worked on.",
   exactUrl: `${BASE_URL}/projects`,
+  image: buildOgImageUrl("projects"),
   keywords: [
     "tech",
     "software",
@@ -25,7 +25,7 @@ export const metadata = getStaticMetadata({
     "programming",
     "open-source",
   ],
-  image: buildOgImageUrl("projects"),
+  title: "Projects – Ali Heydari",
 });
 
 const ProjectsPage: NextPage = () => {
@@ -56,11 +56,11 @@ const ProjectsPage: NextPage = () => {
                     </h2>
                     <p className="flex flex-wrap justify-start gap-1 text-xs font-light text-gray-500 dark:text-gray-400">
                       <time>
-                        <CalendarOutlineIcon className="mr-1 inline-block h-4 w-4" />
+                        <CalendarOutlineIcon className="mr-1 inline-block size-4" />
                         {project.startDate} - {project.endDate ?? "Present"}
                       </time>
                       <span>
-                        <ClockOutlineIcon className="mr-1 inline-block h-4 w-4" />
+                        <ClockOutlineIcon className="mr-1 inline-block size-4" />
                         {project.readingTime} min read
                       </span>
                     </p>

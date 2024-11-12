@@ -4,7 +4,6 @@ import Hero from "./index";
 import * as tailwindColors from "tailwindcss/colors";
 
 export default {
-  title: "Templates/Hero",
   component: Hero,
   parameters: {
     background: {
@@ -21,6 +20,7 @@ export default {
       ],
     },
   },
+  title: "Templates/Hero",
 } as Meta<typeof Hero>;
 
 const Template: StoryFn<typeof Hero> = () => <Hero />;

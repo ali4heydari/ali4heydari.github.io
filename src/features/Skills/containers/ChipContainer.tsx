@@ -13,7 +13,7 @@ export const ChipContainer = ({
     <div>
       <div className={"dark:text-gray-50"}>{title}</div>
       <div className={"flex flex-wrap justify-center"}>
-        {projects.map(({ name, href, emoji }) => (
+        {projects.map(({ emoji, href, name }) => (
           <a key={name} href={href}>
             <span
               key={name}

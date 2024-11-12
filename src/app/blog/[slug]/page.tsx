@@ -18,22 +18,22 @@ export function generateMetadata({ params }): Metadata | undefined {
     return;
   }
 
-  const { title, publishedAt, summary, cover, slug } = post;
+  const { cover, publishedAt, slug, summary, title } = post;
 
   const ogImage = buildOgImageUrl("blog", title, cover);
 
   const metadata = getStaticMetadata({
-    title: `${title} | Blog – Ali Heydari`,
     description: summary || "Blog post by Ali Heydari",
-    image: ogImage,
     exactUrl: `${BASE_URL}/blog/${slug}`,
+    image: ogImage,
+    title: `${title} | Blog – Ali Heydari`,
   });
   return {
     ...metadata,
     openGraph: {
       ...metadata.openGraph,
-      type: "article",
       publishedTime: publishedAt,
+      type: "article",
     },
   };
 }
@@ -50,9 +50,9 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
   const publishDateText = new Date(post.publishedAt).toLocaleDateString(
     "en-US",
     {
-      year: "numeric",
-      month: "long",
       day: "numeric",
+      month: "long",
+      year: "numeric",
     },
   );
   return (
@@ -70,7 +70,7 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                   <Image
                     width={64}
                     height={64}
-                    className="mr-4 h-16 w-16 rounded-full"
+                    className="mr-4 size-16 rounded-full"
                     src="/static/images/site/ali4heydari/bitmoji.png"
                     alt="Ali Heydari"
                   />
@@ -98,11 +98,11 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                     </p>
                   </div>
                 </div>
-                <div className="h-8 w-8 lg:h-10 lg:w-10">
+                <div className="size-8 lg:size-10">
                   <WebShare
                     data={{
-                      title: post.title,
                       text: `Checkout "${post.title}" by "Ali Heydari"\n`,
+                      title: post.title,
                       url: `${BASE_URL}/blog/${post.slug}?utm_source=share_button`,
                     }}
                   />
@@ -120,7 +120,7 @@ const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
             <div className="mt-5 text-center">
               <p>Tags:</p>
               <div className="flex flex-wrap justify-center gap-2 pb-3">
-                {post.tags?.map((tag) => (
+                {post.tags.map((tag) => (
                   <span
                     key={tag}
                     className="m-0.5 mr-2 inline-flex items-center rounded border border-gray-500 bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-400"

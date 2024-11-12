@@ -17,7 +17,7 @@ const Footer = () => {
                 {navigation.primary.map((it) => (
                   <li key={it.name}>
                     <StyledLink href={it.href} className="font-normal">
-                      <it.svgIcon className="mr-2 inline-block h-4 w-4" />
+                      <it.svgIcon className="mr-2 inline-block size-4" />
                       {it.name}
                     </StyledLink>
                   </li>
@@ -32,7 +32,7 @@ const Footer = () => {
                 {navigation.secondary.map((it) => (
                   <li key={it.name}>
                     <StyledLink href={it.href} className="font-normal">
-                      <it.svgIcon className="mr-2 inline-block h-4 w-4" />
+                      <it.svgIcon className="mr-2 inline-block size-4" />
                       {it.name}
                     </StyledLink>
                   </li>
@@ -47,7 +47,7 @@ const Footer = () => {
                 {navigation.tertiary.map((it) => (
                   <li key={it.name}>
                     <StyledLink href={it.href} className="font-normal">
-                      <it.svgIcon className="mr-2 inline-block h-4 w-4" />
+                      <it.svgIcon className="mr-2 inline-block size-4" />
                       {it.name}
                     </StyledLink>
                   </li>

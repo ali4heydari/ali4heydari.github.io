@@ -21,10 +21,10 @@ const TopArtists = () => {
       }[]
     >
   >({
-    queryKey: ["/api/spotify/top/artists", timeRange],
-
     queryFn: () =>
       getJson(`${BASE_URL}/api/spotify/top/artists?time_range=${timeRange}`),
+
+    queryKey: ["/api/spotify/top/artists", timeRange],
   });
   return (
     <div>

@@ -13,23 +13,25 @@ const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky inset-x-0 left-0 right-0 top-0 z-50 bg-gray-100 dark:bg-gray-800 dark:shadow-indigo-400">
+    <header className="sticky inset-x-0 top-0 z-50 bg-gray-100 dark:bg-gray-800 dark:shadow-indigo-400">
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-3 lg:px-8"
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Bitmoji className="h-8 w-8 lg:h-10 lg:w-10" />
+          <Bitmoji className="size-8 lg:size-10" />
         </div>
         <div className="flex lg:hidden">
           <button
             type="button"
             className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
-            onClick={() => setMobileMenuOpen(true)}
+            onClick={() => {
+              setMobileMenuOpen(true);
+            }}
           >
             <span className="sr-only">Open main menu</span>
             <MenuIcon
-              className="h-6 w-6 text-gray-500 dark:text-gray-400"
+              className="size-6 text-gray-500 dark:text-gray-400"
               aria-hidden="true"
             />
           </button>
@@ -56,7 +58,7 @@ const Header = () => {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 dark:bg-gray-900 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 dark:bg-gray-900 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex h-full flex-col justify-between">
             <div>
               <div className="flex items-center justify-between">
@@ -64,11 +66,13 @@ const Header = () => {
                 <button
                   type="button"
                   className="-m-2.5 rounded-md p-2.5 text-gray-700 dark:text-gray-100"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={() => {
+                    setMobileMenuOpen(false);
+                  }}
                 >
                   <span className="sr-only">Close menu</span>
                   <CloseIcon
-                    className="h-6 w-6 text-gray-500 dark:text-gray-400"
+                    className="size-6 text-gray-500 dark:text-gray-400"
                     aria-hidden="true"
                   />
                 </button>
@@ -86,10 +90,12 @@ const Header = () => {
                               <StyledLink
                                 key={item.name}
                                 href={item.href}
-                                onClick={() => setMobileMenuOpen(false)}
+                                onClick={() => {
+                                  setMobileMenuOpen(false);
+                                }}
                                 className="block rounded-lg border border-gray-300 px-3 py-2 text-base font-semibold leading-7"
                               >
-                                <item.svgIcon className="mr-2 inline-block h-6 w-6" />
+                                <item.svgIcon className="mr-2 inline-block size-6" />
                                 {item.name}
                               </StyledLink>
                             ))}

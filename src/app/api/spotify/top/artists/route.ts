@@ -29,10 +29,10 @@ const GET = async (request: Request) => {
     });
 
     const artists = data.items.slice(0, 10).map((artist) => ({
-      image: artist.images[0].url,
-      href: artist.external_urls.spotify,
-      name: artist.name,
       genres: artist.genres,
+      href: artist.external_urls.spotify,
+      image: artist.images[0].url,
+      name: artist.name,
     }));
 
     return NextResponse.json<ArtistDto[]>(artists, {

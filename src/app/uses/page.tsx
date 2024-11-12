@@ -9,10 +9,10 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = getStaticMetadata({
-  title: "Uses – Ali Heydari",
   description:
     "Get to know about my setup, hardware, software and tools I use on a daily basis",
   exactUrl: `${BASE_URL}/uses`,
+  image: buildOgImageUrl("uses"),
   keywords: [
     "hardware",
     "software",
@@ -24,7 +24,7 @@ export const metadata = getStaticMetadata({
     "tech",
     "uses",
   ],
-  image: buildOgImageUrl("uses"),
+  title: "Uses – Ali Heydari",
 });
 
 const Uses = () => {

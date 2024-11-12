@@ -8,8 +8,8 @@ import { careers } from "@/content";
 export function generateMetadata(): Metadata {
   return {
     title: {
-      template: "%s | Ali Heydari",
       default: "Personal website - Ali Heydari",
+      template: "%s | Ali Heydari",
     },
   };
 }

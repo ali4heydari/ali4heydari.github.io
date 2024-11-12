@@ -16,7 +16,7 @@ export const ReferrerTracker = () => {
 
   const referrers: Record<string, number> = JSON.parse(
     typeof localStorage !== "undefined"
-      ? localStorage.getItem(REFERRER_KEY) ?? "{}"
+      ? (localStorage.getItem(REFERRER_KEY) ?? "{}")
       : "{}",
   );
 

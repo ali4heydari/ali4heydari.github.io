@@ -21,11 +21,11 @@ const GET = async (request: Request) => {
     });
 
     const shows = data.items.map(({ show }) => ({
-      image: show.images[0].url,
+      description: show.description,
       href: show.external_urls.spotify,
+      image: show.images[0].url,
       name: show.name,
       publisher: show.publisher,
-      description: show.description,
     }));
 
     return NextResponse.json<ShowDto[]>(shows, {

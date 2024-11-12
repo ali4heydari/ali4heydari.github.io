@@ -3,12 +3,12 @@ import { OpenGraphImage } from "./OpenGraphImage";
 import { ImageResponse } from "next/og";
 
 export const config = {
+  contentType: "image/png",
   runtime: "edge",
   size: {
-    width: 1200,
     height: 630,
+    width: 1200,
   },
-  contentType: "image/png",
 };
 
 export const runtime = config.runtime;
@@ -25,9 +25,9 @@ export const getOgImage = (
   return new ImageResponse(
     <OpenGraphImage path={actualPath} title={title} cover={actualHero} />,
     {
-      width: config.size.width,
-      height: config.size.height,
       emoji: "fluent",
+      height: config.size.height,
+      width: config.size.width,
     },
   );
 };
