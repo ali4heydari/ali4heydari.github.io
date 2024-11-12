@@ -139,7 +139,6 @@ export default typescriptEslint.config(
       "import-x/namespace": "off",
       "import-x/no-named-as-default": "off",
       "import-x/no-named-as-default-member": "off",
-      "import-x/no-unresolved": "off",
       "sort-keys": "off",
       "tailwindcss/no-custom-classname": "off",
     },
