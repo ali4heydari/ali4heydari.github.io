@@ -1,6 +1,6 @@
 "use client";
 
-import { Dialog } from "@headlessui/react";
+import { Dialog, DialogPanel } from "@headlessui/react";
 import CloseIcon from "mdi-react/CloseIcon";
 import MenuIcon from "mdi-react/MenuIcon";
 import React, { useState } from "react";
@@ -58,7 +58,7 @@ const Header = () => {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-50" />
-        <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 dark:bg-gray-900 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 dark:bg-gray-900 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex h-full flex-col justify-between">
             <div>
               <div className="flex items-center justify-between">
@@ -113,7 +113,7 @@ const Header = () => {
               <ThemeSwitcher />
             </div>
           </div>
-        </Dialog.Panel>
+        </DialogPanel>
       </Dialog>
     </header>
   );

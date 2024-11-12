@@ -1,5 +1,4 @@
 import React from "react";
-import StyledLink from "src/components/atoms/Link";
 import TitleSection from "src/components/atoms/TitleSection";
 import { BASE_URL } from "src/constants";
 import { software, hardware } from "src/constants/uses";

@@ -1,4 +1,3 @@
-import "server-only";
 import { BASE_URL } from "src/constants";
 import type { PathName } from "./LogoTitle";
 import { LogoOrEmoji, PageTitle } from "./LogoTitle";

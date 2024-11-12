@@ -125,7 +125,6 @@ export default typescriptEslint.config(
   {
     rules: {
       // TODO: Enable these rules
-      "@typescript-eslint/no-deprecated": "off",
       "@typescript-eslint/no-explicit-any": "off",
       "@typescript-eslint/no-non-null-assertion": "off",
       "@typescript-eslint/no-unnecessary-condition": "off",
@@ -134,14 +133,11 @@ export default typescriptEslint.config(
       "@typescript-eslint/no-unsafe-call": "off",
       "@typescript-eslint/no-unsafe-member-access": "off",
       "@typescript-eslint/no-unsafe-return": "off",
-      "@typescript-eslint/no-unused-vars": "off",
       "@typescript-eslint/require-await": "off",
       "@typescript-eslint/restrict-template-expressions": "off",
       "import-x/export": "off",
       "import-x/namespace": "off",
       "import-x/no-named-as-default": "off",
-      "import-x/no-named-as-default-member": "off",
-      "import-x/no-unresolved": "off",
       "sort-keys": "off",
       "tailwindcss/no-custom-classname": "off",
     },
