@@ -5,7 +5,6 @@ import type {
   Device,
   ExternalIds,
   ExternalUrls,
-  Followers,
   Image,
   Restrictions,
 } from "./shared";

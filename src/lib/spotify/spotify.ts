@@ -3,7 +3,7 @@ import type {
   SpotifyPaginatedRequest,
 } from "src/lib/spotify/@types/requests/top";
 import type { GetCurrentlyPlayingResponse } from "src/lib/spotify/@types/responses/current-playing";
-import { getJson, WithStatus } from "src/utils";
+import { getJson } from "src/utils";
 import type {
   RefreshTokenResponse,
   TrackDto,

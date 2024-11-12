@@ -62,6 +62,7 @@ const config: StorybookConfig = {
             /(?<!post)css-loader/.test(l.loader)
           ) {
             if (!l.options.modules) return;
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
             const { getLocalIdent, ...others } = l.options.modules;
             l.options = {
               ...l.options,

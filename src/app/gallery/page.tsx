@@ -85,7 +85,7 @@ const Gallery = async () => {
         much from these photos 🫠
       </p>
       <div className="columns-1 gap-4 space-y-3 sm:columns-2 md:columns-4">
-        {imagesWithBlurData.map((image, index) => (
+        {imagesWithBlurData.map((image) => (
           <Image
             key={image.src}
             alt={image.alt}

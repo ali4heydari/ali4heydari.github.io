@@ -23,7 +23,7 @@ export default {
   title: "Organism/Header",
 } as Meta<typeof Header>;
 
-const Template: StoryFn<typeof Header> = (args) => <Header />;
+const Template: StoryFn<typeof Header> = () => <Header />;
 
 export const Primary = Template.bind({});
 

@@ -21,7 +21,7 @@ Sentry.init({
   replaysSessionSampleRate: 1.0,
 
   // You can remove this option if you're not planning to use the Sentry Session Replay feature:
-  beforeSend(event, hint) {
+  beforeSend(event) {
     if (typeof localStorage !== "undefined") {
       const referrers: Record<string, number> = JSON.parse(
         localStorage.getItem(REFERRER_KEY) ?? "{}",
