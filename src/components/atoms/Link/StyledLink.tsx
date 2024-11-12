@@ -16,11 +16,11 @@ export type LinkProps = ComponentProps<typeof NextLink> & {
 const StyledLink = ({
   className,
   href,
-  title,
   openInNewTab = !isLocalLink(
     // eslint-disable-next-line @typescript-eslint/no-base-to-string
     typeof href !== "string" ? href.toString() : href,
   ),
+  title,
   ...props
 }: LinkProps) => {
   const pathname = usePathname();
@@ -30,8 +30,8 @@ const StyledLink = ({
       href={href}
       {...(openInNewTab
         ? {
+            rel: `${props.rel ?? ""} noopener noreferrer`.trim(),
             target: "_blank",
-            rel: `${props.rel || ""} noopener noreferrer`.trim(),
           }
         : {})}
       className={twMerge(

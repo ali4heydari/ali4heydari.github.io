@@ -11,12 +11,12 @@ import { buildOgImageUrl } from "src/utils/opengraph";
 import { careers, education } from "@/content";
 
 export const metadata = getStaticMetadata({
-  title: "About – Ali Heydari",
   description:
     "About Ali Heydari. Get to know me, my career, and my interests.",
   exactUrl: `${BASE_URL}/about`,
-  keywords: ["bio", "biography", "information", "about", "career"],
   image: buildOgImageUrl("about"),
+  keywords: ["bio", "biography", "information", "about", "career"],
+  title: "About – Ali Heydari",
 });
 
 const ContactPage: NextPage = () => {

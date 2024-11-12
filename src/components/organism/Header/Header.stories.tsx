@@ -4,7 +4,6 @@ import Header from "./index";
 import * as tailwindColors from "tailwindcss/colors";
 
 export default {
-  title: "Organism/Header",
   component: Header,
   parameters: {
     background: {
@@ -21,9 +20,10 @@ export default {
       ],
     },
   },
+  title: "Organism/Header",
 } as Meta<typeof Header>;
 
-const Template: StoryFn<typeof Header> = (args) => <Header />;
+const Template: StoryFn<typeof Header> = () => <Header />;
 
 export const Primary = Template.bind({});
 

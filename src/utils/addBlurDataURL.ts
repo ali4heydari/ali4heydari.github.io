@@ -32,7 +32,7 @@ export const addBlurDataURL = async <TImage extends BasicImage>(
   return images.map((image, i) => ({
     ...image,
     blurDataURL: base64Results[i],
-    blurWidth: image.width,
     blurHeight: image.height,
+    blurWidth: image.width,
   }));
 };

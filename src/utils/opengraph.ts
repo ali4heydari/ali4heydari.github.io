@@ -11,7 +11,8 @@ export const buildOgImageUrl = (
     if (title) url.searchParams.set("title", title);
     if (cover) url.searchParams.set("cover", cover);
     return url.href;
-  } catch (e) {
+  } catch (error) {
+    console.log(`Error building og image url: ${error}\n returning default`);
     return `${BASE_URL}/api/og`;
   }
 };

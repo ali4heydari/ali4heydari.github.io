@@ -15,22 +15,22 @@ export function generateMetadata({ params }): Metadata | undefined {
     return;
   }
 
-  const { title, startDate, summary, cover, slug } = post;
+  const { cover, slug, startDate, summary, title } = post;
 
   const ogImage = buildOgImageUrl("projects", title, cover);
 
   const metadata = getStaticMetadata({
-    title: `${title} | Blog – Ali Heydari`,
     description: summary || "Blog post by Ali Heydari",
-    image: ogImage,
     exactUrl: `${BASE_URL}/projects/${slug}`,
+    image: ogImage,
+    title: `${title} | Blog – Ali Heydari`,
   });
   return {
     ...metadata,
     openGraph: {
       ...metadata.openGraph,
-      type: "article",
       publishedTime: startDate,
+      type: "article",
     },
   };
 }
@@ -61,7 +61,7 @@ const ProjectPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                   <Image
                     width={64}
                     height={64}
-                    className="mr-4 h-16 w-16 rounded-full"
+                    className="mr-4 size-16 rounded-full"
                     src="/static/images/site/ali4heydari/bitmoji.png"
                     alt="Ali Heydari"
                   />
@@ -87,11 +87,11 @@ const ProjectPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
                     </p>
                   </div>
                 </div>
-                <div className="h-8 w-8 lg:h-10 lg:w-10">
+                <div className="size-8 lg:size-10">
                   <WebShare
                     data={{
-                      title: project.title,
                       text: `Checkout "${project.title}" by "Ali Heydari"\n`,
+                      title: project.title,
                       url: `${BASE_URL}/projects/${project.slug}?utm_source=share_button`,
                     }}
                   />
@@ -109,7 +109,7 @@ const ProjectPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
             <div className="mt-5 text-center">
               <p>Tags:</p>
               <div className="flex flex-wrap justify-center gap-2 pb-3">
-                {project.tags?.map((tag) => (
+                {project.tags.map((tag) => (
                   <span
                     key={tag}
                     className="m-0.5 mr-2 inline-flex items-center rounded border border-gray-500 bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-400"

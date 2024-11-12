@@ -4,7 +4,6 @@ import Footer from "./index";
 import * as tailwindColors from "tailwindcss/colors";
 
 export default {
-  title: "Organism/Footer",
   component: Footer,
   parameters: {
     background: {
@@ -21,9 +20,10 @@ export default {
       ],
     },
   },
+  title: "Organism/Footer",
 } as Meta<typeof Footer>;
 
-const Template: StoryFn<typeof Footer> = (args) => <Footer />;
+const Template: StoryFn<typeof Footer> = () => <Footer />;
 
 export const Primary = Template.bind({});
 

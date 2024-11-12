@@ -9,15 +9,15 @@ import Link from "next/link";
 
 export default function SteamNowPlaying() {
   const { data, isLoading } = useQuery<GetNowPlayingGameResponse>({
-    queryKey: ["/api/steam/now-playing"],
     queryFn: () => fetch("/api/steam/now-playing").then((res) => res.json()),
+    queryKey: ["/api/steam/now-playing"],
   });
 
   if (isLoading) return <div>Loading...</div>;
 
   if (!data) return null;
 
-  const { isPlaying, profileUrl, personName, gameName, gameUrl } = data ?? {};
+  const { gameName, gameUrl, isPlaying, personName, profileUrl } = data ?? {};
 
   const scrollingText = isPlaying
     ? `Playing ${gameName} • ${personName}`

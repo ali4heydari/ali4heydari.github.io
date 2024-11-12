@@ -9,12 +9,12 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata = getStaticMetadata({
-  title: "Movie taste – Ali Heydari",
   description:
     "Get to know about my movie taste, my favorite movies and my favorite series.",
   exactUrl: `${BASE_URL}/movie-taste`,
-  keywords: ["movie taste", "podcasts", "letterboxd", "top movies"],
   image: buildOgImageUrl("movie-taste"),
+  keywords: ["movie taste", "podcasts", "letterboxd", "top movies"],
+  title: "Movie taste – Ali Heydari",
 });
 
 const MovieTastePage: NextPage = async () => {

@@ -3,27 +3,27 @@ import { BASE_URL } from "src/constants";
 const pathEmojiMap = {
   "404": "👻",
   "about": "😀",
-  "music-taste": "🎵",
-  "movie-taste": "🎬",
-  "gallery": "📷",
+  "blog": "📄",
   "community-wall": "📝",
+  "error": "🚨",
+  "gallery": "📷",
+  "movie-taste": "🎬",
+  "music-taste": "🎵",
   "projects": "💼",
   "uses": "💻",
-  "blog": "📄",
-  "error": "🚨",
 };
 export type PathName = keyof typeof pathEmojiMap | null;
 
 const pathTitleMap = {
   "404": "Page not found",
   "about": "About",
-  "music-taste": "Music taste",
-  "gallery": "Gallery",
+  "blog": "Blog",
   "community-wall": "Community wall",
+  "error": "Error",
+  "gallery": "Gallery",
+  "music-taste": "Music taste",
   "projects": "Projects",
   "uses": "Uses",
-  "blog": "Blog",
-  "error": "Error",
 };
 
 const titleFontSize = 50;
@@ -35,11 +35,11 @@ export const LogoOrEmoji = (props: { path?: PathName }) => {
         src={`${BASE_URL}/static/images/site/ali4heydari/bitmoji.png`}
         alt="Animoji representation of Ali Heydari"
         style={{
-          width: titleFontSize * 2,
-          height: titleFontSize * 2,
-          filter: "saturate(150%)",
           color: "#88a4e6",
           fill: "#88a4e6",
+          filter: "saturate(150%)",
+          height: titleFontSize * 2,
+          width: titleFontSize * 2,
         }}
       />
     );
@@ -57,20 +57,20 @@ export const PageTitle = (props: {
     <p
       style={{
         alignSelf: "flex-start",
+        color: path ? "white" : "rgba(0, 0, 0, 0)",
         fontSize: titleFontSize,
         fontWeight: 700,
         maxWidth: 900,
-        color: path ? "white" : "rgba(0, 0, 0, 0)",
         ...(path
           ? {}
           : {
-              backgroundImage: "linear-gradient(to right, #88a4e6, #81c1e9)",
               backgroundClip: "text",
+              backgroundImage: "linear-gradient(to right, #88a4e6, #81c1e9)",
               filter: "saturate(150%)",
             }),
       }}
     >
-      {title || pathTitle || `Ali Heydari | ${new URL(BASE_URL).hostname}`}
+      {(title ?? pathTitle) || `Ali Heydari | ${new URL(BASE_URL).hostname}`}
     </p>
   );
 };

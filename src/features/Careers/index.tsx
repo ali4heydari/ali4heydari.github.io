@@ -17,15 +17,20 @@ const Careers = ({
   const events = careers
     .map<TimelineProps["events"][number]>(
       ({
-        position: subtitle,
+        code,
         company: title,
         companySite,
-        startDate,
         endDate,
-        code,
+        position: subtitle,
         stack,
+        startDate,
         tags,
       }) => ({
+        bottomTags: stack,
+        children: <Mdx code={code} />,
+        endDate,
+        startDate,
+        subtitle,
         title: companySite ? (
           <Link
             className="text-indigo-500 underline hover:text-indigo-600 dark:text-indigo-400 dark:hover:text-indigo-300"
@@ -38,12 +43,7 @@ const Careers = ({
         ) : (
           title
         ),
-        subtitle,
-        startDate,
-        endDate,
-        children: <Mdx code={code} />,
         topTags: tags,
-        bottomTags: stack,
       }),
     )
     .sort((a, b) => (new Date(a.startDate) > new Date(b.startDate) ? 1 : -1));

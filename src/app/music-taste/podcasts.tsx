@@ -18,8 +18,8 @@ const Podcasts = () => {
       }[]
     >
   >({
-    queryKey: ["/api/spotify/shows?limit=50"],
     queryFn: () => getJson(`${BASE_URL}/api/spotify/shows?limit=50`),
+    queryKey: ["/api/spotify/shows?limit=50"],
   });
   return (
     <div>

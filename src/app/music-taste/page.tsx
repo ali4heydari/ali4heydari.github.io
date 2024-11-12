@@ -8,12 +8,12 @@ import TopArtists from "./top-artists";
 import TopTracks from "./top-tracks";
 
 export const metadata = getStaticMetadata({
-  title: "Music taste – Ali Heydari",
   description:
     "Get to know about my music taste, top tracks, top artists, and podcasts.",
   exactUrl: `${BASE_URL}/music-taste`,
-  keywords: ["music taste", "podcasts", "spotify", "top tracks", "top artists"],
   image: buildOgImageUrl("music-taste"),
+  keywords: ["music taste", "podcasts", "spotify", "top tracks", "top artists"],
+  title: "Music taste – Ali Heydari",
 });
 
 const MusicTastePage: NextPage = () => {

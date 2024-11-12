@@ -13,13 +13,13 @@ const Educations = ({
   rootClassName?: string;
 }>) => {
   const events = educations
-    .map(({ title, subtitle, startDate, endDate, tags, code }) => ({
-      title,
-      subtitle,
-      startDate,
-      endDate,
-      topTags: tags,
+    .map(({ code, endDate, startDate, subtitle, tags, title }) => ({
       children: <Mdx code={code} />,
+      endDate,
+      startDate,
+      subtitle,
+      title,
+      topTags: tags,
     }))
     .sort((a, b) => (a.startDate > b.startDate ? -1 : 1));
 

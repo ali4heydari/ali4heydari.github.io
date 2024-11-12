@@ -21,9 +21,9 @@ const TopTracks = () => {
       }[]
     >
   >({
-    queryKey: ["/api/spotify/top/tracks", timeRange],
     queryFn: () =>
       getJson(`${BASE_URL}/api/spotify/top/tracks?time_range=${timeRange}`),
+    queryKey: ["/api/spotify/top/tracks", timeRange],
   });
 
   return (

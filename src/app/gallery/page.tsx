@@ -4,21 +4,20 @@ import TitleSection from "src/components/atoms/TitleSection";
 import { notionClient } from "src/lib/notion";
 import { addBlurDataURL } from "src/utils/addBlurDataURL";
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
 // revalidate: 15 minutes
-export const revalidate = 60 * 15;
+export const revalidate = 900;
 
 const Gallery = async () => {
   const notionQuery = await notionClient.databases.query({
     database_id: process.env.GALLERY_DATABASE_ID!,
     filter: {
-      property: "published",
       checkbox: {
         equals: true,
       },
+      property: "published",
     },
   });
 
@@ -28,7 +27,7 @@ const Gallery = async () => {
       return (
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        Boolean(new URL(pageObjectResponse.properties?.imageUrl?.url))
+        Boolean(new URL(pageObjectResponse.properties.imageUrl.url))
       );
     })
     .map((item) => {
@@ -37,10 +36,10 @@ const Gallery = async () => {
       return {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        src: pageObjectResponse.properties?.imageUrl?.url as string,
+        src: pageObjectResponse.properties.imageUrl.url as string,
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        alt: pageObjectResponse.properties?.name?.title[0].plain_text as string,
+        alt: pageObjectResponse.properties.name.title[0].plain_text as string,
       };
     });
 
@@ -86,7 +85,7 @@ const Gallery = async () => {
         much from these photos 🫠
       </p>
       <div className="columns-1 gap-4 space-y-3 sm:columns-2 md:columns-4">
-        {imagesWithBlurData.map((image, index) => (
+        {imagesWithBlurData.map((image) => (
           <Image
             key={image.src}
             alt={image.alt}

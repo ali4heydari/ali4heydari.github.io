@@ -3,7 +3,7 @@ import type {
   SpotifyPaginatedRequest,
 } from "src/lib/spotify/@types/requests/top";
 import type { GetCurrentlyPlayingResponse } from "src/lib/spotify/@types/responses/current-playing";
-import { getJson, WithStatus } from "src/utils";
+import { getJson } from "src/utils";
 import type {
   RefreshTokenResponse,
   TrackDto,
@@ -41,8 +41,8 @@ const getAccessToken = async () => {
   const response = await getJson<RefreshTokenResponse>(
     "https://accounts.spotify.com/api/token" + "?" + urlSearchParams.toString(),
     {
-      method: "POST",
       headers,
+      method: "POST",
     },
   );
 
@@ -56,18 +56,18 @@ const getAccessToken = async () => {
 const BASE_URL = "https://api.spotify.com/v1";
 
 export const getTopTracks = async ({
-  time_range = "long_term",
-  offset = 0,
   limit = 10,
+  offset = 0,
+  time_range = "long_term",
 }: GetUsersTopItemsRequest) => {
   const {
     data: { access_token, token_type },
   } = await getAccessToken();
 
   const searchParams = new URLSearchParams({
-    time_range,
-    offset: offset.toString(),
     limit: limit.toString(),
+    offset: offset.toString(),
+    time_range,
   });
 
   const url =
@@ -80,18 +80,18 @@ export const getTopTracks = async ({
 };
 
 export const getTopArtists = async ({
-  time_range = "long_term",
-  offset = 0,
   limit = 10,
+  offset = 0,
+  time_range = "long_term",
 }: GetUsersTopItemsRequest) => {
   const {
     data: { access_token, token_type },
   } = await getAccessToken();
 
   const searchParams = new URLSearchParams({
-    time_range,
-    offset: offset.toString(),
     limit: limit.toString(),
+    offset: offset.toString(),
+    time_range,
   });
 
   const url =
@@ -104,16 +104,16 @@ export const getTopArtists = async ({
 };
 
 export const getShows = async ({
-  offset = 0,
   limit = 10,
+  offset = 0,
 }: SpotifyPaginatedRequest) => {
   const {
     data: { access_token, token_type },
   } = await getAccessToken();
 
   const searchParams = new URLSearchParams({
-    offset: offset.toString(),
     limit: limit.toString(),
+    offset: offset.toString(),
   });
 
   const url = BASE_URL + SpotifyEndpoints.SHOWS + "?" + searchParams.toString();
