@@ -134,6 +134,7 @@
     "stylelint": "^16.10.0",
     "stylelint-config-recommended": "^14.0.1",
     "typescript-eslint": "^8.14.0",
+    "undici": "^6.20.1",
     "velite": "0.1.0"
   },
   "packageManager": "pnpm@8.15.5",

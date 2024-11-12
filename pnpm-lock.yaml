@@ -298,6 +298,9 @@ devDependencies:
   typescript-eslint:
     specifier: ^8.14.0
     version: 8.14.0(eslint@9.14.0)(typescript@5.6.3)
+  undici:
+    specifier: ^6.20.1
+    version: 6.20.1
   velite:
     specifier: 0.1.0
     version: 0.1.0
@@ -15460,6 +15463,11 @@ packages:
 
   /undici-types@6.19.8:
     resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
+    dev: true
+
+  /undici@6.20.1:
+    resolution: {integrity: sha512-AjQF1QsmqfJys+LXfGTNum+qw4S88CojRInG/6t31W/1fk6G59s92bnAvGz5Cmur+kQv2SURXEvvudLmbrE8QA==}
+    engines: {node: '>=18.17'}
     dev: true
 
   /unicode-canonical-property-names-ecmascript@2.0.1:
