@@ -5,6 +5,7 @@ import pluginImportX from "eslint-plugin-import-x";
 import pluginNoRelativeImport from "eslint-plugin-no-relative-import-paths";
 import pluginPerfectionist from "eslint-plugin-perfectionist";
 import pluginPromise from "eslint-plugin-promise";
+import pluginStorybook from "eslint-plugin-storybook";
 import pluginTailwind from "eslint-plugin-tailwindcss";
 import pluginTestingLibrary from "eslint-plugin-testing-library";
 import pluginTypescriptSortKeys from "eslint-plugin-typescript-sort-keys";
@@ -17,7 +18,7 @@ import pluginPrettier from "eslint-plugin-prettier/recommended";
 
 export default typescriptEslint.config(
   {
-    ignores: ["public/**", ".next/**", ".cache/**"],
+    ignores: ["public/**", ".next/**", ".cache/**", ".velite/**"],
   },
   eslint.configs.recommended,
   // eslint.configs.all,
@@ -85,6 +86,14 @@ export default typescriptEslint.config(
       "importResolverTs": pluginImportResolverTs,
       "no-relative-import-paths": pluginNoRelativeImport,
       "typescript-sort-keys": pluginTypescriptSortKeys,
+    },
+  },
+  ...pluginStorybook.configs["flat/recommended"],
+  {
+    files: ["**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
+    rules: {
+      "storybook/default-exports": "error",
+      "storybook/hierarchy-separator": "error",
     },
   },
   {
