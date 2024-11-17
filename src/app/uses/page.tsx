@@ -1,4 +1,5 @@
 import React from "react";
+import setupImage from "src/assets/images/uses/setup.jpg";
 import TitleSection from "src/components/atoms/TitleSection";
 import { BASE_URL } from "src/constants";
 import { software, hardware } from "src/constants/uses";
@@ -31,17 +32,23 @@ const Uses = () => {
   return (
     <section>
       <TitleSection>Uses</TitleSection>
-      <p>
+      <p className="text-xl">
         Get to know about my setup, hardware, software and tools I use on a
         daily basis. This page is inspired by{" "}
         <StyledLink
-          className="px-1 text-indigo-600 dark:text-indigo-400"
+          className="px-1 text-xl text-indigo-600 dark:text-indigo-400"
           href={"https://uses.tech"}
         >
           uses.tech
         </StyledLink>
         , I suggest visiting the website to see what other developers are using.
       </p>
+      <Image
+        className="my-4 rounded-lg border-2 border-gray-200 shadow-lg dark:border-gray-700"
+        src={setupImage}
+        placeholder="blur"
+        alt="Home setup"
+      />
       <h2 className="p-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
         Hardware
       </h2>
