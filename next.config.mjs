@@ -29,9 +29,6 @@ const millionConfig = {
   rsc: true,
 };
 
-/**
- * @type {import("@sentry/nextjs/build/types/config/types").SentryBuildOptions}
- */
 const sentryBuildOptions = {
   // For all available options, see:
   // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/

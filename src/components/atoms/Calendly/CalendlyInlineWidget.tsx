@@ -3,7 +3,7 @@
 import type { ComponentProps } from "react";
 import React from "react";
 import { InlineWidget } from "react-calendly";
-import siteConfig from "site.config";
+import ids from "config/ids.json";
 
 const CalendlyInlineWidget = ({
   styles = {
@@ -19,7 +19,7 @@ const CalendlyInlineWidget = ({
     <InlineWidget
       styles={styles}
       {...props}
-      url={`https://calendly.com/${siteConfig.CALENDLY_ID}/${siteConfig.CALENDLY_EVENT_LINK}`}
+      url={`https://calendly.com/${ids.CALENDLY_ID}/${ids.CALENDLY_ID}`}
     />
   );
 };

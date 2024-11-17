@@ -2,8 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 import SpotifyIcon from "mdi-react/SpotifyIcon";
-import siteConfig from "site.config";
 import { twMerge } from "tailwind-merge";
+import ids from "config/ids.json";
 import type { GetNowListeningResponse } from "src/app/api/spotify/now-playing/@types";
 import { getJson } from "src/utils";
 import Image from "next/image";
@@ -58,9 +58,7 @@ export default function SpotifyNowListening() {
           : "My Spotify Profile"
       }
       href={
-        isPlaying
-          ? href
-          : `https://open.spotify.com/user/${siteConfig.SPOTIFY_ID}`
+        isPlaying ? href : `https://open.spotify.com/user/${ids.SPOTIFY_ID}`
       }
       target="_blank"
     >

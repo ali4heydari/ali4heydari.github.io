@@ -2,8 +2,8 @@
 
 import { useQuery } from "@tanstack/react-query";
 import SteamIcon from "mdi-react/SteamIcon";
-import siteConfig from "site.config";
 import { twMerge } from "tailwind-merge";
+import ids from "config/ids.json";
 import type { GetNowPlayingGameResponse } from "src/app/api/steam/now-playing/@types";
 import Link from "next/link";
 
@@ -43,7 +43,7 @@ export default function SteamNowPlaying() {
         }
         href={
           (isPlaying ? gameUrl : profileUrl) ||
-          `https://steamcommunity.com/id/${siteConfig.STEAM_ID}`
+          `https://steamcommunity.com/id/${ids.STEAM_ID}`
         }
         target="_blank"
       >

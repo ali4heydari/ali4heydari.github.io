@@ -13,7 +13,7 @@
     "jsx": "preserve",
     "lib": ["dom", "es2017", "esnext", "es2015", "es2016"],
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "noEmit": true,
     "noImplicitAny": false,
     "resolveJsonModule": true,

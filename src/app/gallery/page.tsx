@@ -1,6 +1,7 @@
 import React from "react";
 import StyledLink from "src/components/atoms/Link";
 import TitleSection from "src/components/atoms/TitleSection";
+import { env } from "src/env";
 import { notionClient } from "src/lib/notion";
 import { addBlurDataURL } from "src/utils/addBlurDataURL";
 import type { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
@@ -12,7 +13,7 @@ export const revalidate = 900;
 
 const Gallery = async () => {
   const notionQuery = await notionClient.databases.query({
-    database_id: process.env.GALLERY_DATABASE_ID!,
+    database_id: env.GALLERY_DATABASE_ID,
     filter: {
       checkbox: {
         equals: true,

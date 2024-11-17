@@ -2,13 +2,13 @@
 
 import { useEffect } from "react";
 import { hotjar } from "react-hotjar";
-import siteConfig from "site.config";
+import { env } from "src/env";
 
 const Hotjar = () => {
   useEffect(() => {
     hotjar.initialize({
-      id: Number(siteConfig.HOTJAR_ID),
-      sv: Number(siteConfig.HOTJAR_SNIPPET_VERSION),
+      id: Number(env.NEXT_PUBLIC_HOTJAR_ID),
+      sv: Number(env.NEXT_PUBLIC_HOTJAR_SNIPPET_VERSION),
     });
   }, []);
   return null;
