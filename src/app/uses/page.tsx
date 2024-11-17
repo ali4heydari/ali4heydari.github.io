@@ -4,6 +4,7 @@ import { BASE_URL } from "src/constants";
 import { software, hardware } from "src/constants/uses";
 import { getStaticMetadata } from "src/utils/metadata";
 import { buildOgImageUrl } from "src/utils/opengraph";
+import StyledLink from "../../components/atoms/Link";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,6 +31,17 @@ const Uses = () => {
   return (
     <section>
       <TitleSection>Uses</TitleSection>
+      <p>
+        Get to know about my setup, hardware, software and tools I use on a
+        daily basis. This page is inspired by{" "}
+        <StyledLink
+          className="px-1 text-indigo-600 dark:text-indigo-400"
+          href={"https://uses.tech"}
+        >
+          uses.tech
+        </StyledLink>
+        , I suggest visiting the website to see what other developers are using.
+      </p>
       <h2 className="p-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
         Hardware
       </h2>
