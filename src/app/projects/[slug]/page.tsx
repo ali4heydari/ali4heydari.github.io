@@ -9,7 +9,8 @@ import { projects } from "@/content";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export function generateMetadata({ params }): Metadata | undefined {
+export async function generateMetadata(props): Promise<Metadata | undefined> {
+  const params = await props.params;
   const post = projects.find((post) => post.slug === params.slug);
   if (!post) {
     return;
@@ -35,7 +36,10 @@ export function generateMetadata({ params }): Metadata | undefined {
   };
 }
 
-const ProjectPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
+const ProjectPage: NextPage<{
+  params: Promise<{ slug: string }>;
+}> = async (props) => {
+  const params = await props.params;
   const project = projects.find((projects) => projects.slug === params.slug);
 
   if (!project) {
