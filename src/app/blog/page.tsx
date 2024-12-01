@@ -77,7 +77,9 @@ const BlogPage: NextPage = () => {
                     </time>
                     <span>
                       <ClockOutlineIcon className="mr-1 inline-block size-4" />
-                      {blog.readingTime} min read
+                      {
+                        blog.readingTime
+                      } min read
                     </span>
                   </div>
                   <p className="mb-4 text-gray-500 dark:text-gray-400">
