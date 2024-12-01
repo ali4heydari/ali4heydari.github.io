@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.1.0](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.0.0...v3.1.0) (2024-12-01)
+
+
+### Features
+
+* add 'uses.tech' inspiration paragraph to uses page ([12a8f48](https://github.com/ali4heydari/ali4heydari.github.io/commit/12a8f48fb05dd3b5786c69ab1a71fc55382cd985))
+* add home setup image to Uses page ([f3e9cca](https://github.com/ali4heydari/ali4heydari.github.io/commit/f3e9ccae498e33f0db723b764fbbda39800dbf8e))
+
+
+### Bug Fixes
+
+* resolve calendly 404 issue ([a5e135d](https://github.com/ali4heydari/ali4heydari.github.io/commit/a5e135ddc9812ddf8f9a15dce01aa79901758e17))
+
 ## 3.0.0 (2024-11-12)
 
 
