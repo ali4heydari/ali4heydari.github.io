@@ -10,7 +10,8 @@ import { blog as allBlog } from "@/content";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 
-export function generateMetadata({ params }): Metadata | undefined {
+export async function generateMetadata(props): Promise<Metadata | undefined> {
+  const params = await props.params;
   const post = allBlog.find(
     (post) => post.slug === params.slug && !post.isDraft,
   );
@@ -38,7 +39,10 @@ export function generateMetadata({ params }): Metadata | undefined {
   };
 }
 
-const BlogPage: NextPage<{ params: { slug: string } }> = ({ params }) => {
+const BlogPage: NextPage<{
+  params: Promise<{ slug: string }>;
+}> = async (props) => {
+  const params = await props.params;
   const post = allBlog.find(
     (blog) => blog.slug === params.slug && !blog.isDraft,
   );
