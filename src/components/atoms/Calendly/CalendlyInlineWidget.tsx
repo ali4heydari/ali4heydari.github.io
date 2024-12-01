@@ -19,7 +19,7 @@ const CalendlyInlineWidget = ({
     <InlineWidget
       styles={styles}
       {...props}
-      url={`https://calendly.com/${ids.CALENDLY_ID}/${ids.CALENDLY_ID}`}
+      url={`https://calendly.com/${ids.CALENDLY_ID}/${ids.CALENDLY_EVENT_LINK}`}
     />
   );
 };
