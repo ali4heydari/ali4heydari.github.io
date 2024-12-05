@@ -41,8 +41,8 @@ export const getMovies = async (
     },
   };
 
-  const movies = $(".poster-list .film-poster")
-    .map((_, element) => {
+  const moviesPromises = $(".poster-list .film-poster")
+    .map(async (_, element) => {
       const slug = $(element).attr("data-film-slug");
       const releaseYear =
         $(element).attr("data-film-release-year") ?? slug?.match(/\d{4}/)?.[0];
@@ -62,20 +62,36 @@ export const getMovies = async (
       if (typeof filmId !== "string") return null;
 
       const slashFilmId = [...filmId].join("/");
-      const cleanSlug = slug?.replace(/-\d+$/, "").replace(/-+$/, "");
 
-      const image = `https://a.ltrbxd.com/resized/film-poster/${slashFilmId}/${filmId}-${cleanSlug}-0-${imageWidth}-0-${imageHeight}-crop.jpg?v=${cacheBustingKey}`;
+      const imageHtml = await fetch(
+        baseUrl +
+          `/ajax/poster/film/${slug}/std/${imageWidth}x${imageHeight}/?k=${cacheBustingKey}`,
+      ).then((res) => res.text());
+
+      const i$ = cheerio.load(imageHtml);
+
+      const image = i$(
+        "img[srcset^='https://a.ltrbxd.com/resized/film-poster']",
+      ).attr("srcset");
+
+      const calculatedImage = `https://a.ltrbxd.com/resized/film-poster/${slashFilmId}/${filmId}-${slug}-0-${imageWidth}-0-${imageHeight}-crop.jpg?v=${cacheBustingKey}`;
 
       return {
+        cacheBustingKey,
         filmId: Number(filmId),
         href: `${baseUrl}/film/${slug}`,
-        image,
+        image: image ?? calculatedImage,
         imageHeight: Number(imageHeight),
         imageWidth: Number(imageWidth),
         releaseYear,
+        slashFilmId,
+        slug,
         title,
       };
     })
     .get();
+
+  const movies = await Promise.all(moviesPromises);
+
   return movies.filter((movie) => movie !== null).slice(0, MAX_MOVIES);
 };
