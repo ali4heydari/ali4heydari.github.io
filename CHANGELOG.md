@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.1](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.1.0...v3.1.1) (2024-12-05)
+
+
+### Bug Fixes
+
+* resolve movie image not found issue for calucatedImage ([a1a0d98](https://github.com/ali4heydari/ali4heydari.github.io/commit/a1a0d9804f132abc09d1bf716ac4bb41cac8dde9))
+
 ## [3.1.0](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.0.0...v3.1.0) (2024-12-01)
 
 
