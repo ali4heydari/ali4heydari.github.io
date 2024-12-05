@@ -57,7 +57,8 @@ export default (
     (acc, plugin) => {
       const update = plugin(acc);
       return typeof update === "function"
-        ? update(phase, defaultConfig)
+        ? // @ts-ignore
+          update(phase, defaultConfig)
         : update;
     },
     { ...nextConfig },
