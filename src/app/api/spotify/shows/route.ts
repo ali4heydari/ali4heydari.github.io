@@ -23,7 +23,7 @@ const GET = async (request: Request) => {
     const shows = data.items.map(({ show }) => ({
       description: show.description,
       href: show.external_urls.spotify,
-      image: show.images[0].url,
+      image: show.images.at(-1).url,
       name: show.name,
       publisher: show.publisher,
     }));
