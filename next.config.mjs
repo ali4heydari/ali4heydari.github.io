@@ -1,7 +1,6 @@
 // @ts-check
 import redirects from "./config/next/redirects.mjs";
 import { withSentryConfig } from "@sentry/nextjs";
-import million from "million/compiler";
 
 /** @type { import("next").NextConfig } */
 const nextConfig = {
@@ -24,10 +23,6 @@ const nextConfig = {
   swcMinify: true,
 };
 
-const millionConfig = {
-  auto: { rsc: true },
-  rsc: true,
-};
 
 const sentryBuildOptions = {
   // For all available options, see:
@@ -49,7 +44,6 @@ export default (
   /** @type {import("next").NextConfig} */ defaultConfig,
 ) => {
   const plugins = [
-    (cfg) => million.next(cfg, millionConfig),
     (cfg) => withSentryConfig(cfg, sentryBuildOptions),
   ];
 
