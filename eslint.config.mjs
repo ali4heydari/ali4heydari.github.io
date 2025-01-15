@@ -9,7 +9,11 @@ import pluginStorybook from "eslint-plugin-storybook";
 import pluginTailwind from "eslint-plugin-tailwindcss";
 import pluginTestingLibrary from "eslint-plugin-testing-library";
 import pluginTypescriptSortKeys from "eslint-plugin-typescript-sort-keys";
-import typescriptEslint from "typescript-eslint";
+import typescriptEslint, {
+  configs as typescriptEslintConfigs,
+  parser as typescriptEslintParser,
+  plugin as typescriptEslintPlugin,
+} from "typescript-eslint";
 import eslint from "@eslint/js";
 import pluginNext from "@next/eslint-plugin-next";
 import pluginTanStackQuery from "@tanstack/eslint-plugin-query";
@@ -22,11 +26,11 @@ export default typescriptEslint.config(
   },
   eslint.configs.recommended,
   // eslint.configs.all,
-  ...typescriptEslint.configs.recommended,
+  ...typescriptEslintConfigs.recommended,
   pluginImportX.flatConfigs.recommended,
   pluginImportX.flatConfigs.typescript,
   {
-    extends: [...typescriptEslint.configs.strictTypeChecked],
+    extends: [...typescriptEslintConfigs.strictTypeChecked],
     files: ["**/*.ts?(x)"],
   },
   {
@@ -61,7 +65,7 @@ export default typescriptEslint.config(
         ...globals.node,
         ...globals.amd,
       },
-      parser: typescriptEslint.parser,
+      parser: typescriptEslintParser,
       parserOptions: {
         ecmaFeatures: {
           jsx: true,
@@ -82,7 +86,7 @@ export default typescriptEslint.config(
   {
     plugins: {
       "@next/next": pluginNext,
-      "@typescript-eslint": typescriptEslint.plugin,
+      "@typescript-eslint": typescriptEslintPlugin,
       "importResolverTs": pluginImportResolverTs,
       "no-relative-import-paths": pluginNoRelativeImport,
       "typescript-sort-keys": pluginTypescriptSortKeys,

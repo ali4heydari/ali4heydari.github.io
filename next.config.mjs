@@ -23,7 +23,6 @@ const nextConfig = {
   swcMinify: true,
 };
 
-
 const sentryBuildOptions = {
   // For all available options, see:
   // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
@@ -43,16 +42,13 @@ export default (
   /** @type {any} */ phase,
   /** @type {import("next").NextConfig} */ defaultConfig,
 ) => {
-  const plugins = [
-    (cfg) => withSentryConfig(cfg, sentryBuildOptions),
-  ];
+  const plugins = [(cfg) => withSentryConfig(cfg, sentryBuildOptions)];
 
   return plugins.reduce(
     (acc, plugin) => {
       const update = plugin(acc);
       return typeof update === "function"
-        ? // @ts-ignore
-          update(phase, defaultConfig)
+        ? update(phase, defaultConfig)
         : update;
     },
     { ...nextConfig },
