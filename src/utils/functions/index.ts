@@ -1,4 +1,4 @@
-export function enumToValueArray($enum: any): string[] {
+export function enumToValueArray($enum: Iterable<unknown>): string[] {
   const result: string[] = [];
   for (const i in $enum) {
     result.push($enum[i]);
