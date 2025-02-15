@@ -11,7 +11,7 @@ export const blog = defineCollection({
       isDraft: s.boolean().optional().default(false),
       metadata: s.metadata(),
       publishedAt: s.string(),
-      slug: s.path().transform((path) => path.split("/").pop()!),
+      slug: s.path().transform((path) => path.split("/").pop()),
       summary: s.string(),
       tags: s.array(s.string()),
       title: s.string(),

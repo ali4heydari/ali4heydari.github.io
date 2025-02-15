@@ -69,7 +69,7 @@ export interface EpisodeDto {
 
 export interface Show {
   available_markets: string[];
-  copyrights: any[];
+  copyrights: unknown[];
   description: string;
   explicit: boolean;
   external_urls: ExternalUrls;

@@ -11,7 +11,7 @@ export const projects = defineCollection({
       endDate: s.string(),
       metadata: s.metadata(),
       published: s.boolean(),
-      slug: s.path().transform((path) => path.split("/").pop()!),
+      slug: s.path().transform((path) => path.split("/").pop()),
       startDate: s.string(),
       summary: s.string(),
       tags: s.array(s.string()),
