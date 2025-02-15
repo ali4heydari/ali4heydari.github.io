@@ -130,6 +130,7 @@ export default typescriptEslint.config(
     rules: {
       // TODO: Enable these rules
       "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-misused-spread": "off",
       "@typescript-eslint/no-non-null-assertion": "off",
       "@typescript-eslint/no-unnecessary-condition": "off",
       "@typescript-eslint/no-unsafe-argument": "off",
