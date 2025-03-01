@@ -27,12 +27,8 @@ const sentryBuildOptions = {
   // For all available options, see:
   // https://docs.sentry.io/platforms/javascript/guides/nextjs/manual-setup/
   disableLogger: true,
-  hideSourceMaps: true,
   org: "ali4heydari",
   project: "ali4heydari-dot-tech",
-  sourcemaps: {
-    disable: process.env.SENTRY_IS_DRY_RUN === "true",
-  },
   tunnelRoute: "/monitoring",
   widenClientFileUpload: true,
 };
