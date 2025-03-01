@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.1.3](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.1.2...v3.1.3) (2025-03-01)
+
+
+### Bug Fixes
+
+* resolve some eslint errors ([ae8c11d](https://github.com/ali4heydari/ali4heydari.github.io/commit/ae8c11d074307952b39d28ef794bfb315318850b))
+* turn off eslint rule to fix build error ([348b96e](https://github.com/ali4heydari/ali4heydari.github.io/commit/348b96ed0af6f11cc8f4dcb1a1af21364008cef1))
+* update type definitions and transform functions for better type safety ([e19d0c8](https://github.com/ali4heydari/ali4heydari.github.io/commit/e19d0c8c83f9054695768d301aba2ab14a16cbc4))
+
 ### [3.1.2](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.1.1...v3.1.2) (2024-12-05)
 
 
