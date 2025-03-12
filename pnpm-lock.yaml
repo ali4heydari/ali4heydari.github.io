@@ -53,9 +53,6 @@ importers:
       disqus-react:
         specifier: ^1.1.6
         version: 1.1.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      mdi-react:
-        specifier: ^8.6.0
-        version: 8.6.0(react@19.0.0)
       next:
         specifier: 15.2.0
         version: 15.2.0(@babel/core@7.26.9)(@opentelemetry/api@1.9.0)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -5323,11 +5320,6 @@ packages:
 
   mdast-util-to-string@4.0.0:
     resolution: {integrity: sha512-0H44vDimn51F0YwvxSJSm0eCDOJTRlmN0R1yBh4HLj9wiV1Dn0QoXGbvFAWj2hSItVTlCmBF1hqKlIyUBVFLPg==}
-
-  mdi-react@8.6.0:
-    resolution: {integrity: sha512-aFhdEYDMCHZ90qGO8yLe902XkRPPeRgd4mOq7IbONnS1eeecvlAFRPETKpAMWKdSoxs+ReCS5nY3gOQG1Ciq3Q==}
-    peerDependencies:
-      react: '>=0.14.0'
 
   mdn-data@2.12.2:
     resolution: {integrity: sha512-IEn+pegP1aManZuckezWCO+XZQDplx1366JoVhTpMpBB1sPey/SbveZQUosKiKiGYjg1wH4pMlNgXbCiYgihQA==}
@@ -13697,10 +13689,6 @@ snapshots:
   mdast-util-to-string@4.0.0:
     dependencies:
       '@types/mdast': 4.0.4
-
-  mdi-react@8.6.0(react@19.0.0):
-    dependencies:
-      react: 19.0.0
 
   mdn-data@2.12.2: {}
 
