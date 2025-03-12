@@ -1,9 +1,11 @@
 "use client";
 
 import { Dialog, DialogPanel } from "@headlessui/react";
-import CloseIcon from "mdi-react/CloseIcon";
-import MenuIcon from "mdi-react/MenuIcon";
 import React, { useState } from "react";
+import {
+  MdOutlineClose as CloseIcon,
+  MdMenu as MenuIcon,
+} from "react-icons/md";
 import StyledLink from "src/components/atoms/Link";
 import Bitmoji from "src/components/atoms/Logo";
 import ThemeSwitcher from "src/components/atoms/ThemeSwitcher";

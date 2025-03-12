@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import SteamIcon from "mdi-react/SteamIcon";
+import { FaSteam as SteamIcon } from "react-icons/fa";
 import { twMerge } from "tailwind-merge";
 import ids from "config/ids.json";
 import type { GetNowPlayingGameResponse } from "src/app/api/steam/now-playing/@types";
