@@ -1,18 +1,20 @@
-import CalendarIcon from "mdi-react/CalendarIcon";
-import DiscordIcon from "mdi-react/DiscordIcon";
-import EmailIcon from "mdi-react/EmailIcon";
-import FacebookIcon from "mdi-react/FacebookIcon";
-import GithubIcon from "mdi-react/GithubIcon";
-import GitlabIcon from "mdi-react/GitlabIcon";
-import InstagramIcon from "mdi-react/InstagramIcon";
-import LinkedinIcon from "mdi-react/LinkedinIcon";
-import PhoneIcon from "mdi-react/PhoneIcon";
-import SkypeIcon from "mdi-react/SkypeIcon";
-import SlideIcon from "mdi-react/SlideshowIcon";
-import SpotifyIcon from "mdi-react/SpotifyIcon";
-import StackOverflowIcon from "mdi-react/StackOverflowIcon";
-import TwitchIcon from "mdi-react/TwitchIcon";
-import TwitterIcon from "mdi-react/TwitterIcon";
+import {
+  FaDiscord as DiscordIcon,
+  FaEnvelope as EmailIcon,
+  FaFacebook as FacebookIcon,
+  FaGithub as GithubIcon,
+  FaGitlab as GitlabIcon,
+  FaInstagram as InstagramIcon,
+  FaLinkedin as LinkedinIcon,
+  FaPhoneSquare as PhoneIcon,
+  FaSkype as SkypeIcon,
+  FaSpotify as SpotifyIcon,
+  FaStackOverflow as StackOverflowIcon,
+  FaTwitch as TwitchIcon,
+  FaTwitter as TwitterIcon,
+} from "react-icons/fa";
+import { RiSlideshow2Fill as SlideIcon } from "react-icons/ri";
+import { SiCalendly as CalendarIcon } from "react-icons/si";
 import ids from "config/ids.json";
 
 export const socialMedias = [
