@@ -1,5 +1,5 @@
-import PhotoIcon from "mdi-react/FileImageOutlineIcon";
 import React, { useMemo } from "react";
+import { MdInsertPhoto as PhotoIcon } from "react-icons/md";
 import Image from "next/image";
 import Link from "next/link";
 

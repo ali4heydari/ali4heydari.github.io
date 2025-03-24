@@ -73,7 +73,7 @@ const Footer = () => {
                 className="text-gray-500 hover:text-gray-600 dark:text-gray-400 dark:hover:text-gray-500"
               >
                 <span className="sr-only">{it.name}</span>
-                <it.icon />
+                <it.icon className="size-5" />
               </StyledLink>
             ))}
           </div>

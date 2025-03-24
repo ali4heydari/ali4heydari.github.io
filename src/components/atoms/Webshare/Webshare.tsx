@@ -1,8 +1,8 @@
 "use client";
 
-import ShareIcon from "mdi-react/ShareIcon";
 import type { ComponentProps } from "react";
 import React from "react";
+import { IoMdShareAlt as ShareIcon } from "react-icons/io";
 import { RWebShare } from "react-web-share";
 import classNames from "classnames";
 

@@ -1,6 +1,8 @@
-import CalendarOutlineIcon from "mdi-react/CalendarOutlineIcon";
-import ClockOutlineIcon from "mdi-react/ClockOutlineIcon";
 import React from "react";
+import {
+  CiCalendar as CalendarIcon,
+  CiClock1 as ClockIcon,
+} from "react-icons/ci";
 import type { NextPage } from "next";
 import TitleSection from "src/components/atoms/TitleSection";
 import { BASE_URL } from "src/constants";
@@ -56,11 +58,11 @@ const ProjectsPage: NextPage = () => {
                     </h2>
                     <p className="flex flex-wrap justify-start gap-1 text-xs font-light text-gray-500 dark:text-gray-400">
                       <time>
-                        <CalendarOutlineIcon className="mr-1 inline-block size-4" />
+                        <CalendarIcon className="mr-1 inline-block size-4" />
                         {project.startDate} - {project.endDate ?? "Present"}
                       </time>
                       <span>
-                        <ClockOutlineIcon className="mr-1 inline-block size-4" />
+                        <ClockIcon className="mr-1 inline-block size-4" />
                         {project.readingTime} min read
                       </span>
                     </p>
