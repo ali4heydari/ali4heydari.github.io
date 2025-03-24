@@ -12,6 +12,7 @@ import nanoPiR5C from "src/assets/images/uses/hardware/nano-pi-r5c.png";
 import sonyWF1000XM4 from "src/assets/images/uses/hardware/sony-wf1000xm4.png";
 import tscoTs2189 from "src/assets/images/uses/hardware/tsco-ts2189.png";
 import aldentePro from "src/assets/images/uses/software/aldente-pro.png";
+import burpSuite from "src/assets/images/uses/software/burp-suite.png";
 import cleanmymacX from "src/assets/images/uses/software/cleanmymac-x.png";
 import cleanshotX from "src/assets/images/uses/software/cleanshot-x.png";
 import everything from "src/assets/images/uses/software/everything.png";
@@ -25,7 +26,6 @@ import meld from "src/assets/images/uses/software/meld.png";
 import netsetman from "src/assets/images/uses/software/netsetman.png";
 import notion from "src/assets/images/uses/software/notion.png";
 import obsStudio from "src/assets/images/uses/software/obs-studio.png";
-import proxifier from "src/assets/images/uses/software/proxifier.png";
 import raycast from "src/assets/images/uses/software/raycast.png";
 import rectangle from "src/assets/images/uses/software/rectangle.png";
 import responsively from "src/assets/images/uses/software/responsively.png";
@@ -183,20 +183,6 @@ export const software = [
     tags: ["Tool", "Coding", "Windows"],
   },
   {
-    description: "For managing network profiles on Windows",
-    href: "https://www.netsetman.com/",
-    image: netsetman,
-    name: "NetSetMan",
-    tags: ["Tool", "Windows"],
-  },
-  {
-    description: "For monitoring network activity",
-    href: "https://www.glasswire.com/",
-    image: glasswire,
-    name: "GlassWire",
-    tags: ["Tool", "Windows"],
-  },
-  {
     description: "For taking notes, and managing my life",
     href: "https://www.notion.so/",
     image: notion,
@@ -218,18 +204,32 @@ export const software = [
     tags: ["Windows", "MacOS", "Linux", "AndroidTV", "DailyUse"],
   },
   {
+    description: "For managing network profiles on Windows",
+    href: "https://www.netsetman.com/",
+    image: netsetman,
+    name: "NetSetMan",
+    tags: ["Tool", "Windows", "Network"],
+  },
+  {
+    description: "For monitoring network activity",
+    href: "https://www.glasswire.com/",
+    image: glasswire,
+    name: "GlassWire",
+    tags: ["Tool", "Windows", "Network"],
+  },
+  {
     description: "For debugging HTTP requests",
     href: "https://www.telerik.com/fiddler",
     image: fiddlerClassic,
     name: "Fiddler classic",
-    tags: ["Tool", "Coding", "Windows"],
+    tags: ["Tool", "Windows", "Network"],
   },
   {
-    description: "For bypassing Internet censorship",
-    href: "https://www.proxifier.com/",
-    image: proxifier,
-    name: "Proxifier",
-    tags: ["Tool", "FilterNet", "Windows"],
+    description: "For inspecting HTTP requests",
+    href: "https://portswigger.net/burp",
+    image: burpSuite,
+    name: "Burp Suite",
+    tags: ["Tool", "Windows", "MacOS", "Network"],
   },
   {
     description: "For streaming and recording",
