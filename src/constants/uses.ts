@@ -16,6 +16,8 @@ import cleanmymacX from "src/assets/images/uses/software/cleanmymac-x.png";
 import cleanshotX from "src/assets/images/uses/software/cleanshot-x.png";
 import everything from "src/assets/images/uses/software/everything.png";
 import fiddlerClassic from "src/assets/images/uses/software/fiddler-classic.png";
+import githubCopilot from "src/assets/images/uses/software/github-copilot.png";
+import glasswire from "src/assets/images/uses/software/glasswire.png";
 import inkscape from "src/assets/images/uses/software/inkscape.png";
 import iTerm2 from "src/assets/images/uses/software/iterm2.png";
 import jellyfin from "src/assets/images/uses/software/jellyfin.png";
@@ -30,6 +32,7 @@ import responsively from "src/assets/images/uses/software/responsively.png";
 import stremio from "src/assets/images/uses/software/stremio.png";
 import sysinternalsSuite from "src/assets/images/uses/software/sysinternals-suite.png";
 import tabby from "src/assets/images/uses/software/tabby.webp";
+import trae from "src/assets/images/uses/software/trae.png";
 import webstorm from "src/assets/images/uses/software/webstorm.png";
 import windirstat from "src/assets/images/uses/software/windirstat.png";
 
@@ -110,6 +113,20 @@ export const software = [
     tags: ["Coding", "Windows", "MacOS"],
   },
   {
+    description: "Free cursor alternative",
+    href: "https://trae.ai",
+    image: trae,
+    name: "Trae",
+    tags: ["Coding", "Windows", "MacOS", "AI"],
+  },
+  {
+    description: "AI code assistant",
+    href: "https://github.com/features/copilot",
+    image: githubCopilot,
+    name: "GitHub copilot",
+    tags: ["Coding", "AI", "Productivity"],
+  },
+  {
     description: "For taking screenshots",
     href: "https://cleanshot.com/",
     image: cleanshotX,
@@ -170,6 +187,13 @@ export const software = [
     href: "https://www.netsetman.com/",
     image: netsetman,
     name: "NetSetMan",
+    tags: ["Tool", "Windows"],
+  },
+  {
+    description: "For monitoring network activity",
+    href: "https://www.glasswire.com/",
+    image: glasswire,
+    name: "GlassWire",
     tags: ["Tool", "Windows"],
   },
   {
