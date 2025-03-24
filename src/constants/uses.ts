@@ -8,6 +8,7 @@ import logitechG502Hero from "src/assets/images/uses/hardware/logitech-g502-hero
 import logitechMxVertical from "src/assets/images/uses/hardware/logitech-mx-vertical.png";
 import mikrotikHapAx3 from "src/assets/images/uses/hardware/mikrotik-hap-ax3.png";
 import mikrotikHapAxLiteLte6 from "src/assets/images/uses/hardware/mikrotik-hap-ax-lite-lte6.png";
+import nanoPiR5C from "src/assets/images/uses/hardware/nano-pi-r5c.png";
 import sonyWF1000XM4 from "src/assets/images/uses/hardware/sony-wf1000xm4.png";
 import tscoTs2189 from "src/assets/images/uses/hardware/tsco-ts2189.png";
 import aldentePro from "src/assets/images/uses/software/aldente-pro.png";
@@ -62,6 +63,11 @@ export const hardware = [
     description: "Travel router 🧳",
     image: mikrotikHapAxLiteLte6,
     name: "Mikrotik hAP ax lite LTE6",
+  },
+  {
+    description: "4GB RAM, 32GB eMMC, M.2 WiFi Bluetooth card, 2x USB 3.0",
+    image: nanoPiR5C,
+    name: "NanoPi R5C",
   },
   {
     description: "Not the best, but it does the job 🦾",
