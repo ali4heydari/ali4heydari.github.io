@@ -1,7 +1,9 @@
-import MonitorIcon from "mdi-react/MonitorIcon";
-import WeatherNightIcon from "mdi-react/WeatherNightIcon";
-import WeatherSunnyIcon from "mdi-react/WeatherSunnyIcon";
 import { useMemo } from "react";
+import {
+  MdMonitor as MonitorIcon,
+  MdNightsStay as WeatherNightIcon,
+  MdSunny as WeatherSunnyIcon,
+} from "react-icons/md";
 import classNames from "classnames";
 import { useTheme } from "next-themes";
 import { twMerge } from "tailwind-merge";

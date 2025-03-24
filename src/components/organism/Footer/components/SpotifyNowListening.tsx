@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import SpotifyIcon from "mdi-react/SpotifyIcon";
+import { FaSpotify as SpotifyIcon } from "react-icons/fa";
 import { twMerge } from "tailwind-merge";
 import ids from "config/ids.json";
 import type { GetNowListeningResponse } from "src/app/api/spotify/now-playing/@types";

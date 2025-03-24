@@ -1,13 +1,19 @@
-import AccountCircleIcon from "mdi-react/AccountCircleIcon";
-import BriefcaseIcon from "mdi-react/BriefcaseIcon";
-import FilmIcon from "mdi-react/FilmIcon";
-import HomeIcon from "mdi-react/HomeIcon";
-import MonitorIcon from "mdi-react/MonitorIcon";
-import MusicIcon from "mdi-react/MusicIcon";
-import NoteTextIcon from "mdi-react/NoteTextIcon";
-import PhotographyIcon from "mdi-react/PhotographyIcon";
-import RssIcon from "mdi-react/RssIcon";
-import SourceRepositoriesIcon from "mdi-react/SourceRepositoriesIcon";
+import {
+  FaBriefcase as BriefcaseIcon,
+  FaCamera as PhotographyIcon,
+  FaRss as RssIcon,
+  FaBook as NoteTextIcon,
+} from "react-icons/fa";
+import {
+  FaComputer as MonitorIcon,
+  FaCodeBranch as SourceRepositoriesIcon,
+} from "react-icons/fa6";
+import {
+  MdAccountCircle as AccountCircleIcon,
+  MdMovie as FilmIcon,
+  MdHome as HomeIcon,
+  MdOutlineMusicNote as MusicIcon,
+} from "react-icons/md";
 import { socialMedias } from "./socialMedias";
 
 export const navigation = {
