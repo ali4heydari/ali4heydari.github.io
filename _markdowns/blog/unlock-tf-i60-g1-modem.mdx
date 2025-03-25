@@ -1,0 +1,156 @@
+---
+title: "Unlock your TF-i60 G1 modem"
+publishedAt: "2025-03-25"
+summary: "Unlock your TF-i60 G1 modem to use it with any carrier"
+cover: "/static/images/_markdowns/blog/unlock-tf-i60-g1-modem/cover.jpeg"
+tags: [ "Networking", "Modem" ]
+---
+
+# Introduction
+Most of the modems are locked to a specific carrier, 
+which means you can't use them with other carriers. In this article, 
+I will show you how to unlock your TF-i60-G1 modem to use it with any carrier.
+
+
+## Prerequisites
+- TF-i60-G1 modem
+- Computer
+
+## Steps
+
+1. Connect to your modem via Wi-Fi or Ethernet cable.
+2. Open your browser and go to `192.168.1.1` to make sure you are connected to the modem.
+3. Open a terminal (CMD in Windows) and run the following command:
+
+```bash
+curl http://192.168.1.1/login.cgi_post --data "submit_button=login&submit_type=do_login&change_action=gozila_cgi&password=&username=admin&passwd=admin"
+curl http://192.168.1.1/login.cgi_post --data "submit_button=traceroute_test&submit_type=do_traceroute&change_action=gozila_cgi&tracerouteAddr=127.0.0.1%20-w%201%20%7C%20telnetd%20-p%2023%20-l%20/bin/sh&web_maxhop_count=1&web_net_mode=ipv4"
+```
+4. Open a new terminal and run the following command:
+
+```bash
+telnet 192.168.1.1
+```
+
+> If you are using Windows, you need to enable the telnet client from the control panel.
+> Go to `Control Panel > Programs > Turn Windows features on or off` and enable the `Telnet Client`.
+> Then you can run the `telnet` command.
+
+5. Now you are connected to the modem via telnet. Run the following command to remount the filesystem as read-write:
+
+```bash
+mount -o remount,rw /
+```
+6. Edit the file `/opt/nvram/nvram.cfg` via `vi` and do the modifications bellow:
+
+```bash
+vi /opt/nvram/nvram.cfg
+```
+
+Quick `vi` commands:
+> You can use the `i` key to enter the insert mode and the `Esc` key to exit the insert mode.
+> To save and exit, press `Shift + :` and type `wq` then press `Enter`.
+> use the `dd` command to delete a line.
+> use the `u` command to undo the last change.
+
+Note:
+> Exclude the `-` sign and add the `+` sign to the beginning of the line to add a new line.
+> These are for showing the changes, you don't need to add them to the file.
+
+
+```diff
+router_name=TF-160 G1^M
+router_style=GP^M
+http_username=admin^M
+http_passwd=admin^M
+webManageTimeout=10^M
+lan_ipaddr=192.168.1.1^M
+lan_management_ipaddr=192.168.1.1^M
+dhcp_start=10^M
+dhcp_end=100^M
+dhcp_num=91^M
+dhcp_lease=720^M
+mtu_enable=1^M
+wan_mtu=1500^M
+ip_proto=8^M
+-sqns_network_apnSet=1,1,0,mtnirancell,1,1,None,,^M
++sqns_network_apnSet=^M
+-sqns_simlimit_enable=1^M
++sqns_simlimit_enable=0^M
+sqns_simlimit_hplmn=1,432,35^M
+upnp_enable=1^M
+https_wan_enable=0^M
+deviceManageSecurity=1^M
+block_wan=1^M
+-cwmp_acs_url=http://172.23.10.7:10301/acs/^M
++cwmp_acs_url=http://10301/acs/^M
+cwmp_acs_username=acs^M
+cwmp_acs_userpassword=acs^M
+cwmp_periodic_inform_interval=7200^M
+cwmp_crq_username=acs^M
+cwmp_crq_password=acs^M
+time_zone=+03.5 1 6^M
+ntp_sec_server=asia.pool.ntp.org^M
+wlan_countrycode=IR^M
+wlan_channelwidth=HT20^M
+wlan_wpacipher=3^M
+wlan_wps_onoff=0^M
+sqns_connection_fastScan=1^M
+-sqns_connection_pwrScan=1^M
++wan_dns=8.8.8.8 8.8.4.4
++sqns_selplmn_enable=0
++sqns_selected_plmn=
++cwmp_enable=0
+```
+7. Create a new file named `rc1` via `vi`:
+
+```bash
+vi /etc/init.d/rc1
+```
+
+Note:
+> Exclude the `+` sign to the beginning of the line to add a new line.
+> These are for showing the changes, you don't need to add them to the file.
+
+```diff
++#!/bin/sh
++nvram_set 0 sqns_simcard_hplmn 43235
++nvram_set 0 cwmp_enable 0
++nvram_set 0 cwmp_acs_url
++nvram_set 0 wan_dns 8.8.8.8 8.8.4.4
++nvram commit 0
++killall tr069
++sleep 20
++nvram_set 0 sqns_simcard_hplmn 43235
++nvram_set 0 cwmp_enable 0
++nvram_set 0 cwmp_acs_url
++nvram_set 0 wan_dns 8.8.8.8 8.8.4.4
++nvram commit 0
++killall tr069
+```
+
+8. Grant execute permission to the `rc1` file and add it to the startup scripts:
+
+```bash
+chmod 777 /etc/init.d/rc1
+
+chmod +x /etc/init.d/rc1
+
+chmod 777 /etc/init.d/rcS
+
+echo -e '\n. ~/etc/init.d/rc1 &' >> /etc/init.d/rcS
+
+chmod +x /etc/init.d/rcS
+```
+
+9. Re-check the modifications:
+
+```bash
+cat /opt/nvram/nvram.cfg
+
+cat /etc/init.d/rc1
+
+cat /etc/init.d/rcS
+```
+
+10. Reboot the modem from the browser and wait for it to restart. Enjoy your unlocked modem!
