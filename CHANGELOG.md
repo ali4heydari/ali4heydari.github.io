@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.2.0](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.1.4...v3.2.0) (2025-03-26)
+
 ### [3.1.4](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.1.3...v3.1.4) (2025-03-24)
 
 ### [3.1.3](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.1.2...v3.1.3) (2025-03-01)
