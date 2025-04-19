@@ -27,6 +27,7 @@ export default function SpotifyNowListening() {
         (res) => res.data,
       ),
     queryKey: ["/api/spotify/now-playing"],
+    refetchInterval: 30_0000,
   });
 
   if (isLoading) return <div>Loading...</div>;
