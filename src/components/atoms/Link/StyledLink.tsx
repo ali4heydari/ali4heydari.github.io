@@ -36,7 +36,7 @@ const StyledLink = ({
         : {})}
       className={twMerge(
         classNames(
-          "rounded-lg px-3 py-1 text-sm font-semibold leading-6 hover:bg-gray-200 hover:underline dark:hover:bg-gray-700",
+          "rounded-lg px-3 py-1 text-sm leading-6 font-semibold hover:bg-gray-200 hover:underline dark:hover:bg-gray-700",
           pathname === href
             ? "bg-gray-300 text-indigo-600 dark:bg-gray-700 dark:text-indigo-400"
             : "text-gray-900 dark:text-gray-100",

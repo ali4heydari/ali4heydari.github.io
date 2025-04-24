@@ -8,7 +8,7 @@ import { usePathname } from "next/navigation";
 const BottomNavigation = () => {
   const pathname = usePathname();
   return (
-    <div className="sticky bottom-0 left-0 z-50 h-16 w-full border-t border-gray-200 bg-gray-100 dark:border-gray-600 dark:bg-gray-800 dark:shadow-indigo-400 lg:hidden">
+    <div className="sticky bottom-0 left-0 z-50 h-16 w-full border-t border-gray-200 bg-gray-100 lg:hidden dark:border-gray-600 dark:bg-gray-800 dark:shadow-indigo-400">
       <div className="mx-auto grid h-full max-w-lg grid-cols-4 font-medium">
         {navigation.primary.map((item) => (
           <Link
