@@ -49,7 +49,7 @@ const Uses = () => {
         placeholder="blur"
         alt="Home setup"
       />
-      <h2 className="p-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+      <h2 className="p-3 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl dark:text-white">
         Hardware
       </h2>
       <p className="mb-4 text-xl text-gray-600 dark:text-gray-400">
@@ -59,7 +59,7 @@ const Uses = () => {
         {hardware.map((hardware) => (
           <div
             key={hardware.name}
-            className="flex max-w-sm items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 shadow dark:border-gray-700 dark:bg-gray-800 lg:flex-col lg:justify-center"
+            className="flex max-w-sm items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 shadow-sm lg:flex-col lg:justify-center dark:border-gray-700 dark:bg-gray-800"
           >
             <Image
               className="h-26 w-36 rounded-2xl object-cover p-1"
@@ -80,7 +80,7 @@ const Uses = () => {
           </div>
         ))}
       </div>
-      <h2 className="p-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+      <h2 className="p-3 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl dark:text-white">
         Software
       </h2>
       <p className="mb-4 text-xl text-gray-600 dark:text-gray-400">
@@ -100,7 +100,7 @@ const Uses = () => {
       <div className="grid grid-cols-1 gap-6 pb-2 md:grid-cols-2 lg:grid-cols-6 lg:gap-2">
         {software.map((software) => (
           <Link key={software.name} href={software.href} target="_blank">
-            <div className="flex h-full max-w-sm items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 shadow dark:border-gray-700 dark:bg-gray-800 lg:flex-col lg:justify-center">
+            <div className="flex h-full max-w-sm items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 shadow-sm lg:flex-col lg:justify-center dark:border-gray-700 dark:bg-gray-800">
               <Image
                 className="h-26 w-36 rounded-2xl object-cover p-1"
                 placeholder="blur"

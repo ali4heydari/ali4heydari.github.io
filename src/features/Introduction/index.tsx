@@ -9,7 +9,7 @@ const Introduction = () => {
     <section>
       <TitleSection center>About me</TitleSection>
       <Image
-        className="my-10 aspect-[3/2] w-full rounded-2xl object-cover"
+        className="my-10 aspect-3/2 w-full rounded-2xl object-cover"
         src={meInFrontOfALaptop}
         placeholder="blur"
         alt="Ali Heydari in front of a laptop"

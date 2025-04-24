@@ -11,7 +11,6 @@ import { getStaticMetadata } from "src/utils/metadata";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import Script from "next/script";
-import "tailwindcss/tailwind.css";
 
 export const metadata = {
   ...getStaticMetadata({
