@@ -10,8 +10,6 @@ const config: StorybookConfig = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-backgrounds",
-    "storybook-css-modules-preset",
-    "storybook-tailwind-dark-mode",
   ],
 
   framework: {

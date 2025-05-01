@@ -1,7 +1,23 @@
 import { Preview } from "@storybook/react";
+import Providers from "../src/providers";
 import "../src/styles/global.css";
+import { withThemeByClassName } from "@storybook/addon-themes";
 
 export const preview: Preview = {
+  decorators: [
+    withThemeByClassName({
+      defaultTheme: "light",
+      themes: {
+        dark: "dark",
+        light: "light",
+      },
+    }),
+    (Story) => (
+      <Providers>
+        <Story />
+      </Providers>
+    ),
+  ],
   globalTypes: {
     darkMode: {
       defaultValue: false,
