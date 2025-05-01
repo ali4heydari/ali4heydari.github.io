@@ -8,7 +8,7 @@ export interface TimeRangeSelectProps {
 const TimeRangeSelect = ({ setTimeRange, timeRange }: TimeRangeSelectProps) => {
   return (
     <div className="mb-4 flex justify-center">
-      <div className="inline-flex rounded-md shadow-sm" role="group">
+      <div className="inline-flex rounded-md shadow-xs" role="group">
         <button
           type="button"
           onClick={() => {
@@ -30,7 +30,7 @@ const TimeRangeSelect = ({ setTimeRange, timeRange }: TimeRangeSelectProps) => {
             setTimeRange("medium_term");
           }}
           className={twMerge(
-            "border-b border-t border-gray-900 bg-transparent px-4 py-2 text-sm font-medium text-gray-900",
+            "border-t border-b border-gray-900 bg-transparent px-4 py-2 text-sm font-medium text-gray-900",
             "hover:bg-gray-900 hover:text-white focus:z-10 focus:bg-gray-900 focus:text-white focus:ring-2 focus:ring-gray-500",
             "dark:border-white dark:text-white dark:hover:bg-gray-700 dark:hover:text-white dark:focus:bg-gray-700",
             timeRange === "medium_term" &&

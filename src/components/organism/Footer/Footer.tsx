@@ -5,12 +5,12 @@ import SteamNowPlaying from "./components/SteamNowPlaying";
 
 const Footer = () => {
   return (
-    <footer id="footer" className="bg-white p-4 dark:bg-gray-800 sm:p-6">
-      <div className="mx-auto max-w-screen-xl">
+    <footer id="footer" className="bg-white p-4 sm:p-6 dark:bg-gray-800">
+      <div className="mx-auto max-w-(--breakpoint-xl)">
         <div className="md:flex md:justify-between">
           <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 sm:gap-12">
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 General
               </h2>
               <ul className="space-y-1 text-gray-600 dark:text-gray-400">
@@ -25,7 +25,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Other
               </h2>
               <ul className="space-y-1 text-gray-600 dark:text-gray-400">
@@ -40,7 +40,7 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h2 className="mb-6 text-sm font-semibold uppercase text-gray-900 dark:text-white">
+              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Personality
               </h2>
               <ul className="space-y-1 text-gray-600 dark:text-gray-400">
@@ -60,12 +60,12 @@ const Footer = () => {
             <SteamNowPlaying />
           </div>
         </div>
-        <hr className="my-6 border-gray-200 dark:border-gray-700 sm:mx-auto lg:my-8" />
+        <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
         <div className="sm:flex sm:items-center sm:justify-between">
-          <span className="text-sm text-gray-500 dark:text-gray-400 sm:text-center">
+          <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © {new Date().getFullYear()} Ali Heydari . All Rights Reserved.
           </span>
-          <div className="mt-4 flex flex-wrap justify-center space-x-1 space-y-1 sm:mt-0 sm:justify-center">
+          <div className="mt-4 flex flex-wrap justify-center space-y-1 space-x-1 sm:mt-0 sm:justify-center">
             {navigation.socialMedias.map((it) => (
               <StyledLink
                 href={it.href}

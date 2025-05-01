@@ -7,7 +7,9 @@ import { configs as pluginPackageJsonConfigs } from "eslint-plugin-package-json"
 import pluginPerfectionist from "eslint-plugin-perfectionist";
 import pluginPromise from "eslint-plugin-promise";
 import pluginStorybook from "eslint-plugin-storybook";
-import pluginTailwind from "eslint-plugin-tailwindcss";
+// TODO: enable tailwind plugin
+// https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/384
+// import pluginTailwind from "eslint-plugin-tailwindcss";
 import pluginTestingLibrary from "eslint-plugin-testing-library";
 import pluginTypescriptSortKeys from "eslint-plugin-typescript-sort-keys";
 import typescriptEslint, {
@@ -46,7 +48,7 @@ export default typescriptEslint.config(
     },
   },
   ...pluginTanStackQuery.configs["flat/recommended"],
-  ...pluginTailwind.configs["flat/recommended"],
+  // ...pluginTailwind.configs["flat/recommended"],
   pluginPromise.configs["flat/recommended"],
   {
     files: ["package.json"],

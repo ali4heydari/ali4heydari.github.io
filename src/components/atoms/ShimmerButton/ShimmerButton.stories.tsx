@@ -15,7 +15,7 @@ export const Primary = Template.bind({});
 
 Primary.args = {
   children: (
-    <span className="relative z-10 whitespace-pre text-center text-base font-semibold leading-none tracking-tight text-white">
+    <span className="relative z-10 text-center text-base leading-none font-semibold tracking-tight whitespace-pre text-white">
       Download my resume
     </span>
   ),

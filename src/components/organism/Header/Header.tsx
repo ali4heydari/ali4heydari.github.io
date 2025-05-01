@@ -43,7 +43,7 @@ const Header = () => {
             <StyledLink
               key={item.name}
               href={item.href}
-              className="rounded-lg px-3 py-1 text-sm font-semibold leading-6 text-gray-900 dark:text-gray-100 dark:hover:bg-gray-700"
+              className="rounded-lg px-3 py-1 text-sm leading-6 font-semibold text-gray-900 dark:text-gray-100 dark:hover:bg-gray-700"
             >
               {item.name}
             </StyledLink>
@@ -60,7 +60,7 @@ const Header = () => {
         onClose={setMobileMenuOpen}
       >
         <div className="fixed inset-0 z-50" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 dark:bg-gray-900 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white p-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10 dark:bg-gray-900">
           <div className="flex h-full flex-col justify-between">
             <div>
               <div className="flex items-center justify-between">
@@ -95,7 +95,7 @@ const Header = () => {
                                 onClick={() => {
                                   setMobileMenuOpen(false);
                                 }}
-                                className="block rounded-lg border border-gray-300 px-3 py-2 text-base font-semibold leading-7"
+                                className="block rounded-lg border border-gray-300 px-3 py-2 text-base leading-7 font-semibold"
                               >
                                 <item.svgIcon className="mr-2 inline-block size-6" />
                                 {item.name}
