@@ -34,23 +34,23 @@ const ShimmerButton = ({
         } as CSSProperties
       }
       className={classNames(
-        "group relative flex h-11 cursor-pointer overflow-hidden whitespace-nowrap px-6 text-white shadow-[0_0_0_3px_rgba(255,255,255,0.3)_inset]",
-        "transition-all duration-300 [background:var(--bg)] [border-radius:var(--radius)] hover:scale-105 dark:text-black",
+        "group relative flex h-11 cursor-pointer overflow-hidden px-6 whitespace-nowrap text-white shadow-[0_0_0_3px_rgba(255,255,255,0.3)_inset]",
+        "[border-radius:var(--radius)] transition-all duration-300 [background:var(--bg)] hover:scale-105 dark:text-black",
         className,
       )}
       {...props}
     >
-      <div className="absolute inset-0 overflow-visible [container-type:size]">
-        <div className="absolute inset-0 h-[100cqh] animate-slide [aspect-ratio:1] [border-radius:0] [mask:none]">
+      <div className="[container-type:size] absolute inset-0 overflow-visible">
+        <div className="animate-slide absolute inset-0 [aspect-ratio:1] h-[100cqh] [border-radius:0] [mask:none]">
           <div
             className={classNames(
               "absolute inset-[-100%] w-auto rotate-0 animate-spin",
-              "[background:conic-gradient(from_calc(270deg-(var(--spread)*0.5)),transparent_0,hsl(0_0%_100%/1)_var(--spread),transparent_var(--spread))] [translate:0_0]",
+              "[translate:0_0] [background:conic-gradient(from_calc(270deg-(var(--spread)*0.5)),transparent_0,hsl(0_0%_100%/1)_var(--spread),transparent_var(--spread))]",
             )}
           />
         </div>
       </div>
-      <div className="absolute [background:var(--bg)] [border-radius:var(--radius)] [inset:var(--cut)]" />
+      <div className="absolute [inset:var(--cut)] [border-radius:var(--radius)] [background:var(--bg)]" />
       {children}
     </button>
   );

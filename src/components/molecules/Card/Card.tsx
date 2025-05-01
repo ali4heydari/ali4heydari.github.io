@@ -24,7 +24,7 @@ const Card = (props: CardProps) => {
     imageAlt,
     imageSrc,
     loading,
-    rootClassName = "bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 flex items-center gap-2 p-4 md:flex-col md:justify-center",
+    rootClassName = "bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700 flex items-center gap-2 p-4 md:flex-col md:justify-center",
     subtitle,
     title,
     width = 200,
@@ -65,9 +65,9 @@ const Card = (props: CardProps) => {
     return (
       <div
         role="status"
-        className="flex animate-pulse items-center justify-between gap-2 rounded border border-gray-200 p-4 shadow dark:border-gray-700 dark:bg-gray-800 md:block md:p-6"
+        className="flex animate-pulse items-center justify-between gap-2 rounded-sm border border-gray-200 p-4 shadow-sm md:block md:p-6 dark:border-gray-700 dark:bg-gray-800"
       >
-        <div className="mb-4 flex h-48 w-1/2 items-center justify-center rounded bg-gray-300 dark:bg-gray-700 md:w-full">
+        <div className="mb-4 flex h-48 w-1/2 items-center justify-center rounded-sm bg-gray-300 md:w-full dark:bg-gray-700">
           <PhotoIcon className="size-10 text-gray-200 dark:text-gray-600" />
         </div>
         <div className="w-1/2 md:w-full">

@@ -1,5 +1,16 @@
 # Changelog
 
+## [3.3.0](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.2.0...v3.3.0) (2025-05-01)
+
+### Features
+
+* add refetch interval for Spotify now playing data ([706e08d](https://github.com/ali4heydari/ali4heydari.github.io/commit/706e08d1f7144642a7740254af1b3a4e51a14ace))
+* add refetch interval for Spotify now playing data ([acc99ef](https://github.com/ali4heydari/ali4heydari.github.io/commit/acc99ef6f7a764ff5c9ee583a91f327668919ce3))
+* integrate Sentry for error tracking in route handling ([4908774](https://github.com/ali4heydari/ali4heydari.github.io/commit/490877462ce3ec0f1fda245a25478a2f592b9d3f))
+* integrate Sentry for error tracking in route handling ([2ec0ca6](https://github.com/ali4heydari/ali4heydari.github.io/commit/2ec0ca66c9f5999842614b4d72d65fc80f42b8b7))
+* update Storybook configuration and replace deprecated addons ([dd02f94](https://github.com/ali4heydari/ali4heydari.github.io/commit/dd02f94e53c6b4fadfccebfee112c981f9977892))
+* update Storybook configuration and replace deprecated addons ([9d246d9](https://github.com/ali4heydari/ali4heydari.github.io/commit/9d246d9fb7585e87b0628516adffb4ad34b53d9d))
+
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
 ## [3.2.0](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.1.4...v3.2.0) (2025-03-26)

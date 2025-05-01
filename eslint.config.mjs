@@ -1,12 +1,15 @@
 import pluginReact from "eslint-plugin-react";
 import globals from "globals";
 import * as pluginImportResolverTs from "eslint-import-resolver-typescript";
-import pluginImportX from "eslint-plugin-import-x";
+import { flatConfigs as pluginImportXFlatConfigs } from "eslint-plugin-import-x";
 import pluginNoRelativeImport from "eslint-plugin-no-relative-import-paths";
+import { configs as pluginPackageJsonConfigs } from "eslint-plugin-package-json";
 import pluginPerfectionist from "eslint-plugin-perfectionist";
 import pluginPromise from "eslint-plugin-promise";
 import pluginStorybook from "eslint-plugin-storybook";
-import pluginTailwind from "eslint-plugin-tailwindcss";
+// TODO: enable tailwind plugin
+// https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/384
+// import pluginTailwind from "eslint-plugin-tailwindcss";
 import pluginTestingLibrary from "eslint-plugin-testing-library";
 import pluginTypescriptSortKeys from "eslint-plugin-typescript-sort-keys";
 import typescriptEslint, {
@@ -17,7 +20,6 @@ import typescriptEslint, {
 import eslint from "@eslint/js";
 import pluginNext from "@next/eslint-plugin-next";
 import pluginTanStackQuery from "@tanstack/eslint-plugin-query";
-import pluginPackageJson from "eslint-plugin-package-json/configs/recommended";
 import pluginPrettier from "eslint-plugin-prettier/recommended";
 
 export default typescriptEslint.config(
@@ -27,8 +29,8 @@ export default typescriptEslint.config(
   eslint.configs.recommended,
   // eslint.configs.all,
   ...typescriptEslintConfigs.recommended,
-  pluginImportX.flatConfigs.recommended,
-  pluginImportX.flatConfigs.typescript,
+  pluginImportXFlatConfigs.recommended,
+  pluginImportXFlatConfigs.typescript,
   {
     extends: [...typescriptEslintConfigs.strictTypeChecked],
     files: ["**/*.ts?(x)"],
@@ -46,11 +48,11 @@ export default typescriptEslint.config(
     },
   },
   ...pluginTanStackQuery.configs["flat/recommended"],
-  ...pluginTailwind.configs["flat/recommended"],
+  // ...pluginTailwind.configs["flat/recommended"],
   pluginPromise.configs["flat/recommended"],
   {
     files: ["package.json"],
-    ...pluginPackageJson,
+    ...pluginPackageJsonConfigs.recommended,
   },
   {
     files: ["**/*.test.(t|j)sx?", "**/*.spec.(t|j)sx?", "**/__tests__/**/*"],
