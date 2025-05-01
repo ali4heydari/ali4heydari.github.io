@@ -66,7 +66,7 @@ const BlogPage: NextPage = () => {
                     className="mb-5 rounded-lg"
                     alt={blog.title}
                   />
-                  <h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
+                  <h2 className="mb-2 text-xl leading-tight font-bold text-gray-900 dark:text-white">
                     {blog.title}
                   </h2>
                   <div className="mb-6 flex items-center justify-between text-xs text-gray-500 dark:text-gray-400">
@@ -89,7 +89,7 @@ const BlogPage: NextPage = () => {
                     {blog.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="m-0.5 inline-flex items-center rounded border border-gray-500 bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-400"
+                        className="m-0.5 inline-flex items-center rounded-sm border border-gray-500 bg-gray-100 px-1.5 py-0.5 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-400"
                       >
                         {tag}
                       </span>

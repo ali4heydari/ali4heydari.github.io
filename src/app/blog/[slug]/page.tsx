@@ -61,10 +61,10 @@ const BlogPage: NextPage<{
   );
   return (
     <>
-      <main className="pb-16 pt-8 antialiased lg:pb-24 lg:pt-16">
-        <div className="mx-auto flex max-w-screen-xl justify-between px-4">
+      <main className="pt-8 pb-16 antialiased lg:pt-16 lg:pb-24">
+        <div className="mx-auto flex max-w-(--breakpoint-xl) justify-between px-4">
           <article className="mx-auto w-full">
-            <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-4xl md:text-5xl">
+            <h1 className="mb-4 text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl md:text-5xl dark:text-white">
               {post.title}
             </h1>
 
@@ -127,7 +127,7 @@ const BlogPage: NextPage<{
                 {post.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="m-0.5 mr-2 inline-flex items-center rounded border border-gray-500 bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-400"
+                    className="m-0.5 mr-2 inline-flex items-center rounded-sm border border-gray-500 bg-gray-100 px-2.5 py-0.5 text-xs font-medium text-gray-800 dark:bg-gray-700 dark:text-gray-400"
                   >
                     {tag}
                   </span>

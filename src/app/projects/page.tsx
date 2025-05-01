@@ -53,7 +53,7 @@ const ProjectsPage: NextPage = () => {
               <article className="flex w-full flex-col-reverse justify-between lg:flex-row">
                 <div className="flex w-2/3 flex-col justify-between">
                   <div>
-                    <h2 className="mb-2 text-xl font-bold leading-tight text-gray-900 dark:text-white">
+                    <h2 className="mb-2 text-xl leading-tight font-bold text-gray-900 dark:text-white">
                       {project.title}
                     </h2>
                     <p className="flex flex-wrap justify-start gap-1 text-xs font-light text-gray-500 dark:text-gray-400">
@@ -74,7 +74,7 @@ const ProjectsPage: NextPage = () => {
                     {project.tags.slice(0, 4).map((tag) => (
                       <span
                         key={tag}
-                        className="m-0.5 mr-2 inline-flex items-center rounded border border-gray-500 bg-gray-100 px-1.5 py-0.5 text-xs font-light text-gray-800 dark:bg-gray-700 dark:text-gray-400"
+                        className="m-0.5 mr-2 inline-flex items-center rounded-sm border border-gray-500 bg-gray-100 px-1.5 py-0.5 text-xs font-light text-gray-800 dark:bg-gray-700 dark:text-gray-400"
                       >
                         {tag}
                       </span>
@@ -84,7 +84,7 @@ const ProjectsPage: NextPage = () => {
 
                 <Image
                   src={project.cover}
-                  className="mb-5 aspect-[2/3] h-64 rounded-lg object-cover"
+                  className="mb-5 aspect-2/3 h-64 rounded-lg object-cover"
                   alt={project.title}
                   width={600}
                   height={900}

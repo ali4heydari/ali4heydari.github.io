@@ -10,6 +10,19 @@ export const preview: Preview = {
     },
   },
   parameters: {
+    background: {
+      default: "light",
+      values: [
+        {
+          name: "light",
+          value: "var(--color-white)",
+        },
+        {
+          name: "dark",
+          value: "var(--color-gray-800)",
+        },
+      ],
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,

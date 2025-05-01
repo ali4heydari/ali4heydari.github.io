@@ -23,7 +23,7 @@ const MovieTastePage: NextPage = async () => {
   return (
     <section>
       <TitleSection>Movie taste</TitleSection>
-      <h2 className="p-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-3xl">
+      <h2 className="p-3 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl dark:text-white">
         Top Movies and Series
       </h2>
       <p className="mb-4 text-xl text-gray-600 dark:text-gray-400">
@@ -45,7 +45,7 @@ const MovieTastePage: NextPage = async () => {
             title={`Check out ${movie.title} on Letterboxd`}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-lg border border-gray-200 p-2 shadow dark:border-gray-700 dark:bg-gray-800"
+            className="rounded-lg border border-gray-200 p-2 shadow-sm dark:border-gray-700 dark:bg-gray-800"
           >
             <div>
               <Image

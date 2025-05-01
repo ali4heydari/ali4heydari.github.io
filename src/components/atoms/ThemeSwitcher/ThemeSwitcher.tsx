@@ -48,7 +48,7 @@ const ThemeSwitcher = () => {
           className={twMerge(
             classNames(
               "h-8 w-8 cursor-pointer rounded-full p-1 text-gray-900 transition duration-300 ease-in-out dark:text-gray-100",
-              "focus:bg-gray-300 focus:outline-none hocus:bg-gray-300 dark:focus:bg-gray-600 dark:hocus:bg-gray-600",
+              "hocus:bg-gray-300 dark:hocus:bg-gray-600 focus:bg-gray-300 focus:outline-hidden dark:focus:bg-gray-600",
               theme === it.value && "bg-gray-200 dark:bg-gray-700",
             ),
           )}

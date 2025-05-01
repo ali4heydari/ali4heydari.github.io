@@ -42,7 +42,7 @@ export default function SpotifyNowListening() {
   const animationDuration = scrollingText.length * 0.325;
 
   const scrollingTextClassName = twMerge(
-    "motion-safe:[animation-play-state:running] group-hocus/music:underline group-hocus/music:motion-safe:[animation-play-state:paused]",
+    "motion-safe:[animation-play-state:running] group-hocus/music:underline motion-safe:group-hocus/music:[animation-play-state:paused]",
     isPlaying
       ? "motion-safe:animate-scroll"
       : "motion-safe:animate-none truncate",
@@ -51,7 +51,7 @@ export default function SpotifyNowListening() {
     <Link
       className={twMerge(
         "text-tertiary-txt text-2xs m-1 mx-auto inline-flex w-full flex-1 items-center gap-6 text-green-500",
-        "hocus:text-secondary-txt group/music max-w-xs truncate font-normal hocus:no-underline md:max-w-sm",
+        "hocus:text-secondary-txt group/music hocus:no-underline max-w-xs truncate font-normal md:max-w-sm",
       )}
       title={
         isPlaying
