@@ -63,6 +63,7 @@
     "reading-time": "^1.5.0",
     "rehype-accessible-emojis": "^0.3.2",
     "rehype-autolink-headings": "^7.1.0",
+    "rehype-callouts": "^2.1.0",
     "rehype-code-titles": "^1.0.3",
     "rehype-pretty-code": "^0.14.1",
     "rehype-slug": "^6.0.0",

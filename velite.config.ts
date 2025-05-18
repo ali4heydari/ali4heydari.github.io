@@ -1,6 +1,7 @@
 import { defineConfig } from "velite";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeCallouts from "rehype-callouts";
 import rehypeCodeTitles from "rehype-code-titles";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
@@ -23,6 +24,7 @@ export default defineConfig({
       rehypeAccessibleEmojis,
       rehypeToc,
       rehypePrettyCode,
+      rehypeCallouts,
       [
         rehypeAutolinkHeadings,
         {
