@@ -31,7 +31,7 @@ curl http://192.168.1.1/login.cgi_post --data "submit_button=traceroute_test&sub
 ```bash
 telnet 192.168.1.1
 ```
-
+> [!important]
 > If you are using Windows, you need to enable the telnet client from the control panel.
 > Go to `Control Panel > Programs > Turn Windows features on or off` and enable the `Telnet Client`.
 > Then you can run the `telnet` command.
@@ -47,13 +47,13 @@ mount -o remount,rw /
 vi /opt/nvram/nvram.cfg
 ```
 
-Quick `vi` commands:
+> [!note]- Quick `vi` commands:
 > You can use the `i` key to enter the insert mode and the `Esc` key to exit the insert mode.
 > To save and exit, press `Shift + :` and type `wq` then press `Enter`.
 > use the `dd` command to delete a line.
 > use the `u` command to undo the last change.
 
-Note:
+> [!tip]
 > Exclude the `-` sign and add the `+` sign to the beginning of the line to add a new line.
 > These are for showing the changes, you don't need to add them to the file.
 
@@ -108,7 +108,7 @@ sqns_connection_fastScan=1^M
 vi /etc/init.d/rc1
 ```
 
-Note:
+> [!tip]
 > Exclude the `+` sign to the beginning of the line to add a new line.
 > These are for showing the changes, you don't need to add them to the file.
 

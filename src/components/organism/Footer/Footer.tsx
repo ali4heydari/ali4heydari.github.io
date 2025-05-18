@@ -1,3 +1,4 @@
+import packageJson from "package.json";
 import StyledLink from "src/components/atoms/Link";
 import { navigation } from "src/constants";
 import SpotifyNowListening from "./components/SpotifyNowListening";
@@ -63,7 +64,8 @@ const Footer = () => {
         <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8 dark:border-gray-700" />
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
-            © {new Date().getFullYear()} Ali Heydari . All Rights Reserved.
+            v{packageJson.version} | © {new Date().getFullYear()} Ali Heydari .
+            All Rights Reserved.
           </span>
           <div className="mt-4 flex flex-wrap justify-center space-y-1 space-x-1 sm:mt-0 sm:justify-center">
             {navigation.socialMedias.map((it) => (

@@ -1,0 +1,352 @@
+---
+title: "Reverse Engineering Android APIs: From Network Requests to OpenAPI and SDK"
+publishedAt: "2025-05-18"
+summary: "Learn how to intercept HTTPS traffic, bypass certificate pinning, and transform captured requests into a fully functional API SDK"
+cover: "/static/images/_markdowns/blog/bypassing-certificate-pinning-android-api-sdk/cover.png"
+tags: ["Open API","Android", "API SDK", "MITM Proxy"]
+---
+
+## Introduction
+
+Sometimes I work as a Snapp driver (a ride-hailing service like Uber in Iran).
+One of the features that the "Driver app" has is "Desired Destination,"
+which allows drivers to set a destination and get matched with passengers who are going in the same direction.
+This feature is really useful for drivers to earn more money by picking up passengers who are going in the same direction.
+I like driving and I believe not only is this feature a win-win for both drivers and passengers,
+but it also helps to reduce traffic and pollution in the city. Plus it's fun for me, and sometimes I get to know new people and cultures.
+
+The application had two different mechanisms for showing ride offers.
+For inner-city offers, it shows something like a bottom sheet with the details of the ride.
+For inter-city offers, there was a button that opens a web-view which contains a simple list of rides with a button to accept the offer.
+
+<div  className="[&>p]:flex [&>p]:justify-around [&>p]:items-center">
+  ![inner-city-offer.png](/static/images/_markdowns/blog/bypassing-certificate-pinning-android-api-sdk/inner-city-offer.png)
+  ![inter-city-offer.png](/static/images/_markdowns/blog/bypassing-certificate-pinning-android-api-sdk/inter-city-offers.png)
+</div>
+
+At that time, the "Desired Destination" feature was only available for inner-city rides and was a bit buggy (or not working) for inter-city rides.
+I was curious to know how the API works for inter-city rides and if it would be possible to write a script
+that notifies me when there's a ride available for my desired destination.
+So I decided to inspect the network requests of the Android app to see how it works and if I could reverse engineer the API.
+
+## What You'll Learn
+
+In this article, you'll learn how to:
+- Intercept HTTPS traffic from Android apps
+- Bypass certificate pinning in secured applications
+- Convert intercepted network requests into OpenAPI specifications
+- Create modular OpenAPI documents
+- Generate usable API SDKs from specifications
+
+## Prerequisites
+
+Before we begin, make sure you have:
+- Basic knowledge of Android and network requests
+- A computer with Node.js installed
+- Python installed for some of the tools we'll use
+- An Android emulator or physical device
+
+## Tools Overview
+
+We'll be using several specialized tools throughout this process:
+- **mitmproxy**: A powerful tool for intercepting and analyzing network traffic
+- **apk-mitm**: A CLI tool that prepares Android APK files for HTTPS inspection
+- **mitmproxy2swagger**: Converts mitmproxy captured traffic into OpenAPI specifications
+- **Redocly**: For modularizing and improving OpenAPI specifications
+
+## Network Requests Inspection Preparation
+
+At first, for inspecting the network requests, I tried to use some Android applications
+like [Packet Capture](https://play.google.com/store/apps/details?id=app.greyshirts.sslcapture&hl=en&gl=US)
+and [HttpCanary](https://play.google.com/store/apps/details?id=com.guoshi.httpcanary&hl=en&gl=US), but they didn't work.
+Then I decided to use [mitmproxy](https://mitmproxy.org/), which is a powerful tool for intercepting and modifying network requests.
+
+### Installing mitmproxy
+
+To install mitmproxy, you can use the following command:
+
+```bash
+pip install mitmproxy
+```
+
+You can also install it using Homebrew on macOS:
+
+```bash
+brew install mitmproxy
+```
+
+You can also install it using [Chocolatey](https://chocolatey.org/) on Windows:
+
+```bash
+choco install mitmproxy
+```
+
+You can also download the latest version of mitmproxy from the [official website](https://mitmproxy.org/).
+
+### Setting Up mitmproxy
+
+To set up mitmproxy, you need to configure your Android device to use mitmproxy as a proxy server.
+mitmproxy has both CLI and GUI interfaces. To use the GUI interface, you can run the following command in your Linux/macOS terminal or Windows `cmd`:
+
+```bash
+mitmweb
+```
+
+This will start the mitmproxy web interface on port 8081 by default. You can access it by going to `http://localhost:8081` in your web browser.
+The proxy server will be running on port 8080 by default.
+
+### Configuring Android Device
+
+I used the [Genymotion](https://www.genymotion.com/) emulator for this purpose.
+Genymotion is a powerful Android emulator that allows you to run Android apps on your computer.
+
+### Proxy Configuration
+
+1. Open Genymotion and start your virtual device.
+2. Go to the settings of your virtual device and select "Wi-Fi".
+3. Long press on the connected Wi-Fi network and select "Modify network".
+4. Check the "Show advanced options" checkbox.
+5. Set the "Proxy" to "Manual".
+6. Set Proxy IP to `10.0.3.2`. This is the IP address of the host machine in Genymotion.
+If you are using a physical device, you can find your computer's IP address by running `ipconfig` on Windows or `ifconfig` on Linux/macOS.
+7. Set Proxy Port to `8080`.
+
+Now the Android device is configured to use mitmproxy as a proxy server.
+
+### Installing mitmproxy Certificate
+
+To intercept HTTPS traffic, you need to install the mitmproxy certificate on your Android device.
+1. Open the mitmproxy web interface in your web browser by going to `http://localhost:8081`.
+2. Click on the "Install Certificate" button.
+3. Follow the instructions to install the certificate on your Android device.
+
+### Installing the Android App
+
+To install the Android app, you can use the following command:
+
+```bash
+adb install <path-to-apk-file>
+```
+
+> [!important]
+> You need to have [Android SDK](https://developer.android.com/studio) installed on your machine.
+> You can install adb using [Homebrew](https://brew.sh/) on macOS via `brew install android-platform-tools`.
+
+You can also install the app from the Google Play Store.
+
+## Start Intercepting Network Requests
+
+Now you can start intercepting network requests from the Android app.
+1. Open the Android app and start using it.
+2. You should see the network requests in the mitmproxy web interface.
+3. You can filter the requests by using the search bar at the top of the page.
+4. You can also view the request and response headers, body, and other details by clicking on the request.
+5. You can also modify the request and response by clicking on the "Edit" button.
+
+But wait, the result was not what I expected. The HTTPS requests were not visible in the mitmproxy web interface.
+At that moment, I realized that the application was using certificate pinning, which is a security technique that prevents man-in-the-middle attacks by hardcoding the expected certificate or public key into the app. This prevents tools like mitmproxy from intercepting encrypted traffic, even with a trusted certificate installed on the device.
+
+
+### Bypassing Certificate Pinning
+
+To bypass the certificate pinning, I found some tools like [Frida](https://frida.re/), which is a powerful tool for reverse engineering Android apps.
+However, I didn't go with it because it was a bit complicated for me and I didn't have enough time to learn it.
+Instead, I found [apk-mitm](https://github.com/niklashigi/apk-mitm), which is a CLI tool that automatically prepares Android APK files for HTTPS inspection.
+
+### Installing apk-mitm
+
+To install apk-mitm, you can use the following command:
+
+> **Note**:
+> You need to have [Node.js](https://nodejs.org/) installed on your machine.
+
+```bash
+npm install -g apk-mitm
+```
+
+### Using apk-mitm
+
+Using apk-mitm is really simple. Since we are going to use it with mitmproxy, first we need to
+download mitmproxy's certificate in `.pem` format and then we can use apk-mitm to modify the APK file.
+After downloading the mitmproxy certificate, you can use the following command to modify the APK file:
+
+```bash
+apk-mitm --certificate <path-to-mitmproxy-certificate.pem> <path-to-apk-file>
+```
+
+This command might take a couple of minutes to finish, so be patient.
+After the command is finished, you will see a new APK file with the same name as the original APK file but with a `-patched` suffix.
+
+Now let's go back and install the modified APK file on the Genymotion emulator.
+
+## Intercepting HTTPS Network Requests
+
+Now that we've installed the modified APK file, we can start intercepting network requests again.
+Open the Android app and start using it. Since we are going to use the inter-city ride feature,
+we need to open the web-view and see if we can see the network requests.
+After opening the web-view, you should see the network requests in the mitmproxy web interface.
+You can filter the requests by using the search bar at the top of the page. Plus, you can modify the request and response by clicking on the "Edit" button.
+
+To exclude the other requests which were not related to API calls,
+like images, CSS, and JS files, I used a filter to only show the requests that are related to API calls:
+
+```plaintext
+~d api.snapp.site|oauth-driver.snapp.site|locations.snapp.site
+```
+
+Now by clicking on __Save filtered__ from __File__ > __Save filtered__ you can save the filtered requests to a file.
+You will have a file with `flows` name under your Downloads folder.
+
+## Generating OpenAPI Specification
+
+Now we have the network requests saved in a file (`flows`). For generating an OpenAPI specification, I used
+[mitmproxy2swagger](https://github.com/alufers/mitmproxy2swagger), which is a tool that generates OpenAPI specifications from mitmproxy flows.
+
+### Installing mitmproxy2swagger
+
+To [install mitmproxy2swagger](https://github.com/alufers/mitmproxy2swagger?tab=readme-ov-file#installation), you can use the following command:
+
+```bash
+pip install mitmproxy2swagger
+```
+
+### Using mitmproxy2swagger
+
+To use mitmproxy2swagger, you can use the following command:
+
+```bash
+mitmproxy2swagger -i <path_to_mitmptoxy_flow> -o <path_to_output_schema> -p <api_prefix>
+```
+
+Where:
+- `path_to_mitmptoxy_flow`: The path to the mitmproxy flow file that you saved earlier. (e.g. `~/Downloads/flows`)
+- `path_to_output_schema`: The path to the output OpenAPI schema file. (e.g. `~/Downloads/openapi.mitm.yaml`)
+- `api_prefix`: The prefix of the API that you want to include in the OpenAPI specification. (e.g. `https://api.snapp.site`)
+
+### Example
+
+```bash
+mitmproxy2swagger -i ~/Downloads/flows -o ~/Downloads/openapi.mitm.yaml -p "https://api.snapp.site"
+```
+
+After running the command, you will see a new file called `openapi.mitm.yaml` in your Downloads folder with content like this:
+
+```yaml
+openapi: 3.0.0
+info:
+  title: ./flows Mitmproxy2Swagger
+  version: 1.0.0
+servers:
+- url: https://api.snapp.site
+  description: The default server
+paths: {}
+x-path-templates:
+# Remove the ignore: prefix to generate an endpoint with its URL
+# Lines that are closer to the top take precedence, the matching is greedy
+- ignore:/call/v1/available
+- ignore:/di/v3/driver/incentives/count
+- ignore:/v1/driver/finance/tip
+- ignore:/v2/driver/desired/destination
+- ignore:/v2/driver/desired/disable
+- ignore:/v2/driver/performance
+- ignore:/v2/driver/ride
+- ignore:/v2/driver/status/{id}
+- ignore:/v2/driver/status/1
+- ignore:/v2/driver/status/2
+- ignore:/v4/driver/notifications/count
+- ignore:/v4/driver/profile
+```
+
+Then you should remove the `ignore:` prefix from the lines that you want to include in the OpenAPI specification and run the previous command again.
+After that, you will have a new OpenAPI specification file with the endpoints that you want to include.
+
+For example, after removing the `ignore:` prefix from `- ignore:/v2/driver/desired/destination` and running the previous command again, we will have something like this:
+
+```yaml
+openapi: 3.0.0
+info:
+  title: ./flows Mitmproxy2Swagger
+  version: 1.0.0
+servers:
+- url: https://api.snapp.site
+  description: The default server
+paths:
+  /v2/driver/desired/destination:
+    get:
+      summary: GET destination
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: number
+                  data:
+                    type: object
+                    properties:
+                      desired_destination:
+                        type: string
+x-path-templates:
+# Remove the ignore: prefix to generate an endpoint with its URL
+# Lines that are closer to the top take precedence, the matching is greedy
+- ignore:/call/v1/available
+- ignore:/di/v3/driver/incentives/count
+- ignore:/v1/driver/finance/tip
+- ignore:/v2/driver/desired/disable
+- ignore:/v2/driver/performance
+- ignore:/v2/driver/ride
+- ignore:/v2/driver/status/{id}
+- ignore:/v2/driver/status/1
+- ignore:/v2/driver/status/2
+- ignore:/v4/driver/notifications/count
+- ignore:/v4/driver/profile
+```
+
+We can remove the `ignore:` prefix from the other lines as well and run the command again to generate the OpenAPI specification for all the endpoints.
+
+## Making OpenAPI Modular
+
+The OpenAPI specification that we generated needs to be modified manually to fix mismatches with the real API.
+For example, the converter doesn't recognize `path` parameters in most cases, and it doesn't have the correct response schema.
+Besides, it is not modular, and it's not easy to read.
+
+To make it modular, I used [Redocly](https://redoc.ly/), which is a powerful tool for bundling, validating, and serving OpenAPI specifications.
+It also has a feature to split the OpenAPI specification into multiple files and make it modular.
+I explained how to do that in one of my [previous blog posts](https://ali4heydari.tech/blog/e2e-test-oriented-openapi-generation#make-open-api-modular).
+You are able to merge the split OpenAPI specification files into a single file again.
+
+## Generating API SDK
+
+Generating an API SDK is really easy and helpful. You don't need to write the API client from scratch.
+I wrote another blog post about [Modular OpenAPI First Code Generation](https://ali4heydari.tech/blog/modular-openapi-first-code-generation)
+which explains how to generate an API SDK from an OpenAPI specification.
+
+## Practical Use Cases
+
+Here are some ways you can use the generated API SDK:
+
+- **Automated Testing**: Create integration tests that verify API behavior
+- **Custom Clients**: Build specialized applications that use the API
+- **API Documentation**: Generate comprehensive documentation for internal use
+- **Monitoring Tools**: Create tools that monitor API availability and performance
+- **Notification Systems**: Build systems that alert you when specific conditions are met (like our original goal of ride notifications)
+
+## Conclusion
+
+In this article, we've explored how to:
+1. Intercept network requests from an Android app using mitmproxy
+2. Bypass certificate pinning using apk-mitm
+3. Generate an OpenAPI specification from the intercepted requests using mitmproxy2swagger
+4. Make the OpenAPI specification modular using Redocly
+5. Generate an API SDK from the OpenAPI specification
+
+This approach can be incredibly useful when you need to understand how an API works or when you want to create your own client for an existing API. The generated OpenAPI specification and API SDK can save you a lot of time and effort in understanding and working with APIs.
+
+The techniques described here can be applied to many different types of applications, not just ride-hailing apps. Whether you're trying to understand a proprietary API, create a custom client, or just learn more about how an application works, these tools and methods provide a powerful way to reverse engineer and document APIs.
+
+Have you tried reverse engineering an API before? Let me know in the comments!
+
+        

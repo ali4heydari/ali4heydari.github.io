@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.4.0](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.3.0...v3.4.0) (2025-05-18)
+
+### Features
+
+* display version number in footer ([f49fdfd](https://github.com/ali4heydari/ali4heydari.github.io/commit/f49fdfd65bf20bf21bf9bf5c24181a970004c48e))
+* enhance documentation with callouts and notes for clarity ([332a302](https://github.com/ali4heydari/ali4heydari.github.io/commit/332a3022893a2e75c9b3cb30bd0cc8e2b72fefd5))
+
 ## [3.3.0](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.2.0...v3.3.0) (2025-05-01)
 
 ### Features

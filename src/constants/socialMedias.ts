@@ -7,7 +7,6 @@ import {
   FaInstagram as InstagramIcon,
   FaLinkedin as LinkedinIcon,
   FaPhoneSquare as PhoneIcon,
-  FaSkype as SkypeIcon,
   FaSpotify as SpotifyIcon,
   FaStackOverflow as StackOverflowIcon,
   FaTwitch as TwitchIcon,
@@ -83,12 +82,6 @@ export const socialMedias = [
     icon: StackOverflowIcon,
     id: ids.STACK_OVER_FLOW_ID,
     name: "stackoverflow",
-  },
-  {
-    baseUrl: `https://join.skype.com/invite/`,
-    icon: SkypeIcon,
-    id: ids.SKYPE_INVITE_ID,
-    name: "skype",
   },
   {
     baseUrl: `https://discord.gg/`,
