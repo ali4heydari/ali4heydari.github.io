@@ -312,16 +312,13 @@ I use this scripts to start Mockoon, local-cors-proxy and Swagger UI.
 }
 ```
 
-Note 1
-
+> [!note] Note 1
 > I use `concurrently` to run multiple commands at the same time. You can install it via `pnpm install -D concurrently`.
 
-Note 2
-
+> [!note] Note 2
 > I use `http-server` to serve Swagger UI. You can install it via `pnpm install -D http-server`.
 
-Note 3
-
+> [!note] Note 3
 > I use `swagger-ui-dist` to serve Swagger UI. You can install it via `pnpm install -D swagger-ui-dist`.
 > In script `preview:swagger` I copy `openapi.generated.yaml` to `node_modules/swagger-ui-dist/index.yaml`
 > you will need type `/index.yaml` inside Swagger UI and click `Explore` to see the documentation.

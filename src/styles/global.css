@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "rehype-callouts/theme/github";
+
 @plugin "@tailwindcss/typography";
 @plugin "tailwindcss-hocus";
 

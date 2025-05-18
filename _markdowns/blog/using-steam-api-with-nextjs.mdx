@@ -25,7 +25,8 @@ npx create-next-app --ts
 
 Now, you need to get a Steam API key. You can get it from [here](https://steamcommunity.com/dev/apikey).
 
-> NOTE: If you haven't bought any game from Steam, you can't get a Steam API key.
+> [!important]
+> If you haven't bought any game from Steam, you can't get a Steam API key.
 
 ## Get Your Steam ID
 
@@ -121,6 +122,7 @@ export const getNowPlaying = async (): Promise<GetPlayerSummariesResponse> => {
 Now, we need to create an API route to get the current playing game.
 Create a file called `app/api/steam/now-playing.ts` and add the following code to it.
 
+> [!note]
 > I'm using NextJS app router to create API routes.
 
 ```ts
