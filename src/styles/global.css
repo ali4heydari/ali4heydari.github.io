@@ -91,6 +91,10 @@ html [lang^="fa"] {
   font-family: Vazirmatn, serif;
 }
 
+html {
+  @apply scroll-smooth;
+}
+
 .mdx-article {
   @apply prose dark:prose-invert max-w-full;
 
@@ -103,7 +107,24 @@ html [lang^="fa"] {
   & h4,
   & h5,
   & h6 {
-    scroll-margin-top: 5rem;
+    @apply scroll-mt-18 hover:underline;
+    &:hover > a[class*="anchor"],
+    &:focus > a[class*="anchor"] {
+      @apply visible no-underline opacity-100;
+    }
+  }
+}
+
+a[class*="anchor"] {
+  @apply invisible absolute block;
+  @apply cursor-pointer no-underline;
+  --margin: 1.25em;
+  padding-right: 0.75em;
+  margin-left: calc(var(--margin) * -1);
+  width: calc(100% + var(--margin));
+  &::after {
+    @apply text-end text-sm no-underline;
+    content: "🔗";
   }
 }
 
