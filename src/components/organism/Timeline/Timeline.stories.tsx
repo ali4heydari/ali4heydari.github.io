@@ -13,7 +13,7 @@ import type { StoryFn, Meta } from "@storybook/nextjs";
 export default {
   component: Timeline,
   title: "Molecules/Timeline",
-} as Meta<typeof Timeline>;
+} satisfies Meta<typeof Timeline>;
 
 const Template: StoryFn<typeof Timeline> = (args) => <Timeline {...args} />;
 

@@ -5,7 +5,7 @@ import type { StoryFn, Meta } from "@storybook/nextjs";
 export default {
   component: Header,
   title: "Organism/Header",
-} as Meta<typeof Header>;
+} satisfies Meta<typeof Header>;
 
 const Template: StoryFn<typeof Header> = () => <Header />;
 

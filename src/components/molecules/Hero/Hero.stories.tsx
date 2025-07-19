@@ -5,7 +5,7 @@ import type { StoryFn, Meta } from "@storybook/nextjs";
 export default {
   component: Hero,
   title: "Templates/Hero",
-} as Meta<typeof Hero>;
+} satisfies Meta<typeof Hero>;
 
 const Template: StoryFn<typeof Hero> = () => <Hero />;
 

@@ -5,7 +5,7 @@ import type { StoryFn, Meta } from "@storybook/nextjs";
 export default {
   component: Footer,
   title: "Organism/Footer",
-} as Meta<typeof Footer>;
+} satisfies Meta<typeof Footer>;
 
 const Template: StoryFn<typeof Footer> = () => <Footer />;
 
