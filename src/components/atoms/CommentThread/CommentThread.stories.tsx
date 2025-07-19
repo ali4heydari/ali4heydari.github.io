@@ -1,6 +1,6 @@
-import type { StoryFn, Meta } from "@storybook/react";
 import React from "react";
 import CommentThread from "./index";
+import type { StoryFn, Meta } from "@storybook/nextjs";
 
 export default {
   component: CommentThread,

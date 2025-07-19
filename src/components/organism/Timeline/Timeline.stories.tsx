@@ -1,4 +1,3 @@
-import type { StoryFn, Meta } from "@storybook/react";
 import React from "react";
 import Timeline from "./index";
 import {
@@ -9,6 +8,7 @@ import {
   rand,
   randJobTitle,
 } from "@ngneat/falso";
+import type { StoryFn, Meta } from "@storybook/nextjs";
 
 export default {
   component: Timeline,

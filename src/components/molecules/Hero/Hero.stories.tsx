@@ -1,6 +1,6 @@
-import type { StoryFn, Meta } from "@storybook/react";
 import React from "react";
 import Hero from "./index";
+import type { StoryFn, Meta } from "@storybook/nextjs";
 
 export default {
   component: Hero,

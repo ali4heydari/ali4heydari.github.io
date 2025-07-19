@@ -1,7 +1,7 @@
-import { Preview } from "@storybook/react";
 import Providers from "../src/providers";
 import "../src/styles/global.css";
 import { withThemeByClassName } from "@storybook/addon-themes";
+import { Preview } from "@storybook/nextjs";
 
 export const preview: Preview = {
   decorators: [
@@ -47,3 +47,4 @@ export const preview: Preview = {
     },
   },
 };
+export const tags = ["autodocs"];
