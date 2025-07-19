@@ -1,4 +1,5 @@
-module.exports = {
+/** @type {import("lint-staged").Configuration} */
+export default {
   "*.{js,jsx}": ["eslint --cache --fix", "prettier --write"],
   "*.{ts,tsx}": [
     "eslint --cache --fix",
