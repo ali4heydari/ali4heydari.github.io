@@ -80,7 +80,7 @@
   "devDependencies": {
     "@eslint/js": "^9.31.0",
     "@next/eslint-plugin-next": "15.4.2",
-    "@ngneat/falso": "^7.3.0",
+    "@ngneat/falso": "^8.0.2",
     "@release-it/conventional-changelog": "^10.0.1",
     "@storybook/addon-docs": "^9.0.17",
     "@storybook/addon-links": "^9.0.17",

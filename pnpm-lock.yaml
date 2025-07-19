@@ -16,13 +16,13 @@ importers:
         version: 3.0.2
       '@next/third-parties':
         specifier: 15.4.2
-        version: 15.4.2(next@15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 15.4.2(next@15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@notionhq/client':
         specifier: ^2.3.0
         version: 2.3.0
       '@sentry/nextjs':
         specifier: ^9.40.0
-        version: 9.40.0(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.0))(next@15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)(webpack@5.99.6(esbuild@0.25.3))
+        version: 9.40.0(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.0))(next@15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)(webpack@5.99.6(esbuild@0.25.3))
       '@t3-oss/env-nextjs':
         specifier: ^0.13.4
         version: 0.13.4(arktype@2.1.20)(typescript@5.8.3)(zod@3.24.3)
@@ -37,10 +37,10 @@ importers:
         version: 5.83.0(react@19.1.0)
       '@vercel/analytics':
         specifier: ^1.5.0
-        version: 1.5.0(next@15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 1.5.0(next@15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       '@vercel/speed-insights':
         specifier: ^1.2.0
-        version: 1.2.0(next@15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
+        version: 1.2.0(next@15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)
       axios:
         specifier: ^1.10.0
         version: 1.10.0
@@ -55,7 +55,7 @@ importers:
         version: 1.1.7(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next:
         specifier: 15.4.2
-        version: 15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+        version: 15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       next-themes:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
@@ -139,8 +139,8 @@ importers:
         specifier: 15.4.2
         version: 15.4.2
       '@ngneat/falso':
-        specifier: ^7.3.0
-        version: 7.3.0
+        specifier: ^8.0.2
+        version: 8.0.2
       '@release-it/conventional-changelog':
         specifier: ^10.0.1
         version: 10.0.1(conventional-commits-filter@5.0.0)(conventional-commits-parser@6.1.0)(release-it@19.0.4(@types/node@22.15.3))
@@ -155,7 +155,7 @@ importers:
         version: 9.0.17(storybook@9.0.17(@testing-library/dom@10.4.0)(prettier@3.6.2))
       '@storybook/nextjs':
         specifier: ^9.0.17
-        version: 9.0.17(esbuild@0.25.3)(next@15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.0.17(@testing-library/dom@10.4.0)(prettier@3.6.2))(type-fest@4.40.1)(typescript@5.8.3)(webpack-hot-middleware@2.26.1)(webpack@5.99.6(esbuild@0.25.3))
+        version: 9.0.17(esbuild@0.25.3)(next@15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.0.17(@testing-library/dom@10.4.0)(prettier@3.6.2))(type-fest@4.40.1)(typescript@5.8.3)(webpack-hot-middleware@2.26.1)(webpack@5.99.6(esbuild@0.25.3))
       '@tanstack/eslint-plugin-query':
         specifier: ^5.81.2
         version: 5.81.2(eslint@9.31.0(jiti@2.4.2))(typescript@5.8.3)
@@ -179,7 +179,7 @@ importers:
         version: 1.0.11
       babel-loader:
         specifier: ^10.0.0
-        version: 10.0.0(@babel/core@7.28.0)(webpack@5.99.6(esbuild@0.25.3))
+        version: 10.0.0(@babel/core@7.26.10)(webpack@5.99.6(esbuild@0.25.3))
       concurrently:
         specifier: ^9.2.0
         version: 9.2.0
@@ -990,6 +990,10 @@ packages:
 
   '@babel/runtime@7.27.0':
     resolution: {integrity: sha512-VtPOkrdPHZsKc/clNqyi9WUA8TINkZ4cGk63UUE3u4pmB2k+ZMQRDuIOagv8UVd6j7k0T3+RRIb7beKTebNbcw==}
+    engines: {node: '>=6.9.0'}
+
+  '@babel/runtime@7.27.6':
+    resolution: {integrity: sha512-vbavdySgbTTrmFE+EsiqUTzlOr5bzlnJtUv9PynGCAKvfQqjIXbvFdumPM/GxMDfyuGMJaJAU6TO4zc1Jf1i8Q==}
     engines: {node: '>=6.9.0'}
 
   '@babel/template@7.26.9':
@@ -2141,8 +2145,8 @@ packages:
       next: ^13.0.0 || ^14.0.0 || ^15.0.0
       react: ^18.2.0 || 19.0.0-rc-de68d2f4-20241204 || ^19.0.0
 
-  '@ngneat/falso@7.3.0':
-    resolution: {integrity: sha512-JDjy2D+fLMAIl0x9i9B9DCsmrr9UcqjLoAbjf+xKdXOkSyoU8t2DKi84Jvn9Uwj9lX02dsHAQuq3JZDUiqn22w==}
+  '@ngneat/falso@8.0.2':
+    resolution: {integrity: sha512-vhPtuoHoxE5JGWPSPBqEyTXcjI4MAn8GllR+Vs8FfpAQu2sQRd4PJc3e8kc9vdbdhYHx1C9HmbECgtGLK30z4w==}
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -9579,6 +9583,8 @@ snapshots:
     dependencies:
       regenerator-runtime: 0.14.1
 
+  '@babel/runtime@7.27.6': {}
+
   '@babel/template@7.26.9':
     dependencies:
       '@babel/code-frame': 7.26.2
@@ -10636,13 +10642,13 @@ snapshots:
   '@next/swc-win32-x64-msvc@15.4.2':
     optional: true
 
-  '@next/third-parties@15.4.2(next@15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
+  '@next/third-parties@15.4.2(next@15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
     dependencies:
-      next: 15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
       third-party-capital: 1.0.20
 
-  '@ngneat/falso@7.3.0':
+  '@ngneat/falso@8.0.2':
     dependencies:
       seedrandom: 3.0.5
       uuid: 8.3.2
@@ -11259,7 +11265,7 @@ snapshots:
 
   '@sentry/core@9.40.0': {}
 
-  '@sentry/nextjs@9.40.0(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.0))(next@15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)(webpack@5.99.6(esbuild@0.25.3))':
+  '@sentry/nextjs@9.40.0(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.0))(next@15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)(webpack@5.99.6(esbuild@0.25.3))':
     dependencies:
       '@opentelemetry/api': 1.9.0
       '@opentelemetry/semantic-conventions': 1.36.0
@@ -11272,7 +11278,7 @@ snapshots:
       '@sentry/vercel-edge': 9.40.0(@opentelemetry/context-async-hooks@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/core@1.30.1(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@1.30.1(@opentelemetry/api@1.9.0))
       '@sentry/webpack-plugin': 3.6.1(webpack@5.99.6(esbuild@0.25.3))
       chalk: 3.0.0
-      next: 15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       resolve: 1.22.8
       rollup: 4.45.1
       stacktrace-parser: 0.1.11
@@ -11490,7 +11496,7 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  '@storybook/nextjs@9.0.17(esbuild@0.25.3)(next@15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.0.17(@testing-library/dom@10.4.0)(prettier@3.6.2))(type-fest@4.40.1)(typescript@5.8.3)(webpack-hot-middleware@2.26.1)(webpack@5.99.6(esbuild@0.25.3))':
+  '@storybook/nextjs@9.0.17(esbuild@0.25.3)(next@15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(storybook@9.0.17(@testing-library/dom@10.4.0)(prettier@3.6.2))(type-fest@4.40.1)(typescript@5.8.3)(webpack-hot-middleware@2.26.1)(webpack@5.99.6(esbuild@0.25.3))':
     dependencies:
       '@babel/core': 7.28.0
       '@babel/plugin-syntax-bigint': 7.8.3(@babel/core@7.28.0)
@@ -11514,7 +11520,7 @@ snapshots:
       css-loader: 6.11.0(webpack@5.99.6(esbuild@0.25.3))
       image-size: 2.0.2
       loader-utils: 3.3.1
-      next: 15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       node-polyfill-webpack-plugin: 2.0.1(webpack@5.99.6(esbuild@0.25.3))
       postcss: 8.5.6
       postcss-loader: 8.1.1(postcss@8.5.6)(typescript@5.8.3)(webpack@5.99.6(esbuild@0.25.3))
@@ -11734,7 +11740,7 @@ snapshots:
   '@testing-library/dom@10.4.0':
     dependencies:
       '@babel/code-frame': 7.27.1
-      '@babel/runtime': 7.27.0
+      '@babel/runtime': 7.27.6
       '@types/aria-query': 5.0.4
       aria-query: 5.3.0
       chalk: 4.1.2
@@ -12184,14 +12190,14 @@ snapshots:
   '@unrs/resolver-binding-win32-x64-msvc@1.11.1':
     optional: true
 
-  '@vercel/analytics@1.5.0(next@15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
+  '@vercel/analytics@1.5.0(next@15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
     optionalDependencies:
-      next: 15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
 
-  '@vercel/speed-insights@1.2.0(next@15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
+  '@vercel/speed-insights@1.2.0(next@15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0))(react@19.1.0)':
     optionalDependencies:
-      next: 15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      next: 15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react: 19.1.0
 
   '@vitest/expect@3.2.4':
@@ -12530,9 +12536,9 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  babel-loader@10.0.0(@babel/core@7.28.0)(webpack@5.99.6(esbuild@0.25.3)):
+  babel-loader@10.0.0(@babel/core@7.26.10)(webpack@5.99.6(esbuild@0.25.3)):
     dependencies:
-      '@babel/core': 7.28.0
+      '@babel/core': 7.26.10
       find-up: 5.0.0
       webpack: 5.99.6(esbuild@0.25.3)
 
@@ -16234,7 +16240,7 @@ snapshots:
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
 
-  next@15.4.2(@babel/core@7.28.0)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
+  next@15.4.2(@babel/core@7.26.10)(@opentelemetry/api@1.9.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@next/env': 15.4.2
       '@swc/helpers': 0.5.15
@@ -16242,7 +16248,7 @@ snapshots:
       postcss: 8.4.31
       react: 19.1.0
       react-dom: 19.1.0(react@19.1.0)
-      styled-jsx: 5.1.6(@babel/core@7.28.0)(react@19.1.0)
+      styled-jsx: 5.1.6(@babel/core@7.26.10)(react@19.1.0)
     optionalDependencies:
       '@next/swc-darwin-arm64': 15.4.2
       '@next/swc-darwin-x64': 15.4.2
@@ -17803,6 +17809,13 @@ snapshots:
   style-to-object@1.0.8:
     dependencies:
       inline-style-parser: 0.2.4
+
+  styled-jsx@5.1.6(@babel/core@7.26.10)(react@19.1.0):
+    dependencies:
+      client-only: 0.0.1
+      react: 19.1.0
+    optionalDependencies:
+      '@babel/core': 7.26.10
 
   styled-jsx@5.1.6(@babel/core@7.28.0)(react@19.1.0):
     dependencies:
