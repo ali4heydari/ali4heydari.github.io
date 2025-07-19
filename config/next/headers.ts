@@ -1,25 +1,49 @@
-const ContentSecurityPolicy = `
-  default-src 'self' vercel.live;
-  worker-src 'self' blob:;
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.vercel-insights.com vercel.live;
-  child-src *.google.com *.unsplash.com *.scdn.co *.spotify.com *.youtube.com *.youtube-nocookie.com *.vercel.app *.vercel-insights.com;
-  style-src 'self' 'unsafe-inline' *.googleapis.com;
-  img-src *.cdninstagram.com *.gstatic.com * blob: data:;
-  object-src 'none';
-  base-uri 'none';
-  media-src 'self' *.cdninstagram.com;
-  connect-src *;
-  font-src 'self' *.gstatic.com data:;
-`;
+import { Header } from "next/dist/lib/load-custom-routes";
+
+type CspSyntax = "" | "*" | `'${string}'` | `${string}:` | `https://${string}`;
+
+export const cspHeaderValue = () => {
+  const isDev = process.env.NODE_ENV !== "production";
+
+  const cspPolicies: Record<string, CspSyntax[]> = {
+    "base-uri": ["'self'"],
+    "connect-src": ["'self'", "https://*.sentry.io"],
+    "default-src": ["'self'"],
+    "font-src": ["*"],
+    "frame-src": ["https://www.google.com"],
+    "img-src": ["'self'", "data:"],
+    "script-src": [
+      "'self'",
+      "'unsafe-inline'",
+      "blob:",
+      "https://www.google.com/recaptcha/api.js",
+      "https://www.gstatic.com",
+      "'strict-dynamic'",
+      isDev ? "'unsafe-eval'" : "",
+    ],
+    "style-src": ["'self'", "'unsafe-inline'"],
+    "style-src-elem": [
+      "'self'",
+      "https://fonts.googleapis.com",
+      "'unsafe-inline'",
+    ],
+    "upgrade-insecure-requests": [""],
+  };
+
+  return Object.entries(cspPolicies).reduce(
+    (acc, [key, policies]) => `${acc}${key} ${policies.join(" ")}; `,
+    "",
+  );
+};
 
 const securityHeaders = [
   {
     key: "Content-Security-Policy",
-    value: ContentSecurityPolicy.replace(/\n/g, ""),
+    value: cspHeaderValue(),
   },
   {
     key: "Referrer-Policy",
-    value: "origin-when-cross-origin",
+    value: "strict-origin-when-cross-origin",
   },
   {
     key: "X-Frame-Options",
@@ -30,20 +54,16 @@ const securityHeaders = [
     value: "nosniff",
   },
   {
-    key: "X-DNS-Prefetch-Control",
-    value: "on",
-  },
-  {
-    key: "Strict-Transport-Security",
-    value: "max-age=31536000; includeSubDomains; preload",
-  },
-  {
     key: "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=()",
   },
+  {
+    key: "X-Frame-Options",
+    value: "SAMEORIGIN",
+  },
 ];
 
-module.exports = [
+export const headers = [
   {
     headers: securityHeaders,
     source: "/(.*)",
@@ -57,4 +77,4 @@ module.exports = [
     ],
     source: "/feed.xml",
   },
-];
+] satisfies Header[];
