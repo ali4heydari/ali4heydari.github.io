@@ -29,6 +29,7 @@ export default defineConfig({
         rehypeAutolinkHeadings,
         {
           properties: {
+            ariaLabel: "Link to section",
             className: ["anchor"],
           },
         },

@@ -19,7 +19,7 @@ The application had two different mechanisms for showing ride offers.
 For inner-city offers, it shows something like a bottom sheet with the details of the ride.
 For inter-city offers, there was a button that opens a web-view which contains a simple list of rides with a button to accept the offer.
 
-<div  className="[&>p]:flex [&>p]:justify-around [&>p]:items-center">
+<div  className="[&>p]:flex-wrap sm:[&>p]:flex [&>p]:justify-around [&>p]:items-center">
   ![inner-city-offer.png](/static/images/_markdowns/blog/bypassing-certificate-pinning-android-api-sdk/inner-city-offer.png)
   ![inter-city-offer.png](/static/images/_markdowns/blog/bypassing-certificate-pinning-android-api-sdk/inter-city-offers.png)
 </div>
@@ -157,7 +157,7 @@ Instead, I found [apk-mitm](https://github.com/niklashigi/apk-mitm), which is a 
 
 To install apk-mitm, you can use the following command:
 
-> **Note**:
+> [!note]
 > You need to have [Node.js](https://nodejs.org/) installed on your machine.
 
 ```bash

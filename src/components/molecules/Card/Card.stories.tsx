@@ -1,11 +1,11 @@
-import type { StoryFn, Meta } from "@storybook/react";
 import React from "react";
 import Card from "./Card";
+import type { StoryFn, Meta } from "@storybook/nextjs";
 
 export default {
   component: Card,
   title: "Molecules/Card",
-} as Meta<typeof Card>;
+} satisfies Meta<typeof Card>;
 
 const Template: StoryFn<typeof Card> = (args) => <Card {...args} />;
 

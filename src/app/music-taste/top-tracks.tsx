@@ -28,7 +28,10 @@ const TopTracks = () => {
 
   return (
     <div>
-      <h2 className="p-3 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl dark:text-white">
+      <h2
+        id="top-tracks"
+        className="scroll-mt-14 p-3 text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl dark:text-white"
+      >
         Top Tracks
       </h2>
       <p className="mb-4 text-xl text-gray-600 dark:text-gray-400">

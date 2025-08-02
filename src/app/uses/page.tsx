@@ -59,10 +59,10 @@ const Uses = () => {
         {hardware.map((hardware) => (
           <div
             key={hardware.name}
-            className="flex max-w-sm items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 shadow-sm lg:flex-col lg:justify-center dark:border-gray-700 dark:bg-gray-800"
+            className="flex items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 shadow-sm md:max-w-sm lg:flex-col lg:justify-center dark:border-gray-700 dark:bg-gray-800"
           >
             <Image
-              className="h-26 w-36 rounded-2xl object-cover p-1"
+              className="flex rounded-2xl object-cover p-1"
               placeholder="blur"
               src={hardware.image}
               alt={hardware.name}
@@ -100,9 +100,9 @@ const Uses = () => {
       <div className="grid grid-cols-1 gap-6 pb-2 md:grid-cols-2 lg:grid-cols-6 lg:gap-2">
         {software.map((software) => (
           <Link key={software.name} href={software.href} target="_blank">
-            <div className="flex h-full max-w-sm items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 shadow-sm lg:flex-col lg:justify-center dark:border-gray-700 dark:bg-gray-800">
+            <div className="flex h-full items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 shadow-sm md:max-w-sm lg:flex-col lg:justify-center dark:border-gray-700 dark:bg-gray-800">
               <Image
-                className="h-26 w-36 rounded-2xl object-cover p-1"
+                className="size-36 rounded-2xl object-cover p-1"
                 placeholder="blur"
                 src={software.image}
                 alt={software.name}

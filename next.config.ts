@@ -1,8 +1,7 @@
-// @ts-check
-import redirects from "./config/next/redirects.mjs";
-import { withSentryConfig } from "@sentry/nextjs";
+import { type NextConfig } from "next";
+import redirects from "./config/next/redirects";
+import { SentryBuildOptions, withSentryConfig } from "@sentry/nextjs";
 
-/** @type { import("next").NextConfig } */
 const nextConfig = {
   images: {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -21,7 +20,7 @@ const nextConfig = {
     return redirects;
   },
   swcMinify: true,
-};
+} satisfies NextConfig;
 
 const sentryBuildOptions = {
   // For all available options, see:
@@ -31,13 +30,10 @@ const sentryBuildOptions = {
   project: "ali4heydari-dot-tech",
   tunnelRoute: "/monitoring",
   widenClientFileUpload: true,
-};
+} satisfies SentryBuildOptions;
 
 // https://github.com/cyrilwanner/next-compose-plugins/issues/59#issuecomment-1341060113
-export default (
-  /** @type {any} */ phase,
-  /** @type {import("next").NextConfig} */ defaultConfig,
-) => {
+export default (phase: any, defaultConfig: NextConfig): NextConfig => {
   const plugins = [(cfg) => withSentryConfig(cfg, sentryBuildOptions)];
 
   return plugins.reduce(

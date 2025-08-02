@@ -19,8 +19,9 @@ const Introduction = () => {
       <p className="pb-20 text-lg leading-8 text-gray-600 dark:text-gray-300">
         Greetings, I&#39;m Ali Heydari. I&#39;m a front-end developer with a
         some experience in back-end development and DevOps. I build, maintain,
-        and design websites and web applications. I&#39;ve been coding for over
-        5 years and I&#39;m always looking to learn new things.
+        and design websites and web applications. I&#39;ve been coding for over{" "}
+        {new Date().getFullYear() - new Date(2020, 0, 1).getFullYear()} years
+        and I&#39;m always looking to learn new things.
         <br />
         I entered Chemical Engineering at the Sharif University of Technology on
         2015. But I was always interested in coding and web development. So I
