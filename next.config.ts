@@ -1,12 +1,8 @@
 import { type NextConfig } from "next";
-import { headers } from "./config/next/headers";
 import redirects from "./config/next/redirects";
 import { SentryBuildOptions, withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig = {
-  async headers() {
-    return headers;
-  },
   images: {
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     dangerouslyAllowSVG: true,

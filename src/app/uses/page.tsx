@@ -62,7 +62,7 @@ const Uses = () => {
             className="flex max-w-sm items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 shadow-sm lg:flex-col lg:justify-center dark:border-gray-700 dark:bg-gray-800"
           >
             <Image
-              className="h-26 w-36 rounded-2xl object-cover p-1"
+              className="flex rounded-2xl object-cover p-1"
               placeholder="blur"
               src={hardware.image}
               alt={hardware.name}
@@ -102,7 +102,7 @@ const Uses = () => {
           <Link key={software.name} href={software.href} target="_blank">
             <div className="flex h-full max-w-sm items-center gap-2 rounded-lg border border-gray-200 bg-white p-4 shadow-sm lg:flex-col lg:justify-center dark:border-gray-700 dark:bg-gray-800">
               <Image
-                className="h-26 w-36 rounded-2xl object-cover p-1"
+                className="size-36 rounded-2xl object-cover p-1"
                 placeholder="blur"
                 src={software.image}
                 alt={software.name}

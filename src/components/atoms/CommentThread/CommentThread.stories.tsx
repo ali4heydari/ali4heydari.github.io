@@ -1,11 +1,11 @@
-import type { StoryFn, Meta } from "@storybook/react";
 import React from "react";
 import CommentThread from "./index";
+import type { StoryFn, Meta } from "@storybook/nextjs";
 
 export default {
   component: CommentThread,
   title: "Molecules/CommentThread",
-} as Meta<typeof CommentThread>;
+} satisfies Meta<typeof CommentThread>;
 
 const Template: StoryFn<typeof CommentThread> = (args) => (
   <CommentThread {...args} />

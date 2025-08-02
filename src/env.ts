@@ -29,7 +29,7 @@ export const env = createEnv({
     NEXT_PUBLIC_GA_TRACKING_ID: z.string(),
     NEXT_PUBLIC_HOTJAR_ID: z.number(),
     NEXT_PUBLIC_HOTJAR_SNIPPET_VERSION: z.number(),
-    NEXT_PUBLIC_SENTRY_DSN: z.string().url(),
+    NEXT_PUBLIC_SENTRY_DSN: z.url(),
   },
   /*
    * Due to how Next.js bundles environment variables on Edge and Client,
