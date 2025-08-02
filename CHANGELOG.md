@@ -1,5 +1,14 @@
 # Changelog
 
+## [3.5.0](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.4.0...v3.5.0) (2025-08-02)
+
+### Features
+
+* enhance anchor links with visibility on hover and aria label for accessibility ([1195e85](https://github.com/ali4heydari/ali4heydari.github.io/commit/1195e85bc955d8a0c25a413f653c7e7660a850f8))
+* enhance scrolling experience with smooth scroll behavior and section IDs ([5aa925b](https://github.com/ali4heydari/ali4heydari.github.io/commit/5aa925b10b3c27b46d171373e8e499c351ebabec))
+* implement dynamic Content Security Policy headers ([30a842d](https://github.com/ali4heydari/ali4heydari.github.io/commit/30a842d40686b6ed5fa2eaf7651f87c4337a47d4))
+* update experience duration dynamically in introduction ([b191701](https://github.com/ali4heydari/ali4heydari.github.io/commit/b1917016eaa724725509304e236cde41d6ca4fae))
+
 ## [3.4.0](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.3.0...v3.4.0) (2025-05-18)
 
 ### Features
