@@ -103,7 +103,7 @@
     "eslint-plugin-import-x": "^4.16.1",
     "eslint-plugin-jest": "^29.0.1",
     "eslint-plugin-no-relative-import-paths": "^1.6.1",
-    "eslint-plugin-package-json": "^0.45.1",
+    "eslint-plugin-package-json": "^0.48.0",
     "eslint-plugin-perfectionist": "^4.15.0",
     "eslint-plugin-prettier": "^5.5.3",
     "eslint-plugin-promise": "^7.2.1",
@@ -124,7 +124,7 @@
     "storybook": "^9.1.0",
     "style-loader": "^4.0.0",
     "stylelint": "^16.23.0",
-    "stylelint-config-recommended": "^16.0.0",
+    "stylelint-config-recommended": "^17.0.0",
     "typescript-eslint": "^8.38.0",
     "undici": "^7.13.0",
     "velite": "0.2.4"
