@@ -1,4 +1,4 @@
-import { Header } from "next/dist/lib/load-custom-routes";
+import { type Header } from "next/dist/lib/load-custom-routes";
 
 type CspSyntax = "" | "*" | `'${string}'` | `${string}:` | `https://${string}`;
 
