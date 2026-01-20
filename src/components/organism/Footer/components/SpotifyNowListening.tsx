@@ -30,7 +30,14 @@ export default function SpotifyNowListening() {
     refetchInterval: 30_0000,
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) {
+    return (
+      <div className="m-1 mx-auto flex w-full max-w-xs animate-pulse items-center gap-6 md:max-w-sm">
+        <div className="h-[30px] w-[30px] rounded-full bg-gray-200 dark:bg-gray-700" />
+        <div className="h-4 w-32 flex-1 rounded bg-gray-200 dark:bg-gray-700" />
+      </div>
+    );
+  }
 
   if (!data) return null;
 
@@ -43,15 +50,19 @@ export default function SpotifyNowListening() {
 
   const scrollingTextClassName = twMerge(
     "motion-safe:[animation-play-state:running] group-hocus/music:underline motion-safe:group-hocus/music:[animation-play-state:paused]",
+    "transition-colors duration-200",
     isPlaying
       ? "motion-safe:animate-scroll"
       : "motion-safe:animate-none truncate",
   );
+
   return (
     <Link
       className={twMerge(
-        "text-tertiary-txt text-2xs m-1 mx-auto inline-flex w-full flex-1 items-center gap-6 text-green-500",
-        "hocus:text-secondary-txt group/music hocus:no-underline max-w-xs truncate font-normal md:max-w-sm",
+        "text-tertiary-txt text-2xs m-1 mx-auto inline-flex w-full flex-1 items-center gap-6",
+        "group/music transition-colors duration-200",
+        "text-green-500 hover:text-green-600 dark:text-green-400 dark:hover:text-green-300",
+        "hocus:text-secondary-txt hocus:no-underline max-w-xs truncate font-normal md:max-w-sm",
       )}
       title={
         isPlaying
@@ -69,11 +80,17 @@ export default function SpotifyNowListening() {
           width={26}
           src={albumImage}
           alt={`Image for album: "${album}" by "${artist}"`}
-          className={"border-accent-dark/[0.12] border"}
+          className={twMerge(
+            "border-accent-dark/[0.12] rounded-sm border",
+            "transition-transform duration-200 group-hover/music:scale-105",
+          )}
         />
       ) : (
         <SpotifyIcon
-          className={"-p-1 rounded-full text-green-400 dark:text-gray-300"}
+          className={twMerge(
+            "rounded-full transition-transform duration-200",
+            "group-hover/music:scale-105",
+          )}
           size={30}
         />
       )}
