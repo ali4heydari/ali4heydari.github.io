@@ -12,8 +12,20 @@ import { notFound } from "next/navigation";
 export const revalidate = 900;
 
 const Gallery = async () => {
-  const notionQuery = await notionClient.databases.query({
+  const database = await notionClient.databases.retrieve({
     database_id: env.GALLERY_DATABASE_ID,
+  });
+
+  if (!("data_sources" in database)) {
+    throw new Error("Database does not have data sources");
+  }
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  const dataSourceId = database.data_sources[0].id as string;
+
+  const notionQuery = await notionClient.dataSources.query({
+    data_source_id: dataSourceId,
     filter: {
       checkbox: {
         equals: true,
@@ -23,24 +35,23 @@ const Gallery = async () => {
   });
 
   const notionImages = notionQuery.results
-    .filter((item) => {
-      const pageObjectResponse = item as PageObjectResponse;
+    .filter((item): item is PageObjectResponse => {
       return (
+        item.object === "page" &&
+        "properties" in item &&
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        Boolean(new URL(pageObjectResponse.properties.imageUrl.url))
+        Boolean(new URL(item.properties.imageUrl.url))
       );
     })
     .map((item) => {
-      const pageObjectResponse = item as PageObjectResponse;
-
       return {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        src: pageObjectResponse.properties.imageUrl.url as string,
+        src: item.properties.imageUrl.url as string,
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
-        alt: pageObjectResponse.properties.name.title[0].plain_text as string,
+        alt: item.properties.name.title[0].plain_text as string,
       };
     });
 

@@ -1,7 +1,7 @@
 import Providers from "../src/providers";
 import "../src/styles/global.css";
 import { withThemeByClassName } from "@storybook/addon-themes";
-import { Preview } from "@storybook/nextjs";
+import { type Preview } from "@storybook/nextjs";
 
 export const preview: Preview = {
   decorators: [

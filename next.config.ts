@@ -1,6 +1,6 @@
 import { type NextConfig } from "next";
 import redirects from "./config/next/redirects";
-import { SentryBuildOptions, withSentryConfig } from "@sentry/nextjs";
+import { type SentryBuildOptions, withSentryConfig } from "@sentry/nextjs";
 
 const nextConfig = {
   images: {
@@ -19,7 +19,6 @@ const nextConfig = {
   async redirects() {
     return redirects;
   },
-  swcMinify: true,
 } satisfies NextConfig;
 
 const sentryBuildOptions = {

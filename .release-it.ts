@@ -1,4 +1,4 @@
-import { Config } from "release-it";
+import { type Config } from "release-it";
 
 const config: Config = {
   git: {
