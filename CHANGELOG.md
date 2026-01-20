@@ -1,5 +1,7 @@
 # Changelog
 
+## [3.6.0](https://github.com/ali4heydari/ali4heydari/compare/v3.5.0...v3.6.0) (2026-01-20)
+
 ## [3.5.0](https://github.com/ali4heydari/ali4heydari.github.io/compare/v3.4.0...v3.5.0) (2025-08-02)
 
 ### Features
