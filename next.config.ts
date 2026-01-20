@@ -19,7 +19,6 @@ const nextConfig = {
   async redirects() {
     return redirects;
   },
-  swcMinify: true,
 } satisfies NextConfig;
 
 const sentryBuildOptions = {
