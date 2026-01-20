@@ -22,8 +22,8 @@ importers:
         specifier: 16.1.4
         version: 16.1.4(next@16.1.4(@babel/core@7.28.6)(@opentelemetry/api@1.9.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3)
       '@notionhq/client':
-        specifier: ^4.0.1
-        version: 4.0.1
+        specifier: ^5.7.0
+        version: 5.7.0
       '@sentry/nextjs':
         specifier: ^10.35.0
         version: 10.35.0(@opentelemetry/context-async-hooks@2.4.0(@opentelemetry/api@1.9.0))(@opentelemetry/core@2.4.0(@opentelemetry/api@1.9.0))(@opentelemetry/sdk-trace-base@2.4.0(@opentelemetry/api@1.9.0))(next@16.1.4(@babel/core@7.28.6)(@opentelemetry/api@1.9.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3))(react@19.2.3)(webpack@5.101.0(esbuild@0.25.8))
@@ -1899,8 +1899,8 @@ packages:
   '@nodeutils/defaults-deep@1.1.0':
     resolution: {integrity: sha512-gG44cwQovaOFdSR02jR9IhVRpnDP64VN6JdjYJTfNz4J4fWn7TQnmrf22nSjRqlwlxPcW8PL/L3KbJg3tdwvpg==}
 
-  '@notionhq/client@4.0.1':
-    resolution: {integrity: sha512-SdILqiiThECLR2KDUOvl4JqRaJWBwDYaEw/f0qu+G6rKN/QUCkaJ84vN5MgBw1yKsMAsKxBlDazs3Jw6vv2ikA==}
+  '@notionhq/client@5.7.0':
+    resolution: {integrity: sha512-On/GI10lJRLSrzU3h/cDl1Oe15qywYrEvyV3KlE4UgtzqMjlPzXG31B7zHjGc/tTgoY8eD3JS4CWlcD64NBmaQ==}
     engines: {node: '>=18'}
 
   '@octokit/auth-token@6.0.0':
@@ -10012,7 +10012,7 @@ snapshots:
     dependencies:
       lodash: 4.17.21
 
-  '@notionhq/client@4.0.1': {}
+  '@notionhq/client@5.7.0': {}
 
   '@octokit/auth-token@6.0.0': {}
 
