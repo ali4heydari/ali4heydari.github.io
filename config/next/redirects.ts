@@ -7,6 +7,9 @@ const buildRedirect = (source, destination, permanent = true) => {
 };
 
 export default [
-  buildRedirect("/cv", "/static/files/site/Ali_Heydari_Frontend_Developer_Resume.pdf"),
+  buildRedirect(
+    "/cv",
+    "/static/files/site/Ali_Heydari_Frontend_Developer_Resume.pdf",
+  ),
   buildRedirect("/git-masters", "https://ali4heydari.github.io/git-masters/"),
 ];

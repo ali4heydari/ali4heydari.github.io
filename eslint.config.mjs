@@ -6,7 +6,7 @@ import pluginNoRelativeImport from "eslint-plugin-no-relative-import-paths";
 import { configs as pluginPackageJsonConfigs } from "eslint-plugin-package-json";
 import pluginPerfectionist from "eslint-plugin-perfectionist";
 import pluginPromise from "eslint-plugin-promise";
-import pluginStorybook from "eslint-plugin-storybook";
+import { configs as pluginStorybookConfigs } from "eslint-plugin-storybook";
 // TODO: enable tailwind plugin
 // https://github.com/francoismassart/eslint-plugin-tailwindcss/issues/384
 // import pluginTailwind from "eslint-plugin-tailwindcss";
@@ -94,7 +94,7 @@ export default typescriptEslint.config(
       "typescript-sort-keys": pluginTypescriptSortKeys,
     },
   },
-  ...pluginStorybook.configs["flat/recommended"],
+  ...pluginStorybookConfigs["flat/recommended"],
   {
     files: ["**/*.stories.@(ts|tsx|js|jsx|mjs|cjs)"],
     rules: {
@@ -126,6 +126,13 @@ export default typescriptEslint.config(
         partitionByComment: true,
         type: "line-length",
       },
+    },
+  },
+  {
+    rules: {
+      "package-json/require-exports": "off",
+      "package-json/require-files": "off",
+      "package-json/require-sideEffects": "off",
     },
   },
   {

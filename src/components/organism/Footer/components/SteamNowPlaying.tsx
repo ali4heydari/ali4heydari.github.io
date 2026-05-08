@@ -45,7 +45,7 @@ export default function SteamNowPlaying() {
         "text-tertiary-txt text-2xs m-1 mx-auto inline-flex flex-1 items-center gap-6",
         "group/steam transition-colors duration-200",
         "text-stone-500 hover:text-stone-600 dark:text-stone-400 dark:hover:text-stone-300",
-        "hocus:text-secondary-txt hocus:no-underline max-w-xs truncate font-normal md:max-w-sm",
+        "hocus:text-secondary-txt max-w-xs truncate font-normal md:max-w-sm hocus:no-underline",
       )}
       title={isPlaying ? `Checkout "${gameName}" on Steam` : "My Steam Profile"}
       href={
@@ -71,7 +71,7 @@ export default function SteamNowPlaying() {
         style={{ animationDuration: `${animationDuration}s` }}
       >
         <span className={scrollingTextClassName}>{scrollingText}</span>
-        {Boolean(isPlaying) && (
+        {isPlaying && (
           <>
             <span
               aria-hidden={true}

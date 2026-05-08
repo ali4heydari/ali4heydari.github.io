@@ -37,6 +37,7 @@
     ".storybook/**/*.ts",
     ".storybook/**/*.tsx",
     ".velite/**/*.js",
+    ".prettierrc.js",
     "**/**.ts",
     "**/**.js",
     "**/**.mjs",
