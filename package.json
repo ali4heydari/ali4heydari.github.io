@@ -134,21 +134,10 @@
     "undici": "^8.2.0",
     "velite": "0.2.4"
   },
-  "packageManager": "pnpm@10.33.2",
+  "packageManager": "pnpm@11.0.8",
   "engines": {
     "node": ">=24 <25",
-    "pnpm": ">=10 <11"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@sentry/cli",
-      "@vercel/speed-insights",
-      "core-js",
-      "core-js-pure",
-      "esbuild",
-      "rehype-code-titles",
-      "sharp"
-    ]
+    "pnpm": ">=11 <12"
   },
   "nextBundleAnalysis": {
     "buildOutputDirectory": ".next"

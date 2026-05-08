@@ -1,0 +1,9 @@
+allowBuilds:
+  '@sentry/cli': true
+  '@vercel/speed-insights': true
+  core-js: true
+  core-js-pure: true
+  esbuild: true
+  rehype-code-titles: true
+  sharp: true
+  unrs-resolver: true
