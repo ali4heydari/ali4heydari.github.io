@@ -68,7 +68,7 @@ const Timeline = ({
             <div
               className={classNames(
                 "m-4 text-base font-normal text-gray-500 dark:text-gray-400",
-                "prose dark:prose-invert prose-headings:underline prose-a:text-indigo-600 prose-a:underline prose-img:rounded-xl dark:prose-a:text-indigo-400 dark:text-white",
+                "prose dark:text-white dark:prose-invert prose-headings:underline prose-a:text-indigo-600 prose-a:underline dark:prose-a:text-indigo-400 prose-img:rounded-xl",
               )}
             >
               {children}

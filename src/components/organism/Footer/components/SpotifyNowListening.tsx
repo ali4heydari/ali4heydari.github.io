@@ -62,7 +62,7 @@ export default function SpotifyNowListening() {
         "text-tertiary-txt text-2xs m-1 mx-auto inline-flex w-full flex-1 items-center gap-6",
         "group/music transition-colors duration-200",
         "text-green-500 hover:text-green-600 dark:text-green-400 dark:hover:text-green-300",
-        "hocus:text-secondary-txt hocus:no-underline max-w-xs truncate font-normal md:max-w-sm",
+        "hocus:text-secondary-txt max-w-xs truncate font-normal md:max-w-sm hocus:no-underline",
       )}
       title={
         isPlaying
@@ -104,7 +104,7 @@ export default function SpotifyNowListening() {
         style={{ animationDuration: `${animationDuration}s` }}
       >
         <span className={scrollingTextClassName}>{scrollingText}</span>
-        {Boolean(isPlaying) && (
+        {isPlaying && (
           <>
             <span
               aria-hidden={true}

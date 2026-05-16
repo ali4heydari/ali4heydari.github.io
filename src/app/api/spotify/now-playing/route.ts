@@ -33,13 +33,13 @@ const GET = async () => {
     }
 
     if (media.currently_playing_type === "episode") {
-      media.item = media.item as EpisodeDto;
+      const mediaItem = media.item as EpisodeDto;
       const isPlaying = media.is_playing;
-      const title = media.item.name;
-      const artist = media.item.show.name;
-      const album = media.item.show.publisher;
-      const albumImage = media.item.show.images[0].url;
-      const href = media.item.external_urls.spotify;
+      const title = mediaItem.name;
+      const artist = mediaItem.show.name;
+      const album = mediaItem.show.publisher;
+      const albumImage = mediaItem.show.images[0].url;
+      const href = mediaItem.external_urls.spotify;
 
       const nextResponse = {
         album,
@@ -56,15 +56,15 @@ const GET = async () => {
     }
 
     if (media.currently_playing_type === "track") {
-      media.item = media.item as SongDto;
+      const mediaItem = media.item as SongDto;
       const isPlaying = media.is_playing;
-      const title = media.item.name;
-      const artist = media.item.artists
+      const title = mediaItem.name;
+      const artist = mediaItem.artists
         .map((_artist) => _artist.name)
         .join(", ");
-      const album = media.item.album.name;
-      const albumImage = media.item.album.images[0].url;
-      const href = media.item.external_urls.spotify;
+      const album = mediaItem.album.name;
+      const albumImage = mediaItem.album.images[0].url;
+      const href = mediaItem.external_urls.spotify;
 
       const nextResponse = {
         album,
