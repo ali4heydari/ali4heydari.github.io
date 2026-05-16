@@ -78,7 +78,7 @@
     "tailwind-merge": "^3.5.0",
     "tailwindcss": "^4.2.4",
     "tailwindcss-hocus": "^1.0.0",
-    "typescript": "^5.9.3",
+    "typescript": "^6.0.3",
     "xml": "^1.0.1",
     "zod": "^4.4.3"
   },

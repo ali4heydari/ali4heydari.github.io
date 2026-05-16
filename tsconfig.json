@@ -2,7 +2,6 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": ".",
     "sourceMap": true,
     "inlineSources": true,
     "emitDecoratorMetadata": true,
@@ -29,7 +28,8 @@
       }
     ],
     "paths": {
-      "@/content": ["./.velite"]
+      "@/content": ["./.velite"],
+      "*": ["./*"]
     }
   },
   "exclude": ["node_modules"],
@@ -37,7 +37,7 @@
     ".storybook/**/*.ts",
     ".storybook/**/*.tsx",
     ".velite/**/*.js",
-    ".prettierrc.js",
+    ".prettierrc.cjs",
     "**/**.ts",
     "**/**.js",
     "**/**.mjs",
