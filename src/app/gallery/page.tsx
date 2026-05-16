@@ -22,7 +22,7 @@ const Gallery = async () => {
 
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
-  const dataSourceId = database.data_sources[0].id as string;
+  const dataSourceId = database.data_sources[0].id;
 
   const notionQuery = await notionClient.dataSources.query({
     data_source_id: dataSourceId,

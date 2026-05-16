@@ -10,7 +10,7 @@ export const getNowPlaying = async (): Promise<GetPlayerSummariesResponse> => {
   const url = new URL(GET_PLAYER_SUMMARIES_ENDPOINT);
   const params = {
     key: steamApiKey,
-    steamids: String(steamId),
+    steamids: steamId,
   };
   url.search = new URLSearchParams(params).toString();
 

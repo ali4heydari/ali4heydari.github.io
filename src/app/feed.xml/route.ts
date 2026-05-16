@@ -121,6 +121,7 @@ const defaultChannel = {
 };
 
 export async function GET() {
+  // eslint-disable-next-line @typescript-eslint/await-thenable
   const feedItems = await Promise.all(blog.map(getAllPostRssData));
 
   const feedObject = {

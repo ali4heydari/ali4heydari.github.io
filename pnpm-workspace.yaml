@@ -1,0 +1,27 @@
+allowBuilds:
+  '@sentry/cli': true
+  '@vercel/speed-insights': true
+  core-js: true
+  core-js-pure: true
+  esbuild: true
+  rehype-code-titles: true
+  sharp: true
+  unrs-resolver: true
+minimumReleaseAgeExclude:
+  - brace-expansion@1.1.12
+  - tmp@0.2.4
+  - elliptic@6.6.2
+  - lodash-es@4.17.23
+  - lodash@4.17.23
+  - mdast-util-to-hast@13.2.1
+  - minimatch@3.1.3
+  - minimatch@9.0.6
+  - minimatch@9.0.7
+  - minimatch@3.1.4
+  - brace-expansion@1.1.13
+  - brace-expansion@2.0.3
+  - picomatch@2.3.2
+  - picomatch@4.0.4
+  - lodash-es@4.17.24
+  - lodash@4.17.24
+  - postcss@8.5.10

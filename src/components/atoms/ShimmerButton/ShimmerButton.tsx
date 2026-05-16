@@ -41,7 +41,7 @@ const ShimmerButton = ({
       {...props}
     >
       <div className="[container-type:size] absolute inset-0 overflow-visible">
-        <div className="animate-slide absolute inset-0 [aspect-ratio:1] h-[100cqh] [border-radius:0] [mask:none]">
+        <div className="absolute inset-0 [aspect-ratio:1] h-[100cqh] animate-slide [border-radius:0] [mask:none]">
           <div
             className={classNames(
               "absolute inset-[-100%] w-auto rotate-0 animate-spin",

@@ -17,5 +17,5 @@ module.exports = {
   quoteProps: "consistent",
   semi: true,
   tabWidth: 2,
-  tailwindConfig: "./tailwind.config.ts",
+  tailwindStylesheet: "./src/styles/global.css",
 };
