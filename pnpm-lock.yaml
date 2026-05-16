@@ -13722,6 +13722,18 @@ snapshots:
     dependencies:
       walk-up-path: 4.0.0
 
+<<<<<<< HEAD
+||||||| parent of 245a88e (chore: update dependency versions and exclude minimum release age)
+  fdir@6.4.6(picomatch@4.0.3):
+    optionalDependencies:
+      picomatch: 4.0.3
+
+=======
+  fdir@6.4.6(picomatch@4.0.4):
+    optionalDependencies:
+      picomatch: 4.0.4
+
+>>>>>>> 245a88e (chore: update dependency versions and exclude minimum release age)
   fdir@6.5.0(picomatch@4.0.4):
     optionalDependencies:
       picomatch: 4.0.4
@@ -14370,7 +14382,7 @@ snapshots:
       cli-width: 3.0.0
       external-editor: 3.1.0
       figures: 3.2.0
-      lodash: 4.17.21
+      lodash: 4.18.1
       mute-stream: 0.0.8
       ora: 5.4.1
       run-async: 2.4.1
@@ -15693,8 +15705,20 @@ snapshots:
 
   minimatch@10.2.5:
     dependencies:
+<<<<<<< HEAD
       brace-expansion: 5.0.6
 
+||||||| parent of 245a88e (chore: update dependency versions and exclude minimum release age)
+      brace-expansion: 5.0.5
+
+  minimatch@3.1.2:
+    dependencies:
+      brace-expansion: 1.1.11
+
+=======
+      brace-expansion: 5.0.5
+
+>>>>>>> 245a88e (chore: update dependency versions and exclude minimum release age)
   minimatch@3.1.5:
     dependencies:
       brace-expansion: 1.1.14
@@ -17495,6 +17519,20 @@ snapshots:
 
   tinyexec@1.1.2: {}
 
+<<<<<<< HEAD
+||||||| parent of 245a88e (chore: update dependency versions and exclude minimum release age)
+  tinyglobby@0.2.14:
+    dependencies:
+      fdir: 6.4.6(picomatch@4.0.3)
+      picomatch: 4.0.3
+
+=======
+  tinyglobby@0.2.14:
+    dependencies:
+      fdir: 6.4.6(picomatch@4.0.4)
+      picomatch: 4.0.4
+
+>>>>>>> 245a88e (chore: update dependency versions and exclude minimum release age)
   tinyglobby@0.2.15:
     dependencies:
       fdir: 6.5.0(picomatch@4.0.4)
